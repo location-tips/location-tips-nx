@@ -3,6 +3,7 @@ import { searchLocation } from 'packages/frontend/src/actions/searchLocation';
 import { useFormState } from 'react-dom';
 import styles from './searchLocationForm.module.css';
 import FormStatus from 'packages/frontend/src/components/formStatus/formStatus';
+import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 
 const initialState = {
     searchResult: null,
@@ -16,7 +17,7 @@ const SearchLocationForm = () => {
     return <>
         <form action={formAction} className={styles.searchForm}>
             <textarea name="searchText" rows={10}></textarea>
-            <button type="submit" id="commands">Search</button>
+            <MButton type="submit" id="commands">Search</MButton>
             <FormStatus />
         </form>
         {state.searchResult && <div>

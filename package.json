@@ -58,6 +58,7 @@
   ],
   "dependencies": {
     "@google/generative-ai": "^0.14.0",
+    "@location-tips/location-tips-uikit": "^0.0.11",
     "@nest-lab/fastify-multer": "^1.2.0",
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
