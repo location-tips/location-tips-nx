@@ -3,7 +3,7 @@ import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 
 
 import { LocationService } from './location.service';
-import { TLocationEntity } from 'packages/backend/src/types';
+import type { TLocationEntity } from '@types';
 
 @Controller('location')
 export class LocationController {

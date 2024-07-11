@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ChromaClient, QueryParams, QueryResponse } from 'chromadb'
 import { geminiDescribeSearchQuery } from 'packages/backend/src/utils/gemini';
 import admin from 'firebase-admin';
-import { TLocationEntity, TLocationSearchDescription } from 'packages/backend/src/types';
+import { TLocationEntity, TLocationSearchDescription } from '@types';
 
 @Injectable()
 export class LocationsService {

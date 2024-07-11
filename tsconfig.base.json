@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@types": ["types/index.ts"],
+      "@types/*": ["types/*"],
+      "@back/*": ["packages/backend/src/*"],
+      "@front/*": ["packages/frontend/src/*"],
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

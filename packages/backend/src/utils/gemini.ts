@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { TGeminiResponseDescribeImage, TLocationSearchDescription, TTranslation } from "packages/backend/src/types";
+import { TGeminiResponseDescribeImage, TLocationSearchDescription, TTranslation } from "@types";
 
 const GEMINI_API_KEY = "AIzaSyAQKmCdW_pdjXE8kplK4v2XZDGqOud1qXE";
 
