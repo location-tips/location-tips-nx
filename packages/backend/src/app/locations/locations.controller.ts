@@ -1,5 +1,4 @@
-import { Body, Controller, Post, Req } from '@nestjs/common';
-import { FastifyRequest } from 'fastify';
+import { Body, Controller, Post } from '@nestjs/common';
 
 
 import { LocationsService } from './locations.service';
@@ -13,6 +12,7 @@ export class LocationsController {
   async postLocations(@Body('searchText') searchText: string) {
     const queryDescription = await this.locationsService.describeSearchQuery(searchText);
 
+
     // Request from vector db
     const searchResult = await this.locationsService.searchLocation(searchText, queryDescription);
 
@@ -23,7 +23,6 @@ export class LocationsController {
       delete location.image;
       return { ...location, score: (1 / distance * 10).toFixed(1)};
     });
-
 
     return { searchResult: locationsWithDistaces, queryDescription };
   }

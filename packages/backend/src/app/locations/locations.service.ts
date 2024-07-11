@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ChromaClient, QueryParams, QueryResponse } from 'chromadb'
-import { geminiDescribeSearchQuery } from 'packages/backend/src/utils/gemini';
+import { geminiDescribeSearchQuery } from '@back/utils/gemini';
 import admin from 'firebase-admin';
-import { TLocationEntity, TLocationSearchDescription } from '@types';
+import { TBoundedLocation, TCoordinate, TLocationEntity, TLocationSearchDescription } from '@types';
 
 @Injectable()
 export class LocationsService {
@@ -38,92 +38,81 @@ export class LocationsService {
       nResults: 20, // how many results to return
     };
 
-    // if (queryDescription.in?.[0]) {
-    //   const { 
-    //     coordinates,
-    //     boundingBox,
-    //   } = queryDescription.in[0];
+    let bounds: TBoundedLocation["boundingBox"];
 
-    //   const delta = kilometersToRadians(50);
+    // If user requested a specific location
+    if (queryDescription.in?.[0]) {
+      const { 
+        coordinates,
+        boundingBox,
+      } = queryDescription.in[0];
 
-    //   if (boundingBox) {
-    //     query.where = { latitude: { $gt: boundingBox[0], $lt: boundingBox[2] }, longitude: { $gt: boundingBox[1],  $lt: boundingBox[3] } };
-    //     query.where = {
-    //       $and: [
-    //         {
-    //           latitude: { $gt: boundingBox[0] }
-    //         }, 
-    //         {
-    //           latitude: { $lt: boundingBox[2] }
-    //         },
-    //         {
-    //           longitude: { $gt: boundingBox[1] }
-    //         },
-    //         {
-    //           longitude: { $lt: boundingBox[3] }
-    //         }
-    //       ]
-    //     };
-    //   } else {
-    //     query.where = {
-    //       $and: [
-    //         {
-    //           latitude: { $gt: coordinates.latitude - delta }
-    //         }, 
-    //         {
-    //           latitude: { $lt: coordinates.latitude + delta }
-    //         },
-    //         {
-    //           longitude: { $gt: coordinates.longitude - delta }
-    //         },
-    //         {
-    //           longitude: { $lt: coordinates.longitude + delta }
-    //         }
-    //       ]
-    //     };;
-    //   }
-    // }
+      bounds = boundingBox;
 
+      if (!bounds) {
+        bounds = getSearchBound(coordinates, 50);
+      }
+    }
+
+    // If user requested a location near a specific location
     if (queryDescription.near[0]) {
       const distance = Number(queryDescription.distance);
-      let delta = kilometersToRadians(50);
-
-      if (queryDescription.distance && !Number.isNaN(distance)) {
-        delta = kilometersToRadians(distance);
-      }
 
       const { 
         coordinates,
       } = queryDescription.near[0];
 
+      bounds = getSearchBound(coordinates, queryDescription.distance && !Number.isNaN(distance) ? distance : 50);
+    }
+
+    if (bounds) {
       query.where = {
-        $and: [
+        "$and": [
           {
-            latitude: { $gt: coordinates.latitude - delta }
+            "latitude": { "$gt": bounds.south }
           }, 
           {
-            latitude: { $lt: coordinates.latitude + delta }
+            "latitude": { "$lt": bounds.north }
           },
           {
-            longitude: { $gt: coordinates.longitude - delta }
+            "longitude": { "$gt": bounds.west }
           },
           {
-            longitude: { $lt: coordinates.longitude + delta }
+            "longitude": { "$lt": bounds.east }
           }
         ]
       };
     }
 
-    console.log('Query:', query);
-
     const results = await collection.query(query);
-
-    console.log('results:', results);
 
     return results;
   }
 }
 
-function kilometersToRadians(km: number): number {
-  return km / 6371;
+function getSearchBound(point: TCoordinate, radius: number): TBoundedLocation["boundingBox"] {
+  // Latitude and longitude offsets
+  // Earth's radius in kilometers
+  const R = 6378.1;
+
+  // Convert degrees to radians
+  const latInRad = point.latitude * (Math.PI / 180);
+
+  // Latitude and longitude offsets
+  const latOffset = radius / R;
+  const lonOffset = radius / (R * Math.cos(latInRad));
+
+  // Convert offsets to degrees
+  const latOffsetDeg = latOffset * (180 / Math.PI);
+  const lonOffsetDeg = lonOffset * (180 / Math.PI);
+
+  // Calculate bounding box coordinates
+  const boundingBox = {
+    north: Number(point.latitude) + latOffsetDeg,
+    south: Number(point.latitude) - latOffsetDeg,
+    east: Number(point.longitude) + lonOffsetDeg,
+    west: Number(point.longitude) - lonOffsetDeg
+  };
+
+  return boundingBox;
 }
