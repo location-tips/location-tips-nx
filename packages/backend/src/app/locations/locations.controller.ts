@@ -12,7 +12,6 @@ export class LocationsController {
   async postLocations(@Body('searchText') searchText: string) {
     const queryDescription = await this.locationsService.describeSearchQuery(searchText);
 
-    console.log("queryDescription", queryDescription);
 
     // Request from vector db
     const searchResult = await this.locationsService.searchLocation(searchText, queryDescription);
