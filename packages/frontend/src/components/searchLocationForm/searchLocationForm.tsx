@@ -1,8 +1,8 @@
 'use client'
-import { searchLocation } from 'packages/frontend/src/actions/searchLocation';
+import { searchLocation } from '@front/actions/searchLocation';
 import { useFormState } from 'react-dom';
 import styles from './searchLocationForm.module.css';
-import FormStatus from 'packages/frontend/src/components/formStatus/formStatus';
+import FormStatus from '@front/components/formStatus/formStatus';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
@@ -20,19 +20,19 @@ const SearchLocationForm = () => {
             <FormStatus />
         </form>
         <MFlex direction="row" gap="m" align="start" justify="start">
-            {state.queryDescription.in?.length && state.queryDescription.in.map((location: any) => <div>
+            {state.queryDescription?.in?.map((location: any) => <div>
                 {location.name} ({location.type})
             </div>)}
-            {state.queryDescription.near?.length && state.queryDescription.near.map((location: any) => <div>
+            {state.queryDescription?.near?.map((location: any) => <div>
                 {location.name} ({location.type})
                 <p>{location.description}</p>
             </div>)}
         </MFlex>
         <MFlex direction="column" gap="m" align="start" justify="start">
-            {state.queryDescription.location.map((location: any) => <div>{location.name} ({location.type})</div>)}
+            {state.queryDescription?.location?.map((location: any) => <div>{location.name} ({location.type})</div>)}
         </MFlex>
         {state.searchResult && <div>
-            {state.searchResult.map((location: any) => {
+            {state.searchResult?.map((location: any) => {
                 return <div key={location.id}>
                     <h3>{location.location.name} ({location.location.type}) {location.score}</h3>
                     <div>{location.description}</div>

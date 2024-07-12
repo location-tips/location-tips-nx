@@ -54,6 +54,26 @@ export const geminiDescribeSearchQuery = async (prompt: string): Promise<TLocati
     return JSON.parse(text);
 }
 
+export const geminiTranslateToEnglish = async (prompt: string): Promise<TTranslation> => {
+    const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash",
+    generationConfig: { responseMimeType: "application/json" },
+    systemInstruction: `User provides you string to translate, you need to detect language the texts is written on and tanslate it to English. Then output in the valid json format with following fields:
+    {
+        from: <from language>,
+        to: <to language>,
+        original: <original string>,
+        translated: <translated string>
+    }`});
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+
+    return JSON.parse(text);
+}
+
 export const geminiTranslateText = async (from: string, to: string, prompt: string): Promise<TTranslation> => {
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
