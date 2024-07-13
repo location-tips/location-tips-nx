@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { TGeminiResponseDescribeImage, TLocationSearchDescription, TTranslation } from "packages/backend/src/types";
+import { TGeminiResponseDescribeImage, TLocationSearchDescription, TTranslation } from "@types";
 
 const GEMINI_API_KEY = "AIzaSyAQKmCdW_pdjXE8kplK4v2XZDGqOud1qXE";
 
@@ -45,6 +45,26 @@ export const geminiDescribeSearchQuery = async (prompt: string): Promise<TLocati
         distance: <if in the prompt user provided a range from any location, it should be here. It should be converted to kilometres always. This field value should be integer or float or null>,
         description: <places you found summary description>,
         prompt: <prompt as is>
+    }`});
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+
+    return JSON.parse(text);
+}
+
+export const geminiTranslateToEnglish = async (prompt: string): Promise<TTranslation> => {
+    const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash",
+    generationConfig: { responseMimeType: "application/json" },
+    systemInstruction: `User provides you string to translate, you need to detect language the texts is written on and tanslate it to English. Then output in the valid json format with following fields:
+    {
+        from: <from language>,
+        to: <to language>,
+        original: <original string>,
+        translated: <translated string>
     }`});
 
     const result = await model.generateContent(prompt);
