@@ -1,4 +1,6 @@
-import { FieldValue } from "@google-cloud/firestore";
+import { Injectable } from '@nestjs/common';
+import { extractExif } from '@back/utils/exif';
+import { geminiDescribeImage } from '@back/utils/gemini';
 import { getStorage } from 'firebase-admin/storage';
 import { Injectable } from '@nestjs/common';
 import { ChromaClient } from 'chromadb';
@@ -8,8 +10,7 @@ import sharp from 'sharp';
 
 import { extractExif } from 'packages/backend/src/utils/exif';
 import { getEmbeddings } from 'packages/backend/src/utils/vertex';
-import { geminiDescribeImage } from 'packages/backend/src/utils/gemini';
-import { TGeminiResponseDescribeImage, TLocationEntity } from 'packages/backend/src/types';
+import { TGeminiResponseDescribeImage, TLocationEntity } from '@types';
 
 @Injectable()
 export class LocationService {
@@ -37,6 +38,7 @@ export class LocationService {
 
     if (exif) {
       const { Latitude, Longitude } = exif?.gps ?? {};
+
       if (Latitude && Longitude) {
         prompt = `shot has been made at ${Latitude} latitude and ${Longitude} longitude`;
       }

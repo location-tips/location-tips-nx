@@ -45,3 +45,7 @@ export type TLocationEntity = {
         exif?: string;
     };
 };
+
+export type TLocationsWithScore = TLocationEntity &{
+    score: number;
+};

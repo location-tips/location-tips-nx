@@ -1,15 +1,15 @@
 import admin from 'firebase-admin';
 import type { ServiceAccount } from 'firebase-admin';
-import fs from 'fs';
-import { resolve } from 'path';
 
 export const configureFirebase = () => {
     // TODO: Read the service account key from environment variable
-    const serviceAccountKey = fs.readFileSync(resolve('./packages/backend/location-tips-409908-firebase-adminsdk-ow8ay-6a0383eaa5.json'));
+    const envServiceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
 
-    const config: ServiceAccount = JSON.parse(serviceAccountKey.toString());
+    if (!envServiceAccountKey) throw new Error('FIREBASE_SERVICE_ACCOUNT_KEY is not provided');
 
-    console.log('config', config);
+    const serviceAccountKey = Buffer.from(envServiceAccountKey, 'base64').toString('utf-8');
+
+    const config: ServiceAccount = JSON.parse(serviceAccountKey);
 
     // Initialize Firebase Admin SDK
     admin.initializeApp({

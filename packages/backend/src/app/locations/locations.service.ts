@@ -1,15 +1,19 @@
+import admin from 'firebase-admin';
 import { Injectable } from '@nestjs/common';
 import { FieldValue } from "@google-cloud/firestore";
-import { ChromaClient, QueryParams, QueryResponse } from 'chromadb'
-import { geminiDescribeSearchQuery } from 'packages/backend/src/utils/gemini';
-import admin from 'firebase-admin';
-import { TBoundedLocation, TCoordinate, TLocationEntity, TLocationSearchDescription } from 'packages/backend/src/types';
+import { ChromaClient, QueryParams, QueryResponse } from 'chromadb';
+import { geminiDescribeSearchQuery, geminiTranslateToEnglish } from '@back/utils/gemini';
+import { TBoundedLocation, TCoordinate, TLocationEntity, TLocationSearchDescription, TTranslation } from '@types';
 import { getEmbeddings } from 'packages/backend/src/utils/vertex';
 
 @Injectable()
 export class LocationsService {
   async describeSearchQuery(query: string): Promise<TLocationSearchDescription> {
     return geminiDescribeSearchQuery(query);
+  }
+
+  async translateToEnglish(query: string): Promise<TTranslation> {
+    return geminiTranslateToEnglish(query);
   }
 
   async getLocationsByIds(ids: string[]): Promise<TLocationEntity[]> {
@@ -25,7 +29,7 @@ export class LocationsService {
       mapResult.set(doc.id, res);
     });
 
-    return Array.from(mapResult.values());
+    return Array.from(mapResult.values()) as TLocationEntity[];
   }
 
   async searchLocations(text: string): Promise<TLocationEntity[]> {
@@ -109,14 +113,14 @@ export class LocationsService {
 function getSearchBound(point: TCoordinate, radius: number): TBoundedLocation["boundingBox"] {
   // Latitude and longitude offsets
   // Earth's radius in kilometers
-  const R = 6378.1;
+  const earthRadius = 6378.1;
 
   // Convert degrees to radians
   const latInRad = point.latitude * (Math.PI / 180);
 
   // Latitude and longitude offsets
-  const latOffset = radius / R;
-  const lonOffset = radius / (R * Math.cos(latInRad));
+  const latOffset = radius / earthRadius;
+  const lonOffset = radius / (earthRadius * Math.cos(latInRad));
 
   // Convert offsets to degrees
   const latOffsetDeg = latOffset * (180 / Math.PI);

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx run-many --target=serve --projects=backend,frontend --parallel",
+    "start": "concurrently \"nx run back\" \"nx run front\"",
     "back": "nx run backend:serve",
     "front": "nx run frontend:dev -p 3001"
   },
@@ -58,12 +58,15 @@
   ],
   "dependencies": {
     "@google-cloud/aiplatform": "^3.25.0",
+    "@fastify/static": "^7.0.4",
     "@google/generative-ai": "^0.14.0",
     "@location-tips/location-tips-uikit": "^0.0.11",
     "@nest-lab/fastify-multer": "^1.2.0",
     "@nestjs/common": "^10.0.2",
+    "@nestjs/config": "^3.2.3",
     "@nestjs/core": "^10.0.2",
     "@nestjs/platform-fastify": "^10.3.9",
+    "@nestjs/swagger": "^7.4.0",
     "axios": "^1.6.0",
     "chromadb": "^1.9.1",
     "chromadb-default-embed": "^2.13.2",
