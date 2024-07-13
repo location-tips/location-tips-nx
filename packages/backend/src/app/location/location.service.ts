@@ -1,11 +1,13 @@
-import { Injectable } from '@nestjs/common';
-import { extractExif } from 'packages/backend/src/utils/exif';
+import { FieldValue } from "@google-cloud/firestore";
 import { getStorage } from 'firebase-admin/storage';
-import admin from 'firebase-admin';
-import { v4 as uuidv4 } from 'uuid';
+import { Injectable } from '@nestjs/common';
 import { ChromaClient } from 'chromadb';
-
+import { v4 as uuidv4 } from 'uuid';
+import admin from 'firebase-admin';
 import sharp from 'sharp';
+
+import { extractExif } from 'packages/backend/src/utils/exif';
+import { getEmbeddings } from 'packages/backend/src/utils/vertex';
 import { geminiDescribeImage } from 'packages/backend/src/utils/gemini';
 import { TGeminiResponseDescribeImage, TLocationEntity } from 'packages/backend/src/types';
 
@@ -68,9 +70,12 @@ export class LocationService {
   async saveLocationToDB(location: TLocationEntity): Promise<admin.firestore.DocumentReference<admin.firestore.DocumentData, admin.firestore.DocumentData>> {
     const db = admin.firestore();
 
-    console.log('Saving location to db:', location);
+    const embeddings = await getEmbeddings(location.description + ' ' + location.keywords.join(' ') + ' ' + location.location.name + ' ' + location.location.type);
 
-    return await db.collection('locations').add(location);
+    return await db.collection('locations').add({
+      ...location,
+      embedding_field: FieldValue.vector(embeddings[0]),
+    });
   }
 
   async saveLocationToVectorDB(location: TLocationEntity): Promise<void> {

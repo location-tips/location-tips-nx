@@ -20,16 +20,16 @@ const SearchLocationForm = () => {
             <FormStatus />
         </form>
         <MFlex direction="row" gap="m" align="start" justify="start">
-            {state.queryDescription.in?.length && state.queryDescription.in.map((location: any) => <div>
+            {state.queryDescription?.in?.map((location: any) => <div>
                 {location.name} ({location.type})
             </div>)}
-            {state.queryDescription.near?.length && state.queryDescription.near.map((location: any) => <div>
+            {state.queryDescription?.near?.map((location: any) => <div>
                 {location.name} ({location.type})
                 <p>{location.description}</p>
             </div>)}
         </MFlex>
         <MFlex direction="column" gap="m" align="start" justify="start">
-            {state.queryDescription.location.map((location: any) => <div>{location.name} ({location.type})</div>)}
+            {state.queryDescription?.location?.map((location: any) => <div>{location.name} ({location.type})</div>)}
         </MFlex>
         {state.searchResult && <div>
             {state.searchResult.map((location: any) => {

@@ -57,6 +57,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "@google-cloud/aiplatform": "^3.25.0",
     "@google/generative-ai": "^0.14.0",
     "@location-tips/location-tips-uikit": "^0.0.11",
     "@nest-lab/fastify-multer": "^1.2.0",

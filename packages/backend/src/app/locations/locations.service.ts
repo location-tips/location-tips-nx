@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { FieldValue } from "@google-cloud/firestore";
 import { ChromaClient, QueryParams, QueryResponse } from 'chromadb'
 import { geminiDescribeSearchQuery } from 'packages/backend/src/utils/gemini';
 import admin from 'firebase-admin';
 import { TBoundedLocation, TCoordinate, TLocationEntity, TLocationSearchDescription } from 'packages/backend/src/types';
+import { getEmbeddings } from 'packages/backend/src/utils/vertex';
 
 @Injectable()
 export class LocationsService {
@@ -24,6 +26,20 @@ export class LocationsService {
     });
 
     return Array.from(mapResult.values());
+  }
+
+  async searchLocations(text: string): Promise<TLocationEntity[]> {
+    const embeddings = await getEmbeddings(text);
+
+    const db = admin.firestore();
+    const locations = await db.collection('locations').findNearest("embedding_field", FieldValue.vector(embeddings[0]), {
+      limit: 5,
+      distanceMeasure: "EUCLIDEAN",
+    }).get();
+
+    return locations.docs.map((doc) => {
+      return doc.data() as TLocationEntity;
+    });
   }
 
   async searchLocation(text: string, queryDescription: TLocationSearchDescription): Promise<QueryResponse> {

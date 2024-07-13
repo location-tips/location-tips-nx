@@ -14,14 +14,14 @@ export class LocationsController {
 
 
     // Request from vector db
-    const searchResult = await this.locationsService.searchLocation(searchText, queryDescription);
+    // const searchResult = await this.locationsService.searchLocation(searchText, queryDescription);
 
-    const locations = await this.locationsService.getLocationsByIds(searchResult.ids[0]); 
+    const locations = await this.locationsService.searchLocations(searchText); 
 
     const locationsWithDistaces = locations.map((location, index) => {
-      const distance = searchResult.distances[0][index];
+      // const distance = searchResult.distances[0][index];
       delete location.image;
-      return { ...location, score: (1 / distance * 10).toFixed(1)};
+      return { ...location, score: (1 / 1 * 10).toFixed(1)};
     });
 
     return { searchResult: locationsWithDistaces, queryDescription };
