@@ -47,3 +47,4 @@ out
 
 .env
 /packages/backend/.env
+packages/backend/.env

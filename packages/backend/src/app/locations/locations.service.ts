@@ -1,14 +1,25 @@
 import admin from 'firebase-admin';
 import { Injectable } from '@nestjs/common';
-import { FieldValue } from "@google-cloud/firestore";
-import { ChromaClient, QueryParams, QueryResponse } from 'chromadb';
-import { geminiDescribeSearchQuery, geminiTranslateToEnglish } from '@back/utils/gemini';
-import { TBoundedLocation, TCoordinate, TLocationEntity, TLocationSearchDescription, TTranslation } from '@types';
+import { FieldValue } from '@google-cloud/firestore';
+import {
+  geminiDescribeSearchQuery,
+  geminiTranslateToEnglish,
+} from '@back/utils/gemini';
+import {
+  TLocationEntity,
+  TLocationSearchDescription,
+  TLocationsWithScore,
+  TTranslation,
+} from '@types';
 import { getEmbeddings } from 'packages/backend/src/utils/vertex';
+import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
+import { getDistanceBetweenEmbeddings, getRadiusFromBoundingBox } from '@back/utils/distance';
 
 @Injectable()
 export class LocationsService {
-  async describeSearchQuery(query: string): Promise<TLocationSearchDescription> {
+  async describeSearchQuery(
+    query: string
+  ): Promise<TLocationSearchDescription> {
     return geminiDescribeSearchQuery(query);
   }
 
@@ -19,9 +30,12 @@ export class LocationsService {
   async getLocationsByIds(ids: string[]): Promise<TLocationEntity[]> {
     const mapResult = new Map<string, TLocationEntity>();
     const db = admin.firestore();
-    const locations = await db.collection('locations').where(admin.firestore.FieldPath.documentId(), 'in', ids).get();
+    const locations = await db
+      .collection('locations')
+      .where(admin.firestore.FieldPath.documentId(), 'in', ids)
+      .get();
 
-    ids.forEach(id => mapResult.set(id, null));
+    ids.forEach((id) => mapResult.set(id, null));
 
     locations.docs.forEach((doc) => {
       const res = doc.data() as TLocationEntity;
@@ -32,107 +46,120 @@ export class LocationsService {
     return Array.from(mapResult.values()) as TLocationEntity[];
   }
 
-  async searchLocations(text: string): Promise<TLocationEntity[]> {
-    const embeddings = await getEmbeddings(text);
-
+  async searchLocationsWithinRadius(latitude: number, longitude: number, radiusKm: number) {
     const db = admin.firestore();
-    const locations = await db.collection('locations').findNearest("embedding_field", FieldValue.vector(embeddings[0]), {
-      limit: 5,
-      distanceMeasure: "EUCLIDEAN",
-    }).get();
 
-    return locations.docs.map((doc) => {
-      return doc.data() as TLocationEntity;
-    });
-  }
+    // Calculate the bounds of the query
+    const center: Geopoint = [latitude, longitude];
+    const radiusInM = radiusKm * 1000;
 
-  async searchLocation(text: string, queryDescription: TLocationSearchDescription): Promise<QueryResponse> {
-    const client = new ChromaClient();
+    const bounds = geohashQueryBounds(center, radiusInM);
+    const promises = [];
 
-    const collection = await client.getOrCreateCollection({
-        name: "locations",
-    });
+    for (const b of bounds) {
+      const q = db
+        .collection('locations')
+        .orderBy('geohash')
+        .startAt(b[0])
+        .endAt(b[1]);
 
-    const query: QueryParams = {
-      queryTexts: [text], // Chroma will embed this for you
-      nResults: 20, // how many results to return
-    };
+      promises.push(q.get());
+    }
 
-    let bounds: TBoundedLocation["boundingBox"];
+    const snapshots = await Promise.all(promises);
 
-    // If user requested a specific location
-    if (queryDescription.in?.[0]) {
-      const { 
-        coordinates,
-        boundingBox,
-      } = queryDescription.in[0];
+    const matchingDocs = [];
 
-      bounds = boundingBox;
+    for (const snap of snapshots) {
+      for (const doc of snap.docs) {
+        const location = doc.data();
 
-      if (!bounds) {
-        bounds = getSearchBound(coordinates, 50);
+        const lat = location.location.coordinates.latitude;
+        const lng = location.location.coordinates.longitude
+
+        // We have to filter out a few false positives due to GeoHash accuracy, but most will match
+        const distanceInKm = distanceBetween([lat, lng], center);
+        if (distanceInKm <= radiusKm) {
+          matchingDocs.push({ ...doc.data(), id: doc.id });
+        }
       }
     }
 
-    // If user requested a location near a specific location
+    return matchingDocs;
+  }
+
+  async searchLocations(
+    text: string,
+    queryDescription
+  ): Promise<TLocationsWithScore[]> {
+    const embeddings = await getEmbeddings(text);
+
+    const db = admin.firestore();
+    let collectionRef = db.collection('locations');
+    let locationsInRegion = [];
+
     if (queryDescription.near[0]) {
+      // Search locations within the radius
       const distance = Number(queryDescription.distance);
 
-      const { 
-        coordinates,
+      const {
+        coordinates: { latitude, longitude },
       } = queryDescription.near[0];
 
-      bounds = getSearchBound(coordinates, queryDescription.distance && !Number.isNaN(distance) ? distance : 50);
+      locationsInRegion = await this.searchLocationsWithinRadius(
+        Number(latitude),
+        Number(longitude),
+        !Number.isNaN(distance) ? distance : 50
+      );
+    } else if (queryDescription.in[0]) {
+      // Search locations within the bounding box or radius from the center of region
+      const {
+        coordinates: { latitude, longitude },
+        boundingBox,
+      } = queryDescription.in[0];
+
+      const radius = boundingBox ? getRadiusFromBoundingBox(boundingBox) : 50;
+
+      locationsInRegion = await this.searchLocationsWithinRadius(
+        latitude,
+        longitude,
+        radius
+      );
     }
 
-    if (bounds) {
-      query.where = {
-        "$and": [
-          {
-            "latitude": { "$gt": bounds.south }
-          }, 
-          {
-            "latitude": { "$lt": bounds.north }
-          },
-          {
-            "longitude": { "$gt": bounds.west }
-          },
-          {
-            "longitude": { "$lt": bounds.east }
-          }
-        ]
-      };
+    let locations: FirebaseFirestore.VectorQuerySnapshot<
+      admin.firestore.DocumentData,
+      admin.firestore.DocumentData
+    >;
+
+    if (locationsInRegion.length) {
+      // Search locations by prompt within the bounding box or radius from the center of region
+      locations = await collectionRef
+        .where('geohash', 'in', locationsInRegion.map((l) => l.geohash))
+        .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
+        limit: 20,
+        distanceMeasure: 'EUCLIDEAN',
+      }).get();
+
+    } else if (!queryDescription.near?.[0] && !queryDescription.in?.[0]) {
+      // Search locations by prompt
+      locations = await collectionRef
+        .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
+          limit: 20,
+          distanceMeasure: 'EUCLIDEAN',
+        })
+        .get();
+    } else {
+      return [];
     }
 
-    const results = await collection.query(query);
+    // Calculate the distance between the embeddings
+    return locations.docs.map((doc) => {
+      const locationEntity = doc.data() as TLocationEntity;
 
-    return results;
+      delete locationEntity.image;
+
+      return { ...locationEntity, score: getDistanceBetweenEmbeddings(embeddings[0], locationEntity.embedding_field.toArray()) };
+    });
   }
-}
-
-function getSearchBound(point: TCoordinate, radius: number): TBoundedLocation["boundingBox"] {
-  // Latitude and longitude offsets
-  // Earth's radius in kilometers
-  const earthRadius = 6378.1;
-
-  // Convert degrees to radians
-  const latInRad = point.latitude * (Math.PI / 180);
-
-  // Latitude and longitude offsets
-  const latOffset = radius / earthRadius;
-  const lonOffset = radius / (earthRadius * Math.cos(latInRad));
-
-  // Convert offsets to degrees
-  const latOffsetDeg = latOffset * (180 / Math.PI);
-  const lonOffsetDeg = lonOffset * (180 / Math.PI);
-
-  // Calculate bounding box coordinates
-  const boundingBox = {
-    north: Number(point.latitude) + latOffsetDeg,
-    south: Number(point.latitude) - latOffsetDeg,
-    east: Number(point.longitude) + lonOffsetDeg,
-    west: Number(point.longitude) - lonOffsetDeg
-  };
-
-  return boundingBox;
 }

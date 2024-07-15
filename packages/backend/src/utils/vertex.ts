@@ -2,13 +2,10 @@ import * as aiplatform from '@google-cloud/aiplatform';
 
 export async function getEmbeddings(text: string) {
     const project = 'location-tips-409908';
-    const model = 'text-multilingual-embedding-002';
+    // const model = 'text-multilingual-embedding-002';
+    const model = 'text-embedding-004';
 
-    console.log('Getting embeddings for text: ' + text);
-
-    // const task = 'QUESTION_ANSWERING';
-
-    const dimensionality = 0;
+    const dimensionality = 768;
     const apiEndpoint = 'us-central1-aiplatform.googleapis.com'
     const { PredictionServiceClient } = aiplatform.v1;
     const { helpers } = aiplatform;
@@ -31,8 +28,6 @@ export async function getEmbeddings(text: string) {
 
         return valuesProto.listValue.values.map(v => v.numberValue);
     });
-
-    console.log('Got embeddings: \n' + JSON.stringify(embeddings));
 
     return embeddings;
 }
