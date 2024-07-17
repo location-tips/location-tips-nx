@@ -9,7 +9,9 @@ steps:
   args: ['docker build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=$$PERSONAL_ACCESS_TOKEN', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:$COMMIT_SHA', '-f', '.Dockerfile', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx']
-
+options:
+  logging: CLOUD_LOGGING_ONLY
+  
 availableSecrets:
   secretManager:
   - versionName: projects/location-tips-409908/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
