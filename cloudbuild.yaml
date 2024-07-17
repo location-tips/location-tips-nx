@@ -1,0 +1,16 @@
+# Define substitutions (optional)
+substitutions:
+  # Replace with the tag of your NestJS base image
+  _NESTJS_BASE_IMAGE: gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:latest
+
+steps:
+- name: $_NESTJS_BASE_IMAGE  # Use your NestJS base image
+  secretEnv: ['PERSONAL_ACCESS_TOKEN']
+  args: ['docker build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=$$PERSONAL_ACCESS_TOKEN', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:$COMMIT_SHA', '-f', '.Dockerfile', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx']
+
+availableSecrets:
+  secretManager:
+  - versionName: projects/location-tips-409908/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
+    env: 'PERSONAL_ACCESS_TOKEN'
