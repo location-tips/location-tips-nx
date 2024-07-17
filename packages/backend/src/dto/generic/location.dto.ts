@@ -32,6 +32,12 @@ export class ImageDTO implements TGeminiResponseDescribeImage {
 }
 
 export class LocationEntityDTO implements TLocationEntity {
+    @ApiProperty({ description: 'Embedding field. Encoded location description to number vector' })
+    embedding_field: FirebaseFirestore.VectorValue;
+
+    @ApiProperty({ description: 'Geohash of the location' })
+    geohash: string;
+
     @ApiProperty({ description: 'Unique identifier of the location entity' })
     id?: string;
 

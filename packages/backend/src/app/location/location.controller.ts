@@ -1,11 +1,15 @@
 import { Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 
+import { FieldValue } from '@google-cloud/firestore';
 
 import { LocationService } from './location.service';
-import type { TLocationEntity } from '@types';
+import type { TLocation, TLocationEntity } from '@types';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { PostLocationRequestDTO, PostLocationResponseDTO } from '@back/dto/postLocation.dto';
+
+import { geohashForLocation } from 'geofire-common';
+import { getEmbeddings } from '@back/utils/vertex';
 
 @ApiTags('location')
 @Controller('location')
@@ -38,16 +42,25 @@ export class LocationController {
     // Save to CDN
     const newFilename = await this.locationService.uploadToCDN(webp);
 
+    const locationData: TLocation = {
+      coordinates: {
+        latitude: exif.gps?.Latitude ?? description.location?.coordinates?.latitude ?? 0,
+        longitude: exif.gps?.Longitude ?? description.location?.coordinates?.longitude ?? 0,
+      },
+      name: description.location?.name,
+      type: description.location?.type,
+      description: description.location.description,
+    };
+    
+    const geohash = geohashForLocation([locationData.coordinates.latitude, locationData.coordinates.longitude]);
+
+    const embeddings= await getEmbeddings(locationData.description + ' ' + description.keywords.join(' ') + ' ' + locationData.name + ' ' + locationData.type + ' ' + locationData.description);
+
     // Save to db
     const newLocation: TLocationEntity = {
-      location: {
-        coordinates: {
-          latitude: exif.gps?.Latitude ?? description.location?.coordinates?.latitude ?? 0,
-          longitude: exif.gps?.Longitude ?? description.location?.coordinates?.longitude ?? 0,
-        },
-        name: description.location?.name,
-        type: description.location?.type,
-      },
+      embedding_field: FieldValue.vector(embeddings[0]),
+      geohash: geohash,
+      location: locationData,
       keywords: description.keywords,
       description: description.description,
       image: {
@@ -62,9 +75,6 @@ export class LocationController {
     newLocation.id = doc.id;
 
     delete newLocation.image?.exif;
-
-    // Save to vector db
-    await this.locationService.saveLocationToVectorDB(newLocation);
 
     return { description };
   }

@@ -45,5 +45,5 @@ Thumbs.db
 .next
 out
 
+packages/backend/.env
 .env
-/packages/backend/.env
