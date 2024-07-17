@@ -1,7 +1,7 @@
 # Define substitutions (optional)
 substitutions:
   # Replace with the tag of your NestJS base image
-  _NESTJS_BASE_IMAGE: ubuntu:latest
+  _NESTJS_BASE_IMAGE: gcr.io/cloud-builders/docker
 
 steps:
 - name: $_NESTJS_BASE_IMAGE  # Use your NestJS base image
