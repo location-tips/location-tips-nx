@@ -14,5 +14,5 @@ options:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/location-tips-409908/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
+  - versionName: projects/1038437023281/secrets/PERSONAL_ACCESS_TOKEN
     env: 'PERSONAL_ACCESS_TOKEN'
