@@ -9,7 +9,10 @@
   "scripts": {
     "start": "concurrently \"nx run back\" \"nx run front\"",
     "back": "nx run backend:serve",
-    "front": "nx run frontend:dev -p 3001"
+    "front": "nx run frontend:dev -p 3001",
+    "build:front": "nx run frontend:build",
+    "build:back": "nx run backend:build",
+    "build": "npm run build:front && npm run build:back"
   },
   "private": true,
   "devDependencies": {

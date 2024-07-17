@@ -1,0 +1,19 @@
+{
+  "projects": {
+    "default": "location-tips-409908"
+  },
+  "targets": {
+    "location-tips-409908": {
+      "hosting": {
+        "frontend": [
+          "location-tips-409908"
+        ],
+        "backend": [
+          "location-tips-409908-78d4d"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

@@ -47,3 +47,5 @@ out
 
 packages/backend/.env
 .env
+.firebase
+.nx
