@@ -1,7 +1,7 @@
 # Define substitutions (optional)
 substitutions:
   # Replace with the tag of your NestJS base image
-  _NESTJS_BASE_IMAGE: gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:latest
+  _NESTJS_BASE_IMAGE: ubuntu:latest
 
 steps:
 - name: $_NESTJS_BASE_IMAGE  # Use your NestJS base image
@@ -11,7 +11,7 @@ steps:
   args: ['push', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx']
 options:
   logging: CLOUD_LOGGING_ONLY
-  
+
 availableSecrets:
   secretManager:
   - versionName: projects/location-tips-409908/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
