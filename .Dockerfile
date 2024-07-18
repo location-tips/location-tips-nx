@@ -1,5 +1,5 @@
 # Base image
-FROM node:22-alpine
+FROM node:20-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -21,13 +21,14 @@ ENV NX_DAEMON=false
 RUN npm config set @location-tips:registry https://npm.pkg.github.com && \
 npm config set //npm.pkg.github.com/:_authToken ${PERSONAL_ACCESS_TOKEN} && \
 npm install -g nx && \
-npm ci
+npm install --no-package-lock
 
-RUN echo $(ls)
+RUN echo $(ls -la)
 RUN nx --version
+RUN nx reset
 
 # Creates a "dist" folder with the production build
-RUN npm run build:back
+RUN nx run backend:build
 
 # Start the server using the production build
 CMD [ "node", "./dist/backend/main.js" ]
