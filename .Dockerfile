@@ -30,5 +30,7 @@ RUN nx reset
 # Creates a "dist" folder with the production build
 RUN nx run backend:build
 
+EXPOSE 8080
+
 # Start the server using the production build
 CMD [ "node", "./dist/backend/main.js" ]
