@@ -10,9 +10,9 @@
     "start": "concurrently \"nx run back\" \"nx run front\"",
     "back": "nx run backend:serve",
     "front": "nx run frontend:dev -p 3001",
-    "build:front": "./node_modules/.bin/nx run frontend:build",
-    "build:back": "./node_modules/.bin/nx run backend:build",
-    "reset": "./node_modules/.bin/nx reset",
+    "build:front": "nx run frontend:build",
+    "build:back": "nx run backend:build",
+    "reset": "nx reset",
     "build": "npm run build:front && npm run build:back"
   },
   "private": true,
