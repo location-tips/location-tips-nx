@@ -1,19 +1,19 @@
 # Define substitutions (optional)
 substitutions:
-  # Replace with the tag of your NestJS base image
-  _NESTJS_BASE_IMAGE: gcr.io/cloud-builders/docker
+  # Replace with the tag of your base image
+  _BASE_IMAGE: gcr.io/cloud-builders/docker
 
 steps:
-- name: $_NESTJS_BASE_IMAGE  # Use your NestJS base image
+- name: $_BASE_IMAGE
   # secretEnv: ['PERSONAL_ACCESS_TOKEN']
   # args: ['docker build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=$$PERSONAL_ACCESS_TOKEN', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:$COMMIT_SHA', '-f', '.Dockerfile', '.']
   args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=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', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:$COMMIT_SHA', '-f', '.Dockerfile', '.', '--progress', 'plain']
-- name: 'gcr.io/cloud-builders/docker'
+- name: $_BASE_IMAGE
   args: ['push', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx']
 options:
   logging: CLOUD_LOGGING_ONLY
 
-availableSecrets:
-  secretManager:
-  - versionName: projects/1038437023281/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
-    env: 'PERSONAL_ACCESS_TOKEN'
+# availableSecrets:
+#   secretManager:
+#   - versionName: projects/1038437023281/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
+#     env: 'PERSONAL_ACCESS_TOKEN'
