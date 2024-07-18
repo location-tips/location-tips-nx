@@ -21,13 +21,13 @@ ENV NX_DAEMON=false
 RUN npm config set @location-tips:registry https://npm.pkg.github.com && \
 npm config set //npm.pkg.github.com/:_authToken ${PERSONAL_ACCESS_TOKEN} && \
 npm install -g nx && \
-npm install
+npm ci
 
 RUN echo $(ls)
 RUN nx --version
 
 # Creates a "dist" folder with the production build
-RUN nx run backend:build
+RUN npm run build:back
 
 # Start the server using the production build
-CMD [ "npm", "start" ]
+CMD [ "node", "./dist/backend/main.js" ]
