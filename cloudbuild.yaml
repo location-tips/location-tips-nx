@@ -5,17 +5,23 @@ substitutions:
 
 steps:
 - name: $_BASE_IMAGE
-  secretEnv: ['PERSONAL_ACCESS_TOKEN']
-  args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=$PERSONAL_ACCESS_TOKEN', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:$COMMIT_SHA', '-f', '.Dockerfile-be', '.', '--progress', 'plain']
+  # secretEnv: ['PERSONAL_ACCESS_TOKEN']
+  # args: ['docker build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=$$PERSONAL_ACCESS_TOKEN', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:$COMMIT_SHA', '-f', '.Dockerfile-be', '.']
+  args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=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', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:be-$COMMIT_SHA', '-f', '.Dockerfile-be', '.', '--progress', 'plain']
 - name: $_BASE_IMAGE
-  args: ['push', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:$COMMIT_SHA']
+  args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=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', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:fe-$COMMIT_SHA', '-f', '.Dockerfile-fe', '.', '--progress', 'plain']
+- name: $_BASE_IMAGE
+  args: ['push', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:be-$COMMIT_SHA']
+- name: $_BASE_IMAGE
+  args: ['push', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:fe-$COMMIT_SHA']
 options:
   logging: CLOUD_LOGGING_ONLY
 
 images:
-  - 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:$COMMIT_SHA'
+  - 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:be-$COMMIT_SHA'
+  - 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:fe-$COMMIT_SHA'
 
-availableSecrets:
-  secretManager:
-  - versionName: projects/1038437023281/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
-    env: 'PERSONAL_ACCESS_TOKEN'
+# availableSecrets:
+#   secretManager:
+#   - versionName: projects/1038437023281/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
+#     env: 'PERSONAL_ACCESS_TOKEN'
