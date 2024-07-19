@@ -21,8 +21,8 @@ COPY . .
 RUN npm config set @location-tips:registry https://npm.pkg.github.com && \
 npm config set //npm.pkg.github.com/:_authToken ${PERSONAL_ACCESS_TOKEN} && \
 npm install -g nx && \
-npm ci --include=optional
-# npm install --no-package-lock
+# npm ci --include=optional
+npm install --no-package-lock
 
 # RUN echo $(ls -la)
 # RUN nx --version
