@@ -31,6 +31,7 @@ RUN nx reset
 RUN nx run backend:build
 
 EXPOSE 3000
+EXPOSE 8080
 
 # Start the server using the production build
 CMD [ "node", "./dist/backend/main.js" ]
