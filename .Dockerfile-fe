@@ -12,6 +12,8 @@ COPY package*.json ./
 # Bundle app source
 COPY . .
 
+ENV SERVER="https://api.location.tips"
+
 # Install app dependencies
 RUN npm config set @location-tips:registry https://npm.pkg.github.com && \
 npm config set //npm.pkg.github.com/:_authToken ${PERSONAL_ACCESS_TOKEN} && \
