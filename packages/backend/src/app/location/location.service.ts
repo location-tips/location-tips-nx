@@ -5,7 +5,7 @@ import { getStorage } from 'firebase-admin/storage';
 import { v4 as uuidv4 } from 'uuid';
 import admin from 'firebase-admin';
 import sharp from 'sharp';
-import { FieldValue } from '@google-cloud/firestore';
+import convert from 'heic-convert';
 import { TGeminiResponseDescribeImage, TLocationEntity } from '@types';
 
 @Injectable()
@@ -16,7 +16,15 @@ export class LocationService {
 
   async convertToWebp(file: File): Promise<File> {
     const filename = file.name.split('.').slice(0, -1).join('.');
-    const fileBuffer = await file.arrayBuffer();
+    let fileBuffer = await Buffer.from(await file.arrayBuffer());
+
+    if (file.type === 'image/heic') {
+      fileBuffer = await convert({
+        buffer: fileBuffer,
+        format: 'JPEG',
+      });
+    }
+
     const outputFileBuffer = await sharp(fileBuffer)
       .resize(2048, 2048, { fit: 'inside' })
       .toFormat('webp')
