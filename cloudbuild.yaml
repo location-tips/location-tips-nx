@@ -2,24 +2,28 @@
 substitutions:
   # Replace with the tag of your base image
   _BASE_IMAGE: gcr.io/cloud-builders/docker
+  _LOCATION: us-central1
+  _BACK_REPOSITORY: location-tips-back
+  _FRONT_REPOSITORY: location-tips-front
+  _IMAGE: gcr.io/cloud-builders/docker
 
 steps:
 - name: $_BASE_IMAGE
   # secretEnv: ['PERSONAL_ACCESS_TOKEN']
   # args: ['docker build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=$$PERSONAL_ACCESS_TOKEN', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:$COMMIT_SHA', '-f', '.Dockerfile-be', '.']
-  args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=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', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:be-$COMMIT_SHA', '-f', '.Dockerfile-be', '.', '--progress', 'plain']
+  args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=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', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}', '-f', '.Dockerfile-be', '.', '--progress', 'plain']
 - name: $_BASE_IMAGE
-  args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=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', '-t', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:fe-$COMMIT_SHA', '-f', '.Dockerfile-fe', '.', '--progress', 'plain']
+  args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=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', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE}', '-f', '.Dockerfile-fe', '.', '--progress', 'plain']
 - name: $_BASE_IMAGE
-  args: ['push', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:be-$COMMIT_SHA']
+  args: ['push', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}']
 - name: $_BASE_IMAGE
-  args: ['push', 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:fe-$COMMIT_SHA']
+  args: ['push', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE}']
 options:
   logging: CLOUD_LOGGING_ONLY
 
 images:
-  - 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:be-$COMMIT_SHA'
-  - 'gcr.io/location-tips-409908/github.com/location-tips/location-tips-nx:fe-$COMMIT_SHA'
+  - '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}'
+  - '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE}'
 
 # availableSecrets:
 #   secretManager:
