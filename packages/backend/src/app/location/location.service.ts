@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { extractExif } from 'packages/backend/src/utils/exif';
+import { extractExif } from '@back/utils/exif';
+import { geminiDescribeImage } from '@back/utils/gemini';
 import { getStorage } from 'firebase-admin/storage';
-import admin from 'firebase-admin';
 import { v4 as uuidv4 } from 'uuid';
-import { ChromaClient } from 'chromadb';
-
+import admin from 'firebase-admin';
 import sharp from 'sharp';
-import { geminiDescribeImage } from 'packages/backend/src/utils/gemini';
-import { TGeminiResponseDescribeImage, TLocationEntity } from 'packages/backend/src/types';
+import { FieldValue } from '@google-cloud/firestore';
+import { TGeminiResponseDescribeImage, TLocationEntity } from '@types';
 
 @Injectable()
 export class LocationService {
@@ -35,6 +34,7 @@ export class LocationService {
 
     if (exif) {
       const { Latitude, Longitude } = exif?.gps ?? {};
+
       if (Latitude && Longitude) {
         prompt = `shot has been made at ${Latitude} latitude and ${Longitude} longitude`;
       }
@@ -68,24 +68,7 @@ export class LocationService {
   async saveLocationToDB(location: TLocationEntity): Promise<admin.firestore.DocumentReference<admin.firestore.DocumentData, admin.firestore.DocumentData>> {
     const db = admin.firestore();
 
-    console.log('Saving location to db:', location);
-
     return await db.collection('locations').add(location);
   }
 
-  async saveLocationToVectorDB(location: TLocationEntity): Promise<void> {
-    const client = new ChromaClient();
-
-    const collection = await client.getOrCreateCollection({
-        name: "locations",
-    });
-
-    collection.add({
-      documents: [
-          JSON.stringify(location),
-      ],
-      ids: [location.id.toString()],
-      metadatas: [{ latitude: location.location.coordinates.latitude, longitude: location.location.coordinates.longitude }]
-    });
-  }
 }

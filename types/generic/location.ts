@@ -6,6 +6,7 @@ export type TCoordinate = {
 export type TLocation = {
     name: string;
     type: string;
+    description?: string;
     coordinates: TCoordinate;
 };
 
@@ -37,6 +38,8 @@ export type TLocationEntity = {
     id?: string;
     createdAt?: Date;
     updatedAt?: Date;
+    embedding_field: FirebaseFirestore.VectorValue;
+    geohash: string;
     location: TLocation;
     keywords: string[];
     description: string;
@@ -44,4 +47,8 @@ export type TLocationEntity = {
         url: string;
         exif?: string;
     };
+};
+
+export type TLocationsWithScore = TLocationEntity &{
+    score: number;
 };

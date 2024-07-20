@@ -1,21 +1,41 @@
-import { Injectable } from '@nestjs/common';
-import { ChromaClient, QueryParams, QueryResponse } from 'chromadb'
-import { geminiDescribeSearchQuery } from 'packages/backend/src/utils/gemini';
 import admin from 'firebase-admin';
-import { TLocationEntity, TLocationSearchDescription } from 'packages/backend/src/types';
+import { Injectable } from '@nestjs/common';
+import { FieldValue } from '@google-cloud/firestore';
+import {
+  geminiDescribeSearchQuery,
+  geminiTranslateToEnglish,
+} from '@back/utils/gemini';
+import {
+  TLocationEntity,
+  TLocationSearchDescription,
+  TLocationsWithScore,
+  TTranslation,
+} from '@types';
+import { getEmbeddings } from 'packages/backend/src/utils/vertex';
+import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
+import { getDistanceBetweenEmbeddings, getRadiusFromBoundingBox } from '@back/utils/distance';
 
 @Injectable()
 export class LocationsService {
-  async describeSearchQuery(query: string): Promise<TLocationSearchDescription> {
+  async describeSearchQuery(
+    query: string
+  ): Promise<TLocationSearchDescription> {
     return geminiDescribeSearchQuery(query);
+  }
+
+  async translateToEnglish(query: string): Promise<TTranslation> {
+    return geminiTranslateToEnglish(query);
   }
 
   async getLocationsByIds(ids: string[]): Promise<TLocationEntity[]> {
     const mapResult = new Map<string, TLocationEntity>();
     const db = admin.firestore();
-    const locations = await db.collection('locations').where(admin.firestore.FieldPath.documentId(), 'in', ids).get();
+    const locations = await db
+      .collection('locations')
+      .where(admin.firestore.FieldPath.documentId(), 'in', ids)
+      .get();
 
-    ids.forEach(id => mapResult.set(id, null));
+    ids.forEach((id) => mapResult.set(id, null));
 
     locations.docs.forEach((doc) => {
       const res = doc.data() as TLocationEntity;
@@ -23,107 +43,123 @@ export class LocationsService {
       mapResult.set(doc.id, res);
     });
 
-    return Array.from(mapResult.values());
+    return Array.from(mapResult.values()) as TLocationEntity[];
   }
 
-  async searchLocation(text: string, queryDescription: TLocationSearchDescription): Promise<QueryResponse> {
-    const client = new ChromaClient();
+  async searchLocationsWithinRadius(latitude: number, longitude: number, radiusKm: number) {
+    const db = admin.firestore();
 
-    const collection = await client.getOrCreateCollection({
-        name: "locations",
-    });
+    // Calculate the bounds of the query
+    const center: Geopoint = [latitude, longitude];
+    const radiusInM = radiusKm * 1000;
 
-    const query: QueryParams = {
-      queryTexts: [text], // Chroma will embed this for you
-      nResults: 20, // how many results to return
-    };
+    const bounds = geohashQueryBounds(center, radiusInM);
+    const promises = [];
 
-    // if (queryDescription.in?.[0]) {
-    //   const { 
-    //     coordinates,
-    //     boundingBox,
-    //   } = queryDescription.in[0];
+    for (const b of bounds) {
+      const q = db
+        .collection('locations')
+        .orderBy('geohash')
+        .startAt(b[0])
+        .endAt(b[1]);
 
-    //   const delta = kilometersToRadians(50);
-
-    //   if (boundingBox) {
-    //     query.where = { latitude: { $gt: boundingBox[0], $lt: boundingBox[2] }, longitude: { $gt: boundingBox[1],  $lt: boundingBox[3] } };
-    //     query.where = {
-    //       $and: [
-    //         {
-    //           latitude: { $gt: boundingBox[0] }
-    //         }, 
-    //         {
-    //           latitude: { $lt: boundingBox[2] }
-    //         },
-    //         {
-    //           longitude: { $gt: boundingBox[1] }
-    //         },
-    //         {
-    //           longitude: { $lt: boundingBox[3] }
-    //         }
-    //       ]
-    //     };
-    //   } else {
-    //     query.where = {
-    //       $and: [
-    //         {
-    //           latitude: { $gt: coordinates.latitude - delta }
-    //         }, 
-    //         {
-    //           latitude: { $lt: coordinates.latitude + delta }
-    //         },
-    //         {
-    //           longitude: { $gt: coordinates.longitude - delta }
-    //         },
-    //         {
-    //           longitude: { $lt: coordinates.longitude + delta }
-    //         }
-    //       ]
-    //     };;
-    //   }
-    // }
-
-    if (queryDescription.near[0]) {
-      const distance = Number(queryDescription.distance);
-      let delta = kilometersToRadians(50);
-
-      if (queryDescription.distance && !Number.isNaN(distance)) {
-        delta = kilometersToRadians(distance);
-      }
-
-      const { 
-        coordinates,
-      } = queryDescription.near[0];
-
-      query.where = {
-        $and: [
-          {
-            latitude: { $gt: coordinates.latitude - delta }
-          }, 
-          {
-            latitude: { $lt: coordinates.latitude + delta }
-          },
-          {
-            longitude: { $gt: coordinates.longitude - delta }
-          },
-          {
-            longitude: { $lt: coordinates.longitude + delta }
-          }
-        ]
-      };
+      promises.push(q.get());
     }
 
-    console.log('Query:', query);
+    const snapshots = await Promise.all(promises);
 
-    const results = await collection.query(query);
+    const matchingDocs = [];
 
-    console.log('results:', results);
+    for (const snap of snapshots) {
+      for (const doc of snap.docs) {
+        const location = doc.data();
 
-    return results;
+        const lat = location.location.coordinates.latitude;
+        const lng = location.location.coordinates.longitude
+
+        // We have to filter out a few false positives due to GeoHash accuracy, but most will match
+        const distanceInKm = distanceBetween([lat, lng], center);
+        if (distanceInKm <= radiusKm) {
+          matchingDocs.push({ ...doc.data(), id: doc.id });
+        }
+      }
+    }
+
+    return matchingDocs;
   }
-}
 
-function kilometersToRadians(km: number): number {
-  return km / 6371;
+  async searchLocations(
+    text: string,
+    queryDescription
+  ): Promise<TLocationsWithScore[]> {
+    const embeddings = await getEmbeddings(text);
+
+    const db = admin.firestore();
+    let collectionRef = db.collection('locations');
+    let locationsInRegion = [];
+
+    if (queryDescription.near[0]) {
+      // Search locations within the radius
+      const distance = Number(queryDescription.distance);
+
+      const {
+        coordinates: { latitude, longitude },
+      } = queryDescription.near[0];
+
+      locationsInRegion = await this.searchLocationsWithinRadius(
+        Number(latitude),
+        Number(longitude),
+        !Number.isNaN(distance) ? distance : 50
+      );
+    } else if (queryDescription.in[0]) {
+      // Search locations within the bounding box or radius from the center of region
+      const {
+        coordinates: { latitude, longitude },
+        boundingBox,
+      } = queryDescription.in[0];
+
+      const radius = boundingBox ? getRadiusFromBoundingBox(boundingBox) : 50;
+
+      locationsInRegion = await this.searchLocationsWithinRadius(
+        latitude,
+        longitude,
+        radius
+      );
+    }
+
+    let locations: FirebaseFirestore.VectorQuerySnapshot<
+      admin.firestore.DocumentData,
+      admin.firestore.DocumentData
+    >;
+
+    if (locationsInRegion.length) {
+      // Search locations by prompt within the bounding box or radius from the center of region
+      locations = await collectionRef
+        .where('geohash', 'in', locationsInRegion.map((l) => l.geohash))
+        .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
+        limit: 20,
+        distanceMeasure: 'EUCLIDEAN',
+      }).get();
+
+    } else if (!queryDescription.near?.[0] && !queryDescription.in?.[0]) {
+      // Search locations by prompt
+      locations = await collectionRef
+        .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
+          limit: 20,
+          distanceMeasure: 'EUCLIDEAN',
+        })
+        .get();
+    } else {
+      return [];
+    }
+
+    // Calculate the distance between the embeddings
+    return locations.docs.map((doc) => {
+      const locationEntity = doc.data() as TLocationEntity;
+
+      delete locationEntity.image;
+
+      return { ...locationEntity, score: getDistanceBetweenEmbeddings(embeddings[0], locationEntity.embedding_field.toArray()) };
+    });
+  }
 }
