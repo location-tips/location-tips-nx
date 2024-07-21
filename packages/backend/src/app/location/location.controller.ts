@@ -1,4 +1,4 @@
-import { Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Delete, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 
 import { FieldValue } from '@google-cloud/firestore';
@@ -7,9 +7,11 @@ import { LocationService } from './location.service';
 import type { TLocation, TLocationEntity } from '@types';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { PostLocationRequestDTO, PostLocationResponseDTO } from '@back/dto/postLocation.dto';
+import { PutLocationRequestDTO, PutLocationResponseDTO } from '@back/dto/putLocation.dto';
 
 import { geohashForLocation } from 'geofire-common';
 import { getEmbeddings } from '@back/utils/vertex';
+import { DeleteLocationRequestDTO, DeleteLocationResponseDTO } from '@back/dto/deleteLocation.dto';
 
 @ApiTags('location')
 @Controller('location')
@@ -62,6 +64,8 @@ export class LocationController {
       geohash: geohash,
       location: locationData,
       keywords: description.keywords,
+      title: description.location?.name ?? '',
+      userDescription: '',
       description: description.description,
       image: {
         ...description,
@@ -76,7 +80,48 @@ export class LocationController {
 
     delete newLocation.image?.exif;
 
-    return { description };
+    return newLocation;
+  }
+
+  @Put()
+  @ApiOperation({ summary: 'Update location' })
+  @ApiBearerAuth()
+  @ApiResponse({ status: 201, description: 'The record has been successfully updated.', type: PutLocationResponseDTO })
+  @ApiResponse({ status: 400, description: 'Empty request.'})
+  @ApiResponse({ status: 403, description: 'Forbidden.'})
+  @ApiResponse({ status: 500, description: 'Server error.'})
+  @ApiBody({
+    description: 'Custom data for location.',
+    type: PutLocationRequestDTO,
+  })
+  async putLocation(@Body() data: PutLocationRequestDTO) {
+
+    console.log("Data; ", data);
+
+    const doc = await this.locationService.updateLocationInDB(data);
+
+    return doc;
+  }
+
+  @Delete()
+  @ApiOperation({ summary: 'Remove location' })
+  @ApiBearerAuth()
+  @ApiResponse({ status: 201, description: 'The record has been successfully deleted.', type: DeleteLocationResponseDTO })
+  @ApiResponse({ status: 400, description: 'Empty request.'})
+  @ApiResponse({ status: 403, description: 'Forbidden.'})
+  @ApiResponse({ status: 500, description: 'Server error.'})
+  @ApiBody({
+    description: 'Remove location.',
+    type: DeleteLocationRequestDTO,
+  })
+  async deleteLocation(@Body() { id }: DeleteLocationRequestDTO) {
+    // Remove from db
+    const doc = await this.locationService.removeLocationFromDB(id);
+
+    // Remove from CDN
+    await this.locationService.removeFromCDN(doc.image.url);
+
+    return { id: doc.id };
   }
 
 }

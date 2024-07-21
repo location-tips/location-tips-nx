@@ -21,6 +21,9 @@ export class LocationDTO implements TLocation {
 }
 
 export class ImageDTO implements TGeminiResponseDescribeImage {
+    @ApiProperty({ description: 'Title of the image' })
+    title: string;
+
     @ApiProperty({ description: 'Keywords extracted from the image' })
     keywords: string[];
 
@@ -49,6 +52,12 @@ export class LocationEntityDTO implements TLocationEntity {
 
     @ApiProperty({ description: 'Location entity data', type: LocationDTO })
     location: TLocation;
+
+    @ApiProperty({ description: 'Place title given by user or AI' })
+    title: string;
+
+    @ApiProperty({ description: 'User description of the location' })
+    userDescription?: string;
 
     @ApiProperty({ description: 'Keywords extracted from the image', type: 'array', items: { type: 'string' } })
     keywords: string[];
