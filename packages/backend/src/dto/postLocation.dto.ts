@@ -1,6 +1,6 @@
-import { LocationDTO } from '@back/dto/generic/location.dto';
+import { LocationEntityDTO } from '@back/dto/generic/location.dto';
 import { ApiProperty } from '@nestjs/swagger';
-import type { PostLocationRequest, PostLocationResponse, TLocation } from '@types';
+import type { PostLocationRequest, PostLocationResponse } from '@types';
 
 export class PostLocationRequestDTO implements PostLocationRequest {
     @ApiProperty({
@@ -9,20 +9,5 @@ export class PostLocationRequestDTO implements PostLocationRequest {
     image: File;
 }
 
-export class PostLocationResponseDTO implements PostLocationResponse {
-    @ApiProperty({
-        description: 'Keywords extracted from the image.',
-    })
-    keywords: string[];
-
-    @ApiProperty({
-        description: 'Description of the image.',
-    })
-    description: string;
-
-    @ApiProperty({
-        description: 'Location of the image.',
-        type: LocationDTO,
-    })
-    location?: TLocation;
+export class PostLocationResponseDTO extends LocationEntityDTO implements PostLocationResponse {
 }

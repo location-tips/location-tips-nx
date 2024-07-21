@@ -15,8 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@types": ["types/index.ts"],
       "@types/*": ["types/*"],
+      "@types": ["types/index.ts"],
+      "@const": ["constants/index.ts"],
       "@back/*": ["packages/backend/src/*"],
       "@front/*": ["packages/frontend/src/*"],
     }

@@ -1,7 +1,7 @@
-import type { TGeminiResponseDescribeImage } from "../generic/location";
+import type { TLocationEntity } from "../generic/location";
 
 export type PostLocationRequest = {
     image: File;
 }
 
-export type PostLocationResponse = TGeminiResponseDescribeImage;
+export type PostLocationResponse = TLocationEntity;

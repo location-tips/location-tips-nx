@@ -1,5 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { TGeminiResponseDescribeImage, TLocationSearchDescription, TTranslation } from "@types";
+import type { TGeminiResponseDescribeImage, TLocationSearchDescription, TTranslation } from "@types";
+import { CATEGORIES } from "@const";
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -10,10 +11,13 @@ export const geminiDescribeImage = async (image: File, details: string = ""): Pr
         generationConfig: { responseMimeType: "application/json" },
         systemInstruction: `User will provide you an image, you need to describe it and detect as much objects as it is possible. If you see any buildings try to describe the style and epoch. Output in the valid json format with following fields:
         {
+            title: <location name or guess the title by image>
             keywords: [<here should be the list of objects you found on the image, including natural objects such as mountains, lakes, rivers, hills etc>],
             description: <description of the image>,
             location: <try to recognize where this shot has been made any landmarks or famous place on the photo. Return please following fields: {name: <place name>, type: <place type>, description: <place description>, coordinates: {latitude: <latitude>, longitude: <longitude>}}>
-        }`});
+        }
+        Important! <place type> should be one of the following categories: ${CATEGORIES.join(",")} 
+        `});
 
     const imageBuffer = await image.arrayBuffer();
     const mimeType = image.type;
