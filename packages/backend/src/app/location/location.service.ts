@@ -1,12 +1,12 @@
+import type { PutLocationRequest, TGeminiResponseDescribeImage, TLocationEntity } from '@types';
 import { Injectable } from '@nestjs/common';
 import { extractExif } from '@back/utils/exif';
-import { geminiDescribeImage } from '@back/utils/gemini';
 import { getStorage } from 'firebase-admin/storage';
+import { geminiDescribeImage } from '@back/utils/gemini';
 import { v4 as uuidv4 } from 'uuid';
+import convert from 'heic-convert';
 import admin from 'firebase-admin';
 import sharp from 'sharp';
-import convert from 'heic-convert';
-import { PutLocationRequest, TGeminiResponseDescribeImage, TLocationEntity } from '@types';
 
 @Injectable()
 export class LocationService {
