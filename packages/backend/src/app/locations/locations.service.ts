@@ -138,15 +138,16 @@ export class LocationsService {
         .where('geohash', 'in', locationsInRegion.map((l) => l.geohash))
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
         limit: 20,
-        distanceMeasure: 'EUCLIDEAN',
-      }).get();
+        distanceMeasure: 'COSINE',
+      })
+      .get();
 
     } else if (!queryDescription.near?.[0] && !queryDescription.in?.[0]) {
       // Search locations by prompt
       locations = await collectionRef
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
           limit: 20,
-          distanceMeasure: 'EUCLIDEAN',
+          distanceMeasure: 'COSINE',
         })
         .get();
     } else {

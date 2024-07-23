@@ -12,8 +12,8 @@ export const geminiDescribeImage = async (image: File, details: string = ""): Pr
         systemInstruction: `User will provide you an image, you need to describe it and detect as much objects as it is possible. If you see any buildings try to describe the style and epoch. Output in the valid json format with following fields:
         {
             title: <location name or guess the title by image>
-            keywords: [<here should be the list of objects you found on the image, including natural objects such as mountains, lakes, rivers, hills etc>],
-            description: <description of the image>,
+            keywords: [<here should be the list of objects you found on the image, including natural objects such as mountains, lakes, rivers, hills etc, landmark, location name, country, state, region, city, town, village name, architecture style>],
+            description: <Provide detailed and practical description, including objects you see, lanscape and the category of the environment.>,
             location: <try to recognize where this shot has been made any landmarks or famous place on the photo. Return please following fields: {name: <place name>, type: <place type>, description: <place description>, coordinates: {latitude: <latitude>, longitude: <longitude>}}>
         }
         Important! <place type> should be one of the following categories: ${CATEGORIES.join(",")} 
@@ -44,7 +44,7 @@ export const geminiDescribeSearchQuery = async (prompt: string): Promise<TLocati
         near: [<here should be the list of Cities, towns, villages or any other landmarks or points if the user ask to find something near it>{name: <place name>, type: <place type>, coordinates: {latitude: <latitude>, longitude: <longitude>}}],
         in: [<here should be the list of Countries, continents, Cities, towns, villages or any other landmarks or points if the user ask to find something in it or if you know where this place could be>{name: <place name>, type: <place type>, description: <place description>, coordinates: {latitude: <latitude>, longitude: <longitude>}, boundingBox: {north: <north latitude>, south: <south latitude>, east: <east longitude>, west: <west longitude>}}],
         location: [<provide here the list of coordinates for places you found. Provide as many as it is possible>{coordinates: {latitude: <latitude>, longitude: <longitude>}, name: <place name>, type: <place type>}],
-        distance: <if in the prompt user provided a range from any location, it should be here. It should be converted to kilometres always. This field value should be integer or float or null>,
+        distance: <if in the prompt user provided a range from any location, it should be here. It should be converted to kilometres always. This field value should be integer or float or null, if user is not provide defined number but asked something like near, not far from, in front of etc, try to estimate radius>,
         description: <places you found summary description>,
         prompt: <prompt as is>
     }`});
