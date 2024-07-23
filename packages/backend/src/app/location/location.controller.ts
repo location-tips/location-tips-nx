@@ -1,5 +1,6 @@
-import { Body, Controller, Delete, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Delete, Post, Put, Headers, UploadedFile, UseInterceptors, UseGuards, Request } from '@nestjs/common';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
+import { FRequest } from 'fastify';
 
 import { FieldValue } from '@google-cloud/firestore';
 
@@ -12,6 +13,7 @@ import { PutLocationRequestDTO, PutLocationResponseDTO } from '@back/dto/putLoca
 import { geohashForLocation } from 'geofire-common';
 import { getEmbeddings } from '@back/utils/vertex';
 import { DeleteLocationRequestDTO, DeleteLocationResponseDTO } from '@back/dto/deleteLocation.dto';
+import { AuthGuard } from '@back/app/guards/auth.guard';
 
 @ApiTags('location')
 @Controller('location')
@@ -31,8 +33,9 @@ export class LocationController {
     description: 'Image file of location.',
     type: PostLocationRequestDTO,
   })
+  @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('image'))
-  async postLocation(@UploadedFile() image: FastifyFile) {
+  async postLocation(@UploadedFile() image: FastifyFile, @Request() req: FRequest) {
     // Extract exif
     const exif = await this.locationService.extractExif(image.buffer);
     // Convert to webp
@@ -60,6 +63,7 @@ export class LocationController {
 
     // Save to db
     const newLocation: TLocationEntity = {
+      uid: req.user.uid,
       embedding_field: FieldValue.vector(embeddings[0]),
       geohash: geohash,
       location: locationData,
@@ -95,9 +99,6 @@ export class LocationController {
     type: PutLocationRequestDTO,
   })
   async putLocation(@Body() data: PutLocationRequestDTO) {
-
-    console.log("Data; ", data);
-
     const doc = await this.locationService.updateLocationInDB(data);
 
     return doc;

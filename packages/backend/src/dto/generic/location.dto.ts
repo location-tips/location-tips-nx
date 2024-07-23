@@ -44,6 +44,9 @@ export class LocationEntityDTO implements TLocationEntity {
     @ApiProperty({ description: 'Unique identifier of the location entity' })
     id?: string;
 
+    @ApiProperty({ description: 'Unique identifier of the user' })
+    uid: string;
+
     @ApiProperty({ description: 'Date and time when the location entity was created' })
     createdAt?: Date;
 

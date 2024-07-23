@@ -39,6 +39,7 @@ export type TLocationSearchDescription = {
 
 export type TLocationEntity = {
     id?: string;
+    uid: string;
     createdAt?: Date;
     updatedAt?: Date;
     embedding_field: VectorValue;
