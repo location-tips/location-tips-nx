@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { LocationsService } from './locations.service';
-import { PostLocationsResponseDTO, PostLocationsRequestDTO } from '@back/dto/postLocations.dto';
+import { PostLocationsResponseDTO, PostLocationsRequestDTO } from '@back/dto';
 import { ApiResponse, ApiTags, ApiOperation } from '@nestjs/swagger';
 
 @ApiTags('locations')

@@ -1,4 +1,4 @@
-import type { TLocationEntity } from '../generic/location';
+import type { TLocationEntity } from '../../generic/location';
 
 export type DeleteLocationRequest = Pick<TLocationEntity, 'id'>;
 

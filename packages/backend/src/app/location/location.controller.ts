@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Post, Put, Headers, UploadedFile, UseInterceptors, UseGuards, Request } from '@nestjs/common';
+import { Body, Controller, Delete, Post, Put, UploadedFile, UseInterceptors, UseGuards, Request } from '@nestjs/common';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
 
@@ -7,12 +7,14 @@ import { FieldValue } from '@google-cloud/firestore';
 import { LocationService } from './location.service';
 import type { TLocation, TLocationEntity } from '@types';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { PostLocationRequestDTO, PostLocationResponseDTO } from '@back/dto/postLocation.dto';
-import { PutLocationRequestDTO, PutLocationResponseDTO } from '@back/dto/putLocation.dto';
+import { 
+  PostLocationRequestDTO, PostLocationResponseDTO,
+  DeleteLocationRequestDTO, DeleteLocationResponseDTO,
+  PutLocationRequestDTO, PutLocationResponseDTO,
+ } from '@back/dto';
 
 import { geohashForLocation } from 'geofire-common';
 import { getEmbeddings } from '@back/utils/vertex';
-import { DeleteLocationRequestDTO, DeleteLocationResponseDTO } from '@back/dto/deleteLocation.dto';
 import { AuthGuard } from '@back/app/guards/auth.guard';
 
 @ApiTags('location')
