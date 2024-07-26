@@ -24,7 +24,7 @@ export class LocationsSetService {
 
     await db.collection('locationssets').doc(id).set(restData, { merge: true });
 
-    const locationsSet = (await db.collection('locationssets').doc(id).get()).data() as TLocationsSet;
+    const locationsSet = {id, ...((await db.collection('locationssets').doc(id).get()).data() as TLocationsSet) };
 
     await this.updateEmbeddingsInLocationsSet(locationsSet);
 
@@ -41,7 +41,7 @@ export class LocationsSetService {
     return { id };
   }
 
-  async updateEmbeddingsInLocationsSet(locationsSet: TLocationsSet): Promise<void> {
+  private async updateEmbeddingsInLocationsSet(locationsSet: TLocationsSet): Promise<void> {
     const db = admin.firestore();
     
     const locationIds = locationsSet.locations.map((location) => location.id);

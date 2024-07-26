@@ -35,7 +35,8 @@ export class LocationsSetsService {
         })
         .get();
 
-        result = locations.docs.map((doc) => doc.data() as TLocationsSet);
+        result = locations.docs.map((doc) => ({ id: doc.id, ...(doc.data() as TLocationsSet)}));
+        
     } else if (searchText && uid) {
       // Get users sets by search text
       const embeddings = await getEmbeddings(searchText);
@@ -51,7 +52,7 @@ export class LocationsSetsService {
         })
         .get();
 
-      result = locations.docs.map((doc) => doc.data() as TLocationsSet);
+      result = locations.docs.map((doc) => ({ id: doc.id, ...(doc.data() as TLocationsSet)}));
 
     } else if (!searchText && uid) {
       // Get users sets
@@ -64,7 +65,7 @@ export class LocationsSetsService {
         .offset(offset)
         .get();
 
-      result = locations.docs.map((doc) => doc.data() as TLocationsSet);
+      result = locations.docs.map((doc) => ({ id: doc.id, ...(doc.data() as TLocationsSet)}));
 
     } else {
       // Get all sets
@@ -76,7 +77,7 @@ export class LocationsSetsService {
         .offset(offset)
         .get();
 
-        result = locations.docs.map((doc) => doc.data() as TLocationsSet);
+        result = locations.docs.map((doc) => ({ id: doc.id, ...(doc.data() as TLocationsSet)}));
     }
 
     return {
