@@ -11,7 +11,7 @@ import {
   TLocationsWithScore,
   TTranslation,
 } from '@types';
-import { getEmbeddings } from 'packages/backend/src/utils/vertex';
+import { getEmbeddings } from '@back/utils/vertex';
 import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
 import { getDistanceBetweenEmbeddings, getRadiusFromBoundingBox } from '@back/utils/distance';
 

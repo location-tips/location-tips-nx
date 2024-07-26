@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
 
-import { LocationsController } from './locations.controller';
-import { LocationsService } from './locations.service';
 import { FastifyMulterModule } from '@nest-lab/fastify-multer';
+import { LocationsService } from './locations.service';
+import { LocationsController } from './locations.controller';
+import { LocationsSetModule } from './set/locationsSet.module';
+import { LocationsSetsModule } from './sets/locationsSets.module';
 
 @Module({
-  imports: [FastifyMulterModule],
+  imports: [FastifyMulterModule, LocationsSetModule, LocationsSetsModule],
   controllers: [LocationsController],
   providers: [LocationsService],
 })

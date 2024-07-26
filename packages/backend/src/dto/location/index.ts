@@ -1,3 +1,3 @@
-export * from './postLocation.dto';
-export * from './putLocation.dto';
-export * from './deleteLocation.dto';
+export * from './post.dto';
+export * from './put.dto';
+export * from './delete.dto';
