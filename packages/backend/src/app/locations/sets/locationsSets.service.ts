@@ -11,6 +11,7 @@ import {
   PostLocationsSetsResponse,
 } from '@types';
 import { getEmbeddings } from 'packages/backend/src/utils/vertex';
+import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
 
 @Injectable()
 export class LocationsSetsService {
@@ -26,28 +27,28 @@ export class LocationsSetsService {
       const embeddings = await getEmbeddings(searchText);
 
       const db = admin.firestore();
-      let collectionRef = db.collection('locationssets');
+      let collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
 
       const locations = await collectionRef
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
-          limit: 20,
+          limit: DB_DEFAULT_LIMIT,
           distanceMeasure: 'COSINE',
         })
         .get();
 
         result = locations.docs.map((doc) => ({ id: doc.id, ...(doc.data() as TLocationsSet)}));
-        
+
     } else if (searchText && uid) {
       // Get users sets by search text
       const embeddings = await getEmbeddings(searchText);
 
       const db = admin.firestore();
-      let collectionRef = db.collection('locationssets');
+      let collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
 
       const locations = await collectionRef
         .where('uid', '==', uid)
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
-          limit: 20,
+          limit: DB_DEFAULT_LIMIT,
           distanceMeasure: 'COSINE',
         })
         .get();
@@ -57,11 +58,11 @@ export class LocationsSetsService {
     } else if (!searchText && uid) {
       // Get users sets
       const db = admin.firestore();
-      let collectionRef = db.collection('locationssets');
+      let collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
 
       const locations = await collectionRef
         .where('uid', '==', uid)
-        .limit(20)
+        .limit(DB_DEFAULT_LIMIT)
         .offset(offset)
         .get();
 
@@ -70,10 +71,10 @@ export class LocationsSetsService {
     } else {
       // Get all sets
       const db = admin.firestore();
-      let collectionRef = db.collection('locationssets');
+      let collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
 
       const locations = await collectionRef
-        .limit(20)
+        .limit(DB_DEFAULT_LIMIT)
         .offset(offset)
         .get();
 

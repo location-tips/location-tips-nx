@@ -3,13 +3,14 @@ import { Injectable } from '@nestjs/common';
 import admin, { firestore } from 'firebase-admin';
 import { getEmbeddings } from '@back/utils/vertex';
 import { FieldValue } from '@google-cloud/firestore';
+import { COLLECTIONS } from '@const';
 
 @Injectable()
 export class LocationsSetService {
   async saveLocationsSetToDB(locationsSet: TLocationsSet): Promise<TLocationsSet> {
     const db = admin.firestore();
 
-    const ref = await db.collection('locationssets').add(locationsSet);
+    const ref = await db.collection(COLLECTIONS.LOCATIONS_SETS).add(locationsSet);
     const doc = await ref.get();
     const locationsSetResult = { id: doc.id, ...doc.data() as TLocationsSet };
 
@@ -22,9 +23,9 @@ export class LocationsSetService {
     const db = admin.firestore();
     // TODO: Access controller to check if user is allowed to update LocationsSet
 
-    await db.collection('locationssets').doc(id).set(restData, { merge: true });
+    await db.collection(COLLECTIONS.LOCATIONS_SETS).doc(id).set(restData, { merge: true });
 
-    const locationsSet = {id, ...((await db.collection('locationssets').doc(id).get()).data() as TLocationsSet) };
+    const locationsSet = {id, ...((await db.collection(COLLECTIONS.LOCATIONS_SETS).doc(id).get()).data() as TLocationsSet) };
 
     await this.updateEmbeddingsInLocationsSet(locationsSet);
 
@@ -36,7 +37,7 @@ export class LocationsSetService {
 
     const db = admin.firestore();
 
-    await db.collection('locationssets').doc(id).delete();
+    await db.collection(COLLECTIONS.LOCATIONS_SETS).doc(id).delete();
 
     return { id };
   }
@@ -47,7 +48,7 @@ export class LocationsSetService {
     const locationIds = locationsSet.locations.map((location) => location.id);
     const locationDescriptions = locationsSet.locations.map((location) => location.authorDescription);
   
-    const locationsDocs = await db.collection('locations').where(firestore.FieldPath.documentId(), 'in', locationIds).get();
+    const locationsDocs = await db.collection(COLLECTIONS.LOCATIONS).where(firestore.FieldPath.documentId(), 'in', locationIds).get();
 
     const keywords = new Set<string>();
 
@@ -64,7 +65,7 @@ export class LocationsSetService {
 
     const embeddings = await getEmbeddings(textEmbeddings);
 
-    await db.collection('locationssets').doc(locationsSet.id).set({ embedding_field: FieldValue.vector(embeddings[0]) }, { merge: true });
+    await db.collection(COLLECTIONS.LOCATIONS_SETS).doc(locationsSet.id).set({ embedding_field: FieldValue.vector(embeddings[0]) }, { merge: true });
 
   }
 }
