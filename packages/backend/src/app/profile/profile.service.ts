@@ -2,6 +2,7 @@ import type { PutProfileRequest, TProfile } from '@types';
 import { Injectable } from '@nestjs/common';
 import { extractExif } from '@back/utils/exif';
 import admin from 'firebase-admin';
+import { COLLECTIONS } from '@const';
 
 @Injectable()
 export class ProfileService {
