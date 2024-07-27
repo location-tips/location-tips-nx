@@ -11,9 +11,10 @@ import {
   TLocationsWithScore,
   TTranslation,
 } from '@types';
-import { getEmbeddings } from 'packages/backend/src/utils/vertex';
+import { getEmbeddings } from '@back/utils/vertex';
 import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
 import { getDistanceBetweenEmbeddings, getRadiusFromBoundingBox } from '@back/utils/distance';
+import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
 
 @Injectable()
 export class LocationsService {
@@ -31,7 +32,7 @@ export class LocationsService {
     const mapResult = new Map<string, TLocationEntity>();
     const db = admin.firestore();
     const locations = await db
-      .collection('locations')
+      .collection(COLLECTIONS.LOCATIONS)
       .where(admin.firestore.FieldPath.documentId(), 'in', ids)
       .get();
 
@@ -58,7 +59,7 @@ export class LocationsService {
 
     for (const b of bounds) {
       const q = db
-        .collection('locations')
+        .collection(COLLECTIONS.LOCATIONS)
         .orderBy('geohash')
         .startAt(b[0])
         .endAt(b[1]);
@@ -95,7 +96,7 @@ export class LocationsService {
     const embeddings = await getEmbeddings(text);
 
     const db = admin.firestore();
-    let collectionRef = db.collection('locations');
+    let collectionRef = db.collection(COLLECTIONS.LOCATIONS);
     let locationsInRegion = [];
 
     if (queryDescription.near[0]) {
@@ -137,7 +138,7 @@ export class LocationsService {
       locations = await collectionRef
         .where('geohash', 'in', locationsInRegion.map((l) => l.geohash))
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
-        limit: 20,
+        limit: DB_DEFAULT_LIMIT,
         distanceMeasure: 'COSINE',
       })
       .get();
@@ -146,7 +147,7 @@ export class LocationsService {
       // Search locations by prompt
       locations = await collectionRef
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
-          limit: 20,
+          limit: DB_DEFAULT_LIMIT,
           distanceMeasure: 'COSINE',
         })
         .get();
