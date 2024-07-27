@@ -1,4 +1,4 @@
-import type { TLocationSearchDescription, TLocationsWithScore } from '../generic/location';
+import type { TLocationSearchDescription, TLocationsWithScore } from '../../generic/location';
 
 export type PostLocationsRequest = {
     searchText: string;

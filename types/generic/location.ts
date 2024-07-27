@@ -1,3 +1,5 @@
+import { VectorValue } from '@google-cloud/firestore';
+
 export type TCoordinate = {
     latitude: number;
     longitude: number;
@@ -11,6 +13,7 @@ export type TLocation = {
 };
 
 export type TGeminiResponseDescribeImage = {
+    title: string;
     keywords: string[];
     description: string;
     location?: TLocation;
@@ -36,12 +39,15 @@ export type TLocationSearchDescription = {
 
 export type TLocationEntity = {
     id?: string;
+    uid: string;
     createdAt?: Date;
     updatedAt?: Date;
-    embedding_field: FirebaseFirestore.VectorValue;
+    embedding_field: VectorValue;
     geohash: string;
     location: TLocation;
     keywords: string[];
+    title: string;
+    userDescription?: string;
     description: string;
     image?: TGeminiResponseDescribeImage & {
         url: string;

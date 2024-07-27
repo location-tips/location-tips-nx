@@ -34,7 +34,7 @@ const SearchLocationForm = () => {
         {state.searchResult && <div>
             {state.searchResult?.map((location: any) => {
                 return <div key={location.id}>
-                    <h3>{location.location.name} ({location.location.type}) {location.score}</h3>
+                    <h3>{location.title} ({location.location.type}) {Number(location.score).toFixed(2)}</h3>
                     <div>{location.description}</div>
                 </div>;
             })}
