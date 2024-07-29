@@ -34,7 +34,7 @@ const GoogleLoginButton = ({ onSuccess, onFailure, auth }: GoogleLoginButtonProp
             });
     };
 
-    return <MButton onClick={handleGoogleLogin}>Google</MButton>;
+    return <MButton mode="transparent" onClick={handleGoogleLogin}>Google</MButton>;
 };
 
 export default GoogleLoginButton;

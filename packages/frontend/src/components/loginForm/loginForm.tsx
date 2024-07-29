@@ -3,8 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import GoogleLoginButton from "@front/components/loginForm/loginButtons/googleLoginButton";
 import { MButton } from "@location-tips/location-tips-uikit/atoms/MButton";
+import { MDropdown } from "@location-tips/location-tips-uikit/atoms/MDropdown";
 import { MFlex } from "@location-tips/location-tips-uikit/atoms/MFlex";
-import { MText } from "@location-tips/location-tips-uikit/atoms/MText";
+import ProfileButton from "@front/components/profileButton/profileButton";
 import { getAuth, User } from "firebase/auth";
 import "@front/utils/configureFirebase";
 
@@ -12,6 +13,7 @@ const auth = getAuth();
 
 const LoginForm = () => {
     const [currentUser, setCurrentUser] = useState(auth.currentUser);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
     const isAuthenticated = useMemo(() => currentUser !== null, [currentUser]);
 
     useEffect(() => {
@@ -36,14 +38,17 @@ const LoginForm = () => {
         console.error(error);
     };
 
-    const onSignOut = () => {
-        // Handle sign out
-        auth.signOut();
+    const toggleDropdownOpen = () => {
+        setDropdownOpen((prevDropdownOpen) => !prevDropdownOpen);
     }
 
-    return <MFlex direction="column">
-        {!isAuthenticated && <GoogleLoginButton auth={auth} onSuccess={handleLoginSuccess} onFailure={handleLoginFailure} />}
-        {isAuthenticated && <MFlex gap="xl">{currentUser?.displayName}<MText></MText><MButton onClick={onSignOut}>Sign Out</MButton></MFlex>}
+    return <MFlex direction="column" justify="center" align="end">
+        {!isAuthenticated && 
+            <MDropdown onClose={() => { setDropdownOpen(true) }} noPadding={true} dropdownContent={<GoogleLoginButton auth={auth} onSuccess={handleLoginSuccess} onFailure={handleLoginFailure} />} open={dropdownOpen} align="right" stretch={false}>
+                <MButton onClick={toggleDropdownOpen}>Sign In</MButton>
+            </MDropdown>
+        }
+        {isAuthenticated && <ProfileButton />}
     </MFlex>
 };
 

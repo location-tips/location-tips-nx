@@ -1,8 +1,0 @@
-.searchForm {
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-}

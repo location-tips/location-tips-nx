@@ -5,6 +5,6 @@ export type PostLocationsRequest = {
 }
 
 export type PostLocationsResponse = {
-    searchResult: TLocationsWithScore,
+    searchResult: TLocationsWithScore[],
     queryDescription: TLocationSearchDescription,
 }
