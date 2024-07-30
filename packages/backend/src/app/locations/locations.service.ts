@@ -19,9 +19,16 @@ import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
 @Injectable()
 export class LocationsService {
   async describeSearchQuery(
-    query: string
+    prompt: string,
+    image?: File,
+    voice?: File
   ): Promise<TLocationSearchDescription> {
-    return geminiDescribeSearchQuery(query);
+    console.log("---------------++++++++++-------------");
+    console.log("voice", voice);
+    console.log("image", image);
+    console.log("prompt", prompt);
+    console.log("---------------++++++++++-------------");
+    return geminiDescribeSearchQuery(prompt, image, voice);
   }
 
   async translateToEnglish(query: string): Promise<TTranslation> {

@@ -19,11 +19,11 @@ const CreateLocationForm = () => {
     return <MFlex direction='column' gap='xl'>
         <AuthorizedForm action={formAction}>
             <MFlex direction="row" gap="xl" align="center" justify="stretch">
-            <MInput type="file" name="image" />
+                <MInput type="file" name="image" />
 
-            <FormStatus />
+                <FormStatus />
 
-            <MButton type="submit" id="commands">Create</MButton>
+                <MButton type="submit" id="commands">Create</MButton>
 
             </MFlex>
         </AuthorizedForm>;
