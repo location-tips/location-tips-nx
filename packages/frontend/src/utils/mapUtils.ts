@@ -12,8 +12,6 @@ export function getBoundsZoomLevel(bounds: TBounds, pixelWidth: number): number 
 
     const zoom = Math.round(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
 
-    console.log('zoom', zoom);
-
     return zoom;
 }
 

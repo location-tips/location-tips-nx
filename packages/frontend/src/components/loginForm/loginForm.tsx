@@ -30,7 +30,7 @@ const LoginForm = () => {
 
     const handleLoginSuccess = (token: string, user: User) => {
         // Handle successful login
-        console.log(token, user);
+        // console.log(token, user);
     };  
 
     const handleLoginFailure = (error: Error) => {

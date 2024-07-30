@@ -36,17 +36,15 @@ const SearchMapElements = ({ queryDescription, searchResult }: SearchMapElements
                 userLocation?.longitude ??
                 0,
         };
-        console.log("set center", c);
         map?.setCenter(c);
 
         const c1 = map?.getCenter() ?? { lat: () => 0, lng: () => 0 };
-        console.log("get center", c1.lat(), c1.lng());
 
     }, [queryDescription, userLocation]);
 
     useEffect(() => {
         const c = map?.getCenter() ?? { lat: () => 0, lng: () => 0 };
-        console.log("get center", c.lat(), c.lng());
+
         map?.setZoom(
             radius
                 ? getRadiusZoomLevel({ latitude: c.lat(), longitude: c.lng() }, radius, 256)

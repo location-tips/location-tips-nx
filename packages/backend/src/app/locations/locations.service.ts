@@ -23,11 +23,6 @@ export class LocationsService {
     image?: File,
     voice?: File
   ): Promise<TLocationSearchDescription> {
-    console.log("---------------++++++++++-------------");
-    console.log("voice", voice);
-    console.log("image", image);
-    console.log("prompt", prompt);
-    console.log("---------------++++++++++-------------");
     return geminiDescribeSearchQuery(prompt, image, voice);
   }
 
