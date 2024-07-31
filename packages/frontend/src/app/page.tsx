@@ -1,30 +1,17 @@
-import CreateLocationForm from '@front/components/createLocationForm/createLocationForm';
-import SearchLocationForm from '@front/components/searchLocationForm/searchLocationForm';
-import LoginForm from '@front/components/loginForm/loginForm';
-import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+import SearchLocationForm from '@front/components/searchLocation/searchLocation';
+import Page from '@front/components/page/page';
 
 import styles from './page.module.css';
 
 export const metadata = {}
 
 export default function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.css file.
-   */
+  const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+  const mapId = process.env.GOOGLE_MAPS_ID;
+
   return (
-    <MFlex direction="column" gap="xl" align="center" justify="stretch" className={styles.page}>
-        <LoginForm />
-
-        <MCard className={styles.fromContainer}>
-          <SearchLocationForm />
-        </MCard>
-
-        <MCard className={styles.fromContainer}>
-          <CreateLocationForm />
-        </MCard>
-    </MFlex>
+    <Page>
+      {apiKey && mapId && <SearchLocationForm apiKey={apiKey} mapId={mapId} />}
+    </Page>
   );
 }

@@ -5,6 +5,13 @@ export type TCoordinate = {
     longitude: number;
 };
 
+export type TBounds = {
+    north: number;
+    south: number;
+    east: number;
+    west: number;
+};
+
 export type TLocation = {
     name: string;
     type: string;
@@ -20,12 +27,7 @@ export type TGeminiResponseDescribeImage = {
 };
 
 export type TBoundedLocation = TLocation & {
-    boundingBox: {
-        north: number;
-        south: number;
-        east: number;
-        west: number;
-    };
+    boundingBox: TBounds;
 };
 
 export type TLocationSearchDescription = {
@@ -35,6 +37,8 @@ export type TLocationSearchDescription = {
     distance?: string;
     description: string;
     prompt: string;
+    image?: string;
+    voice?: string;
 }
 
 export type TLocationEntity = {

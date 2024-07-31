@@ -16,7 +16,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 configureFirebase();
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());
+  const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter({ logger: { level: 'debug' }, bodyLimit: 20048576 }));
   const globalPrefix = 'api';
 
   const config = new DocumentBuilder()
