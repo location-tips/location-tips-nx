@@ -22,9 +22,6 @@ export const geminiDescribeImage = async (
             title: <location name or guess the title by image>
             keywords: [<here should be the list of objects you found on the image, including natural objects such as mountains, lakes, rivers, hills etc, landmark, location name, country, state, region, city, town, village name, architecture style>],
             description: <Provide detailed and practical description, including objects you see, lanscape and the category of the environment.>,
-            title: <location name or guess the title by image>
-            keywords: [<here should be the list of objects you found on the image, including natural objects such as mountains, lakes, rivers, hills etc, landmark, location name, country, state, region, city, town, village name, architecture style>],
-            description: <Provide detailed and practical description, including objects you see, lanscape and the category of the environment.>,
             location: <try to recognize where this shot has been made any landmarks or famous place on the photo. Return please following fields: {name: <place name>, type: <place type>, description: <place description>, coordinates: {latitude: <latitude>, longitude: <longitude>}}>
         }
         Important! <place type> should be one of the following categories: ${CATEGORIES.join(
