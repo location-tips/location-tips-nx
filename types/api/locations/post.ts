@@ -1,4 +1,4 @@
-import type { TLocationSearchDescription, TLocationsWithScore } from '../../generic/location';
+import type { TLocationInResult, TLocationSearchDescription } from '../../generic/location';
 
 export type PostLocationsRequest = {
     searchText?: string;
@@ -7,6 +7,6 @@ export type PostLocationsRequest = {
 }
 
 export type PostLocationsResponse = {
-    searchResult: TLocationsWithScore[],
+    searchResult: TLocationInResult[],
     queryDescription: TLocationSearchDescription,
 }
