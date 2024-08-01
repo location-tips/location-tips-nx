@@ -5,6 +5,13 @@ export type TCoordinate = {
     longitude: number;
 };
 
+export type TBounds = {
+    north: number;
+    south: number;
+    east: number;
+    west: number;
+};
+
 export type TLocation = {
     name: string;
     type: string;
@@ -20,12 +27,7 @@ export type TGeminiResponseDescribeImage = {
 };
 
 export type TBoundedLocation = TLocation & {
-    boundingBox: {
-        north: number;
-        south: number;
-        east: number;
-        west: number;
-    };
+    boundingBox: TBounds;
 };
 
 export type TLocationSearchDescription = {
@@ -34,7 +36,11 @@ export type TLocationSearchDescription = {
     location: TLocation[];
     distance?: string;
     description: string;
+    originalPrompt: string;
     prompt: string;
+    image?: string;
+    voice?: string;
+    voiceKeywords?: string;
 }
 
 export type TLocationEntity = {
@@ -58,3 +64,18 @@ export type TLocationEntity = {
 export type TLocationsWithScore = TLocationEntity &{
     score: number;
 };
+
+export type TImages = {
+    original: string;
+    small: string;
+    medium: string;
+}
+
+export type TLocationsWithImages = TLocationEntity & {
+    images: TImages;
+}
+
+export type TLocationInResult = TLocationsWithScore & TLocationsWithImages &{
+    nearest: TLocationsWithImages[];
+  };
+

@@ -29,7 +29,6 @@ export class LocationController {
   @ApiResponse({ status: 400, description: 'Empty request.'})
   @ApiResponse({ status: 403, description: 'Forbidden.'})
   @ApiResponse({ status: 500, description: 'Server error.'})
-  @UseInterceptors(FileInterceptor('file'))
   @ApiConsumes('multipart/form-data')
   @ApiBody({
     description: 'Image file of location.',

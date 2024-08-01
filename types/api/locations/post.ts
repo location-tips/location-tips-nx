@@ -1,10 +1,12 @@
-import type { TLocationSearchDescription, TLocationsWithScore } from '../../generic/location';
+import type { TLocationInResult, TLocationSearchDescription } from '../../generic/location';
 
 export type PostLocationsRequest = {
-    searchText: string;
+    searchText?: string;
+    image?: File;
+    voice?: File;
 }
 
 export type PostLocationsResponse = {
-    searchResult: TLocationsWithScore,
+    searchResult: TLocationInResult[],
     queryDescription: TLocationSearchDescription,
 }

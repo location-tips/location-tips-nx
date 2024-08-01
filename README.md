@@ -34,6 +34,10 @@ Backend built on Nest.js framework
 To be able working with firebase create `.env` file in backend's root folder `packages/backend`
 ```
 FIREBASE_SERVICE_ACCOUNT_KEY=<ask_me_for_the_key>
+GEMINI_API_KEY=
+VERTEX_AI_ACCOUNT_KEY=
+GOOGLE_MAPS_API_KEY=
+GOOGLE_MAPS_ID=
 ``` 
 
 #### Databases

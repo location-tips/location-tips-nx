@@ -7,25 +7,52 @@ import {
 } from '@back/utils/gemini';
 import {
   TLocationEntity,
+  TLocationInResult,
   TLocationSearchDescription,
+  TLocationsWithImages,
   TLocationsWithScore,
   TTranslation,
 } from '@types';
 import { getEmbeddings } from '@back/utils/vertex';
 import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
 import { getDistanceBetweenEmbeddings, getRadiusFromBoundingBox } from '@back/utils/distance';
-import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
+import { COLLECTIONS, DB_DEFAULT_LIMIT, STORAGE_ORIGINAL_FOLDER, STORAGE_THUMBS_FOLDER, STORAGE_THUMBS_MEDIUM_SUFFIX, STORAGE_THUMBS_SMALL_SUFFIX } from '@const';
 
 @Injectable()
 export class LocationsService {
   async describeSearchQuery(
-    query: string
+    prompt: string,
+    image?: File,
+    voice?: File
   ): Promise<TLocationSearchDescription> {
-    return geminiDescribeSearchQuery(query);
+    return geminiDescribeSearchQuery(prompt, image, voice);
   }
 
   async translateToEnglish(query: string): Promise<TTranslation> {
     return geminiTranslateToEnglish(query);
+  }
+
+  async getNearestLocations(geohash: string): Promise<TLocationEntity[]> {
+    const db = admin.firestore();
+    const locations = await db
+      .collection(COLLECTIONS.LOCATIONS)
+      .where('geohash', '==', geohash)
+      .limit(DB_DEFAULT_LIMIT)
+      .get();
+
+    return locations.docs.map((doc) => doc.data() as TLocationEntity);
+  }
+
+  async getImages(url: string): Promise<{ original: string; small: string; medium: string }> {
+    const original = admin.storage().bucket().file(`${STORAGE_ORIGINAL_FOLDER}${url}`);
+    const medium = admin.storage().bucket().file(`${STORAGE_THUMBS_FOLDER}/${url.replace('.webp', STORAGE_THUMBS_MEDIUM_SUFFIX + '.webp')}`);
+    const small = admin.storage().bucket().file(`${STORAGE_THUMBS_FOLDER}/${url.replace('.webp', STORAGE_THUMBS_SMALL_SUFFIX + '.webp')}`);
+
+    return {
+      original: (await original.getSignedUrl({action: 'read', expires: new Date().getTime() + 60 * 60 * 1000}))[0],
+      small: (await small.getSignedUrl({action: 'read', expires: new Date().getTime() + 60 * 60 * 1000}))[0],
+      medium: (await medium.getSignedUrl({action: 'read', expires: new Date().getTime() + 60 * 60 * 1000}))[0],
+    }
   }
 
   async getLocationsByIds(ids: string[]): Promise<TLocationEntity[]> {
@@ -155,13 +182,41 @@ export class LocationsService {
       return [];
     }
 
-    // Calculate the distance between the embeddings
-    return locations.docs.map((doc) => {
+    // Group locations by geohash
+    const locationsMap = new Map<string, (TLocationsWithScore & TLocationsWithImages)[]>();
+
+    await Promise.all(locations.docs.map(async (doc) => {
       const locationEntity = doc.data() as TLocationEntity;
+      const score = getDistanceBetweenEmbeddings(embeddings[0], locationEntity.embedding_field.toArray());
+      const images = await this.getImages(locationEntity.image.url);
+
+      const locationResult: TLocationsWithScore & TLocationsWithImages = {
+        ...locationEntity,
+        id: doc.id,
+        score,
+        images,
+      };
 
       delete locationEntity.image;
 
-      return { ...locationEntity, score: getDistanceBetweenEmbeddings(embeddings[0], locationEntity.embedding_field.toArray()) };
+      if (locationsMap.has(locationEntity.geohash)) {
+        locationsMap.get(locationEntity.geohash).push(locationResult);
+      } else {
+        locationsMap.set(locationEntity.geohash, [locationResult]);
+      }
+    }));
+
+    const locationsToReturn: TLocationInResult[] = [];
+
+    locationsMap.forEach((locations) => {
+      locationsToReturn.push({
+        ...locations[0],
+        nearest: locations.slice(1) ?? [],
+      });
     });
+
+    console.log('locationsToReturn', locationsToReturn);
+
+    return locationsToReturn;
   }
 }

@@ -1,0 +1,7 @@
+.marker {
+    color: var(--palette-primary-60B);
+}
+
+.marker:hover {
+    color: var(--palette-primary-70);
+}

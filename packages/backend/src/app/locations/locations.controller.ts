@@ -1,7 +1,8 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UploadedFiles, UseInterceptors } from '@nestjs/common';
 import { LocationsService } from './locations.service';
 import { PostLocationsResponseDTO, PostLocationsRequestDTO } from '@back/dto';
-import { ApiResponse, ApiTags, ApiOperation } from '@nestjs/swagger';
+import { ApiResponse, ApiTags, ApiOperation, ApiBody, ApiConsumes } from '@nestjs/swagger';
+import { File as FastifyFile, FileFieldsInterceptor } from '@nest-lab/fastify-multer';
 
 @ApiTags('locations')
 @Controller('locations')
@@ -14,19 +15,41 @@ export class LocationsController {
   @ApiResponse({ status: 400, description: 'Empty request.'})
   @ApiResponse({ status: 403, description: 'Forbidden.'})
   @ApiResponse({ status: 500, description: 'Server error.'})
-  async postLocations(@Body() locationsRequestDTO: PostLocationsRequestDTO) {
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    description: 'Locations search request.',
+    type: PostLocationsRequestDTO,
+  })
+  @UseInterceptors(
+    FileFieldsInterceptor([
+      { name: 'image', maxCount: 1 },
+      { name: 'voice', maxCount: 1 },
+    ]),
+  )
+  async postLocations(@Body() locationsRequestDTO: PostLocationsRequestDTO, @UploadedFiles() files: { image?: FastifyFile; voice?: FastifyFile }) {
     const { searchText } = locationsRequestDTO;
 
-    const time = Date.now();
+    const { image, voice } = files;
 
-    // Translate search text to english
-    // TODO: Add here any local service to detect the language of the search text without requesting to the gemini api
-    const translatedText = await this.locationsService.translateToEnglish(searchText);
+    let imageFile: File;
+    let voiceFile: File;
+
+    if (image?.[0]?.size) {
+      const imageFileBlob = new Blob([image[0].buffer], { type: image[0].mimetype });
+      imageFile = new File([imageFileBlob], image[0].originalname, { type: image[0].mimetype });
+    }
+
+    if (voice?.[0]?.size) {
+      const voiceFileBlob = new Blob([voice[0].buffer], { type: voice[0].mimetype });
+      voiceFile = new File([voiceFileBlob], voice[0].originalname, { type: voice[0].mimetype });
+    }
 
     // Parse search query with gemini ai
-    const queryDescription = await this.locationsService.describeSearchQuery(translatedText.translated ?? searchText);
+    const queryDescription = await this.locationsService.describeSearchQuery(searchText, imageFile, voiceFile);
 
-    const locations = await this.locationsService.searchLocations(searchText, queryDescription); 
+    const finalPrompt = queryDescription.prompt + (queryDescription.image ?? "") + (queryDescription.voiceKeywords ?? "");
+
+    const locations = await this.locationsService.searchLocations(finalPrompt, queryDescription); 
 
     return { searchResult: locations, queryDescription };
   }

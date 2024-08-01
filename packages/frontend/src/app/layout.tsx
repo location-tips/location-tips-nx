@@ -1,3 +1,6 @@
+import Header from '@front/components/header/header';
+import ThemeProvider from '@front/components/themeProvider/themeProvider';
+import '@location-tips/location-tips-uikit/styles/index.css';
 import './global.css';
 
 export const metadata = {
@@ -12,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ThemeProvider />
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
