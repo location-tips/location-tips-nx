@@ -44,14 +44,10 @@ export class LocationsController {
       voiceFile = new File([voiceFileBlob], voice[0].originalname, { type: voice[0].mimetype });
     }
 
-    // Translate search text to english
-    // TODO: Add here any local service to detect the language of the search text without requesting to the gemini api
-    const translatedText = await this.locationsService.translateToEnglish(searchText);
-
     // Parse search query with gemini ai
-    const queryDescription = await this.locationsService.describeSearchQuery(translatedText.translated ?? searchText, imageFile, voiceFile);
+    const queryDescription = await this.locationsService.describeSearchQuery(searchText, imageFile, voiceFile);
 
-    const finalPrompt = queryDescription.prompt + (queryDescription.image ?? "") + (queryDescription.voice ?? "");
+    const finalPrompt = queryDescription.prompt + (queryDescription.image ?? "") + (queryDescription.voiceKeywords ?? "");
 
     const locations = await this.locationsService.searchLocations(finalPrompt, queryDescription); 
 

@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import type { TBoundedLocation, TCoordinate, TGeminiResponseDescribeImage, TLocation, TLocationEntity, TLocationSearchDescription, TLocationsWithScore } from '@types';
+import type { TBoundedLocation, TCoordinate, TGeminiResponseDescribeImage, TImages, TLocation, TLocationEntity, TLocationInResult, TLocationSearchDescription, TLocationsWithImages, TLocationsWithScore } from '@types';
 
 export class CoordinateDTO implements TCoordinate {
     @ApiProperty({ description: 'Latitude of the location', type: 'number' })
@@ -72,7 +72,31 @@ export class LocationEntityDTO implements TLocationEntity {
     image?: TGeminiResponseDescribeImage & { url: string; };
 }
 
-export class LocationsWithScoreDTO extends LocationEntityDTO implements TLocationsWithScore {
+export class ImagesDTO implements TImages {
+    @ApiProperty({ description: 'Original quality image URL' })
+    original: string;
+
+    @ApiProperty({ description: 'Small quality image URL' })
+    small: string;
+
+    @ApiProperty({ description: 'Medium quality image URL' })
+    medium: string;
+}
+
+export class LocationWithImagesEntityDTO extends LocationEntityDTO implements TLocationsWithImages {
+    @ApiProperty({ description: 'Images with different quality', type: ImagesDTO })
+    images: TImages;
+}
+
+export class LocationsWithScoreDTO extends LocationWithImagesEntityDTO implements TLocationInResult {
+    
+    @ApiProperty({
+        description: 'Locations in the same place and similar to search query',
+        type: LocationWithImagesEntityDTO,
+        isArray: true,
+    })
+    nearest: TLocationsWithImages[];
+    
     @ApiProperty({
         description: 'Score of the location entity',
     })
@@ -80,6 +104,26 @@ export class LocationsWithScoreDTO extends LocationEntityDTO implements TLocatio
 }
 
 export class LocationSearchDescriptionDTO implements TLocationSearchDescription {
+    @ApiProperty({
+        description: 'Original prompt for the search query without translation and processing',
+    })
+    originalPrompt: string;
+    
+    @ApiProperty({
+        description: 'Image prompt for the search query',
+    })
+    image?: string;
+
+    @ApiProperty({
+        description: 'Voice request to search',
+    })
+    voice?: string;
+
+    @ApiProperty({
+        description: 'Keywords extracted from the voice request',
+    })
+    voiceKeywords?: string;
+
     @ApiProperty({
         description: 'Locations near the search query',
         type: LocationDTO,
