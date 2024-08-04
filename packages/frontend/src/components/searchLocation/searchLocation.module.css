@@ -1,55 +1,58 @@
 .gridContainer {
-    display: grid;
-    grid: 1fr / repeat(24, 1fr);
-    grid-gap: 24;
-    justify-content: stretch;
-    align-items: stretch;
-    height: calc(100vh - var(--header-height));
+  display: grid;
+  grid: 1fr / repeat(24, 1fr);
+  grid-gap: var(--whiteSpace-general-3x, 24px);
+  justify-content: stretch;
+  align-items: stretch;
+  height: calc(100vh - var(--header-height, 80px));
 }
 
 .mapContainer {
-    grid-column: 1 / span 16;
-    grid-row: 1 / span 24;
-    position: relative;
+  grid-column: 1 / span 16;
+  grid-row: 1 / span 24;
+  position: relative;
 }
 
 .resultsContainer {
-    grid-column: 17 / span 8;
-    grid-row: 1 / span 24;
-    overflow-y: auto;
-    padding: 24;
+  grid-column: 17 / span 8;
+  grid-row: 1 / span 24;
+  overflow-y: auto;
+  scrollbar-color: var(--palette-gray-2, #747e97) transparent;
+  scrollbar-width: thin;
 }
 
 .sidebarResult {
-    height: 100%;
-    box-sizing: border-box;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .mapContainer .searchFormContainerWrapper {
-    width: 100%;
-    position: absolute;
-    top: 24px;
-    left: 0;
-    pointer-events: none;
+  width: 100%;
+  position: absolute;
+  top: 24px;
+  left: 0;
+  pointer-events: none;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormContainer {
-    width: 50%;
-    max-width: 730px;
-    pointer-events: all;
+  width: 50%;
+  max-width: 730px;
+  pointer-events: all;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormContainer .textarea {
-    border: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+  border: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormFooter {
-    padding: 0 var(--card-padding-horizontal) var(--card-padding-vertical) var(--card-padding-horizontal);
-    box-sizing: border-box;
+  padding: 0 var(--card-padding-horizontal, 16px)
+    var(--card-padding-vertical, 16px) var(--card-padding-horizontal, 16px);
+  box-sizing: border-box;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormHeader {
-    padding: var(--card-padding-vertical) var(--card-padding-horizontal) 0 var(--card-padding-horizontal);
+  padding: var(--card-padding-vertical, 16px)
+    var(--card-padding-horizontal, 16px) 0 var(--card-padding-horizontal, 16px);
 }

@@ -1,0 +1,18 @@
+.searchResults {
+  padding: var(--whiteSpace-general-3x, 24px) 0;
+}
+
+.searchResults__header {
+  margin-bottom: var(--whiteSpace-general-3x, 24px);
+  color: var(--palette-gray-1, #1e222a);
+  font-size: var(--font-size-xl, 20px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.searchResults__cardsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--whiteSpace-general-3x, 24px);
+}

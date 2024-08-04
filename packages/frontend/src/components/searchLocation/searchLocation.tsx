@@ -1,10 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { t } from '@front/utils/translate';
 import clsx from 'clsx';
 import { APIProvider } from '@vis.gl/react-google-maps';
-import { searchLocation } from '@front/actions/searchLocation';
+import { mockupLocations } from '@front/actions/mockupLocation';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
@@ -15,6 +16,7 @@ import FormStatus from '@front/components/formStatus/formStatus';
 import SearchMap from '@front/components/searchMap/searchMap';
 import ImageUploadField from '@front/components/imageUploadField/imageUploadField';
 import VoiceUploadField from '@front/components/voiceUploadField/voiceUploadField';
+import SearchResults from '@front/components/searchResults/searchResults';
 
 import styles from './searchLocation.module.css';
 
@@ -28,8 +30,19 @@ type SearchLocationProps = {
 };
 
 const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  // uncomment for prod:
+
+  // const [state, formAction] = useFormState<SearchState, FormData>(
+  //   searchLocation,
+  //   initialState
+
+  // );
+
+  // Mockup only
   const [state, formAction] = useFormState<SearchState, FormData>(
-    searchLocation,
+    mockupLocations,
     initialState
   );
 
@@ -41,13 +54,11 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
             [styles.fullwidth]: !state.searchResult,
           })}
         >
-          
-            <SearchMap
-              searchResult={state.searchResult ?? []}
-              queryDescription={state.queryDescription}
-              mapId={mapId}
-            />
-          
+          <SearchMap
+            searchResult={state.searchResult ?? []}
+            queryDescription={state.queryDescription}
+            mapId={mapId}
+          />
 
           <MFlex
             direction="row"
@@ -101,52 +112,17 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
             </form>
           </MFlex>
         </section>
-        <aside
-          className={clsx(styles.resultsContainer, {
-            [styles.open]: !!state.searchResult,
-          })}
-        >
-          <MCard
-            className={styles.sidebarResult}
-            shadow={false}
-            borderLeftBottomRadius="none"
-            borderLeftTopRadius="none"
-            borderRightBottomRadius="none"
-            borderRightTopRadius="none"
-          >
-            {state.searchResult?.map((location) => {
-              return (
-                <div key={location.id}>
-                  <h3>
-                    {location.title} ({location.location.type}){' '}
-                    {Number(location.score).toFixed(2)}
-                  </h3>
-                  <div>{location.description}</div>
-                </div>
-              );
-            })}
-
-            <MFlex direction="row" gap="m" align="start" justify="start">
-              {state.queryDescription?.in?.map((location: any) => (
-                <div>
-                  {location.name} ({location.type})
-                </div>
-              ))}
-              {state.queryDescription?.near?.map((location: any) => (
-                <div>
-                  {location.name} ({location.type})<p>{location.description}</p>
-                </div>
-              ))}
-            </MFlex>
-            <MFlex direction="column" gap="m" align="start" justify="start">
-              {state.queryDescription?.location?.map((location: any) => (
-                <div>
-                  {location.name} ({location.type})
-                </div>
-              ))}
-            </MFlex>
-          </MCard>
-        </aside>
+        {isLoading && (
+          <aside className={clsx(styles.resultsContainer)}>
+            Hello
+            {/* <SearchResultsSkeleton /> */}
+          </aside>
+        )}
+        {!isLoading && state.searchResult && (
+          <aside className={clsx(styles.resultsContainer)}>
+            <SearchResults results={state.searchResult} />
+          </aside>
+        )}
       </div>
     </APIProvider>
   );
