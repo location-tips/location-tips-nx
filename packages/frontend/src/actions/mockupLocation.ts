@@ -90,13 +90,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -106,13 +106,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -122,13 +122,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -138,13 +138,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -154,13 +154,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -237,13 +237,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -253,13 +253,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -269,13 +269,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -285,13 +285,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -301,13 +301,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -384,13 +384,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -400,13 +400,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -416,13 +416,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -432,13 +432,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -448,13 +448,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -531,13 +531,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -547,13 +547,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -563,13 +563,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -579,13 +579,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -595,13 +595,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -678,13 +678,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -694,13 +694,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -710,13 +710,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -726,13 +726,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -742,13 +742,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -825,13 +825,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -841,13 +841,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -857,13 +857,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -873,13 +873,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -889,13 +889,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -972,13 +972,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -988,13 +988,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1004,13 +1004,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1020,13 +1020,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1036,13 +1036,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1119,13 +1119,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -1135,13 +1135,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1151,13 +1151,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1167,13 +1167,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1183,13 +1183,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1266,13 +1266,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -1282,13 +1282,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1298,13 +1298,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1314,13 +1314,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1330,13 +1330,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1413,13 +1413,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -1429,13 +1429,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1445,13 +1445,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1461,13 +1461,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1477,13 +1477,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1560,13 +1560,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -1576,13 +1576,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1592,13 +1592,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1608,13 +1608,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1624,13 +1624,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1707,13 +1707,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -1723,13 +1723,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1739,13 +1739,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1755,13 +1755,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1771,13 +1771,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1854,13 +1854,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -1870,13 +1870,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1886,13 +1886,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1902,13 +1902,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -1918,13 +1918,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2001,13 +2001,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -2017,13 +2017,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2033,13 +2033,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2049,13 +2049,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2065,13 +2065,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2148,13 +2148,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -2164,13 +2164,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2180,13 +2180,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2196,13 +2196,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2212,13 +2212,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2295,13 +2295,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -2311,13 +2311,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2327,13 +2327,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2343,13 +2343,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2359,13 +2359,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2442,13 +2442,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -2458,13 +2458,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2474,13 +2474,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2490,13 +2490,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2506,13 +2506,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2589,13 +2589,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -2605,13 +2605,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2621,13 +2621,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2637,13 +2637,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2653,13 +2653,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2736,13 +2736,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -2752,13 +2752,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2768,13 +2768,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2784,13 +2784,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2800,13 +2800,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2883,13 +2883,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -2899,13 +2899,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2915,13 +2915,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2931,13 +2931,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -2947,13 +2947,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3030,13 +3030,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -3046,13 +3046,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3062,13 +3062,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3078,13 +3078,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3094,13 +3094,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3177,13 +3177,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -3193,13 +3193,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3209,13 +3209,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3225,13 +3225,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3241,13 +3241,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3324,13 +3324,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -3340,13 +3340,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3356,13 +3356,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3372,13 +3372,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3388,13 +3388,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3471,13 +3471,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -3487,13 +3487,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3503,13 +3503,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3519,13 +3519,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3535,13 +3535,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3618,13 +3618,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -3634,13 +3634,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3650,13 +3650,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3666,13 +3666,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3682,13 +3682,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3765,13 +3765,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -3781,13 +3781,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3797,13 +3797,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3813,13 +3813,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3829,13 +3829,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3912,13 +3912,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -3928,13 +3928,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3944,13 +3944,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3960,13 +3960,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -3976,13 +3976,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4059,13 +4059,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -4075,13 +4075,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4091,13 +4091,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4107,13 +4107,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4123,13 +4123,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4206,13 +4206,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -4222,13 +4222,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4238,13 +4238,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4254,13 +4254,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4270,13 +4270,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4353,13 +4353,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -4369,13 +4369,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4385,13 +4385,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4401,13 +4401,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4417,13 +4417,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4500,13 +4500,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -4516,13 +4516,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4532,13 +4532,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4548,13 +4548,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4564,13 +4564,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4647,13 +4647,13 @@ const resultMockup: any = {
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
       score: 4.673143197562356,
       images: {
-        original: `https://picsum.photos/300/300?random=${
+        original: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        small: `https://picsum.photos/300/300?random=${
+        small: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
-        medium: `https://picsum.photos/300/300?random=${
+        medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
         }`,
       },
@@ -4663,13 +4663,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4679,13 +4679,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4695,13 +4695,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },
@@ -4711,13 +4711,13 @@ const resultMockup: any = {
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
           images: {
-            original: `https://picsum.photos/300/300?random=${
+            original: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            small: `https://picsum.photos/300/300?random=${
+            small: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
-            medium: `https://picsum.photos/300/300?random=${
+            medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
             }`,
           },

@@ -1,0 +1,10 @@
+:root[data-theme='light'] {
+  --search-results-header-font-color: var(--palette-gray-1, #1e222a);
+}
+
+:root[data-platform='web-desktop'] {
+  --search-results-padding-vertical: var(--whiteSpace-general-3x, 24px);
+  --search-results-header-margin-top: var(--whiteSpace-general-3x, 24px);
+  --search-results-header-font-size: var(--font-size-xl, 20px);
+  --search-results-image-max-width: 300px;
+}

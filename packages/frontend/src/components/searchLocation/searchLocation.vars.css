@@ -1,0 +1,9 @@
+:root[data-theme='light'] {
+  --search-location-scrollbar-color: var(--palette-gray-2, #747e97);
+}
+
+:root[data-platform='web-desktop'] {
+  --search-location-grid-gap: var(--whiteSpace-general-3x, 24px);
+  --search-location-form-top-padding: var(--size-general-3x, 24px);
+  --search-location-map-max-width: 730px;
+}

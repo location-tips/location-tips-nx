@@ -2,8 +2,11 @@
 
 import { TLocationInResult } from '@types';
 import SearchResult from '../searchResult/searchResult';
-import styles from './searchResults.module.css';
 import clsx from 'clsx';
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
+import './searchResults.vars.css';
+import styles from './searchResults.module.css';
 
 type SearchResultProps = {
   results: TLocationInResult[];
@@ -16,17 +19,15 @@ const SearchResults = ({ results }: SearchResultProps) => {
         {results.length} {results.length === 1 ? 'result' : 'results'}
       </div>
       {results && (
-        <div className={clsx(styles.searchResults__cardsContainer)}>
+        <MFlex direction="row" gap="2xl">
           {results.map((result) => {
             return (
-              <SearchResult
-                key={result.uid}
-                className={clsx(styles.searchResults_card)}
-                result={result}
-              />
+              <div key={result.id} className={clsx(styles.searchResults__card)}>
+                <SearchResult result={result} />
+              </div>
             );
           })}
-        </div>
+        </MFlex>
       )}
     </div>
   );

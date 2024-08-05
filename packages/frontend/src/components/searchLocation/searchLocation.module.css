@@ -1,7 +1,7 @@
 .gridContainer {
   display: grid;
   grid: 1fr / repeat(24, 1fr);
-  grid-gap: var(--whiteSpace-general-3x, 24px);
+  grid-gap: var(--search-location-grid-gap, 24px);
   justify-content: stretch;
   align-items: stretch;
   height: calc(100vh - var(--header-height, 80px));
@@ -17,7 +17,7 @@
   grid-column: 17 / span 8;
   grid-row: 1 / span 24;
   overflow-y: auto;
-  scrollbar-color: var(--palette-gray-2, #747e97) transparent;
+  scrollbar-color: var(--search-location-scrollbar-color, #747e97) transparent;
   scrollbar-width: thin;
 }
 
@@ -29,14 +29,14 @@
 .mapContainer .searchFormContainerWrapper {
   width: 100%;
   position: absolute;
-  top: 24px;
+  top: var(--search-location-form-top-padding, 24px);
   left: 0;
   pointer-events: none;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormContainer {
   width: 50%;
-  max-width: 730px;
+  max-width: var(--search-location-map-max-width, 730px);
   pointer-events: all;
 }
 

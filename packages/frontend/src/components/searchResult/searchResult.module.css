@@ -6,19 +6,24 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: var(--palette-gray-1, #1e222a);
+  color: var(--search-result-gallery-title-font-color, #1e222a);
   font-family: var(--font-family, Poppins);
-  font-size: var(--font-size-l, 16px);
+  font-size: var(--search-result-gallery-title-font-size, 16px);
   font-style: normal;
   font-weight: 600;
-  line-height: var(--size-general-2_5x, 20px);
+  line-height: var(--search-result-gallery-line-height, 20px);
+}
+
+.galleryFooter__link {
+  color: var(--search-result-gallery-title-font-color, #1e222a);
+  text-decoration: none;
 }
 
 .galleryFooter__type {
-  color: var(--palette-gray-2, #747e97);
+  color: var(--search-result-gallery-type-font-color, #747e97);
   font-family: var(--font-family, Poppins);
-  font-size: var(--font-size-m, 14px);
+  font-size: var(--search-result-gallery-type-font-size, 14px);
   font-style: normal;
   font-weight: 400;
-  line-height: var(--size-general-2_5x, 20px);
+  line-height: var(--search-result-gallery-line-height, 20px);
 }

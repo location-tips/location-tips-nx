@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useFormState } from 'react-dom';
 import { t } from '@front/utils/translate';
 import clsx from 'clsx';
 import { APIProvider } from '@vis.gl/react-google-maps';
+import { searchLocation } from '@front/actions/searchLocation';
 import { mockupLocations } from '@front/actions/mockupLocation';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
@@ -18,6 +19,7 @@ import ImageUploadField from '@front/components/imageUploadField/imageUploadFiel
 import VoiceUploadField from '@front/components/voiceUploadField/voiceUploadField';
 import SearchResults from '@front/components/searchResults/searchResults';
 
+import './searchLocation.vars.css';
 import styles from './searchLocation.module.css';
 
 type SearchState = Partial<PostLocationsResponse>;
@@ -34,17 +36,16 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
 
   // uncomment for prod:
 
-  // const [state, formAction] = useFormState<SearchState, FormData>(
-  //   searchLocation,
-  //   initialState
-
-  // );
-
-  // Mockup only
   const [state, formAction] = useFormState<SearchState, FormData>(
-    mockupLocations,
+    searchLocation,
     initialState
   );
+
+  // TODO: remove from production code, use as Mockup only
+  // const [state, formAction] = useFormState<SearchState, FormData>(
+  //   mockupLocations,
+  //   initialState
+  // );
 
   return (
     <APIProvider apiKey={apiKey}>
