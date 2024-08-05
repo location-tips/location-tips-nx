@@ -1,0 +1,29 @@
+.galleryFooter__header {
+  width: 100%;
+}
+
+.galleryFooter__title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--search-result-gallery-title-font-color, #1e222a);
+  font-family: var(--font-family, Poppins);
+  font-size: var(--search-result-gallery-title-font-size, 16px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--search-result-gallery-line-height, 20px);
+}
+
+.galleryFooter__link {
+  color: var(--search-result-gallery-title-font-color, #1e222a);
+  text-decoration: none;
+}
+
+.galleryFooter__type {
+  color: var(--search-result-gallery-type-font-color, #747e97);
+  font-family: var(--font-family, Poppins);
+  font-size: var(--search-result-gallery-type-font-size, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--search-result-gallery-line-height, 20px);
+}
