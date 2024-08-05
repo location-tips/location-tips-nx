@@ -46,11 +46,10 @@ const ImageUploadField = ({ name = 'image' }: ImageUploadFieldProps) => {
       />
 
       {selectedImage && (
-        <img
-          className={styles.previewImage}
-          src={selectedImage}
-          alt="Selected Image"
-        />
+        <div
+          className={styles.previewContainer}
+          style={{ backgroundImage: `url(${selectedImage})` }}
+        ></div>
       )}
     </MFlex>
   );
