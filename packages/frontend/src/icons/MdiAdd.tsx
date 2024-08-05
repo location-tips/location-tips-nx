@@ -1,7 +1,7 @@
 import React from 'react';
 import type { SVGProps } from 'react';
 
-export function MdiChevronLeft(props: SVGProps<SVGSVGElement>) {
+export function MdiAdd(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,10 +10,7 @@ export function MdiChevronLeft(props: SVGProps<SVGSVGElement>) {
       viewBox="0 0 24 24"
       {...props}
     >
-      <path
-        fill="currentColor"
-        d="M15.41 16.58L10.83 12l4.58-4.59L14 6l-6 6l6 6z"
-      ></path>
+      <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path>
     </svg>
   );
 }

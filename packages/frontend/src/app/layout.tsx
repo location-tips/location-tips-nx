@@ -1,5 +1,7 @@
 import Header from '@front/components/header/header';
 import ThemeProvider from '@front/components/themeProvider/themeProvider';
+import Modal from '@front/components/modal/modal';
+
 import '@location-tips/location-tips-uikit/styles/index.css';
 import './global.css';
 
@@ -19,6 +21,7 @@ export default function RootLayout({
         <ThemeProvider />
         <Header />
         {children}
+        <Modal />
       </body>
     </html>
   );
