@@ -1,0 +1,4 @@
+.previewImage {
+  border-radius: var(--button-tertiary-borderRadius-default, 8px);
+  max-height: 34px;
+}
