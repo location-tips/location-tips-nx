@@ -1,0 +1,3 @@
+:root[data-platform="web-desktop"] {
+    --upload-location-form-padding: var(120px);
+}

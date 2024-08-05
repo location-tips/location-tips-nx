@@ -14,18 +14,21 @@ interface ModalsState {
     MODALS,
     { header: ReactNode; content: ReactNode; footer: ReactNode }
   >;
+  onHide?: (() => void) | null;
+  onShow?: (() => void) | null;
   registerModal: (
     modal: MODALS,
     header: ReactNode,
     content: ReactNode,
     footer: ReactNode
   ) => void;
-  showModal: (modal: MODALS) => void;
-  hideModal: () => void;
+  showModal: (modal: MODALS, callback?: () => void) => void;
+  hideModal: (callback?: () => void) => void;
 }
 
 const useModal = create<ModalsState>((set) => ({
   currentModal: null,
+  onHide: null,
   modals: new Map([
     [
       MODALS.ADD_LOCATION,
@@ -36,8 +39,8 @@ const useModal = create<ModalsState>((set) => ({
       },
     ],
   ]),
-  showModal: (modal) => set(() => ({ currentModal: modal })),
-  hideModal: () => set(() => ({ currentModal: null })),
+  showModal: (modal, callback) => set(() => ({ currentModal: modal, onHide: null, onShow: callback })),
+  hideModal: (callback) => set(() => ({ currentModal: null, onShow: null, onHide: callback })),
   registerModal: (modal, header, content, footer) =>
     set((prev) => ({
       modals: prev.modals.set(modal, { header, content, footer }),

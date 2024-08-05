@@ -13,7 +13,7 @@
     left: 0;
     width: 100vW;
     height: 100vH;
-    background-color: color-mix(in srgb, var(--palette-black) 30%, transparent);
+    background-color: color-mix(in srgb, var(--palette-black) 50%, transparent);
 }
 
 .modal {

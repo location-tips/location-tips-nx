@@ -2,6 +2,7 @@
 
 :root {
   --header-height: 80px;
+  --page-padding-top: var(--flex-gap-xl);
 }
 
 body {
@@ -9,3 +10,5 @@ body {
   padding: 0;
   font-family: Poppins, sans-serif;
 }
+
+
