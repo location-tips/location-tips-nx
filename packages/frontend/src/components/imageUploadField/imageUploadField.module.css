@@ -1,0 +1,9 @@
+.previewContainer {
+  box-sizing: border-box;
+  border-radius: var(--button-tertiary-borderRadius-default, 8px);
+  width: 34px;
+  height: 34px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--button-tertiary-enabled-background-color, #f4f5f7);
+}
