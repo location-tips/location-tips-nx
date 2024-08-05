@@ -197,7 +197,8 @@ export class LocationsService {
         images,
       };
 
-      delete locationEntity.image;
+      delete locationResult.image;
+      delete locationResult.embedding_field;
 
       if (locationsMap.has(locationEntity.geohash)) {
         locationsMap.get(locationEntity.geohash).push(locationResult);

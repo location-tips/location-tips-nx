@@ -26,6 +26,7 @@ export class PostLocationsResponseDTO implements PostLocationsResponse {
     @ApiProperty({
         description: 'Search result of locations with score',
         type: LocationsWithScoreDTO,
+        isArray: true,
     })
     searchResult: TLocationInResult[];
 
