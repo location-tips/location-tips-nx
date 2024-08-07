@@ -9,11 +9,9 @@ const SearchButton = ({ onClick }: SearchButtonProps) => {
   const { pending } = useFormStatus();
 
   return (
-    <>
-      <MButton type="submit" disabled={pending} onClick={onClick}>
-        Search
-      </MButton>
-    </>
+    <MButton type="submit" disabled={pending} onClick={onClick}>
+      Search
+    </MButton>
   );
 };
 
