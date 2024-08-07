@@ -15,6 +15,7 @@ import FormStatus from '@front/components/formStatus/formStatus';
 import SearchMap from '@front/components/searchMap/searchMap';
 import ImageUploadField from '@front/components/imageUploadField/imageUploadField';
 import VoiceUploadField from '@front/components/voiceUploadField/voiceUploadField';
+import { useFormStatus } from 'react-dom';
 
 import styles from './searchLocation.module.css';
 
@@ -32,6 +33,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
     searchLocation,
     initialState
   );
+  // const { pending } = useFormStatus();
 
   return (
     <APIProvider apiKey={apiKey}>
@@ -41,13 +43,11 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
             [styles.fullwidth]: !state.searchResult,
           })}
         >
-          
-            <SearchMap
-              searchResult={state.searchResult ?? []}
-              queryDescription={state.queryDescription}
-              mapId={mapId}
-            />
-          
+          <SearchMap
+            searchResult={state.searchResult ?? []}
+            queryDescription={state.queryDescription}
+            mapId={mapId}
+          />
 
           <MFlex
             direction="row"
@@ -66,7 +66,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                 noPadding={true}
                 footer={
                   <MFlex
-                    align="start"
+                    align="center"
                     justify="space-between"
                     className={styles.searchFormFooter}
                   >
@@ -79,10 +79,12 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                       <ImageUploadField name="image" />
                       <VoiceUploadField name="voice" />
                     </MFlex>
-                    <FormStatus />
-                    <MButton type="submit" id="commands">
-                      Search
-                    </MButton>
+                    <MFlex align="center" justify="end">
+                      <FormStatus />
+                      <MButton type="submit" id="commands">
+                        Search
+                      </MButton>
+                    </MFlex>
                   </MFlex>
                 }
               >
