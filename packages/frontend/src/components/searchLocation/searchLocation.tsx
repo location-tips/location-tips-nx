@@ -6,7 +6,6 @@ import { t } from '@front/utils/translate';
 import clsx from 'clsx';
 import { APIProvider } from '@vis.gl/react-google-maps';
 import { searchLocation } from '@front/actions/searchLocation';
-import { mockupLocations } from '@front/actions/mockupLocation';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MTextarea } from '@location-tips/location-tips-uikit/atoms/MTextarea';
@@ -115,10 +114,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
           </MFlex>
         </section>
         {isLoading && (
-          <aside className={clsx(styles.resultsContainer)}>
-            Hello
-            {/* <SearchResultsSkeleton /> */}
-          </aside>
+          <aside className={clsx(styles.resultsContainer)}>Hello</aside>
         )}
         {!isLoading && state.searchResult && (
           <aside className={clsx(styles.resultsContainer)}>
