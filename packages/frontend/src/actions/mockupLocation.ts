@@ -3,8 +3,8 @@
 import { PostLocationsResponse } from '@types';
 
 export function mockupLocations(
-  _prevState: any,
-  formData: FormData
+  _prevState?: any,
+  formData?: FormData
 ): Promise<Partial<PostLocationsResponse>> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -14,7 +14,7 @@ export function mockupLocations(
         console.error('Error:', error);
         reject(error);
       }
-    }, 2000);
+    }, 300);
   });
 }
 
