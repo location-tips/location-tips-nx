@@ -1,4 +1,4 @@
-import { CoordinateDTO, LocationEntityDTO } from '@back/dto/generic/location.dto';
+import { CoordinateDTO, LocationEntityDTO, LocationWithImagesEntityDTO } from '@back/dto/generic/location.dto';
 import { ApiProperty } from '@nestjs/swagger';
 import type { PutLocationRequest, PutLocationResponse, TLocation, TLocationEntity } from '@types';
 
@@ -16,5 +16,5 @@ export class PutLocationRequestDTO implements PutLocationRequest {
     location?: TLocation['coordinates'];
 }
 
-export class PutLocationResponseDTO extends LocationEntityDTO implements PutLocationResponse {
+export class PutLocationResponseDTO extends LocationWithImagesEntityDTO implements PutLocationResponse {
 }

@@ -4,3 +4,7 @@
     margin: auto;
     margin-top: var(--page-padding-top);
 }
+
+.header {
+    width: 100%;
+}

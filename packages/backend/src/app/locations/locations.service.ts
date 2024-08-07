@@ -17,6 +17,7 @@ import { getEmbeddings } from '@back/utils/vertex';
 import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
 import { getDistanceBetweenEmbeddings, getRadiusFromBoundingBox } from '@back/utils/distance';
 import { COLLECTIONS, DB_DEFAULT_LIMIT, STORAGE_ORIGINAL_FOLDER, STORAGE_THUMBS_FOLDER, STORAGE_THUMBS_MEDIUM_SUFFIX, STORAGE_THUMBS_SMALL_SUFFIX } from '@const';
+import { getImages } from '@back/utils/firebase';
 
 @Injectable()
 export class LocationsService {
@@ -44,15 +45,7 @@ export class LocationsService {
   }
 
   async getImages(url: string): Promise<{ original: string; small: string; medium: string }> {
-    const original = admin.storage().bucket().file(`${STORAGE_ORIGINAL_FOLDER}${url}`);
-    const medium = admin.storage().bucket().file(`${STORAGE_THUMBS_FOLDER}/${url.replace('.webp', STORAGE_THUMBS_MEDIUM_SUFFIX + '.webp')}`);
-    const small = admin.storage().bucket().file(`${STORAGE_THUMBS_FOLDER}/${url.replace('.webp', STORAGE_THUMBS_SMALL_SUFFIX + '.webp')}`);
-
-    return {
-      original: (await original.getSignedUrl({action: 'read', expires: new Date().getTime() + 60 * 60 * 1000}))[0],
-      small: (await small.getSignedUrl({action: 'read', expires: new Date().getTime() + 60 * 60 * 1000}))[0],
-      medium: (await medium.getSignedUrl({action: 'read', expires: new Date().getTime() + 60 * 60 * 1000}))[0],
-    }
+    return await getImages(url);
   }
 
   async getLocationsByIds(ids: string[]): Promise<TLocationEntity[]> {
@@ -190,15 +183,15 @@ export class LocationsService {
       const score = getDistanceBetweenEmbeddings(embeddings[0], locationEntity.embedding_field.toArray());
       const images = await this.getImages(locationEntity.image.url);
 
+      delete locationEntity.image.exif;
+      delete locationEntity.embedding_field;
+
       const locationResult: TLocationsWithScore & TLocationsWithImages = {
         ...locationEntity,
         id: doc.id,
         score,
         images,
       };
-
-      delete locationResult.image;
-      delete locationResult.embedding_field;
 
       if (locationsMap.has(locationEntity.geohash)) {
         locationsMap.get(locationEntity.geohash).push(locationResult);
@@ -216,6 +209,7 @@ export class LocationsService {
       });
     });
 
+    //TODO: remove before release
     console.log('locationsToReturn', locationsToReturn);
 
     return locationsToReturn;

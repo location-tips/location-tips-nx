@@ -1,8 +1,6 @@
 import SearchLocationForm from '@front/components/searchLocation/searchLocation';
 import Page from '@front/components/page/page';
 
-import styles from './page.module.css';
-
 export const metadata = {}
 
 export default function Index() {

@@ -37,16 +37,16 @@ export class LocationController {
   @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('image'))
   async postLocation(@UploadedFile() image: FastifyFile, @Request() req: FRequest) {
-    // Extract exif
-    const exif = await this.locationService.extractExif(image.buffer);
     // Convert to webp
     const imageFileBlob = new Blob([image.buffer], { type: image.mimetype });
     const imageFile = new File([imageFileBlob], image.originalname, { type: image.mimetype });
     const webp = await this.locationService.convertToWebp(imageFile);
-    // Get description
-    const description = await this.locationService.getImageDescription(webp, exif);
     // Save to CDN
     const newFilename = await this.locationService.uploadToCDN(webp);
+    // Extract exif
+    const exif = await this.locationService.extractExif(image.buffer);
+    // Get description
+    const description = await this.locationService.getImageDescription(webp, exif);
 
     const locationData: TLocation = {
       coordinates: {
@@ -84,8 +84,11 @@ export class LocationController {
     newLocation.id = doc.id;
 
     delete newLocation.image?.exif;
+    delete newLocation.embedding_field;
 
-    return newLocation;
+    const images = await this.locationService.getImages(newFilename);
+
+    return { ...newLocation, images };
   }
 
   @Put()
@@ -102,7 +105,9 @@ export class LocationController {
   async putLocation(@Body() data: PutLocationRequestDTO) {
     const doc = await this.locationService.updateLocationInDB(data);
 
-    return doc;
+    const images = await this.locationService.getImages(doc.image.url);
+
+    return { ...doc, images };
   }
 
   @Delete()

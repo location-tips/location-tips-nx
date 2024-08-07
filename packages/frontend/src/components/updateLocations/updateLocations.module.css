@@ -2,3 +2,22 @@
     max-width: calc(100% + var(--upload-location-form-padding));
     margin-left: calc(-1 * var(--upload-location-form-padding) / 2);
 }
+
+.galeryWrapper .nextButton,
+.galeryWrapper .prevButton {
+    width: var(--upload-location-gallery-button-size);
+    height: var(--upload-location-gallery_button-size);
+
+    border-radius: var(--upload-location-gallery-button-border-radius);
+    box-shadow: var(--upload-location-gallery-button-box-shadow);
+
+    position: fixed;
+}
+
+.galeryWrapper .nextButton {
+    right: var(--upload-location-gallery-button-right);
+}
+
+.galeryWrapper .prevButton {
+    left: var(--upload-location-gallery-button-left);
+}
