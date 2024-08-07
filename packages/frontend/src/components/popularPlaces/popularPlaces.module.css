@@ -1,0 +1,19 @@
+.popularPlaces__header {
+  margin-bottom: var(--popular-places-header-margin-top, 24px);
+  color: var(--popular-places-header-font-color, #1e222a);
+  font-size: var(--popular-places-header-font-size, 20px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.popularPlaces__card {
+  width: var(
+    --popular-places-card-width,
+    calc(50% - var(--flex-gap-2xl, 24px))
+  );
+}
+
+.popularPlaces__card img {
+  max-width: 100%;
+}

@@ -1,16 +1,52 @@
 .headerContainer {
-    height: var(--header-height);
-    box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  margin-bottom: var(--header-container-height, 80px);
+  height: var(--header-container-height, 80px);
+  box-sizing: border-box;
+  justify-content: center; /* TODO: not working, fix UIkit bug */
 }
 
 .header {
-    display: grid;
-    grid-template-columns: 2fr 8fr 2fr;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.header .navigation {
-    text-align: center;
-    font-size: 20px;
-    font-weight: 400;
+.hamburgerButton {
+  padding: 0; /* TODO: not working, fix UIkit bug */
+}
+
+.hamburgerButton path {
+  fill: var(--header-hamburger-button-enabled-color, #747e97);
+}
+
+.hamburgerButton:hover path {
+  fill: var(--header-hamburger-button-hover-color, #babecb);
+}
+
+.hamburgerButton:active path,
+.hamburgerButton:focus path {
+  fill: var(--header-hamburger-button-focus-color, #1e222a);
+}
+
+.logo {
+  justify-self: start;
+}
+
+.navigation {
+  text-align: center;
+  font-size: var(--header-nav-font-size, 20px);
+  font-weight: 600;
+  line-height: normal;
+}
+
+.navigationContainer {
+  gap: 56px; /* TODO: not working, fix UIkit bug */
+}
+
+.accountButtons {
+  justify-self: end;
 }

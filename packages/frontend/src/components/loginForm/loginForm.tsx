@@ -44,7 +44,7 @@ const LoginForm = () => {
   };
 
   return (
-    <MFlex direction="row" justify="end" align="center" wrap='nowrap'>
+    <MFlex direction="row" justify="end" align="center" wrap="nowrap">
       {!isAuthenticated && (
         <MDropdown
           onClose={() => {
@@ -66,10 +66,10 @@ const LoginForm = () => {
         </MDropdown>
       )}
       {isAuthenticated && (
-        <>
+        <MFlex gap="3xl">
           <AddLocationButton />
           <ProfileButton />
-        </>
+        </MFlex>
       )}
     </MFlex>
   );

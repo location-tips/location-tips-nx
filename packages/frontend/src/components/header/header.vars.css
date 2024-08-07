@@ -1,0 +1,29 @@
+:root[data-platform='web-desktop'] {
+  --header-container-height: var(
+    --header-height,
+    80px
+  ); /* don't reassign this variable, modify --header-height instead */
+  --header-nav-font-size: var(--font-size-xl, 20px);
+}
+
+:root[data-platform='web-mobile'] {
+  --header-container-height: var(
+    --header-height,
+    80px
+  ); /* don't reassign this variable, modify --header-height instead */
+  --header-nav-font-size: var(--font-size-xl, 20px);
+}
+
+:root[data-platform='web-tablet'] {
+  --header-container-height: var(
+    --header-height,
+    80px
+  ); /* don't reassign this variable, modify --header-height instead */
+  --header-nav-font-size: var(--font-size-xl, 20px);
+}
+
+:root[data-theme='light'] {
+  --header-hamburger-button-enabled-color: var(--palette-gray-2, #747e97);
+  --header-hamburger-button-hover-color: var(--palette-gray-3, #babecb);
+  --header-hamburger-button-focus-color: var(--palette-gray-1, #1e222a);
+}

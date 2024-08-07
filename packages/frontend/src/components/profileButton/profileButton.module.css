@@ -1,7 +1,11 @@
 .menu {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .username {
-    word-break: wrap;
+  word-break: wrap;
+}
+
+.dropdownWrapper div:has(.dropdownUserMenu) {
+  top: 150% !important; /* TODO: fix MDropdown component to pass margin in props with default value of 100% */
 }

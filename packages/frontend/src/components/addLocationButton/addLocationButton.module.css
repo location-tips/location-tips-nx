@@ -1,0 +1,6 @@
+:root[data-platform='web-mobile'] .addLocationButton {
+  position: fixed;
+  bottom: 3vh;
+  right: 3vw;
+  z-index: 1;
+}

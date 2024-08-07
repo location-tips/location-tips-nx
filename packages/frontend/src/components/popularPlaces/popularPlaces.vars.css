@@ -1,0 +1,56 @@
+:root[data-theme='light'] {
+  --popular-places-header-font-color: var(--palette-gray-1, #1e222a);
+}
+
+:root[data-platform='web-desktop'] {
+  --popular-places-header-margin-top: var(--whiteSpace-general-3x, 24px);
+  --popular-places-header-font-size: var(--font-size-xl, 20px);
+}
+
+:root[data-platform='web-tablet'] {
+  --popular-places-header-margin-top: var(--whiteSpace-general-3x, 24px);
+  --popular-places-header-font-size: var(--font-size-xl, 20px);
+}
+
+:root[data-platform='web-mobile'] {
+  --popular-places-header-margin-top: var(--whiteSpace-general-3x, 24px);
+  --popular-places-header-font-size: var(--font-size-xl, 20px);
+}
+
+/* special media requests for searchResults__card */
+
+@media (min-width: 2560px) {
+  :root[data-platform='web-desktop'] {
+    --popular-places-card-width: calc(33% - var(--flex-gap-2xl, 24px));
+  }
+}
+
+@media (max-width: 2559px) {
+  :root[data-platform='web-desktop'] {
+    --popular-places-card-width: calc(50% - var(--flex-gap-2xl, 24px));
+  }
+}
+
+@media (max-width: 1439px) {
+  :root[data-platform='web-tablet'] {
+    --popular-places-card-width: calc(50% - var(--flex-gap-2xl, 24px));
+  }
+}
+
+@media (max-width: 1279px) {
+  :root[data-platform='web-tablet'] {
+    --popular-places-card-width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  :root[data-platform='web-mobile'] {
+    --popular-places-card-width: calc(50% - var(--flex-gap-2xl, 24px));
+  }
+}
+
+@media (max-width: 666px) {
+  :root[data-platform='web-mobile'] {
+    --popular-places-card-width: 100%;
+  }
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { t } from '@front/utils/translate';
 import clsx from 'clsx';
@@ -21,6 +21,7 @@ import SearchResults from '@front/components/searchResults/searchResults';
 
 import './searchLocation.vars.css';
 import styles from './searchLocation.module.css';
+import PopularPlaces from '../popularPlaces/popularPlaces';
 
 type SearchState = Partial<PostLocationsResponse>;
 
@@ -33,19 +34,25 @@ type SearchLocationProps = {
 
 const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [popularPlaces, setPopularPlaces] = useState<SearchState>();
 
+  useEffect(() => {
+    mockupLocations()
+      .then((result) => setPopularPlaces(result))
+      .catch((e) => console.log(e));
+  }, []);
   // uncomment for prod:
 
-  const [state, formAction] = useFormState<SearchState, FormData>(
-    searchLocation,
-    initialState
-  );
-
-  // TODO: remove from production code, use as Mockup only
   // const [state, formAction] = useFormState<SearchState, FormData>(
-  //   mockupLocations,
+  //   searchLocation,
   //   initialState
   // );
+
+  // TODO: remove from production code, use as Mockup only
+  const [state, formAction] = useFormState<SearchState, FormData>(
+    mockupLocations,
+    initialState
+  );
 
   return (
     <APIProvider apiKey={apiKey}>
@@ -113,16 +120,21 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
             </form>
           </MFlex>
         </section>
+        {!isLoading && !state.searchResult && popularPlaces?.searchResult && (
+          <section className={styles.resultsContainer}>
+            <PopularPlaces results={popularPlaces?.searchResult} />
+          </section> // TODO: fetch from API and pass popular places as prop
+        )}
         {isLoading && (
-          <aside className={clsx(styles.resultsContainer)}>
+          <section className={clsx(styles.resultsContainer)}>
             Hello
             {/* <SearchResultsSkeleton /> */}
-          </aside>
+          </section>
         )}
         {!isLoading && state.searchResult && (
-          <aside className={clsx(styles.resultsContainer)}>
+          <section className={clsx(styles.resultsContainer)}>
             <SearchResults results={state.searchResult} />
-          </aside>
+          </section>
         )}
       </div>
     </APIProvider>

@@ -1,42 +1,43 @@
 .gridContainer {
-  display: grid;
-  grid: 1fr / repeat(24, 1fr);
-  grid-gap: var(--search-location-grid-gap, 24px);
+  display: var(--search-location-grid-display, flex);
+  flex-direction: var(--search-location-flex-direction, row);
   justify-content: stretch;
   align-items: stretch;
-  height: calc(100vh - var(--header-height, 80px));
+  height: var(--search-location-grid-container-height, calc(100vh - 80px));
 }
 
 .mapContainer {
-  grid-column: 1 / span 16;
-  grid-row: 1 / span 24;
+  flex-basis: var(--search-location-map-flex-basis, 60%);
   position: relative;
+  height: var(--search-locaction-map-height, calc(100vh - 80px));
 }
 
 .resultsContainer {
-  grid-column: 17 / span 8;
-  grid-row: 1 / span 24;
+  flex-basis: var(--search-location-results-flex-basis, 40%);
+  padding: var(--search-location-results-vertical-padding, 24px)
+    var(--search-location-results-horizontal-padding, 0);
   overflow-y: auto;
   scrollbar-color: var(--search-location-scrollbar-color, #747e97) transparent;
   scrollbar-width: thin;
 }
 
 .sidebarResult {
-  height: 100%;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .mapContainer .searchFormContainerWrapper {
   width: 100%;
   position: absolute;
-  top: var(--search-location-form-top-padding, 24px);
+  top: var(--search-location-form-top-padding, 64px);
   left: 0;
   pointer-events: none;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormContainer {
-  width: 50%;
-  max-width: var(--search-location-map-max-width, 730px);
+  width: 100%;
+  max-width: var(--search-location-form-max-width, 750px);
+  padding: 0 var(--search-location-form-horizonal-padding, 48px);
   pointer-events: all;
 }
 
@@ -55,4 +56,8 @@
 .mapContainer .searchFormContainerWrapper .searchFormHeader {
   padding: var(--card-padding-vertical, 16px)
     var(--card-padding-horizontal, 16px) 0 var(--card-padding-horizontal, 16px);
+  color: var(--search-location-form-header-font-color, #1e222a);
+  font-size: var(--seach-location-form-header-font-size, 20px);
+  line-height: normal;
+  font-weight: 500;
 }

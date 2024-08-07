@@ -1,7 +1,3 @@
-.searchResults {
-  padding: var(--search-results-padding-vertical, 24px) 0;
-}
-
 .searchResults__header {
   margin-bottom: var(--search-results-header-margin-top, 24px);
   color: var(--search-results-header-font-color, #1e222a);
@@ -12,19 +8,10 @@
 }
 
 .searchResults__card {
-  max-width: 100%;
-}
-
-@media (min-width: 1440px) {
-  .searchResults__card {
-    max-width: calc(50% - var(--flex-gap-2xl, 24px));
-  }
-}
-
-@media (min-width: 1921px) {
-  .searchResults__card {
-    max-width: calc(33% - var(--flex-gap-2xl, 24px));
-  }
+  width: var(
+    --search-results-card-width,
+    calc(50% - var(--flex-gap-2xl, 24px))
+  );
 }
 
 .searchResults__card img {
