@@ -1,9 +1,9 @@
 import { create } from 'zustand';
-import type { Platform } from '@front/utils/detectPlatform';
+import type { TPlatform } from '@types';
 
 interface PlatformState {
-  platform: Platform;
-  setPlatform: (newPlatform: Platform) => void;
+  platform: TPlatform;
+  setPlatform: (newPlatform: TPlatform) => void;
 }
 
 const usePlatform = create<PlatformState>((set) => ({

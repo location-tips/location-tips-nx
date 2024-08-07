@@ -1,6 +1,6 @@
-export type Platform = 'web-desktop' | 'web-mobile' | 'web-tablet';
+import type { TPlatform } from '@types';
 
-export const detectPlatform = (): Platform => {
+export const detectPlatform = (): TPlatform => {
   const documentWidth = document ? document.documentElement.clientWidth : 0;
   const windowWidth = window ? window.innerWidth : 0;
   const viewportWidth = Math.max(documentWidth, windowWidth);

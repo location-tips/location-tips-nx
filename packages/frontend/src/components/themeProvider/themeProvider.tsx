@@ -1,7 +1,7 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { MTheme } from '@location-tips/location-tips-uikit/atoms/MTheme';
-import { detectPlatform, type Platform } from '@front/utils/detectPlatform';
+import { detectPlatform } from '@front/utils/detectPlatform';
 import usePlatform from '@front/stores/usePlatform';
 
 const ThemeProvider = () => {
