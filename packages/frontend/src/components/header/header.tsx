@@ -58,7 +58,6 @@ const Header = () => {
               align="center"
               justify="space-between"
               className={styles.navigationContainer}
-              // TODO: fix MFlex gap styles variables. All --flex-gap-* values are missing
               style={{ gap: 56 }}
             >
               <LinkButton active={true} href="/">
