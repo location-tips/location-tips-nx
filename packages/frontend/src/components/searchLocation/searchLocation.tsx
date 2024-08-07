@@ -22,6 +22,7 @@ import SearchButton from '@front/components/searchButton/searchButton';
 import './searchLocation.vars.css';
 import styles from './searchLocation.module.css';
 import PopularPlaces from '../popularPlaces/popularPlaces';
+import { mockupLocations } from '@front/actions/mockupLocation';
 
 type SearchState = Partial<PostLocationsResponse>;
 
@@ -41,18 +42,18 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
       .then((result) => setPopularPlaces(result))
       .catch((e) => console.log(e));
   }, []);
+
   // uncomment for prod:
-
-  // const [state, formAction] = useFormState<SearchState, FormData>(
-  //   searchLocation,
-  //   initialState
-  // );
-
-  // TODO: remove from production code, use as Mockup only
   const [state, formAction] = useFormState<SearchState, FormData>(
-    mockupLocations,
+    searchLocation,
     initialState
   );
+
+  // TODO: remove from production code, use as Mockup only
+  // const [state, formAction] = useFormState<SearchState, FormData>(
+  //   mockupLocations,
+  //   initialState
+  // );
 
   return (
     <APIProvider apiKey={apiKey}>
