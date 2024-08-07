@@ -36,3 +36,7 @@ export function getRadiusZoomLevel({ latitude, longitude }: TCoordinate, radius:
 
     return getBoundsZoomLevel(bounds, pixelWidth);
 }
+
+export function convertCoordinates({ latitude, longitude }: TCoordinate): google.maps.LatLngLiteral {
+    return { lat: latitude, lng: longitude };
+}

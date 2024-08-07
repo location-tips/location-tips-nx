@@ -1,0 +1,4 @@
+.galeryWrapper {
+    max-width: calc(100% + var(--upload-location-form-padding));
+    margin-left: calc(-1 * var(--upload-location-form-padding) / 2);
+}

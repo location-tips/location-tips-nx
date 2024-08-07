@@ -1,0 +1,7 @@
+:root[data-platform="web-desktop"] {
+    --upload-location-map-container-border-radius: var(--borderRadius-general-4x);
+    --upload-location-form-width: 1200px;
+    --update-location-image-preview-width: 128px;
+    --update-location-image-preview-height: 128px;
+    --update-location-image-preview-border-radius: var(--borderRadius-general-4x);
+}
