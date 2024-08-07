@@ -9,7 +9,6 @@ import { searchLocation } from '@front/actions/searchLocation';
 import { mockupLocations } from '@front/actions/mockupLocation';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
-import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MTextarea } from '@location-tips/location-tips-uikit/atoms/MTextarea';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 import type { PostLocationsResponse } from '@types';
@@ -18,6 +17,8 @@ import SearchMap from '@front/components/searchMap/searchMap';
 import ImageUploadField from '@front/components/imageUploadField/imageUploadField';
 import VoiceUploadField from '@front/components/voiceUploadField/voiceUploadField';
 import SearchResults from '@front/components/searchResults/searchResults';
+
+import SearchButton from '@front/components/searchButton/searchButton';
 
 import './searchLocation.vars.css';
 import styles from './searchLocation.module.css';
@@ -93,9 +94,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                     </MFlex>
                     <MFlex align="center" justify="end">
                       <FormStatus />
-                      <MButton type="submit" id="commands">
-                        Search
-                      </MButton>
+                      <SearchButton />
                     </MFlex>
                   </MFlex>
                 }
