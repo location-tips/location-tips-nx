@@ -6,16 +6,26 @@
   --page-padding-top: var(--flex-gap-xl);
 }
 
+:root[data-theme='light'] {
+  --background-color: var(--palette-white);
+  --text-color: var(--palette-gray-1);
+  --link-color: var(--palette-primary-40);
+}
+
+html {
+  background: var(--background-color);
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: Poppins, sans-serif;
-  color: var(--palette-gray-1);
+  color: var(--text-color);
 }
 
 a {
   text-decoration: none;
-  color: var(--palette-gray-1);
+  color: var(--link-color);
 }
 
 a:hover {

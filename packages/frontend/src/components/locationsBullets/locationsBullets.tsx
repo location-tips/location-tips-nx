@@ -1,8 +1,10 @@
 import Avatar from '@front/components/avatar/avatar';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import styles from './locationsBullets.module.css';
 import { TLocationsWithImages } from '@types';
 import ZStack from '@front/components/zStack/zStack';
+
+import './locationsBullets.vars.css';
+import styles from './locationsBullets.module.css';
 
 type LocationsBulletsProps = {
   currentSlide: number;
