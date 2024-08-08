@@ -1,6 +1,5 @@
 import { TLocationsWithImages } from '@types';
 import { create } from 'zustand';
-import data from './mockCreateLocations';
 
 interface CreateLocationsState {
     locations: TLocationsWithImages[];
@@ -15,7 +14,7 @@ interface CreateLocationsState {
 }
 
 const useCreateLocations = create<CreateLocationsState>((set) => ({
-    locations: data as any,
+    locations: [],
     pending: 0,
     failed: 0,
     addPending: () => set((state) => ({ pending: state.pending + 1 })),

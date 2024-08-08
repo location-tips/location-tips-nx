@@ -7,9 +7,10 @@ import ZStack from '@front/components/zStack/zStack';
 type LocationsBulletsProps = {
   currentSlide: number;
   locations: TLocationsWithImages[];
+  onChoseSlide?: (index: number) => void;
 };
 
-const LocationsBullets = ({ currentSlide, locations }: LocationsBulletsProps) => {
+const LocationsBullets = ({ currentSlide, locations, onChoseSlide }: LocationsBulletsProps) => {
 
   return (
     <MFlex direction="row" gap="xs" className={styles.bullets}>
@@ -21,6 +22,7 @@ const LocationsBullets = ({ currentSlide, locations }: LocationsBulletsProps) =>
             }
             src={location.images.small}
             alt={location.title}
+            onClick={() => index != currentSlide && onChoseSlide?.(index)}
           />
           <div id={`form-status-portal-${location.id}`}></div>
         </ZStack>
