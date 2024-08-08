@@ -24,7 +24,13 @@ export default function Index() {
             <MText>Back</MText>
           </MFlex>
         </Link>
-        <MHeading mode="h1">Update locations</MHeading>
+        <MFlex direction="row" gap="l" justify="space-between" align="center" className={styles.header}>
+          <MHeading mode="h1">Update locations</MHeading>
+          <MFlex direction="row" gap="l" justify="end" align="center">
+            <div id="form-status-portal"></div>
+            <div id="gallery-portal"></div>
+          </MFlex>
+        </MFlex>
         {apiKey && mapId && <UpdateLocations apiKey={apiKey} mapId={mapId} />}
       </MFlex>
     </Page>

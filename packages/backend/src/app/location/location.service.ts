@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import convert from 'heic-convert';
 import admin from 'firebase-admin';
 import sharp from 'sharp';
+import { getImages } from '@back/utils/firebase';
 
 @Injectable()
 export class LocationService {
@@ -36,6 +37,10 @@ export class LocationService {
     });
 
     return outputFile;
+  }
+
+  async getImages(url: string): Promise<{ original: string; small: string; medium: string }> {
+    return await getImages(url);
   }
 
   async getImageDescription(image: File, exif?: ExifReader.ExpandedTags): Promise<TGeminiResponseDescribeImage> {

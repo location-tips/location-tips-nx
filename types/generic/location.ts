@@ -61,7 +61,7 @@ export type TLocationEntity = {
     };
 };
 
-export type TLocationsWithScore = TLocationEntity &{
+export type TLocationsWithScore = Omit<TLocationEntity, 'embedding_field'> &{
     score: number;
 };
 
@@ -71,7 +71,7 @@ export type TImages = {
     medium: string;
 }
 
-export type TLocationsWithImages = TLocationEntity & {
+export type TLocationsWithImages = Omit<TLocationEntity, 'embedding_field'> & {
     images: TImages;
 }
 

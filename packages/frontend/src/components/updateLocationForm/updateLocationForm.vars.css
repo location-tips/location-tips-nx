@@ -4,4 +4,10 @@
     --update-location-image-preview-width: 128px;
     --update-location-image-preview-height: 128px;
     --update-location-image-preview-border-radius: var(--borderRadius-general-4x);
+    --update-location-set-point-button-margin-bottom: var(--whiteSpace-general-4x);
+}
+
+:root[data-theme="light"] {
+    --update-location-map-marker-color: var(--palette-semantic-error-80);
+    --update-location-loading-icon-color: var(--palette-active-10)
 }
