@@ -4,6 +4,7 @@
     80px
   ); /* don't reassign this variable, modify --header-height instead */
   --header-nav-font-size: var(--font-size-xl, 20px);
+  --header-nav-links-gap: 56px;
 }
 
 :root[data-platform='web-mobile'] {
@@ -12,6 +13,7 @@
     80px
   ); /* don't reassign this variable, modify --header-height instead */
   --header-nav-font-size: var(--font-size-xl, 20px);
+  --header-nav-links-gap: 56px;
 }
 
 :root[data-platform='web-tablet'] {
@@ -20,6 +22,7 @@
     80px
   ); /* don't reassign this variable, modify --header-height instead */
   --header-nav-font-size: var(--font-size-xl, 20px);
+  --header-nav-links-gap: 56px;
 }
 
 :root[data-theme='light'] {

@@ -15,7 +15,7 @@
 }
 
 .hamburgerButton {
-  padding: 0; /* TODO: not working, fix UIkit bug */
+  padding: 0;
 }
 
 .hamburgerIcon {
@@ -42,8 +42,8 @@
   line-height: normal;
 }
 
-.navigationContainer {
-  gap: 56px; /* TODO: try to fix page.css and layout.css loading order */
+.navigationContainer:has(a) {
+  gap: var(--header-nav-links-gap, 56px);
 }
 
 .accountButtons {
