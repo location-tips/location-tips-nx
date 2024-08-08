@@ -14,12 +14,12 @@ type SearchResultProps = {
 
 const SearchResults = ({ results }: SearchResultProps) => {
   return (
-    <div className={clsx(styles.searchResults)}>
+    <>
       <div className={clsx(styles.searchResults__header)}>
         {results.length} {results.length === 1 ? 'result' : 'results'}
       </div>
       {results && (
-        <MFlex direction="row" gap="2xl">
+        <MFlex direction="row" wrap="wrap" gap="2xl" justify="center">
           {results.map((result) => {
             return (
               <div key={result.id} className={clsx(styles.searchResults__card)}>
@@ -29,7 +29,7 @@ const SearchResults = ({ results }: SearchResultProps) => {
           })}
         </MFlex>
       )}
-    </div>
+    </>
   );
 };
 

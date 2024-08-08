@@ -1,7 +1,11 @@
 .menu {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .username {
-    word-break: wrap;
+  word-break: wrap;
+}
+
+.dropdownWrapper div div:has(.menuDropdownContainer.top) {
+  top: calc(100% + var(--menu-dropdown-padding-vertical, 25px));
 }

@@ -4,6 +4,7 @@ export * from './generic/locationSet';
 export * from './generic/profile';
 export * from './generic/auth';
 export * from './generic/progressStatus';
+export * from './generic/platform';
 
 export * from './api/locations';
 export * from './api/locations/set';

@@ -1,0 +1,14 @@
+:root[data-platform='web-desktop'] {
+  --avatar-width: 44px;
+  --avatar-height: 44px;
+}
+
+:root[data-platform='web-mobile'] {
+  --avatar-width: 44px;
+  --avatar-height: 44px;
+}
+
+:root[data-platform='web-tablet'] {
+  --avatar-width: 44px;
+  --avatar-height: 44px;
+}
