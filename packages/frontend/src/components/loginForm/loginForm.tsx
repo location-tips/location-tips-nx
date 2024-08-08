@@ -1,3 +1,4 @@
+/* eslint-disable @nx/enforce-module-boundaries */
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
@@ -9,6 +10,10 @@ import ProfileButton from '@front/components/profileButton/profileButton';
 import { getAuth, User } from 'firebase/auth';
 import '@front/utils/configureFirebase';
 import AddLocationButton from '@front/components/addLocationButton/addLocationButton';
+import clsx from 'clsx';
+
+import './loginForm.vars.css';
+import styles from './loginForm.module.css';
 
 const auth = getAuth();
 
@@ -46,24 +51,31 @@ const LoginForm = () => {
   return (
     <MFlex direction="row" justify="end" align="center" wrap="nowrap">
       {!isAuthenticated && (
-        <MDropdown
-          onClose={() => {
-            setDropdownOpen(true);
-          }}
-          noPadding={true}
-          dropdownContent={
-            <GoogleLoginButton
-              auth={auth}
-              onSuccess={handleLoginSuccess}
-              onFailure={handleLoginFailure}
-            />
-          }
-          open={dropdownOpen}
-          align="right"
-          stretch={false}
-        >
-          <MButton onClick={toggleDropdownOpen}>Sign In</MButton>
-        </MDropdown>
+        <div className={styles.dropdownWrapper}>
+          <MDropdown
+            className={styles.menuDropdown}
+            dropdownContentClassName={clsx(
+              styles.menuDropdownContainer,
+              styles.top
+            )}
+            onClose={() => {
+              setDropdownOpen(true);
+            }}
+            noPadding={true}
+            dropdownContent={
+              <GoogleLoginButton
+                auth={auth}
+                onSuccess={handleLoginSuccess}
+                onFailure={handleLoginFailure}
+              />
+            }
+            open={dropdownOpen}
+            align="right"
+            stretch={false}
+          >
+            <MButton onClick={toggleDropdownOpen}>Sign In</MButton>
+          </MDropdown>
+        </div>
       )}
       {isAuthenticated && (
         <MFlex gap="3xl">

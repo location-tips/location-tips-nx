@@ -6,13 +6,14 @@ import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import LoginForm from '@front/components/loginForm/loginForm';
 import LinkButton from '@front/components/linkButton/linkButton';
 import Logo from '@front/components/logo/logo';
-
-import './header.vars.css';
-import styles from './header.module.css';
+import clsx from 'clsx';
 import usePlatform from '@front/stores/usePlatform';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MdiHamburgerMenu } from '@front/icons/MdiHamburgerMenu';
 import NavMobile from '../navMobile/navMobile';
+
+import './header.vars.css';
+import styles from './header.module.css';
 
 const Header = () => {
   const platform = usePlatform((state) => state.platform);
@@ -28,23 +29,25 @@ const Header = () => {
       borderRightBottomRadius="none"
       borderRightTopRadius="none"
       shadow={false}
-      style={{ justifyContent: 'center' }} // TODO: remove default inline justify-stretch in MCard component
+      justify="center"
       className={styles.headerContainer}
     >
       <header className={styles.header}>
         {platform === 'web-mobile' && (
           <>
-            <div className={styles.wrapper}>
-              <MButton
-                className={styles.hamburgerButton}
-                style={{ padding: 0 }} // TODO: refactor MButton component so its mode styles won't override className styles
-                mode="transparent"
-                size="s"
-                onClick={toggleNavbar}
-              >
-                <MdiHamburgerMenu width={40} height={40} />
-              </MButton>
-            </div>
+            <MButton
+              className={clsx(styles.hamburgerButton)}
+              style={{ padding: 0 }}
+              mode="transparent"
+              size="s"
+              onClick={toggleNavbar}
+            >
+              <MdiHamburgerMenu
+                className={styles.hamburgerIcon}
+                width={40}
+                height={40}
+              />
+            </MButton>
             <NavMobile open={isNavBarOpen} onClose={toggleNavbar} />
           </>
         )}

@@ -34,7 +34,7 @@ const NavMobile = ({ open, onClose }: NavMobileProps) => {
           size="s"
           className={styles.closeButton}
         >
-          <MdiClose width={32} height={32} />
+          <MdiClose className={styles.closeButtonIcon} width={32} height={32} />
         </MButton>
         <nav className={styles.mobileNav}>
           <MFlex direction="column" gap="3xl" align="center" justify="center">

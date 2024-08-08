@@ -6,7 +6,6 @@
   margin-bottom: var(--header-container-height, 80px);
   height: var(--header-container-height, 80px);
   box-sizing: border-box;
-  justify-content: center; /* TODO: not working, fix UIkit bug */
 }
 
 .header {
@@ -19,17 +18,17 @@
   padding: 0; /* TODO: not working, fix UIkit bug */
 }
 
-.hamburgerButton path {
-  fill: var(--header-hamburger-button-enabled-color, #747e97);
+.hamburgerIcon {
+  color: var(--header-hamburger-button-enabled-color, #747e97);
 }
 
-.hamburgerButton:hover path {
-  fill: var(--header-hamburger-button-hover-color, #babecb);
+.hamburgerIcon:hover {
+  color: var(--header-hamburger-button-hover-color, #babecb);
 }
 
-.hamburgerButton:active path,
-.hamburgerButton:focus path {
-  fill: var(--header-hamburger-button-focus-color, #1e222a);
+.hamburgerIcon:active,
+.hamburgerIcon:focus {
+  color: var(--header-hamburger-button-focus-color, #1e222a);
 }
 
 .logo {
@@ -44,7 +43,7 @@
 }
 
 .navigationContainer {
-  gap: 56px; /* TODO: not working, fix UIkit bug */
+  gap: 56px; /* TODO: try to fix page.css and layout.css loading order */
 }
 
 .accountButtons {

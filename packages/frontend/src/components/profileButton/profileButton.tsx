@@ -6,10 +6,12 @@ import { getAuth } from 'firebase/auth';
 import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
+import clsx from 'clsx';
 
 import Avatar from '@front/components/avatar/avatar';
 import UserMenu from '@front/components/userMenu/userMenu';
 
+import './profileButton.vars.css';
 import styles from './profileButton.module.css';
 
 const auth = getAuth();
@@ -20,12 +22,15 @@ const ProfileButton = () => {
   return (
     <div className={styles.dropdownWrapper}>
       <MDropdown
+        dropdownContentClassName={clsx(
+          styles.menuDropdownContainer,
+          styles.top
+        )}
         noPadding={false}
         align="right"
         stretch={false}
         open={open}
         onClose={() => setOpen(false)}
-        dropdownContentClassName={styles.dropdownUserMenu}
         dropdownContent={<UserMenu />}
       >
         <MFlex

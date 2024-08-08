@@ -30,17 +30,17 @@
   right: 20px;
 }
 
-.closeButton path {
-  fill: var(--mobile-nav-close-button-enabled-color, #747e97);
+.closeButtonIcon {
+  color: var(--mobile-nav-close-button-enabled-color, #747e97);
 }
 
-.closeButton:hover path {
-  fill: var(--mobile-nav-close-button-hover-color, #babecb);
+.closeButtonIcon:hover {
+  color: var(--mobile-nav-close-button-hover-color, #babecb);
 }
 
-.closeButton:active path,
-.closeButton:focus path {
-  fill: var(--mobile-nav-close-button-focus-color, #1e222a);
+.closeButtonIcon:active,
+.closeButtonIcon:focus {
+  color: var(--mobile-nav-close-button-focus-color, #1e222a);
 }
 
 .mobileNav {

@@ -6,6 +6,6 @@
   word-break: wrap;
 }
 
-.dropdownWrapper div:has(.dropdownUserMenu) {
-  top: 150% !important; /* TODO: fix MDropdown component to pass margin in props with default value of 100% */
+.dropdownWrapper div div:has(.menuDropdownContainer.top) {
+  top: calc(100% + var(--menu-dropdown-padding-vertical, 25px));
 }
