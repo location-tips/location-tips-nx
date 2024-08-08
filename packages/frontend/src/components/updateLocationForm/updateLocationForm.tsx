@@ -1,11 +1,7 @@
 'use client';
 
-import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
-import { MTextarea } from '@location-tips/location-tips-uikit/atoms/MTextarea';
+import { useContext, useEffect, useRef, useState } from 'react';
 import type { TLocationsWithImages } from '@types';
-import { updateLocation } from '@front/actions/updateLocation';
 import { createPortal, useFormState } from 'react-dom';
 import {
   AdvancedMarker,
@@ -14,25 +10,32 @@ import {
   Map,
   MapControl,
   MapEvent,
+  GoogleMapsContext,
   useAdvancedMarkerRef,
   useMap,
 } from '@vis.gl/react-google-maps';
 import clsx from 'clsx';
 import Image from 'next/image';
 
-import styles from './updateLocationForm.module.css';
-import './updateLocationForm.vars.css';
-import { useEffect, useRef, useState } from 'react';
 import { useDebounce } from '@uidotdev/usehooks';
-import { convertCoordinates } from '@front/utils/mapUtils';
 import LocationMarker from '@front/components/locationMarker/locationMarker';
-import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
-import { MdiMapMarkerOutline } from '@front/icons/MdiMapMarkerOutline';
 import MapGeosearchAutocomplete from '@front/components/mapGeosearchAutocomplete/mapGeosearchAutocomplete';
 import FormStatus from '@front/components/formStatus/formStatus';
+import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
 import { PhDotDuotone } from '@front/icons/PhDotDuotone';
+import { MdiMapMarkerOutline } from '@front/icons/MdiMapMarkerOutline';
+import { convertCoordinates } from '@front/utils/mapUtils';
+import { updateLocation } from '@front/actions/updateLocation';
+import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
+import { MTextarea } from '@location-tips/location-tips-uikit/atoms/MTextarea';
+
+import styles from './updateLocationForm.module.css';
+import './updateLocationForm.vars.css';
+import useCreateLocations from '@front/stores/useCreateLocations';
 
 type UpdateLocationFormProps = {
   location: TLocationsWithImages;
@@ -46,7 +49,12 @@ const UpdateLocationForm = ({ location, mapId }: UpdateLocationFormProps) => {
   const [centerMarkerInfoOpen, setCenterMarkerInfoOpen] = useState(false);
   const [isSetPointButtonVisible, setIsSetPointButtonVisible] = useState(false);
 
+  const map = useMap();
+
+  const createLocation = useCreateLocations();
+
   const [markerRef, marker] = useAdvancedMarkerRef();
+  const loaderRef = useRef<HTMLElement>();
 
   const [center, setCenter] = useState({
     lat: location.location.coordinates.latitude,
@@ -63,16 +71,14 @@ const UpdateLocationForm = ({ location, mapId }: UpdateLocationFormProps) => {
   const debouncedDescription = useDebounce(userDescription, 1000);
   const debouncedCoordinates = useDebounce(coordinates, 1000);
 
-  const formStatusPortalRef = useRef<HTMLDivElement>();
-
-  const map = useMap();
-
   const onTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
+    createLocation.updateLocation({ ...location, title: e.target.value });
   };
 
   const onDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setUserDescription(e.target.value);
+    createLocation.updateLocation({ ...location, title: e.target.value });
   };
 
   const onDragEnd = (event: google.maps.MapMouseEvent) => {
@@ -88,6 +94,10 @@ const UpdateLocationForm = ({ location, mapId }: UpdateLocationFormProps) => {
 
   const onPlaceSelect = (place: google.maps.places.PlaceResult | null) => {
     if (place?.geometry?.location) {
+      setCenter({
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng(),
+      });
       map?.setCenter(place.geometry.location);
     }
   };
@@ -104,8 +114,19 @@ const UpdateLocationForm = ({ location, mapId }: UpdateLocationFormProps) => {
     }
 
     setCoordinates({ latitude: center.lat(), longitude: center.lng() });
+
+    createLocation.updateLocation({
+      ...location,
+      location: {
+        ...location.location,
+        coordinates: { latitude: center.lat(), longitude: center.lng() },
+      },
+    });
+
     setIsSetPointButtonVisible(false);
   };
+
+  console.log('coordinates', coordinates, debouncedCoordinates, location, createLocation.locations.find((l) => l.id === location.id));
 
   const onCentralMarkerClick = () => {
     setCenterMarkerInfoOpen(true);
@@ -138,6 +159,12 @@ const UpdateLocationForm = ({ location, mapId }: UpdateLocationFormProps) => {
     formRef.current?.requestSubmit();
   }, [debouncedTitle, debouncedDescription, debouncedCoordinates]);
 
+  useEffect(() => {
+    loaderRef.current = document.getElementById(
+      `form-status-portal-${location.id}`
+    ) as HTMLElement;
+  }, [location.id]);
+
   return (
     <MFlex direction="column" gap="xl">
       <AuthorizedForm
@@ -160,14 +187,16 @@ const UpdateLocationForm = ({ location, mapId }: UpdateLocationFormProps) => {
                 <MapGeosearchAutocomplete onPlaceSelect={onPlaceSelect} />
               </MapControl>
 
-              {isSetPointButtonVisible && <MapControl position={ControlPosition.BOTTOM_CENTER}>
+              {isSetPointButtonVisible && (
+                <MapControl position={ControlPosition.BOTTOM_CENTER}>
                   <MButton
                     onClick={onChangeCoordinatesMarkerClick}
                     className={styles.setPointButton}
                   >
                     Set point here
                   </MButton>
-              </MapControl>}
+                </MapControl>
+              )}
 
               <AdvancedMarker
                 ref={markerRef}
@@ -225,12 +254,12 @@ const UpdateLocationForm = ({ location, mapId }: UpdateLocationFormProps) => {
 
               <MCaption className={styles.coordinatesCaption}>
                 <MdiMapMarkerOutline width={24} height={24} />{' '}
-                {coordinates.latitude}, {coordinates.longitude}
+                {debouncedCoordinates.latitude}, {debouncedCoordinates.longitude}
               </MCaption>
               <input
                 type="hidden"
                 name="coordinates"
-                value={JSON.stringify(coordinates)}
+                value={JSON.stringify(debouncedCoordinates)}
               />
 
               <MFlex direction="row" gap="l" align="start" justify="start">
@@ -246,8 +275,16 @@ const UpdateLocationForm = ({ location, mapId }: UpdateLocationFormProps) => {
                 )}
               </MFlex>
 
-              {formStatusPortalRef.current &&
-                createPortal(<FormStatus loadingText="" />, document.getElementById('form-status-portal') as HTMLElement)}
+              {loaderRef.current &&
+                createPortal(
+                  <FormStatus
+                    loadingText=""
+                    iconWidth={32}
+                    iconHeight={32}
+                    className={styles.loadingIcon}
+                  />,
+                  loaderRef.current
+                )}
             </MFlex>
           </aside>
         </div>

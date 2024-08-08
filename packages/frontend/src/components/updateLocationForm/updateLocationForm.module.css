@@ -47,3 +47,7 @@
 .setPointButton {
     margin-bottom: var(--update-location-set-point-button-margin-bottom);
 }
+
+.loadingIcon {
+    color: var(--update-location-loading-icon-color);
+}
