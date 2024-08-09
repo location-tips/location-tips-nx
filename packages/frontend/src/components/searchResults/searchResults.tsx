@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { TLocationInResult } from '@types';
+import { PostLocationsResponse, TLocationInResult } from '@types';
 import SearchResult from '../searchResult/searchResult';
 import clsx from 'clsx';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
@@ -11,27 +11,51 @@ import styles from './searchResults.module.css';
 
 type SearchResultProps = {
   header: ReactNode;
-  results: ReactNode | TLocationInResult[];
+  results: ReactNode | Partial<PostLocationsResponse>;
 };
 
 const SearchResults = ({ header, results }: SearchResultProps) => {
+  const renderContent = (): ReactNode => {
+    if (!results)
+      return 'Sorry, your request was rejected by server. Please, try again.';
+
+    if (typeof results === 'object' && 'searchResult' in results) {
+      if (results.searchResult && results.searchResult.length > 0) {
+        return (
+          <MFlex direction="row" wrap="wrap" gap="2xl" justify="center">
+            {results.searchResult.map((result) => (
+              <div key={result.id} className={clsx(styles.searchResults__card)}>
+                <SearchResult result={result} />
+              </div>
+            ))}
+          </MFlex>
+        );
+      } else if (
+        results.queryDescription &&
+        results.queryDescription.location.length > 0
+      ) {
+        return (
+          <ul>
+            {results.queryDescription.location.map((loc, index) => (
+              <li key={index}>{loc.name}</li>
+            ))}
+          </ul>
+        );
+      } else if (
+        results.queryDescription &&
+        results.queryDescription.location.length === 0
+      ) {
+        return <div>{results.queryDescription.description}</div>;
+      }
+    } else {
+      return <>{results}</>;
+    }
+  };
+
   return (
     <>
       <div className={clsx(styles.searchResults__header)}>{header}</div>
-      {results && (
-        <MFlex direction="row" wrap="wrap" gap="2xl" justify="center">
-          {Array.isArray(results)
-            ? results.map((result) => (
-                <div
-                  key={result.id}
-                  className={clsx(styles.searchResults__card)}
-                >
-                  <SearchResult result={result} />
-                </div>
-              ))
-            : results}
-        </MFlex>
-      )}
+      {renderContent()}
     </>
   );
 };

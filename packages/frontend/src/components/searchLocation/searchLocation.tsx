@@ -21,8 +21,9 @@ import SearchButton from '@front/components/searchButton/searchButton';
 
 import './searchLocation.vars.css';
 import styles from './searchLocation.module.css';
-import PopularPlaces from '../popularPlaces/popularPlaces';
 import { mockupLocations } from '@front/actions/mockupLocation';
+import useSearchResultsLoading from '@front/stores/useSearchResultsLoading';
+import SearchSkeleton from '../searchSkeleton/searchSkeleton';
 
 type SearchState = Partial<PostLocationsResponse>;
 
@@ -34,26 +35,52 @@ type SearchLocationProps = {
 };
 
 const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, setIsLoading } = useSearchResultsLoading();
   const [popularPlaces, setPopularPlaces] = useState<SearchState>();
+  const popularPlacesHeader = 'Popular places:';
+  const skeletonHeader = 'Loading...';
+  const skeletonBody = <SearchSkeleton />;
+  const [searchResultsHeader, setSearchResultsHeader] = useState('');
 
   useEffect(() => {
+    setIsLoading(true);
     mockupLocations()
-      .then((result) => setPopularPlaces(result))
+      .then((result) => {
+        setPopularPlaces(result);
+        setIsLoading(false);
+      })
       .catch((e) => console.log(e));
-  }, []);
+  }, [setIsLoading]);
 
-  // uncomment for prod:
   const [state, formAction] = useFormState<SearchState, FormData>(
-    searchLocation,
+    async (prevState, formData) => {
+      setIsLoading(true);
+      // uncomment if you want to test without requests to API
+      // const result = await mockupLocations(prevState, formData, 'zero');
+      const result = await searchLocation(prevState, formData);
+      setIsLoading(false);
+      return result;
+    },
     initialState
   );
 
-  // TODO: remove from production code, use as Mockup only
-  // const [state, formAction] = useFormState<SearchState, FormData>(
-  //   mockupLocations,
-  //   initialState
-  // );
+  useEffect(() => {
+    if (state.searchResult && state.searchResult.length > 0) {
+      const quantity = state.searchResult.length;
+      const closingWord =
+        state.searchResult.length === 1 ? 'result' : 'results';
+      setSearchResultsHeader(`${quantity} ${closingWord}:`);
+    } else if (
+      state.searchResult &&
+      state.searchResult.length === 0 &&
+      state.queryDescription?.location &&
+      state.queryDescription?.location.length > 0
+    ) {
+      setSearchResultsHeader('You may like:');
+    } else {
+      setSearchResultsHeader('Nothing found.');
+    }
+  }, [state.searchResult, state.queryDescription?.location]);
 
   return (
     <APIProvider apiKey={apiKey}>
@@ -123,18 +150,20 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
         </section>
         {!isLoading && !state.searchResult && popularPlaces?.searchResult && (
           <section className={styles.resultsContainer}>
-            <PopularPlaces results={popularPlaces?.searchResult} />
+            <SearchResults
+              header={popularPlacesHeader}
+              results={popularPlaces}
+            />
           </section> // TODO: fetch from API and pass popular places as prop
         )}
         {isLoading && (
           <section className={clsx(styles.resultsContainer)}>
-            Hello
-            {/* <SearchResultsSkeleton /> */}
+            <SearchResults header={skeletonHeader} results={skeletonBody} />
           </section>
         )}
         {!isLoading && state.searchResult && (
           <section className={clsx(styles.resultsContainer)}>
-            <SearchResults results={state.searchResult} />
+            <SearchResults header={searchResultsHeader} results={state} />
           </section>
         )}
       </div>
