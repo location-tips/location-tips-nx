@@ -6,11 +6,12 @@ import React from 'react';
 type BookmarkProps = {
   isBookmarked: boolean;
   toggleBookmark: () => void;
+  className?: string;
 };
 
-const Bookmark = ({ isBookmarked, toggleBookmark }: BookmarkProps) => {
+const Bookmark = ({ isBookmarked, toggleBookmark, className }: BookmarkProps) => {
   return (
-    <MButton style={{ padding: 0 }} onClick={toggleBookmark} mode="transparent">
+    <MButton className={className} style={{ padding: 0 }} onClick={toggleBookmark} mode="transparent">
       {isBookmarked ? (
         <MdiBookmark width={36} height={36} />
       ) : (

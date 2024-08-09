@@ -37,7 +37,7 @@ const Modal = () => {
       <MFlex
         direction="row"
         justify="center"
-        align="start"
+        align="center"
         className={styles.wrapper}
       >
         <div

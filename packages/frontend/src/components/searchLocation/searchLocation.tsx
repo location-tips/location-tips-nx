@@ -56,89 +56,84 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   // );
 
   return (
-    <APIProvider apiKey={apiKey}>
-      <div className={styles.gridContainer}>
-        <section
-          className={clsx(styles.mapContainer, {
-            [styles.fullwidth]: !state.searchResult,
-          })}
-        >
+    <div className={styles.gridContainer}>
+      <section
+        className={clsx(styles.mapContainer, {
+          [styles.fullwidth]: !state.searchResult,
+        })}
+      >
+        <APIProvider apiKey={apiKey}>
           <SearchMap
             searchResult={state.searchResult ?? []}
             queryDescription={state.queryDescription}
             mapId={mapId}
           />
+        </APIProvider>
 
-          <MFlex
-            direction="row"
-            align="center"
-            justify="center"
-            className={styles.searchFormContainerWrapper}
-          >
-            <form action={formAction} className={styles.searchFormContainer}>
-              <MCard
-                shadow={false}
-                borderLeftBottomRadius="2xl"
-                borderLeftTopRadius="2xl"
-                borderRightBottomRadius="2xl"
-                borderRightTopRadius="2xl"
-                showFooterDivider={true}
-                noPadding={true}
-                footer={
-                  <MFlex
-                    align="center"
-                    justify="space-between"
-                    className={styles.searchFormFooter}
-                  >
-                    <MFlex
-                      direction="row"
-                      gap="m"
-                      align="center"
-                      justify="start"
-                    >
-                      <ImageUploadField name="image" />
-                      <VoiceUploadField name="voice" />
-                    </MFlex>
-                    <MFlex align="center" justify="end">
-                      <FormStatus />
-                      <SearchButton />
-                    </MFlex>
+        <MFlex
+          direction="row"
+          align="center"
+          justify="center"
+          className={styles.searchFormContainerWrapper}
+        >
+          <form action={formAction} className={styles.searchFormContainer}>
+            <MCard
+              shadow={false}
+              borderLeftBottomRadius="2xl"
+              borderLeftTopRadius="2xl"
+              borderRightBottomRadius="2xl"
+              borderRightTopRadius="2xl"
+              showFooterDivider={true}
+              noPadding={true}
+              footer={
+                <MFlex
+                  align="center"
+                  justify="space-between"
+                  className={styles.searchFormFooter}
+                >
+                  <MFlex direction="row" gap="m" align="center" justify="start">
+                    <ImageUploadField name="image" />
+                    <VoiceUploadField name="voice" />
                   </MFlex>
-                }
-              >
-                <MHeading mode="h3" className={styles.searchFormHeader}>
-                  {t('Describe what you are looking for')}
-                </MHeading>
-                <MTextarea
-                  name="searchText"
-                  rows={2}
-                  placeholder={t(
-                    'It could be a beach with black sand, a medieval castle, or cliffs.'
-                  )}
-                  containerClassName={styles.textarea}
-                />
-              </MCard>
-            </form>
-          </MFlex>
+                  <MFlex align="center" justify="end">
+                    <FormStatus />
+                    <SearchButton />
+                  </MFlex>
+                </MFlex>
+              }
+            >
+              <MHeading mode="h3" className={styles.searchFormHeader}>
+                {t('Describe what you are looking for')}
+              </MHeading>
+              <MTextarea
+                name="searchText"
+                rows={2}
+                placeholder={t(
+                  'It could be a beach with black sand, a medieval castle, or cliffs.'
+                )}
+                containerClassName={styles.textarea}
+              />
+            </MCard>
+          </form>
+        </MFlex>
+      </section>
+      {!isLoading && !state.searchResult && popularPlaces?.searchResult && (
+        <section className={styles.resultsContainer}>
+          <PopularPlaces results={popularPlaces?.searchResult} />
+        </section> // TODO: fetch from API and pass popular places as prop
+      )}
+      {isLoading && (
+        <section className={clsx(styles.resultsContainer)}>
+          Hello
+          {/* <SearchResultsSkeleton /> */}
         </section>
-        {!isLoading && !state.searchResult && popularPlaces?.searchResult && (
-          <section className={styles.resultsContainer}>
-            <PopularPlaces results={popularPlaces?.searchResult} />
-          </section> // TODO: fetch from API and pass popular places as prop
-        )}
-        {isLoading && (
-          <section className={clsx(styles.resultsContainer)}>
-            Hello
-            {/* <SearchResultsSkeleton /> */}
-          </section>
-        )}
-        {!isLoading && state.searchResult && (
-          <section className={clsx(styles.resultsContainer)}>
-            <SearchResults results={state.searchResult} />
-          </section>
-        )}
-      </div>
-    </APIProvider>
+      )}
+      {!isLoading && state.searchResult && (
+        <section className={clsx(styles.resultsContainer)}>
+          <SearchResults results={state.searchResult} mapId={mapId} apiKey={apiKey} />
+        </section>
+      )}
+    </div>
   );
 };
 

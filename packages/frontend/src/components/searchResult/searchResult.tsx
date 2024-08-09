@@ -1,25 +1,33 @@
 import { TLocationInResult } from '@types';
-import { MGallery } from '@location-tips/location-tips-uikit/atoms/MGallery';
 import clsx from 'clsx';
+import { MouseEvent, useEffect, useState } from 'react';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
+import { MGallery } from '@location-tips/location-tips-uikit/atoms/MGallery';
 import { MBadge } from '@location-tips/location-tips-uikit/atoms/MBadge';
-import { MdiStarOutline } from '@front/icons/MdiStarOutline';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import Bookmark from '../bookmark/bookmark';
-import { useEffect, useMemo, useState } from 'react';
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
+import { MdiStarOutline } from '@front/icons/MdiStarOutline';
 import { MdiChevronRight } from '@front/icons/MdiChevronRight';
 import Link from 'next/link';
 
 import './searchResult.vars.css';
 import styles from './searchResult.module.css';
+import useModal, { MODALS } from '@front/stores/useModal';
+import LocationModalHeader from '@front/components/locationModal/locationModalHeader/locationModalHeader';
+import LocationModalContent from '@front/components/locationModal/locationModalContent/locationModalContent';
+import { APIProvider } from '@vis.gl/react-google-maps';
 
 type SearchResultProps = {
   result: TLocationInResult;
+  mapId: string;
+  apiKey: string;
 };
 
-const SearchResult = ({ result }: SearchResultProps) => {
+const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const modals = useModal();
 
   useEffect(() => {
     // TODO: fetch bookmark data from api
@@ -29,6 +37,25 @@ const SearchResult = ({ result }: SearchResultProps) => {
   const toggleBookmark = async () => {
     // TODO: await fetch ...
     setIsBookmarked((isBookmarked) => !isBookmarked);
+  };
+
+  const showLocation = (event: MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    modals.registerModal(
+      MODALS.VIEW_LOCATION,
+      <LocationModalHeader
+        location={result}
+        onClose={() => modals.hideModal()}
+      />,
+      <APIProvider apiKey={apiKey}>
+        <LocationModalContent location={result} mapId={mapId} />
+      </APIProvider>,
+      null
+    );
+
+    modals.showModal(MODALS.VIEW_LOCATION);
   };
 
   const mainPicture = (
@@ -67,6 +94,7 @@ const SearchResult = ({ result }: SearchResultProps) => {
             className={clsx(styles.galleryFooter__link)}
             href={`/location/${result.id}`}
             title={result.title}
+            onClick={showLocation}
           >
             {result.title}
           </Link>
@@ -83,7 +111,7 @@ const SearchResult = ({ result }: SearchResultProps) => {
 
   const tools = [
     <div key="tools">
-      <Bookmark isBookmarked={isBookmarked} toggleBookmark={toggleBookmark} />
+      <Bookmark isBookmarked={isBookmarked} toggleBookmark={toggleBookmark} className={styles.bookmark} />
     </div>,
   ];
 

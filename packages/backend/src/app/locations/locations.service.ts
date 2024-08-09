@@ -53,7 +53,7 @@ export class LocationsService {
     const db = admin.firestore();
     const locations = await db
       .collection(COLLECTIONS.LOCATIONS)
-      .where(admin.firestore.FieldPath.documentId(), 'in', ids)
+      .where(admin.firestore.FieldPath.documentId(), 'in', ids.slice(0,30))
       .get();
 
     ids.forEach((id) => mapResult.set(id, null));
@@ -156,7 +156,7 @@ export class LocationsService {
     if (locationsInRegion.length) {
       // Search locations by prompt within the bounding box or radius from the center of region
       locations = await collectionRef
-        .where('geohash', 'in', locationsInRegion.map((l) => l.geohash))
+        .where('geohash', 'in', locationsInRegion.slice(0,30).map((l) => l.geohash))
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
         limit: DB_DEFAULT_LIMIT,
         distanceMeasure: 'COSINE',

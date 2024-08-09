@@ -1,5 +1,3 @@
-'use client';
-
 import { TLocationInResult } from '@types';
 import SearchResult from '../searchResult/searchResult';
 import clsx from 'clsx';
@@ -10,9 +8,11 @@ import styles from './searchResults.module.css';
 
 type SearchResultProps = {
   results: TLocationInResult[];
+  mapId: string;
+  apiKey: string;
 };
 
-const SearchResults = ({ results }: SearchResultProps) => {
+const SearchResults = ({ results, mapId, apiKey }: SearchResultProps) => {
   return (
     <>
       <div className={clsx(styles.searchResults__header)}>
@@ -23,7 +23,7 @@ const SearchResults = ({ results }: SearchResultProps) => {
           {results.map((result) => {
             return (
               <div key={result.id} className={clsx(styles.searchResults__card)}>
-                <SearchResult result={result} />
+                <SearchResult result={result} mapId={mapId} apiKey={apiKey} />
               </div>
             );
           })}
