@@ -37,7 +37,6 @@ const Header = () => {
           <>
             <MButton
               className={clsx(styles.hamburgerButton)}
-              // style={{ padding: 0 }}
               mode="transparent"
               size="s"
               onClick={toggleNavbar}
