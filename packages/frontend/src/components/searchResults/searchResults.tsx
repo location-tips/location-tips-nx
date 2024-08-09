@@ -1,5 +1,6 @@
 'use client';
 
+import { ReactNode } from 'react';
 import { TLocationInResult } from '@types';
 import SearchResult from '../searchResult/searchResult';
 import clsx from 'clsx';
@@ -9,24 +10,26 @@ import './searchResults.vars.css';
 import styles from './searchResults.module.css';
 
 type SearchResultProps = {
-  results: TLocationInResult[];
+  header: ReactNode;
+  results: ReactNode | TLocationInResult[];
 };
 
-const SearchResults = ({ results }: SearchResultProps) => {
+const SearchResults = ({ header, results }: SearchResultProps) => {
   return (
     <>
-      <div className={clsx(styles.searchResults__header)}>
-        {results.length} {results.length === 1 ? 'result' : 'results'}
-      </div>
+      <div className={clsx(styles.searchResults__header)}>{header}</div>
       {results && (
         <MFlex direction="row" wrap="wrap" gap="2xl" justify="center">
-          {results.map((result) => {
-            return (
-              <div key={result.id} className={clsx(styles.searchResults__card)}>
-                <SearchResult result={result} />
-              </div>
-            );
-          })}
+          {Array.isArray(results)
+            ? results.map((result) => (
+                <div
+                  key={result.id}
+                  className={clsx(styles.searchResults__card)}
+                >
+                  <SearchResult result={result} />
+                </div>
+              ))
+            : results}
         </MFlex>
       )}
     </>

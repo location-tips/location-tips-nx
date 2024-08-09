@@ -1,0 +1,49 @@
+:root[data-theme='light'] {
+}
+
+:root[data-platform='web-desktop'] {
+}
+
+:root[data-platform='web-tablet'] {
+}
+
+:root[data-platform='web-mobile'] {
+}
+
+/* special media requests for searchResults__card */
+
+@media (min-width: 2560px) {
+  :root[data-platform='web-desktop'] {
+    --skeleton-card-width: calc(33% - var(--flex-gap-2xl, 24px));
+  }
+}
+
+@media (max-width: 2559px) {
+  :root[data-platform='web-desktop'] {
+    --skeleton-card-width: calc(50% - var(--flex-gap-2xl, 24px));
+  }
+}
+
+@media (max-width: 1439px) {
+  :root[data-platform='web-tablet'] {
+    --skeleton-card-width: calc(50% - var(--flex-gap-2xl, 24px));
+  }
+}
+
+@media (max-width: 1279px) {
+  :root[data-platform='web-tablet'] {
+    --skeleton-card-width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  :root[data-platform='web-mobile'] {
+    --skeleton-card-width: calc(50% - var(--flex-gap-2xl, 24px));
+  }
+}
+
+@media (max-width: 666px) {
+  :root[data-platform='web-mobile'] {
+    --skeleton-card-width: 100%;
+  }
+}
