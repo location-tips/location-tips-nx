@@ -1,20 +1,27 @@
-'use client';
+'use server';
 
 import { PostLocationsResponse } from '@types';
 
-export function mockupLocations(
+export async function mockupLocations(
   _prevState?: any,
-  formData?: FormData
-): Promise<Partial<PostLocationsResponse>> {
+  formData?: FormData,
+  expected?: 'full' | 'qdesc' | 'zero'
+): Promise<any> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       try {
-        resolve(resultMockup);
+        if (expected && expected === 'qdesc') {
+          resolve(resultMockupQDesc);
+        } else if (expected && expected === 'zero') {
+          resolve(resultMockupZeroResults);
+        } else {
+          resolve(resultMockup);
+        }
       } catch (error) {
         console.error('Error:', error);
         reject(error);
       }
-    }, 300);
+    }, 1000);
   });
 }
 
@@ -4742,6 +4749,107 @@ const resultMockup: any = {
     description: 'Find a dead tree within a 10km radius of Zandvoort.',
     originalPropmt: 'dead tree in a radius 10km from Zandvoort',
     prompt: 'dead tree',
+    voice: null,
+    voiceKeywords: null,
+    image: null,
+  },
+};
+
+const resultMockupQDesc: any = {
+  searchResult: [],
+  queryDescription: {
+    near: [
+      {
+        name: 'Los Angeles',
+        type: 'City',
+        coordinates: {
+          latitude: 34.0522,
+          longitude: -118.2437,
+        },
+      },
+    ],
+    in: [],
+    location: [
+      {
+        coordinates: {
+          latitude: 33.5858,
+          longitude: -118.4068,
+        },
+        name: 'Long Beach',
+        type: 'City',
+      },
+      {
+        coordinates: {
+          latitude: 33.9751,
+          longitude: -118.4695,
+        },
+        name: 'Redondo Beach',
+        type: 'City',
+      },
+      {
+        coordinates: {
+          latitude: 33.885,
+          longitude: -118.3793,
+        },
+        name: 'Manhattan Beach',
+        type: 'City',
+      },
+      {
+        coordinates: {
+          latitude: 33.7683,
+          longitude: -118.1956,
+        },
+        name: 'Rancho Palos Verdes',
+        type: 'City',
+      },
+    ],
+    distance: 64.37,
+    description:
+      'Beaches within 64.37 kilometers of Los Angeles include Long Beach, Redondo Beach, Manhattan Beach, and Rancho Palos Verdes.',
+    originalPropmt: 'Beach in 40 miles from Los Angeles',
+    prompt: 'Beach',
+    voice: null,
+    voiceKeywords: null,
+    image: null,
+  },
+};
+
+const resultMockupZeroResults: any = {
+  searchResult: [],
+  queryDescription: {
+    near: [
+      {
+        name: 'Bishkek',
+        type: 'city',
+        coordinates: {
+          latitude: 42.8746,
+          longitude: 74.5698,
+        },
+      },
+    ],
+    in: [
+      {
+        name: 'Kyrgyzstan',
+        type: 'country',
+        description: 'Country in Central Asia',
+        coordinates: {
+          latitude: 41.2044,
+          longitude: 74.7661,
+        },
+        boundingBox: {
+          north: 43.2298,
+          south: 39.161,
+          east: 80.5681,
+          west: 69.2078,
+        },
+      },
+    ],
+    location: [],
+    distance: 64.37,
+    description:
+      "I couldn't find any beaches within 64.37 kilometers of Bishkek. Kyrgyzstan is a landlocked country, so there are no beaches directly in the country.",
+    originalPropmt: 'Beach in 40 miles from Bishkek',
+    prompt: 'beach',
     voice: null,
     voiceKeywords: null,
     image: null,
