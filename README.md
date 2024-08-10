@@ -77,9 +77,3 @@ npm run front
 ```
 npm run back
 ```
-
-### Install wavesurfer
-
-```
-npm install wavesurfer.js @wavesurfer/react
-```
