@@ -1,52 +1,56 @@
 .gridContainer {
-    display: grid;
-    grid: 1fr / repeat(24, 1fr);
-    grid-gap: 24;
-    justify-content: stretch;
-    align-items: stretch;
-    height: calc(80vh - var(--header-height));
+  display: grid;
+  grid: var(--update-location-container-grid, 1fr / repeat(24, 1fr));
+  grid-gap: 24px;
+  justify-content: stretch;
+  align-items: stretch;
+  height: var(
+    --update-location-container-height,
+    calc(80vh - var(--header-height))
+  );
 }
 
 .mapContainer {
-    grid-column: 1 / span 15;
-    grid-row: 1 / span 24;
-    position: relative;
-    border-radius: var(--upload-location-map-container-border-radius);
-    overflow: hidden;
+  grid-column: var(--update-location-map-container-grid-col, 1 / span 15);
+  grid-row: var(--update-location-map-container-grid-row, 1 / span 24);
+  position: relative;
+  border-radius: var(--upload-location-map-container-border-radius);
+  overflow: hidden;
 }
 
 .formContainer {
-    grid-column: 17 / span 8;
-    grid-row: 1 / span 24;
-    overflow-y: auto;
-    padding: 24;
+  grid-column: var(--update-location-form-container-grid-col, 17 / span 8);
+  grid-row: var(--update-location-form-container-grid-row, 1 / span 24);
+  overflow-y: auto;
+  padding: var(--update-location-form-container-padding-vertical, 24px)
+    var(--update-location-form-container-padding-horizontal, 24px);
 }
 
 .form {
-    width: var(--upload-location-form-width);
+  width: var(--upload-location-form-width);
 }
 
 .titleField,
 .descriptionField {
-    width: 100%;
+  width: 100%;
 }
 
 .imagePreview {
-    position: relative;
-    width: var(--update-location-image-preview-width, 128px);
-    height: var(--update-location-image-preview-height, 128px);
-    border-radius: var(--update-location-image-preview-border-radius);
-    overflow: hidden;
+  position: relative;
+  width: var(--update-location-image-preview-width, 128px);
+  height: var(--update-location-image-preview-height, 128px);
+  border-radius: var(--update-location-image-preview-border-radius);
+  overflow: hidden;
 }
 
 .marker {
-    color: var(--update-location-map-marker-color);
+  color: var(--update-location-map-marker-color);
 }
 
 .setPointButton {
-    margin-bottom: var(--update-location-set-point-button-margin-bottom);
+  margin-bottom: var(--update-location-set-point-button-margin-bottom);
 }
 
 .loadingIcon {
-    color: var(--update-location-loading-icon-color);
+  color: var(--update-location-loading-icon-color);
 }

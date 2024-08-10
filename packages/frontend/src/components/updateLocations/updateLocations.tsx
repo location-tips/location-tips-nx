@@ -50,7 +50,7 @@ const UpdateLocations = ({ mapId, apiKey }: UpdateLocationsProps) => {
             nextButton={<MdiChevronRight width={64} height={64} />}
             prevButtonClassName={styles.prevButton}
             prevButton={<MdiChevronLeft width={64} height={64} />}
-            className={styles.galeryWrapper}
+            className={styles.galleryWrapper}
             slides={createLocaton.locations.map((location) => (
               <APIProvider apiKey={apiKey}>
                 <UpdateLocationForm location={location} mapId={mapId} />
@@ -61,7 +61,8 @@ const UpdateLocations = ({ mapId, apiKey }: UpdateLocationsProps) => {
           />
 
           <>
-            {!Number.isNaN(currentSlide) && galleryPortalRef.current &&
+            {!Number.isNaN(currentSlide) &&
+              galleryPortalRef.current &&
               createPortal(
                 <LocationsBullets
                   locations={createLocaton.locations}

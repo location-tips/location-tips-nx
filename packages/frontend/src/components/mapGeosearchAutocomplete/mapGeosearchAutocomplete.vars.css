@@ -1,0 +1,10 @@
+:root[data-platform='web-desktop'] {
+    --mapgeosearchautocomplete-dropdown-top: 0;
+}
+
+:root[data-platform='web-tablet'] {
+    --mapgeosearchautocomplete-dropdown-top
+}
+
+:root[data-platform='web-mobile'] {
+}
