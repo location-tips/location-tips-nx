@@ -1,0 +1,16 @@
+.locationsSet__wrapper {
+  display: flex;
+  width: calc(100vw - var(--location-set-wrapper-padding, 0px));
+  max-width: 1200px;
+  height: calc(80vh - var(--header-height));
+}
+
+.locationsSet__mapContainer {
+  width: 50%;
+  height: 100%;
+}
+
+.locationSet__setContainer {
+  width: 50%;
+  height: 100%;
+}
