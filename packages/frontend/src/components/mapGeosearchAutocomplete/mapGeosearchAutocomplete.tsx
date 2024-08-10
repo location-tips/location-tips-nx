@@ -4,13 +4,17 @@ import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
 import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
 import { MList } from '@location-tips/location-tips-uikit/atoms/MList';
 
+import styles from './mapGeosearchAutocomplete.module.css';
+
 type MapGeosearchAutocompleteProps = {
   onPlaceSelect: (place: google.maps.places.PlaceResult | null) => void;
-}
+};
 
 // This is a custom built autocomplete component using the "Autocomplete Service" for predictions
 // and the "Places Service" for place details
-export const MapGeosearchAutocomplete = ({ onPlaceSelect }: MapGeosearchAutocompleteProps) => {
+export const MapGeosearchAutocomplete = ({
+  onPlaceSelect,
+}: MapGeosearchAutocompleteProps) => {
   const map = useMap();
   const places = useMapsLibrary('places');
 
@@ -92,26 +96,28 @@ export const MapGeosearchAutocomplete = ({ onPlaceSelect }: MapGeosearchAutocomp
   );
 
   return (
-    <MDropdown
-      open={predictionResults.length > 0}
-      noPadding
-      dropdownContent={
-        <MList
-          onChoose={({ key }) => handleSuggestionClick(key)}
-          options={predictionResults.map(({ place_id, description }) => ({
-            key: place_id,
-            value: description,
-          }))}
+    <div className={styles.dropdownWrapper}>
+      <MDropdown
+        open={predictionResults.length > 0}
+        noPadding
+        dropdownContent={
+          <MList
+            onChoose={({ key }) => handleSuggestionClick(key)}
+            options={predictionResults.map(({ place_id, description }) => ({
+              key: place_id,
+              value: description,
+            }))}
+          />
+        }
+        stretch={false}
+      >
+        <MInput
+          value={inputValue}
+          onInput={(event: FormEvent<HTMLInputElement>) => onInputChange(event)}
+          placeholder="Search for a place"
         />
-      }
-      stretch={false}
-    >
-      <MInput
-        value={inputValue}
-        onInput={(event: FormEvent<HTMLInputElement>) => onInputChange(event)}
-        placeholder="Search for a place"
-      />
-    </MDropdown>
+      </MDropdown>
+    </div>
   );
 };
 
