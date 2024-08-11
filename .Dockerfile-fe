@@ -13,6 +13,9 @@ COPY package*.json ./
 COPY . .
 
 ENV SERVER="https://api.location.tips"
+ENV GOOGLE_MAPS_API_KEY=AIzaSyCrtsLuDY_B4P3XMfWWJUrFWASnKoErEgU
+ENV GOOGLE_MAPS_ID=1ead27ffa779d1e9
+ENV DOMAIN=http://localhost:3001
 
 # Install app dependencies
 RUN npm config set @location-tips:registry https://npm.pkg.github.com && \
