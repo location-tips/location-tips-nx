@@ -6,8 +6,6 @@ import { TLocationEntity, ProgressStatus, TLocationsWithImages } from '@types';
 import axios, { AxiosProgressEvent, AxiosResponse } from 'axios';
 import { imagePlaceholder } from '@front/components/locationUploadProgress/placeholderImage';
 
-import heic2any from 'heic2any';
-
 import ImageUploadProgress from '@front/components/imageUploadProgress/imageUploadProgress';
 import useCreateLocations from '@front/stores/useCreateLocations';
 
@@ -45,17 +43,21 @@ const LocationUploadProgress = ({
   }, []);
 
   useEffect(() => {
-    if (file.type === 'image/heic') {
-      heic2any({
-        blob: file,
-        toType: 'image/webp',
-        quality: 0.5,
-      }).then((blob) => {
-        setWebp(Array.isArray(blob) ? blob[0] : blob);
-      });
-    } else {
-      setWebp(file);
-    }
+    (async () => {
+      if (file.type === 'image/heic') {
+        const heic2any = (await import('heic2any')).default;
+
+        heic2any({
+          blob: file,
+          toType: 'image/webp',
+          quality: 0.5,
+        }).then((blob) => {
+          setWebp(Array.isArray(blob) ? blob[0] : blob);
+        });
+      } else {
+        setWebp(file);
+      }
+    })();
   }, [file]);
 
   useEffect(() => {
@@ -90,12 +92,13 @@ const LocationUploadProgress = ({
     }
   }, [progress]);
 
-  return (<ImageUploadProgress
-          key={file.name}
-          image={!webp ? imagePlaceholder : URL.createObjectURL(webp)}
-          progress={progress}
-          status={status}
-        />
+  return (
+    <ImageUploadProgress
+      key={file.name}
+      image={!webp ? imagePlaceholder : URL.createObjectURL(webp)}
+      progress={progress}
+      status={status}
+    />
   );
 };
 

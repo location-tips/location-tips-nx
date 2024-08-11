@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
 import Bookmark from '@front/components/bookmark/bookmark';
@@ -30,7 +30,7 @@ const LocationModalHeader = ({
         <AuthorizedSection>
           {location.id && <Bookmark id={location.id} label="Save" />}
         </AuthorizedSection>
-        {location.id && <ShareButton url={`${window?.location.protocol}//${window?.location.host}/location/${location.id}`} label={<MText>Share</MText>} />}
+        {window && location.id && <ShareButton url={`${window?.location.protocol}//${window?.location.host}/location/${location.id}`} label={<MText>Share</MText>} />}
       </MFlex>
     </MFlex>
   );

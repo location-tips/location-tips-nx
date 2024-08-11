@@ -40,7 +40,7 @@ const getLocationById = async (id: string): Promise<TLocationInResult> => {
   }
 }
 
-export const generateMetaData = async ({ params }: Params): Promise<Metadata> => {
+export const generateMetadata = async ({ params }: Params): Promise<Metadata> => {
   const { id } = params;
 
   const location = await getLocationById(id);

@@ -1,3 +1,5 @@
+'use client';
+
 import { getAuth } from "firebase/auth";
 import "@front/utils/configureFirebase";
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
