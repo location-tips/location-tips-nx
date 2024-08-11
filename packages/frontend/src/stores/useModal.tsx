@@ -6,6 +6,7 @@ import { create } from 'zustand';
 export enum MODALS {
   ADD_LOCATION = 'ADD_LOCATION',
   EDIT_LOCATION = 'EDIT_LOCATION',
+  VIEW_LOCATION = 'VIEW_LOCATION',
 }
 
 interface ModalsState {

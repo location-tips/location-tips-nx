@@ -100,6 +100,15 @@ export class LocationsWithScoreDTO extends LocationWithImagesEntityDTO implement
     score: number;
 }
 
+export class LocationInResultDTO extends LocationWithImagesEntityDTO implements TLocationsWithImages {
+    @ApiProperty({
+        description: 'Locations in the same place and similar to search query',
+        type: LocationWithImagesEntityDTO,
+        isArray: true,
+    })
+    nearest: TLocationsWithImages[];
+}
+
 export class LocationSearchDescriptionDTO implements TLocationSearchDescription {
     @ApiProperty({
         description: 'Original prompt for the search query without translation and processing',

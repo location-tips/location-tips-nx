@@ -1,4 +1,4 @@
-.locationsSet__wrapper {
+.locationsList__wrapper {
   display: flex;
   flex-direction: var(--location-set-flex-direction, row);
   gap: var(--location-set-wrapper-gap, 24px);
@@ -6,12 +6,12 @@
   height: var(--location-set-wrapper-height, calc(80vh - var(--header-height)));
 }
 
-.locationsSet__mapContainer {
+.locationsList__mapContainer {
   width: var(--location-set-child-container-width, calc(50% - 1.5rem / 2));
   height: var(--location-set-map-height, 100%);
 }
 
-.locationSet__setContainer {
+.locationsList__setContainer {
   box-sizing: border-box;
   width: var(--location-set-child-container-width, calc(50% - 1.5rem / 2));
   height: 100%;

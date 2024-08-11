@@ -83,18 +83,19 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   }, [state.searchResult, state.queryDescription?.location]);
 
   return (
-    <APIProvider apiKey={apiKey}>
-      <div className={styles.gridContainer}>
-        <section
-          className={clsx(styles.mapContainer, {
-            [styles.fullwidth]: !state.searchResult,
-          })}
-        >
+    <div className={styles.gridContainer}>
+      <section
+        className={clsx(styles.mapContainer, {
+          [styles.fullwidth]: !state.searchResult,
+        })}
+      >
+        <APIProvider apiKey={apiKey}>
           <SearchMap
             searchResult={state.searchResult ?? []}
             queryDescription={state.queryDescription}
             mapId={mapId}
           />
+        </APIProvider>
 
           <MFlex
             direction="row"
@@ -153,21 +154,21 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
             <SearchResults
               header={popularPlacesHeader}
               results={popularPlaces}
+              mapId={mapId} apiKey={apiKey}
             />
           </section> // TODO: fetch from API and pass popular places as prop
         )}
         {isLoading && (
           <section className={clsx(styles.resultsContainer)}>
-            <SearchResults header={skeletonHeader} results={skeletonBody} />
+            <SearchResults header={skeletonHeader} results={skeletonBody} mapId={mapId} apiKey={apiKey} />
           </section>
         )}
         {!isLoading && state.searchResult && (
           <section className={clsx(styles.resultsContainer)}>
-            <SearchResults header={searchResultsHeader} results={state} />
+            <SearchResults header={searchResultsHeader} results={state} mapId={mapId} apiKey={apiKey} />
           </section>
         )}
       </div>
-    </APIProvider>
   );
 };
 

@@ -27,3 +27,7 @@
   font-weight: 400;
   line-height: var(--search-result-gallery-line-height, 20px);
 }
+
+.bookmark {
+  color: var(--search-result-gallery-bookmark-color, #747e97);
+}

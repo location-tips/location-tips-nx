@@ -1,9 +1,14 @@
-import type { PutLocationRequest, TGeminiResponseDescribeImage, TLocationEntity } from '@types';
+import type {
+  PutLocationRequest,
+  TGeminiResponseDescribeImage,
+  TLocationEntity,
+  TLocationsWithImages,
+} from '@types';
 import { Injectable } from '@nestjs/common';
 import { extractExif } from '@back/utils/exif';
 import { getStorage } from 'firebase-admin/storage';
 import { geminiDescribeImage } from '@back/utils/gemini';
-import { COLLECTIONS } from '@const';
+import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
 import { v4 as uuidv4 } from 'uuid';
 import convert from 'heic-convert';
 import admin from 'firebase-admin';
@@ -39,12 +44,17 @@ export class LocationService {
     return outputFile;
   }
 
-  async getImages(url: string): Promise<{ original: string; small: string; medium: string }> {
+  async getImages(
+    url: string
+  ): Promise<{ original: string; small: string; medium: string }> {
     return await getImages(url);
   }
 
-  async getImageDescription(image: File, exif?: ExifReader.ExpandedTags): Promise<TGeminiResponseDescribeImage> {
-    let prompt = "";
+  async getImageDescription(
+    image: File,
+    exif?: ExifReader.ExpandedTags
+  ): Promise<TGeminiResponseDescribeImage> {
+    let prompt = '';
 
     if (exif) {
       const { Latitude, Longitude } = exif?.gps ?? {};
@@ -53,8 +63,8 @@ export class LocationService {
         prompt = `shot has been made at ${Latitude} latitude and ${Longitude} longitude`;
       }
     }
-    
-    return await geminiDescribeImage(image, prompt)
+
+    return await geminiDescribeImage(image, prompt);
   }
 
   async uploadToCDN(image: File): Promise<string> {
@@ -65,13 +75,12 @@ export class LocationService {
 
       const file = bucket.file(filename);
       const fileBuffer = await image.arrayBuffer();
-  
+
       await file.save(Buffer.from(fileBuffer), {
         metadata: {
-          contentType: image.type, 
+          contentType: image.type,
         },
       });
-  
     } catch (error) {
       console.error('Error uploading file:', error);
     }
@@ -93,23 +102,46 @@ export class LocationService {
     const ref = await db.collection(COLLECTIONS.LOCATIONS).add(location);
     const doc = await ref.get();
 
-    return { id: doc.id, ...(doc.data()) } as TLocationEntity;
+    return { id: doc.id, ...doc.data() } as TLocationEntity;
   }
 
-  async updateLocationInDB({ id, title, userDescription, location: coordinates }: PutLocationRequest): Promise<TLocationEntity> {
+  async updateLocationInDB({
+    id,
+    title,
+    userDescription,
+    location: coordinates,
+  }: PutLocationRequest): Promise<TLocationEntity> {
     const db = admin.firestore();
     // TODO: Access controller to check if user is allowed to update location
 
-    const data = (await db.collection(COLLECTIONS.LOCATIONS).doc(id).get()).data() as TLocationEntity;
+    const data = (
+      await db.collection(COLLECTIONS.LOCATIONS).doc(id).get()
+    ).data() as TLocationEntity;
 
-    await db.collection(COLLECTIONS.LOCATIONS).doc(id).set({ ...data, title: title ?? data.title, userDescription: userDescription ?? data.userDescription, location: { ...data.location, coordinates: coordinates ?? data.location?.coordinates } }, { merge: true });
+    await db
+      .collection(COLLECTIONS.LOCATIONS)
+      .doc(id)
+      .set(
+        {
+          ...data,
+          title: title ?? data.title,
+          userDescription: userDescription ?? data.userDescription,
+          location: {
+            ...data.location,
+            coordinates: coordinates ?? data.location?.coordinates,
+          },
+        },
+        { merge: true }
+      );
 
     const doc = await db.collection(COLLECTIONS.LOCATIONS).doc(id).get();
 
     return doc.data() as TLocationEntity;
   }
 
-  async removeLocationFromDB(id: TLocationEntity['id']): Promise<TLocationEntity> {
+  async removeLocationFromDB(
+    id: TLocationEntity['id']
+  ): Promise<TLocationEntity> {
     const db = admin.firestore();
 
     const doc = await db.collection(COLLECTIONS.LOCATIONS).doc(id).get();
@@ -117,5 +149,39 @@ export class LocationService {
     await db.collection(COLLECTIONS.LOCATIONS).doc(id).delete();
 
     return doc.data() as TLocationEntity;
+  }
+
+  async getLocationById(id: TLocationEntity['id']): Promise<TLocationEntity> {
+    const db = admin.firestore();
+
+    const doc = await db.collection(COLLECTIONS.LOCATIONS).doc(id).get();
+
+    return { id: doc.id, ...doc.data() } as TLocationEntity;
+  }
+
+  async getNearestLocations(
+    geohash: TLocationEntity['geohash']
+  ): Promise<TLocationsWithImages[]> {
+    const db = admin.firestore();
+
+    const locations = await db
+      .collection(COLLECTIONS.LOCATIONS)
+      .where('geohash', '==', geohash)
+      .limit(DB_DEFAULT_LIMIT)
+      .get();
+
+    const data: TLocationsWithImages[] = await Promise.all(locations.docs.map(async (doc) => {
+      const loc = {
+        ...(doc.data() as TLocationEntity),
+        images: await getImages(doc.data().image.url),
+      }
+
+      delete loc.embedding_field;
+      delete loc.image.exif;
+
+      return loc;
+    }));
+
+    return data;
   }
 }

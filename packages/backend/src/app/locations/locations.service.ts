@@ -16,7 +16,7 @@ import {
 import { getEmbeddings } from '@back/utils/vertex';
 import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
 import { getDistanceBetweenEmbeddings, getRadiusFromBoundingBox } from '@back/utils/distance';
-import { COLLECTIONS, DB_DEFAULT_LIMIT, STORAGE_ORIGINAL_FOLDER, STORAGE_THUMBS_FOLDER, STORAGE_THUMBS_MEDIUM_SUFFIX, STORAGE_THUMBS_SMALL_SUFFIX } from '@const';
+import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
 import { getImages } from '@back/utils/firebase';
 
 @Injectable()
@@ -53,7 +53,7 @@ export class LocationsService {
     const db = admin.firestore();
     const locations = await db
       .collection(COLLECTIONS.LOCATIONS)
-      .where(admin.firestore.FieldPath.documentId(), 'in', ids)
+      .where(admin.firestore.FieldPath.documentId(), 'in', ids.slice(0,30))
       .get();
 
     ids.forEach((id) => mapResult.set(id, null));
@@ -61,7 +61,9 @@ export class LocationsService {
     locations.docs.forEach((doc) => {
       const res = doc.data() as TLocationEntity;
 
-      mapResult.set(doc.id, res);
+      console.log('doc.id', doc.id);
+
+      mapResult.set(doc.id, { ...res, id: doc.id });
     });
 
     return Array.from(mapResult.values()) as TLocationEntity[];
@@ -156,7 +158,7 @@ export class LocationsService {
     if (locationsInRegion.length) {
       // Search locations by prompt within the bounding box or radius from the center of region
       locations = await collectionRef
-        .where('geohash', 'in', locationsInRegion.map((l) => l.geohash))
+        .where('geohash', 'in', locationsInRegion.slice(0,30).map((l) => l.geohash))
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
         limit: DB_DEFAULT_LIMIT,
         distanceMeasure: 'COSINE',
@@ -208,9 +210,6 @@ export class LocationsService {
         nearest: locations.slice(1) ?? [],
       });
     });
-
-    //TODO: remove before release
-    console.log('locationsToReturn', locationsToReturn);
 
     return locationsToReturn;
   }

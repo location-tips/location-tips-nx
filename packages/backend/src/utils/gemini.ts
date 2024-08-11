@@ -62,7 +62,7 @@ export const geminiDescribeSearchQuery = async (
         location: [<provide here the list of coordinates for places you found. Provide as many as it is possible>{coordinates: {latitude: <latitude>, longitude: <longitude>}, name: <place name>, type: <place type>}],
         distance: <if in the prompt user provided a range from any location, it should be here. It should be converted to kilometres always. This field value should be integer or float or null, if user is not provide defined number but asked something like near, not far from, in front of etc, try to estimate radius for example: "near" - 10km, "not far from" - 20km>,
         description: <places you found summary description>,
-        originalPropmt: <original prompt user provided>,
+        originalPrompt: <original prompt user provided>,
         prompt: <prompt essencial for vector search, just keywords excluding places that already has been added in to the "near" or "in" fields>,
         voice: <if user provided audio file, you should provide here its transcription>,
         voiceKeywords: <if user provided audio file, transcription essencial for vector search, just keywords excluding places that already has been added in to the "near" or "in" fields >,

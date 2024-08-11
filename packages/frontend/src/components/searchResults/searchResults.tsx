@@ -1,5 +1,3 @@
-'use client';
-
 import { ReactNode } from 'react';
 import { PostLocationsResponse, TLocationInResult } from '@types';
 import SearchResult from '../searchResult/searchResult';
@@ -12,9 +10,11 @@ import styles from './searchResults.module.css';
 type SearchResultProps = {
   header: ReactNode;
   results: ReactNode | Partial<PostLocationsResponse>;
+  mapId: string;
+  apiKey: string;
 };
 
-const SearchResults = ({ header, results }: SearchResultProps) => {
+const SearchResults = ({ header, results, mapId, apiKey }: SearchResultProps) => {
   const renderContent = (): ReactNode => {
     if (!results)
       return 'Sorry, your request was rejected by server. Please, try again.';
@@ -22,10 +22,10 @@ const SearchResults = ({ header, results }: SearchResultProps) => {
     if (typeof results === 'object' && 'searchResult' in results) {
       if (results.searchResult && results.searchResult.length > 0) {
         return (
-          <MFlex direction="row" wrap="wrap" gap="2xl" justify="center">
+          <MFlex direction="row" wrap="wrap" gap="2xl" justify="start">
             {results.searchResult.map((result) => (
               <div key={result.id} className={clsx(styles.searchResults__card)}>
-                <SearchResult result={result} />
+                <SearchResult result={result} mapId={mapId} apiKey={apiKey} />
               </div>
             ))}
           </MFlex>

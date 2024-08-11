@@ -3,7 +3,8 @@
 :root {
   --header-height: 80px;
   --page-padding-top: var(--flex-gap-xl);
-  --page-padding-top: var(--flex-gap-xl);
+  --page-padding-horizontal: var(--flex-gap-xl);
+  --page-title-margin: var(--flex-gap-xl);
 }
 
 :root[data-theme='light'] {

@@ -2,25 +2,24 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const SERVER = process.env.SERVER || 'http://localhost:3000';
 
-type Params = {
-  params: {
-    id: string;
-  };
-};
-
-export async function GET(req: NextRequest, context: Params) {
+export async function GET(req: NextRequest) {
   try {
+    const token = req.headers.get('Authorization') || '';
+
     const response = await fetch(`${SERVER}/api/locations/my`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
       method: 'GET',
     });
 
     if (response.status >= 200 && response.status < 300) {
-      const jsonData = await response.json();
+        const jsonData = await response.json();
 
-      return NextResponse.json(jsonData);
+        return NextResponse.json(jsonData);
     } else {
-      const error = await response.json();
-      return NextResponse.json({ error }, { status: response.status });
+        const error = await response.json();
+        return NextResponse.json({ error }, { status: response.status });
     }
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });

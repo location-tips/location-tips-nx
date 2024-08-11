@@ -1,35 +1,50 @@
+"use client";
+
 import { TLocationInResult } from '@types';
-import { MGallery } from '@location-tips/location-tips-uikit/atoms/MGallery';
 import clsx from 'clsx';
+import { MouseEvent } from 'react';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
+import { MGallery } from '@location-tips/location-tips-uikit/atoms/MGallery';
 import { MBadge } from '@location-tips/location-tips-uikit/atoms/MBadge';
-import { MdiStarOutline } from '@front/icons/MdiStarOutline';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import Bookmark from '../bookmark/bookmark';
-import { useEffect, useMemo, useState } from 'react';
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
+import { MdiStarOutline } from '@front/icons/MdiStarOutline';
 import { MdiChevronRight } from '@front/icons/MdiChevronRight';
+import useModal, { MODALS } from '@front/stores/useModal';
+import LocationModalHeader from '@front/components/locationModal/locationModalHeader/locationModalHeader';
+import LocationModalContent from '@front/components/locationModal/locationModalContent/locationModalContent';
 import Link from 'next/link';
 import renderLocationSlides from '@front/utils/renderLocationSlides';
 
 import './searchResult.vars.css';
 import styles from './searchResult.module.css';
+import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
 
 type SearchResultProps = {
   result: TLocationInResult;
+  mapId: string;
+  apiKey: string;
 };
 
-const SearchResult = ({ result }: SearchResultProps) => {
-  const [isBookmarked, setIsBookmarked] = useState(false);
+const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
+  const modals = useModal();
 
-  useEffect(() => {
-    // TODO: fetch bookmark data from api
-    setIsBookmarked(true); // replace with fetch
-  }, [result.id]);
+  const showLocation = (event: MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
 
-  const toggleBookmark = async () => {
-    // TODO: await fetch ...
-    setIsBookmarked((isBookmarked) => !isBookmarked);
+    modals.registerModal(
+      MODALS.VIEW_LOCATION,
+      <LocationModalHeader
+        location={result}
+        onClose={() => modals.hideModal()}
+      />, 
+      <LocationModalContent location={result} mapId={mapId} apiKey={apiKey} />,
+      null
+    );
+
+    modals.showModal(MODALS.VIEW_LOCATION);
   };
 
   const slides = renderLocationSlides(result);
@@ -53,8 +68,9 @@ const SearchResult = ({ result }: SearchResultProps) => {
             className={clsx(styles.galleryFooter__link)}
             href={`/location/${result.id}`}
             title={result.title}
+            onClick={showLocation}
           >
-            {result.title}
+            { result.title || result.location.name || result.image?.title }
           </Link>
         </MHeading>
         <MBadge mode="transparent">
@@ -69,7 +85,9 @@ const SearchResult = ({ result }: SearchResultProps) => {
 
   const tools = [
     <div key="tools">
-      <Bookmark isBookmarked={isBookmarked} toggleBookmark={toggleBookmark} />
+      <AuthorizedSection>
+        {result.id && <Bookmark id={result.id} className={styles.bookmark} />}
+      </AuthorizedSection>
     </div>,
   ];
 
