@@ -80,24 +80,28 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
     } else {
       setSearchResultsHeader('Nothing found.');
     }
+  }, [state.searchResult, state.queryDescription?.location]);
 
-    const searchText = document.getElementById(
-      'searchText'
-    ) as HTMLInputElement;
+  var [searchText, setSearchText] = useState('');
+
+  const onSearchTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setSearchText(e.target.value);
+  };
+
+  useEffect(() => {
     if (state.queryDescription) {
-      console.log(state.queryDescription?.image);
-      console.log(state);
       if (state.queryDescription?.image) {
-        searchText.value =
+        setSearchText(
           state.queryDescription?.originalPrompt +
-          '\n' +
-          '\n' +
-          state.queryDescription?.image;
+            '\n' +
+            '\n' +
+            state.queryDescription?.image
+        );
       } else {
-        searchText.value = state.queryDescription?.originalPrompt;
+        setSearchText(state.queryDescription?.originalPrompt);
       }
     }
-  }, [state.searchResult, state.queryDescription?.location]);
+  }, [state.queryDescription]);
 
   return (
     <APIProvider apiKey={apiKey}>
@@ -160,7 +164,8 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                     'It could be a beach with black sand, a medieval castle, or cliffs.'
                   )}
                   containerClassName={styles.textarea}
-                  id="searchText"
+                  onChange={onSearchTextChange}
+                  value={searchText}
                 />
               </MCard>
             </form>
