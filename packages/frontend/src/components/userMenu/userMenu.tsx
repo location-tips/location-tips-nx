@@ -19,7 +19,7 @@ const UserMenu = () => {
     {
       key: 'Favourite locations',
       value: (
-        <LinkButton href="/locations/favourite">Favourite locations</LinkButton>
+        <LinkButton href="/locations/favorite">Favorite locations</LinkButton>
       ),
     },
     {

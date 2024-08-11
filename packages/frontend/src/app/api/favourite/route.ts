@@ -10,7 +10,7 @@ type Params = {
 
 export async function GET(req: NextRequest, context: Params) {
   try {
-    const response = await fetch(`${SERVER}/api/locations/favourite`, {
+    const response = await fetch(`${SERVER}/api/locations/favorite`, {
       method: 'GET',
     });
 
