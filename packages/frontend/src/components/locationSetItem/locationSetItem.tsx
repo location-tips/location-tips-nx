@@ -3,6 +3,7 @@ import { TLocationInResult } from '@types';
 import Bookmark from '../bookmark/bookmark';
 import renderLocationSlides from '@front/utils/renderLocationSlides';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MGallery } from '@location-tips/location-tips-uikit/atoms/MGallery';
@@ -53,21 +54,13 @@ const LocationSetItem = ({ item }: LocationSetItemProps) => {
       }
     >
       <MFlex direction="row" wrap="nowrap" gap="xl">
-        {/* <div className={styles.galleryContainer}>
-                  <MGallery
-                    slides={slides}
-                    tools={tools}
-                    prevButton={<MdiChevronLeft width={20} height={20} />}
-                    nextButton={<MdiChevronRight width={20} height={20} />}
-                  />
-                </div> */}
-        <img
-          draggable={false}
+        <Image
           src={item.images.medium}
           alt={item.title}
           width={200}
           height={200}
           className={styles.itemImage}
+          draggable={false}
         />
         <MText className={styles.description}>{item.description}</MText>
       </MFlex>

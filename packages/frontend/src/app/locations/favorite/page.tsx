@@ -61,6 +61,6 @@ export default async function Index() {
     );
   } catch (error) {
     console.log(error);
-    redirect('/404');
+    redirect('/500');
   }
 }
