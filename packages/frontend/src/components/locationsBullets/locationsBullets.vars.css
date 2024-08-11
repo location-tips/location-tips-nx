@@ -1,0 +1,4 @@
+:root[data-theme='light'] {
+  --bullet-border-color: var(--palette-gray-4);
+  --bullet-active-border-color: var(--palette-primary-40);
+}

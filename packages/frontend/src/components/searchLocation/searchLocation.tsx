@@ -1,5 +1,6 @@
 'use client';
 
+import { use, useEffect, useMemo, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { t } from '@front/utils/translate';
 import clsx from 'clsx';
@@ -7,7 +8,6 @@ import { APIProvider } from '@vis.gl/react-google-maps';
 import { searchLocation } from '@front/actions/searchLocation';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
-import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MTextarea } from '@location-tips/location-tips-uikit/atoms/MTextarea';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 import type { PostLocationsResponse } from '@types';
@@ -15,8 +15,15 @@ import FormStatus from '@front/components/formStatus/formStatus';
 import SearchMap from '@front/components/searchMap/searchMap';
 import ImageUploadField from '@front/components/imageUploadField/imageUploadField';
 import VoiceUploadField from '@front/components/voiceUploadField/voiceUploadField';
+import SearchResults from '@front/components/searchResults/searchResults';
 
+import SearchButton from '@front/components/searchButton/searchButton';
+
+import './searchLocation.vars.css';
 import styles from './searchLocation.module.css';
+import { mockupLocations } from '@front/actions/mockupLocation';
+import useSearchResultsLoading from '@front/stores/useSearchResultsLoading';
+import SearchSkeleton from '../searchSkeleton/searchSkeleton';
 
 type SearchState = Partial<PostLocationsResponse>;
 
@@ -28,26 +35,96 @@ type SearchLocationProps = {
 };
 
 const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
+  const { isLoading, setIsLoading } = useSearchResultsLoading();
+  const [popularPlaces, setPopularPlaces] = useState<SearchState>();
+  const popularPlacesHeader = 'Popular places:';
+  const skeletonHeader = 'Loading...';
+  const skeletonBody = <SearchSkeleton />;
+  const [searchResultsHeader, setSearchResultsHeader] = useState('');
+  const [searchText, setSearchText] = useState('');
+
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [state, formAction] = useFormState<SearchState, FormData>(
-    searchLocation,
+    async (prevState, formData) => {
+      setIsLoading(true);
+      // uncomment if you want to test without requests to API
+      // const result = await mockupLocations(prevState, formData, 'zero');
+      formRef.current?.reset();
+      const result = await searchLocation(prevState, formData);
+      setIsLoading(false);
+      return result;
+    },
     initialState
   );
 
+  const isResultsHidden = useMemo(() => !isLoading && !state.searchResult && popularPlaces?.searchResult, [
+    isLoading,
+    state.searchResult,
+    popularPlaces?.searchResult,
+  ]);
+
+  const onSearchTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setSearchText(e.target.value);
+  };
+
+  useEffect(() => {
+    if (state.searchResult && state.searchResult.length > 0) {
+      const quantity = state.searchResult.length;
+      const closingWord =
+        state.searchResult.length === 1 ? 'result' : 'results';
+      setSearchResultsHeader(`${quantity} ${closingWord}:`);
+    } else if (
+      state.searchResult &&
+      state.searchResult.length === 0 &&
+      state.queryDescription?.location &&
+      state.queryDescription?.location.length > 0
+    ) {
+      setSearchResultsHeader('You may like:');
+    } else {
+      setSearchResultsHeader('Nothing found.');
+    }
+  }, [state.searchResult, state.queryDescription?.location]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    mockupLocations()
+      .then((result) => {
+        setPopularPlaces(result);
+        setIsLoading(false);
+      })
+      .catch((e) => console.log(e));
+  }, [setIsLoading]);
+
+  useEffect(() => {
+    if (state.queryDescription) {
+      if (state.queryDescription?.image) {
+        setSearchText(
+          state.queryDescription?.originalPrompt +
+            '\n' +
+            '\n' +
+            state.queryDescription?.image
+        );
+      } else {
+        setSearchText(state.queryDescription?.originalPrompt);
+      }
+    }
+  }, [state.queryDescription]);
+
   return (
-    <APIProvider apiKey={apiKey}>
-      <div className={styles.gridContainer}>
-        <section
-          className={clsx(styles.mapContainer, {
-            [styles.fullwidth]: !state.searchResult,
-          })}
-        >
-          
-            <SearchMap
-              searchResult={state.searchResult ?? []}
-              queryDescription={state.queryDescription}
-              mapId={mapId}
-            />
-          
+    <div className={styles.gridContainer}>
+      <section
+        className={clsx(styles.mapContainer, {
+          [styles.fullwidth]: isResultsHidden,
+        })}
+      >
+        <APIProvider apiKey={apiKey}>
+          <SearchMap
+            searchResult={state.searchResult ?? []}
+            queryDescription={state.queryDescription}
+            mapId={mapId}
+          />
+        </APIProvider>
 
           <MFlex
             direction="row"
@@ -55,7 +132,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
             justify="center"
             className={styles.searchFormContainerWrapper}
           >
-            <form action={formAction} className={styles.searchFormContainer}>
+            <form action={formAction} className={styles.searchFormContainer} ref={formRef}>
               <MCard
                 shadow={false}
                 borderLeftBottomRadius="2xl"
@@ -66,7 +143,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                 noPadding={true}
                 footer={
                   <MFlex
-                    align="start"
+                    align="center"
                     justify="space-between"
                     className={styles.searchFormFooter}
                   >
@@ -79,10 +156,10 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                       <ImageUploadField name="image" />
                       <VoiceUploadField name="voice" />
                     </MFlex>
-                    <FormStatus />
-                    <MButton type="submit" id="commands">
-                      Search
-                    </MButton>
+                    <MFlex align="center" justify="end">
+                      <FormStatus />
+                      <SearchButton />
+                    </MFlex>
                   </MFlex>
                 }
               >
@@ -91,64 +168,29 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                 </MHeading>
                 <MTextarea
                   name="searchText"
-                  rows={2}
+                  rows={5}
                   placeholder={t(
                     'It could be a beach with black sand, a medieval castle, or cliffs.'
                   )}
                   containerClassName={styles.textarea}
+                  onChange={onSearchTextChange}
+                  value={searchText}
                 />
               </MCard>
             </form>
           </MFlex>
         </section>
-        <aside
-          className={clsx(styles.resultsContainer, {
-            [styles.open]: !!state.searchResult,
-          })}
-        >
-          <MCard
-            className={styles.sidebarResult}
-            shadow={false}
-            borderLeftBottomRadius="none"
-            borderLeftTopRadius="none"
-            borderRightBottomRadius="none"
-            borderRightTopRadius="none"
-          >
-            {state.searchResult?.map((location) => {
-              return (
-                <div key={location.id}>
-                  <h3>
-                    {location.title} ({location.location.type}){' '}
-                    {Number(location.score).toFixed(2)}
-                  </h3>
-                  <div>{location.description}</div>
-                </div>
-              );
-            })}
-
-            <MFlex direction="row" gap="m" align="start" justify="start">
-              {state.queryDescription?.in?.map((location: any) => (
-                <div>
-                  {location.name} ({location.type})
-                </div>
-              ))}
-              {state.queryDescription?.near?.map((location: any) => (
-                <div>
-                  {location.name} ({location.type})<p>{location.description}</p>
-                </div>
-              ))}
-            </MFlex>
-            <MFlex direction="column" gap="m" align="start" justify="start">
-              {state.queryDescription?.location?.map((location: any) => (
-                <div>
-                  {location.name} ({location.type})
-                </div>
-              ))}
-            </MFlex>
-          </MCard>
-        </aside>
+        {isLoading && (
+          <section className={clsx(styles.resultsContainer)}>
+            <SearchResults header={skeletonHeader} results={skeletonBody} mapId={mapId} apiKey={apiKey} />
+          </section>
+        )}
+        {!isLoading && state.searchResult && (
+          <section className={clsx(styles.resultsContainer)}>
+            <SearchResults header={searchResultsHeader} results={state} mapId={mapId} apiKey={apiKey} />
+          </section>
+        )}
       </div>
-    </APIProvider>
   );
 };
 

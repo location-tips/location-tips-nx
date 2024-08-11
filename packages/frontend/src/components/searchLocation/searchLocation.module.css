@@ -1,55 +1,67 @@
 .gridContainer {
-    display: grid;
-    grid: 1fr / repeat(24, 1fr);
-    grid-gap: 24;
-    justify-content: stretch;
-    align-items: stretch;
-    height: calc(100vh - var(--header-height));
+  display: var(--search-location-grid-display, flex);
+  flex-direction: var(--search-location-flex-direction, row);
+  justify-content: stretch;
+  align-items: stretch;
+  height: var(--search-location-grid-container-height, calc(100vh - 80px));
 }
 
 .mapContainer {
-    grid-column: 1 / span 16;
-    grid-row: 1 / span 24;
-    position: relative;
+  flex-basis: var(--search-location-map-flex-basis, 60%);
+  position: relative;
+  height: var(--search-locaction-map-height, calc(100vh - 80px));
+}
+
+.mapContainer.fullwidth {
+  flex-basis: 100%;
 }
 
 .resultsContainer {
-    grid-column: 17 / span 8;
-    grid-row: 1 / span 24;
-    overflow-y: auto;
-    padding: 24;
+  flex-basis: var(--search-location-results-flex-basis, 40%);
+  padding: var(--search-location-results-vertical-padding, 24px)
+    var(--search-location-results-horizontal-padding, 0);
+  overflow-y: auto;
+  scrollbar-color: var(--search-location-scrollbar-color, #747e97) transparent;
+  scrollbar-width: thin;
 }
 
 .sidebarResult {
-    height: 100%;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .mapContainer .searchFormContainerWrapper {
-    width: 100%;
-    position: absolute;
-    top: 24px;
-    left: 0;
-    pointer-events: none;
+  width: 100%;
+  position: absolute;
+  top: var(--search-location-form-top-padding, 64px);
+  left: 0;
+  pointer-events: none;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormContainer {
-    width: 50%;
-    max-width: 730px;
-    pointer-events: all;
+  width: 100%;
+  max-width: var(--search-location-form-max-width, 750px);
+  padding: 0 var(--search-location-form-horizonal-padding, 48px);
+  pointer-events: all;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormContainer .textarea {
-    border: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+  border: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormFooter {
-    padding: 0 var(--card-padding-horizontal) var(--card-padding-vertical) var(--card-padding-horizontal);
-    box-sizing: border-box;
+  padding: 0 var(--card-padding-horizontal, 16px)
+    var(--card-padding-vertical, 16px) var(--card-padding-horizontal, 16px);
+  box-sizing: border-box;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormHeader {
-    padding: var(--card-padding-vertical) var(--card-padding-horizontal) 0 var(--card-padding-horizontal);
+  padding: var(--card-padding-vertical, 16px)
+    var(--card-padding-horizontal, 16px) 0 var(--card-padding-horizontal, 16px);
+  color: var(--search-location-form-header-font-color, #1e222a);
+  font-size: var(--seach-location-form-header-font-size, 20px);
+  line-height: normal;
+  font-weight: 500;
 }

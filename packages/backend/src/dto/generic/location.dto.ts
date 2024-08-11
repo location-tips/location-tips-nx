@@ -34,10 +34,7 @@ export class ImageDTO implements TGeminiResponseDescribeImage {
     location?: TLocation;
 }
 
-export class LocationEntityDTO implements TLocationEntity {
-    @ApiProperty({ description: 'Embedding field. Encoded location description to number vector' })
-    embedding_field: FirebaseFirestore.VectorValue;
-
+export class LocationEntityDTO implements Omit<TLocationEntity, 'embedding_field'> {
     @ApiProperty({ description: 'Geohash of the location' })
     geohash: string;
 
@@ -101,6 +98,15 @@ export class LocationsWithScoreDTO extends LocationWithImagesEntityDTO implement
         description: 'Score of the location entity',
     })
     score: number;
+}
+
+export class LocationInResultDTO extends LocationWithImagesEntityDTO implements TLocationsWithImages {
+    @ApiProperty({
+        description: 'Locations in the same place and similar to search query',
+        type: LocationWithImagesEntityDTO,
+        isArray: true,
+    })
+    nearest: TLocationsWithImages[];
 }
 
 export class LocationSearchDescriptionDTO implements TLocationSearchDescription {

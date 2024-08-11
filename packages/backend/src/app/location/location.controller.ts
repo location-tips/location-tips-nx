@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Post, Put, UploadedFile, UseInterceptors, UseGuards, Request } from '@nestjs/common';
+import { Body, Controller, Delete, Post, Put, UploadedFile, UseInterceptors, UseGuards, Request, Get, Param } from '@nestjs/common';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
 
@@ -16,11 +16,33 @@ import {
 import { geohashForLocation } from 'geofire-common';
 import { getEmbeddings } from '@back/utils/vertex';
 import { AuthGuard } from '@back/app/guards/auth.guard';
+import { GetLocationResponseDTO } from '@back/dto/location/get.dto';
 
 @ApiTags('location')
 @Controller('location')
 export class LocationController {
   constructor(private readonly locationService: LocationService) {}
+
+
+  @Get(':id')
+  @ApiOperation({ summary: 'Get location by id' })
+  @ApiResponse({ status: 201, description: 'The record has been successfully created.', type: GetLocationResponseDTO })
+  @ApiResponse({ status: 400, description: 'Empty request.'})
+  @ApiResponse({ status: 500, description: 'Server error.'})
+  async getLocation(@Param('id') id: string, @Request() req: FRequest) {
+    const doc = await this.locationService.getLocationById(id);
+
+    const newLocation = { ...doc, id: doc.id };
+
+    delete newLocation.image?.exif;
+    delete newLocation.embedding_field;
+
+    const images = await this.locationService.getImages(doc.image.url);
+
+    const nearest = await this.locationService.getNearestLocations(doc.geohash);
+
+    return { ...newLocation, nearest: nearest ?? [], images };
+  }
 
   @Post()
   @ApiOperation({ summary: 'Create new location' })
@@ -37,16 +59,16 @@ export class LocationController {
   @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('image'))
   async postLocation(@UploadedFile() image: FastifyFile, @Request() req: FRequest) {
-    // Extract exif
-    const exif = await this.locationService.extractExif(image.buffer);
     // Convert to webp
     const imageFileBlob = new Blob([image.buffer], { type: image.mimetype });
     const imageFile = new File([imageFileBlob], image.originalname, { type: image.mimetype });
     const webp = await this.locationService.convertToWebp(imageFile);
-    // Get description
-    const description = await this.locationService.getImageDescription(webp, exif);
     // Save to CDN
     const newFilename = await this.locationService.uploadToCDN(webp);
+    // Extract exif
+    const exif = await this.locationService.extractExif(image.buffer);
+    // Get description
+    const description = await this.locationService.getImageDescription(webp, exif);
 
     const locationData: TLocation = {
       coordinates: {
@@ -84,8 +106,11 @@ export class LocationController {
     newLocation.id = doc.id;
 
     delete newLocation.image?.exif;
+    delete newLocation.embedding_field;
 
-    return newLocation;
+    const images = await this.locationService.getImages(newFilename);
+
+    return { ...newLocation, images };
   }
 
   @Put()
@@ -102,7 +127,9 @@ export class LocationController {
   async putLocation(@Body() data: PutLocationRequestDTO) {
     const doc = await this.locationService.updateLocationInDB(data);
 
-    return doc;
+    const images = await this.locationService.getImages(doc.image.url);
+
+    return { ...doc, images };
   }
 
   @Delete()

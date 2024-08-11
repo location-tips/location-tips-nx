@@ -1,27 +1,80 @@
-import { MCard } from "@location-tips/location-tips-uikit/atoms/MCard";
-import { MFlex } from "@location-tips/location-tips-uikit/atoms/MFlex";
-import LoginForm from "@front/components/loginForm/loginForm";
-import LinkButton from "@front/components/linkButton/linkButton";
-import Logo from "@front/components/logo/logo";
+'use client';
 
-import styles from "./header.module.css";
+import { useState } from 'react';
+import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+import LoginForm from '@front/components/loginForm/loginForm';
+import LinkButton from '@front/components/linkButton/linkButton';
+import Logo from '@front/components/logo/logo';
+import clsx from 'clsx';
+import usePlatform from '@front/stores/usePlatform';
+import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
+import { MdiHamburgerMenu } from '@front/icons/MdiHamburgerMenu';
+import NavMobile from '../navMobile/navMobile';
+
+import './header.vars.css';
+import styles from './header.module.css';
 
 const Header = () => {
-    return (
-        <MCard borderLeftBottomRadius="none" borderLeftTopRadius="none" borderRightBottomRadius="none" borderRightTopRadius="none" shadow={false} className={styles.headerContainer}>
-            <header className={styles.header}>
-                <Logo />
-                <nav>
-                    <MFlex direction="row" gap="3xl" align="center" justify="center" className={styles.navigation}>
-                        <LinkButton href="/">Search</LinkButton>
-                        <LinkButton href="/sets">Author's sets</LinkButton>
-                        <LinkButton href="/apps">Mobile App</LinkButton>
-                    </MFlex>
-                </nav>
-                <LoginForm />
-            </header>
-        </MCard>
-    );
-}
+  const platform = usePlatform((state) => state.platform);
+  const [isNavBarOpen, setIsNavBarOpen] = useState(false);
+  const toggleNavbar = () => {
+    setIsNavBarOpen((isNavBarOpen) => !isNavBarOpen);
+  };
+
+  return (
+    <MCard
+      borderLeftBottomRadius="none"
+      borderLeftTopRadius="none"
+      borderRightBottomRadius="none"
+      borderRightTopRadius="none"
+      shadow={false}
+      justify="center"
+      className={styles.headerContainer}
+    >
+      <header className={styles.header}>
+        {platform === 'web-mobile' && (
+          <>
+            <MButton
+              className={clsx(styles.hamburgerButton)}
+              mode="transparent"
+              size="s"
+              onClick={toggleNavbar}
+            >
+              <MdiHamburgerMenu
+                className={styles.hamburgerIcon}
+                width={40}
+                height={40}
+              />
+            </MButton>
+            <NavMobile open={isNavBarOpen} onClose={toggleNavbar} />
+          </>
+        )}
+        <div className={styles.logo}>
+          <Logo />
+        </div>
+        {platform !== 'web-mobile' && (
+          <nav className={styles.navigation}>
+            <MFlex
+              direction="row"
+              align="center"
+              justify="space-between"
+              className={styles.navigationContainer}
+            >
+              <LinkButton active={true} href="/">
+                Search
+              </LinkButton>
+              <LinkButton href="/sets">Author&apos;s sets</LinkButton>
+              <LinkButton href="/apps">Mobile App</LinkButton>
+            </MFlex>
+          </nav>
+        )}
+        <div className={styles.accountButtons}>
+          <LoginForm />
+        </div>
+      </header>
+    </MCard>
+  );
+};
 
 export default Header;

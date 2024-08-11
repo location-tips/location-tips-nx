@@ -1,0 +1,23 @@
+.galleryWrapper {
+}
+
+.galleryWrapper .nextButton,
+.galleryWrapper .prevButton {
+  width: var(--upload-location-gallery-button-size);
+  height: var(--upload-location-gallery_button-size);
+
+  border-radius: var(--upload-location-gallery-button-border-radius);
+  box-shadow: var(--upload-location-gallery-button-box-shadow);
+
+  position: fixed;
+}
+
+.galleryWrapper .nextButton {
+  display: var(--upload-location-gallery-button-display, auto);
+  right: var(--upload-location-gallery-button-right);
+}
+
+.galleryWrapper .prevButton {
+  display: var(--upload-location-gallery-button-display, auto);
+  left: var(--upload-location-gallery-button-left);
+}

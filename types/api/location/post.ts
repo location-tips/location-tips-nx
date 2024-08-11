@@ -1,7 +1,7 @@
-import type { TLocationEntity } from "../../generic/location";
+import type { TLocationsWithImages } from "../../generic/location";
 
 export type PostLocationRequest = {
     image: File;
 }
 
-export type PostLocationResponse = TLocationEntity;
+export type PostLocationResponse = TLocationsWithImages;

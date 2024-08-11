@@ -48,7 +48,7 @@ export class LocationsSetService {
     const locationIds = locationsSet.locations.map((location) => location.id);
     const locationDescriptions = locationsSet.locations.map((location) => location.authorDescription);
   
-    const locationsDocs = await db.collection(COLLECTIONS.LOCATIONS).where(firestore.FieldPath.documentId(), 'in', locationIds).get();
+    const locationsDocs = await db.collection(COLLECTIONS.LOCATIONS).where(firestore.FieldPath.documentId(), 'in', locationIds.slice(0,30)).get();
 
     const keywords = new Set<string>();
 

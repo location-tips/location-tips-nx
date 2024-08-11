@@ -2,53 +2,57 @@ import React, { useRef, useState } from 'react';
 import { MdiCameraOutline } from '@front/icons/MdiCameraOutline';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
+import styles from './imageUploadField.module.css';
 
 type ImageUploadFieldProps = {
-    name?: string;
+  name?: string;
 };
 
 const ImageUploadField = ({ name = 'image' }: ImageUploadFieldProps) => {
-    const fileInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const handleButtonClick = () => {
-        if (fileInputRef.current) {
-            fileInputRef.current.click();
-        }
-    };
+  const handleButtonClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
 
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const file = event.target.files?.[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setSelectedImage(reader.result as string);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
-    return (
-        <MFlex>
-            <MButton mode="tertiary" type="button">
-                <MdiCameraOutline width={20} height={20} onClick={handleButtonClick} />
-            </MButton>
+  return (
+    <MFlex>
+      <MButton mode="tertiary" type="button">
+        <MdiCameraOutline width={20} height={20} onClick={handleButtonClick} />
+      </MButton>
 
-            <input
-                type="file"
-                accept="image/*"
-                name={name}
-                ref={fileInputRef}
-                style={{ display: 'none' }}
-                onChange={handleImageChange}
-            />
+      <input
+        type="file"
+        accept="image/*"
+        name={name}
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+        onChange={handleImageChange}
+      />
 
-            {selectedImage && (
-                <img src={selectedImage} alt="Selected Image" style={{maxHeight: '36px' }} />
-            )}
-        </MFlex>
-    );
+      {selectedImage && (
+        <div
+          className={styles.previewContainer}
+          style={{ backgroundImage: `url(${selectedImage})` }}
+        ></div>
+      )}
+    </MFlex>
+  );
 };
 
 export default ImageUploadField;
