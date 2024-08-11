@@ -1,0 +1,15 @@
+:root[data-theme='light'] {
+  --location-set-item-title-font-color: var(--palette-gray-1, #1e222a);
+}
+
+:root[data-platform='web-desktop'] {
+  --location-set-item-font-size: var(--font-size-xl, 20px);
+  --location-set-item-size: 200px;
+  --location-set-item-image-border-radius: var(--borderRadius-general-5x, 20px);
+}
+
+:root[data-platform='web-tablet'] {
+}
+
+:root[data-platform='web-mobile'] {
+}
