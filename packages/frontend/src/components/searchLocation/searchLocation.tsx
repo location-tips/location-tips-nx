@@ -80,6 +80,22 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
     } else {
       setSearchResultsHeader('Nothing found.');
     }
+
+    const searchText = document.getElementById(
+      'searchText'
+    ) as HTMLInputElement;
+    if (state.queryDescription) {
+      console.log(state.queryDescription?.image);
+      console.log(state);
+      if (state.queryDescription?.image) {
+        searchText.value = state.queryDescription?.prompt;
+      }
+    }
+
+    // test
+    // searchText.oninput = () => {
+    //   console.log(searchText.value);
+    // };
   }, [state.searchResult, state.queryDescription?.location]);
 
   return (
@@ -138,11 +154,12 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                 </MHeading>
                 <MTextarea
                   name="searchText"
-                  rows={2}
+                  rows={5}
                   placeholder={t(
                     'It could be a beach with black sand, a medieval castle, or cliffs.'
                   )}
                   containerClassName={styles.textarea}
+                  id="searchText"
                 />
               </MCard>
             </form>
