@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Post, Put, UploadedFile, UseInterceptors, UseGuards, Request } from '@nestjs/common';
+import { Body, Controller, Delete, Post, Put, UploadedFile, UseInterceptors, UseGuards, Request, Get, Param } from '@nestjs/common';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
 
@@ -16,11 +16,33 @@ import {
 import { geohashForLocation } from 'geofire-common';
 import { getEmbeddings } from '@back/utils/vertex';
 import { AuthGuard } from '@back/app/guards/auth.guard';
+import { GetLocationResponseDTO } from '@back/dto/location/get.dto';
 
 @ApiTags('location')
 @Controller('location')
 export class LocationController {
   constructor(private readonly locationService: LocationService) {}
+
+
+  @Get(':id')
+  @ApiOperation({ summary: 'Get location by id' })
+  @ApiResponse({ status: 201, description: 'The record has been successfully created.', type: GetLocationResponseDTO })
+  @ApiResponse({ status: 400, description: 'Empty request.'})
+  @ApiResponse({ status: 500, description: 'Server error.'})
+  async getLocation(@Param('id') id: string, @Request() req: FRequest) {
+    const doc = await this.locationService.getLocationById(id);
+
+    const newLocation = { ...doc, id: doc.id };
+
+    delete newLocation.image?.exif;
+    delete newLocation.embedding_field;
+
+    const images = await this.locationService.getImages(doc.image.url);
+
+    const nearest = await this.locationService.getNearestLocations(doc.geohash);
+
+    return { ...newLocation, nearest: nearest ?? [], images };
+  }
 
   @Post()
   @ApiOperation({ summary: 'Create new location' })

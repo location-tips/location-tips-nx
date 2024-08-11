@@ -1,5 +1,7 @@
 .locationModalContainerMap {
     flex-basis: var(--location-modal-map-flex-basis, 60%);
+    border-radius: var(--location-modal-map-border-radius);
+    overflow: hidden;
 }
 
 .locationModalContainerInfo {

@@ -15,11 +15,13 @@ import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 type LocationModalContentProps = {
   location: TLocationInResult;
   mapId: string;
+  apiKey: string;
 };
 
 const LocationModalContent = ({
   location,
   mapId,
+  apiKey,
 }: LocationModalContentProps) => {
   return (
     <MFlex
@@ -30,7 +32,7 @@ const LocationModalContent = ({
       align="stretch"
     >
       <section className={styles.locationModalContainerMap}>
-        <LocationModalMap location={location} mapId={mapId} />
+        <LocationModalMap location={location} mapId={mapId} apiKey={apiKey} />
       </section>
       <MFlex
         direction="column"
@@ -42,7 +44,7 @@ const LocationModalContent = ({
       >
         <MFlex direction="column" gap="s" justify="start" align="start">
           <MHeading mode="h3">
-            {location.title === 'Unknown'
+            {!location.title || location.title === 'Unknown'
               ? location.image?.title
               : location.title}
           </MHeading>
@@ -53,10 +55,16 @@ const LocationModalContent = ({
           <MHeading mode="h4">
             <MText>Description</MText>
           </MHeading>
-          <MFlex direction="row" gap="l" wrap="nowrap">
+          <MFlex
+            direction="row"
+            gap="l"
+            wrap="nowrap"
+            justify="start"
+            align="start"
+          >
             <Image
               className={styles.image}
-              src={location.images.medium}
+              src={location.images?.medium}
               alt={location.image?.title ?? location.title}
               width={178}
               height={178}
@@ -69,12 +77,12 @@ const LocationModalContent = ({
           </MFlex>
         </MFlex>
 
-        <MFlex direction="column" gap="m" justify="start" align="start">
+        {location.nearest && location.nearest.length > 0 && <MFlex direction="column" gap="m" justify="start" align="start">
           <MHeading mode="h4">
             <MText>Nearest locations</MText>
           </MHeading>
 
-          {location.nearest.map((nearest, index) => (
+          {location.nearest?.map((nearest, index) => (
             <MCard
               key={index}
               className={clsx(styles.review)}
@@ -104,7 +112,7 @@ const LocationModalContent = ({
               </MFlex>
             </MCard>
           ))}
-        </MFlex>
+        </MFlex>}
       </MFlex>
     </MFlex>
   );

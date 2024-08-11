@@ -16,7 +16,7 @@ import {
 import { getEmbeddings } from '@back/utils/vertex';
 import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
 import { getDistanceBetweenEmbeddings, getRadiusFromBoundingBox } from '@back/utils/distance';
-import { COLLECTIONS, DB_DEFAULT_LIMIT, STORAGE_ORIGINAL_FOLDER, STORAGE_THUMBS_FOLDER, STORAGE_THUMBS_MEDIUM_SUFFIX, STORAGE_THUMBS_SMALL_SUFFIX } from '@const';
+import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
 import { getImages } from '@back/utils/firebase';
 
 @Injectable()

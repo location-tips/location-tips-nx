@@ -4,7 +4,10 @@ import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 
 import styles from './page.module.css';
 
-export const metadata = {}
+export const metadata = {
+  title: 'Profile',
+  description: 'Profile page',
+}
 
 export default function Index() {
   return (

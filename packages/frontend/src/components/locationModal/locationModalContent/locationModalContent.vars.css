@@ -5,6 +5,7 @@
 
     --location-modal-review-border-radius: var(--border-radius-4xl);
     --location-modal-review-padding: var(--whiteSpace-general-8x);
+    --location-modal-map-border-radius: var(--border-radius-4xl);
 }
 
 :root {
