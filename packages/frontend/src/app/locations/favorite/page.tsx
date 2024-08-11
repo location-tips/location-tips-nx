@@ -46,14 +46,14 @@ export default async function Index() {
             </MFlex>
           </Link>
           <MHeading className={styles.heading} mode="h1">
-            My locations
+            My favorites
           </MHeading>
           {apiKey && mapId && locationsSet && (
             <LocationsSet
               apiKey={apiKey}
               mapId={mapId}
               locations={locationsSet}
-              emptyText="You haven't added locations yet"
+              emptyText="Your favorite locations list is empty"
             />
           )}
         </MFlex>
