@@ -25,7 +25,7 @@ export async function mockupLocations(
   });
 }
 
-const resultMockup: any = {
+const resultMockup = {
   searchResult: [
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${

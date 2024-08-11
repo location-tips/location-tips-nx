@@ -10,6 +10,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
 import { MdiChevronRight } from '@front/icons/MdiChevronRight';
 import Link from 'next/link';
+import renderLocationSlides from '@front/utils/renderLocationSlides';
 
 import './searchResult.vars.css';
 import styles from './searchResult.module.css';
@@ -31,22 +32,7 @@ const SearchResult = ({ result }: SearchResultProps) => {
     setIsBookmarked((isBookmarked) => !isBookmarked);
   };
 
-  const mainPicture = (
-    <img draggable={false} src={result.images.medium} alt={result.title} />
-  );
-
-  const renderRestPictures = result.nearest.map((nearest, index) => {
-    return (
-      <img
-        draggable={false}
-        key={index}
-        src={nearest.images.medium}
-        alt={nearest.title}
-      />
-    );
-  });
-
-  const slides = [mainPicture, ...renderRestPictures];
+  const slides = renderLocationSlides(result);
 
   const footer = [
     <MFlex
