@@ -5,11 +5,11 @@ import { APIProvider, Map } from '@vis.gl/react-google-maps';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import LocationsListItem from '../locationsListItem/locationsListItem';
+import LocationMarker from '@front/components/locationMarker/locationMarker';
+import { convertCoordinates } from '@front/utils/mapUtils';
 
 import './locationsList.vars.css';
 import styles from './locationsList.module.css';
-import LocationMarker from '@front/components/locationMarker/locationMarker';
-import { convertCoordinates } from '@front/utils/mapUtils';
 
 type LocationsListProps = {
   apiKey: string;
@@ -26,7 +26,7 @@ const LocationsList = ({
 }: LocationsListProps) => {
   return (
     <APIProvider apiKey={apiKey}>
-      {locations.length === 0 ? (
+      {!locations || locations.length === 0 ? (
         <MText as="span" size="4xl">
           {emptyText}
         </MText>
@@ -35,7 +35,9 @@ const LocationsList = ({
           <section className={styles.locationsList__mapContainer}>
             <Map
               defaultZoom={2}
-              defaultCenter={convertCoordinates(locations[0].location.coordinates)}
+              defaultCenter={convertCoordinates(
+                locations[0].location.coordinates
+              )}
               mapId={mapId}
             >
               {locations.map((location) => (
