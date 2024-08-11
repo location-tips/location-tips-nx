@@ -66,7 +66,7 @@ export const geminiDescribeSearchQuery = async (
         prompt: <prompt essencial for vector search, just keywords excluding places that already has been added in to the "near" or "in" fields>,
         voice: <if user provided audio file, you should provide here its transcription>,
         voiceKeywords: <if user provided audio file, transcription essencial for vector search, just keywords excluding places that already has been added in to the "near" or "in" fields >,
-        image: <if user provided image file, you should provide here keywords of main objects you found on a picture>
+        image: <if user provided image file, provide keywords of main objects you found on a picture including the place where this shot was made>
     }`,
   });
   // ask gemini to prepare propmt for vector search, just essetial information excluding any place names that already in "near" or "in" fields

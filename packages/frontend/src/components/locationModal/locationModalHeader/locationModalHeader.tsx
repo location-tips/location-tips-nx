@@ -30,7 +30,7 @@ const LocationModalHeader = ({
         <AuthorizedSection>
           {location.id && <Bookmark id={location.id} label="Save" />}
         </AuthorizedSection>
-        {location.id && <ShareButton url={`${window.location.protocol}//${window.location.host}/location/${location.id}`} label={<MText>Share</MText>} />}
+        {location.id && <ShareButton url={`${window?.location.protocol}//${window?.location.host}/location/${location.id}`} label={<MText>Share</MText>} />}
       </MFlex>
     </MFlex>
   );
