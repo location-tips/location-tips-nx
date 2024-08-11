@@ -6,7 +6,7 @@ export async function GET(req: NextRequest) {
   try {
     const token = req.headers.get('Authorization') || '';
 
-    const response = await fetch(`${SERVER}/api/location`, {
+    const response = await fetch(`${SERVER}/api/locations/favourites`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

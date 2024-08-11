@@ -1,0 +1,24 @@
+.page {
+    width: 100%;
+    max-width: var(--page-max-width, 1200px);
+    margin: auto;
+    margin-top: var(--page-padding-top);
+  }
+  
+  .header {
+    width: 100%;
+  }
+  
+  .heading {
+    color: var(--page-heading-font-color, #1e222a);
+    font-size: var(--page-heading-font-size, 28px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  
+  .pageContainer {
+    padding: 0 var(--page-container-padding, 24px);
+    padding-bottom: var(--page-container-padding-bottom, 0px);
+  }
+  

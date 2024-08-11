@@ -61,7 +61,9 @@ export class LocationsService {
     locations.docs.forEach((doc) => {
       const res = doc.data() as TLocationEntity;
 
-      mapResult.set(doc.id, res);
+      console.log('doc.id', doc.id);
+
+      mapResult.set(doc.id, { ...res, id: doc.id });
     });
 
     return Array.from(mapResult.values()) as TLocationEntity[];
@@ -208,9 +210,6 @@ export class LocationsService {
         nearest: locations.slice(1) ?? [],
       });
     });
-
-    //TODO: remove before release
-    console.log('locationsToReturn', locationsToReturn);
 
     return locationsToReturn;
   }

@@ -169,7 +169,6 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
           </section>
         )}
       </div>
-    </APIProvider>
   );
 };
 

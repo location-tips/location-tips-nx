@@ -14,7 +14,7 @@ export const metadata = {
 export default function Index() {
   return (
     <Page className={styles.page}>
-        <MHeading mode="h1" className={styles.pageTitle}>Mobile Application</MHeading>
+        <MHeading mode="h1" className={styles.pageTitle}>Sets of locations made by our authors</MHeading>
         <MText>Here will be a list of location sets created by our users to help you plan the best possible trip.</MText>
     </Page>
   );

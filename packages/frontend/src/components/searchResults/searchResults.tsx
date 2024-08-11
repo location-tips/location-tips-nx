@@ -22,7 +22,7 @@ const SearchResults = ({ header, results, mapId, apiKey }: SearchResultProps) =>
     if (typeof results === 'object' && 'searchResult' in results) {
       if (results.searchResult && results.searchResult.length > 0) {
         return (
-          <MFlex direction="row" wrap="wrap" gap="2xl" justify="center">
+          <MFlex direction="row" wrap="wrap" gap="2xl" justify="start">
             {results.searchResult.map((result) => (
               <div key={result.id} className={clsx(styles.searchResults__card)}>
                 <SearchResult result={result} mapId={mapId} apiKey={apiKey} />

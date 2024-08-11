@@ -3,7 +3,7 @@ import { Body, Controller, Delete, Post, Get, Query, UseGuards, Request } from '
 import { FRequest } from 'fastify';
 import { FavouritesService } from './favourites.service';
 import { LocationsService } from '@back/app/locations/locations.service';
-import { ApiBearerAuth, ApiBody, ApiConsumes, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { 
   PostFavouritesRequestDTO, PostFavouritesResponseDTO,
   DeleteFavouritesRequestDTO, DeleteFavouritesResponseDTO,
@@ -12,7 +12,7 @@ import {
 
 import { AuthGuard } from '@back/app/guards/auth.guard';
 
-@ApiTags('favourites')
+@ApiTags('locations')
 @Controller('locations/favourites')
 export class FavouritesController {
   constructor(private readonly favouritesService: FavouritesService, private readonly locationsService: LocationsService) {}
@@ -27,10 +27,22 @@ export class FavouritesController {
   async getFavourites(@Query('offset') offset, @Request() req: FRequest) {
     const limit = 30;
     const doc = await this.favouritesService.getUserFavourites(req.user.uid);
-
     const favourites = await this.locationsService.getLocationsByIds((doc.locationIds ?? []).slice(offset, limit))
 
-    return { favourites };
+    const mappedFavorites = await Promise.all(favourites.map(async (location) => {
+      const loc = location;
+
+      delete loc.image.exif;
+      delete loc.embedding_field;
+
+      return {
+        ...loc,
+        images: await this.locationsService.getImages(loc.image.url),
+        nearest: await this.locationsService.getNearestLocations(loc.geohash),
+      };
+    }));
+
+    return { favourites: mappedFavorites };
   }
 
   @Post()

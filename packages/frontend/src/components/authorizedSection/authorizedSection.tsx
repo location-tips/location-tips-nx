@@ -1,3 +1,5 @@
+"use client";
+
 import { getAuth, User } from "firebase/auth";
 import { PropsWithChildren, useEffect, useState } from "react";
 import "@front/utils/configureFirebase";
