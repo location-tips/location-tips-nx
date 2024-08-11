@@ -82,6 +82,27 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
     }
   }, [state.searchResult, state.queryDescription?.location]);
 
+  var [searchText, setSearchText] = useState('');
+
+  const onSearchTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setSearchText(e.target.value);
+  };
+
+  useEffect(() => {
+    if (state.queryDescription) {
+      if (state.queryDescription?.image) {
+        setSearchText(
+          state.queryDescription?.originalPrompt +
+            '\n' +
+            '\n' +
+            state.queryDescription?.image
+        );
+      } else {
+        setSearchText(state.queryDescription?.originalPrompt);
+      }
+    }
+  }, [state.queryDescription]);
+
   return (
     <div className={styles.gridContainer}>
       <section
@@ -139,11 +160,13 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                 </MHeading>
                 <MTextarea
                   name="searchText"
-                  rows={2}
+                  rows={5}
                   placeholder={t(
                     'It could be a beach with black sand, a medieval castle, or cliffs.'
                   )}
                   containerClassName={styles.textarea}
+                  onChange={onSearchTextChange}
+                  value={searchText}
                 />
               </MCard>
             </form>
