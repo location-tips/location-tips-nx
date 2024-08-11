@@ -85,8 +85,6 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
       'searchText'
     ) as HTMLInputElement;
     if (state.queryDescription) {
-      // imageFieldRef.current?.value = null;
-      // voiceFieldRef.current?.value = null;
       console.log(state.queryDescription?.image);
       console.log(state);
       if (state.queryDescription?.image) {
@@ -99,11 +97,6 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
         searchText.value = state.queryDescription?.originalPrompt;
       }
     }
-
-    // test
-    // searchText.oninput = () => {
-    //   console.log(searchText.value);
-    // };
   }, [state.searchResult, state.queryDescription?.location]);
 
   return (
