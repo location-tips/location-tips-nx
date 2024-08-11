@@ -10,6 +10,7 @@ import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
 import LocationsSet from '@front/components/locationsSet/locationsSet';
 import { TLocationInResult } from '@types';
 import { mockupLocations } from '@front/actions/mockupLocation';
+import './page.vars.css';
 import styles from './page.module.css';
 
 const DOMAIN = process.env.DOMAIN || 'http://localhost:3001';
@@ -28,23 +29,31 @@ export default async function Index() {
   const mapId = process.env.GOOGLE_MAPS_ID;
   try {
     const locationsSet = (await getLocationSet()) as TLocationInResult[];
-    console.log(locationsSet);
 
     return (
       <Page className={styles.page}>
-        <MFlex direction="column" justify="start" align="start" gap="l">
+        <MFlex
+          direction="column"
+          justify="start"
+          align="start"
+          gap="l"
+          className={styles.pageContainer}
+        >
           <Link href="/">
             <MFlex direction="row" gap="xs">
               <MdiChevronLeft width={24} height={24} />
               <MText>Back</MText>
             </MFlex>
           </Link>
-          <MHeading mode="h1">My locations</MHeading>
+          <MHeading className={styles.heading} mode="h1">
+            My locations
+          </MHeading>
           {apiKey && mapId && locationsSet && (
             <LocationsSet
               apiKey={apiKey}
               mapId={mapId}
               locations={locationsSet}
+              emptyText="You haven't added locations yet"
             />
           )}
         </MFlex>

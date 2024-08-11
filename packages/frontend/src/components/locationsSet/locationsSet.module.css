@@ -1,16 +1,22 @@
 .locationsSet__wrapper {
   display: flex;
-  width: calc(100vw - var(--location-set-wrapper-padding, 0px));
-  max-width: 1200px;
-  height: calc(80vh - var(--header-height));
+  flex-direction: var(--location-set-flex-direction, row);
+  gap: var(--location-set-wrapper-gap, 24px);
+  width: 100%;
+  height: var(--location-set-wrapper-height, calc(80vh - var(--header-height)));
 }
 
 .locationsSet__mapContainer {
-  width: 50%;
-  height: 100%;
+  width: var(--location-set-child-container-width, calc(50% - 1.5rem / 2));
+  height: var(--location-set-map-height, 100%);
 }
 
 .locationSet__setContainer {
-  width: 50%;
+  box-sizing: border-box;
+  width: var(--location-set-child-container-width, calc(50% - 1.5rem / 2));
   height: 100%;
+  padding: var(--location-set-setcontainer-padding, 4px);
+  overflow-y: scroll;
+  scrollbar-color: var(--location-set-scrollbar-color, #747e97) transparent;
+  scrollbar-width: thin;
 }
