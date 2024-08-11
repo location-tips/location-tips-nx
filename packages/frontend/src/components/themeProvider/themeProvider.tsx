@@ -19,10 +19,10 @@ const ThemeProvider = () => {
       }
     };
 
-    window.addEventListener('resize', checkPlatform);
+    window?.addEventListener('resize', checkPlatform);
 
     return () => {
-      window.removeEventListener('resize', checkPlatform);
+      window?.removeEventListener('resize', checkPlatform);
     };
   }, [platform, setPlatform]);
 

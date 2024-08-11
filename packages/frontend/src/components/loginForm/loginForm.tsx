@@ -14,6 +14,7 @@ import clsx from 'clsx';
 
 import './loginForm.vars.css';
 import styles from './loginForm.module.css';
+import { MList } from '@location-tips/location-tips-uikit/atoms/MList';
 
 const auth = getAuth();
 
@@ -48,6 +49,19 @@ const LoginForm = () => {
     setDropdownOpen((prevDropdownOpen) => !prevDropdownOpen);
   };
 
+  const menuOptions = [
+    {
+      key: 'Google',
+      value: (
+        <GoogleLoginButton
+          auth={auth}
+          onSuccess={handleLoginSuccess}
+          onFailure={handleLoginFailure}
+        />
+      ),
+    },
+  ];
+
   return (
     <MFlex direction="row" justify="end" align="center" wrap="nowrap">
       {!isAuthenticated && (
@@ -63,11 +77,7 @@ const LoginForm = () => {
             }}
             noPadding={true}
             dropdownContent={
-              <GoogleLoginButton
-                auth={auth}
-                onSuccess={handleLoginSuccess}
-                onFailure={handleLoginFailure}
-              />
+              <MList options={menuOptions} showDivider={false} />
             }
             open={dropdownOpen}
             align="right"

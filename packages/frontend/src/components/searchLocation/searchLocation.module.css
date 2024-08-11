@@ -12,6 +12,10 @@
   height: var(--search-locaction-map-height, calc(100vh - 80px));
 }
 
+.mapContainer.fullwidth {
+  flex-basis: 100%;
+}
+
 .resultsContainer {
   flex-basis: var(--search-location-results-flex-basis, 40%);
   padding: var(--search-location-results-vertical-padding, 24px)

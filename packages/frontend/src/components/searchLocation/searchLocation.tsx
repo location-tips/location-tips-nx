@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useMemo, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { t } from '@front/utils/translate';
 import clsx from 'clsx';
@@ -41,28 +41,32 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   const skeletonHeader = 'Loading...';
   const skeletonBody = <SearchSkeleton />;
   const [searchResultsHeader, setSearchResultsHeader] = useState('');
+  const [searchText, setSearchText] = useState('');
 
-  useEffect(() => {
-    setIsLoading(true);
-    mockupLocations()
-      .then((result) => {
-        setPopularPlaces(result);
-        setIsLoading(false);
-      })
-      .catch((e) => console.log(e));
-  }, [setIsLoading]);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const [state, formAction] = useFormState<SearchState, FormData>(
     async (prevState, formData) => {
       setIsLoading(true);
       // uncomment if you want to test without requests to API
       // const result = await mockupLocations(prevState, formData, 'zero');
+      formRef.current?.reset();
       const result = await searchLocation(prevState, formData);
       setIsLoading(false);
       return result;
     },
     initialState
   );
+
+  const isResultsHidden = useMemo(() => !isLoading && !state.searchResult && popularPlaces?.searchResult, [
+    isLoading,
+    state.searchResult,
+    popularPlaces?.searchResult,
+  ]);
+
+  const onSearchTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setSearchText(e.target.value);
+  };
 
   useEffect(() => {
     if (state.searchResult && state.searchResult.length > 0) {
@@ -82,11 +86,15 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
     }
   }, [state.searchResult, state.queryDescription?.location]);
 
-  var [searchText, setSearchText] = useState('');
-
-  const onSearchTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setSearchText(e.target.value);
-  };
+  useEffect(() => {
+    setIsLoading(true);
+    mockupLocations()
+      .then((result) => {
+        setPopularPlaces(result);
+        setIsLoading(false);
+      })
+      .catch((e) => console.log(e));
+  }, [setIsLoading]);
 
   useEffect(() => {
     if (state.queryDescription) {
@@ -107,7 +115,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
     <div className={styles.gridContainer}>
       <section
         className={clsx(styles.mapContainer, {
-          [styles.fullwidth]: !state.searchResult,
+          [styles.fullwidth]: isResultsHidden,
         })}
       >
         <APIProvider apiKey={apiKey}>
@@ -124,7 +132,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
             justify="center"
             className={styles.searchFormContainerWrapper}
           >
-            <form action={formAction} className={styles.searchFormContainer}>
+            <form action={formAction} className={styles.searchFormContainer} ref={formRef}>
               <MCard
                 shadow={false}
                 borderLeftBottomRadius="2xl"
@@ -172,15 +180,6 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
             </form>
           </MFlex>
         </section>
-        {!isLoading && !state.searchResult && popularPlaces?.searchResult && (
-          <section className={styles.resultsContainer}>
-            <SearchResults
-              header={popularPlacesHeader}
-              results={popularPlaces}
-              mapId={mapId} apiKey={apiKey}
-            />
-          </section> // TODO: fetch from API and pass popular places as prop
-        )}
         {isLoading && (
           <section className={clsx(styles.resultsContainer)}>
             <SearchResults header={skeletonHeader} results={skeletonBody} mapId={mapId} apiKey={apiKey} />

@@ -38,7 +38,7 @@
 .navigation {
   text-align: center;
   font-size: var(--header-nav-font-size, 20px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: normal;
 }
 
