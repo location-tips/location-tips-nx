@@ -1,6 +1,5 @@
 import React from 'react';
 import Page from '@front/components/page/page';
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
@@ -14,7 +13,9 @@ import AuthorizedSection from '@front/components/authorizedSection/authorizedSec
 
 const DOMAIN = process.env.DOMAIN || 'http://localhost:3001';
 
-export const metadata = {}; // TODO: fill
+export const metadata = {
+  title: 'Favourite locations',
+};
 
 export default async function Index() {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;

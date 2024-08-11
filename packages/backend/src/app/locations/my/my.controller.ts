@@ -34,7 +34,8 @@ export class MyController {
       return {
         ...loc,
         images: await this.locationsService.getImages(loc.image.url),
-        nearest: await this.locationsService.getNearestLocations(loc.geohash),
+        nearest: [], // TODO: implement optimisation to nearest
+        // nearest: await this.locationsService.getNearestLocations(loc.geohash),
       };
     }));
 

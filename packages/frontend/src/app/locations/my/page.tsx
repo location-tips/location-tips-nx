@@ -11,7 +11,11 @@ import styles from './page.module.css';
 import MyLocations from '@front/components/myLocations/myLocations';
 import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
 
-export const metadata = {}; // TODO: fill
+export const metadata = {
+  title: 'My locations',
+  description: 'Locations you created',
+}
+
 
 export default async function Index() {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
