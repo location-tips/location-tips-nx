@@ -12,7 +12,7 @@ import styles from './page.module.css';
 import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
 
 export const metadata = {
-  title: 'Favourite locations'
+  title: 'Favourite locations',
 };
 
 export default async function Index() {

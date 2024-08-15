@@ -8,7 +8,7 @@ interface FavouritesState {
 
 const useFavourites = create<FavouritesState>((set) => ({
   favourites: [],
-  setFavourites: (newFavourites) => set({ favourites: newFavourites ?? [] })
+  setFavourites: (newFavourites) => set({ favourites: newFavourites ?? [] }),
 }));
 
 export default useFavourites;

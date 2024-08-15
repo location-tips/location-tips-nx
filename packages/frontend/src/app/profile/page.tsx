@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Profile',
-  description: 'Profile page'
+  description: 'Profile page',
 };
 
 export default function Index() {

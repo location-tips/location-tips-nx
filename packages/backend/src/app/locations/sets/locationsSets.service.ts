@@ -6,7 +6,7 @@ import {
   TLocationsSet,
   TTranslation,
   PostLocationsSetsRequest,
-  PostLocationsSetsResponse
+  PostLocationsSetsResponse,
 } from '@types';
 import { getEmbeddings } from 'packages/backend/src/utils/vertex';
 import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
@@ -20,7 +20,7 @@ export class LocationsSetsService {
   async searchLocationsSets({
     searchText,
     uid,
-    offset = 0
+    offset = 0,
   }: PostLocationsSetsRequest): Promise<PostLocationsSetsResponse> {
     let result: TLocationsSet[] = [];
 
@@ -34,13 +34,13 @@ export class LocationsSetsService {
       const locations = await collectionRef
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
           limit: DB_DEFAULT_LIMIT,
-          distanceMeasure: 'COSINE'
+          distanceMeasure: 'COSINE',
         })
         .get();
 
       result = locations.docs.map((doc) => ({
         id: doc.id,
-        ...(doc.data() as TLocationsSet)
+        ...(doc.data() as TLocationsSet),
       }));
     } else if (searchText && uid) {
       // Get users sets by search text
@@ -53,13 +53,13 @@ export class LocationsSetsService {
         .where('uid', '==', uid)
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
           limit: DB_DEFAULT_LIMIT,
-          distanceMeasure: 'COSINE'
+          distanceMeasure: 'COSINE',
         })
         .get();
 
       result = locations.docs.map((doc) => ({
         id: doc.id,
-        ...(doc.data() as TLocationsSet)
+        ...(doc.data() as TLocationsSet),
       }));
     } else if (!searchText && uid) {
       // Get users sets
@@ -74,7 +74,7 @@ export class LocationsSetsService {
 
       result = locations.docs.map((doc) => ({
         id: doc.id,
-        ...(doc.data() as TLocationsSet)
+        ...(doc.data() as TLocationsSet),
       }));
     } else {
       // Get all sets
@@ -88,13 +88,13 @@ export class LocationsSetsService {
 
       result = locations.docs.map((doc) => ({
         id: doc.id,
-        ...(doc.data() as TLocationsSet)
+        ...(doc.data() as TLocationsSet),
       }));
     }
 
     return {
       locationsSets: result,
-      count: result.length
+      count: result.length,
     };
   }
 }

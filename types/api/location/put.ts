@@ -1,7 +1,7 @@
 import type {
   TLocation,
   TLocationEntity,
-  TLocationsWithImages
+  TLocationsWithImages,
 } from '../../generic/location';
 
 export type PutLocationRequest = Pick<TLocationEntity, 'id'> &

@@ -11,10 +11,10 @@ export async function POST(req: NextRequest) {
 
     const response = await fetch(`${SERVER}/api/location`, {
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
       method: 'POST',
-      body: formData
+      body: formData,
     });
 
     if (response.status >= 200 && response.status < 300) {

@@ -6,7 +6,7 @@ import {
   Get,
   Query,
   UseGuards,
-  Request
+  Request,
 } from '@nestjs/common';
 
 import { FRequest } from 'fastify';
@@ -17,14 +17,14 @@ import {
   ApiBody,
   ApiOperation,
   ApiResponse,
-  ApiTags
+  ApiTags,
 } from '@nestjs/swagger';
 import {
   PostFavouritesRequestDTO,
   PostFavouritesResponseDTO,
   DeleteFavouritesRequestDTO,
   DeleteFavouritesResponseDTO,
-  GetFavouritesResponseDTO
+  GetFavouritesResponseDTO,
 } from '@back/dto';
 
 import { AuthGuard } from '@back/app/guards/auth.guard';
@@ -34,7 +34,7 @@ import { AuthGuard } from '@back/app/guards/auth.guard';
 export class FavouritesController {
   constructor(
     private readonly favouritesService: FavouritesService,
-    private readonly locationsService: LocationsService
+    private readonly locationsService: LocationsService,
   ) {}
 
   @Get()
@@ -43,7 +43,7 @@ export class FavouritesController {
   @ApiResponse({
     status: 201,
     description: 'List of favourites locations.',
-    type: GetFavouritesResponseDTO
+    type: GetFavouritesResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 500, description: 'Server error.' })
@@ -52,7 +52,7 @@ export class FavouritesController {
     const limit = 30;
     const doc = await this.favouritesService.getUserFavourites(req.user.uid);
     const favourites = await this.locationsService.getLocationsByIds(
-      (doc.locationIds ?? []).slice(offset, limit)
+      (doc.locationIds ?? []).slice(offset, limit),
     );
 
     const mappedFavorites = await Promise.all(
@@ -65,9 +65,9 @@ export class FavouritesController {
         return {
           ...loc,
           images: await this.locationsService.getImages(loc.image.url),
-          nearest: await this.locationsService.getNearestLocations(loc.geohash)
+          nearest: await this.locationsService.getNearestLocations(loc.geohash),
         };
-      })
+      }),
     );
 
     return { favourites: mappedFavorites };
@@ -79,7 +79,7 @@ export class FavouritesController {
   @ApiResponse({
     status: 201,
     description: 'The record has been successfully updated.',
-    type: PostFavouritesResponseDTO
+    type: PostFavouritesResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -87,11 +87,11 @@ export class FavouritesController {
   @UseGuards(AuthGuard)
   @ApiBody({
     description: 'Custom data for favourites.',
-    type: PostFavouritesRequestDTO
+    type: PostFavouritesRequestDTO,
   })
   async PostFavourites(
     @Body() data: PostFavouritesRequestDTO,
-    @Request() req: FRequest
+    @Request() req: FRequest,
   ) {
     const doc = await this.favouritesService.getUserFavourites(req.user.uid);
 
@@ -114,7 +114,7 @@ export class FavouritesController {
   @ApiResponse({
     status: 201,
     description: 'The record has been successfully deleted.',
-    type: DeleteFavouritesResponseDTO
+    type: DeleteFavouritesResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -122,11 +122,11 @@ export class FavouritesController {
   @UseGuards(AuthGuard)
   @ApiBody({
     description: 'Remove favourites.',
-    type: DeleteFavouritesRequestDTO
+    type: DeleteFavouritesRequestDTO,
   })
   async deleteFavourites(
     @Body() { locationId }: DeleteFavouritesRequestDTO,
-    @Request() req: FRequest
+    @Request() req: FRequest,
   ) {
     const doc = await this.favouritesService.getUserFavourites(req.user.uid);
 

@@ -16,7 +16,7 @@ type LocationModalHeaderProps = {
 
 const LocationModalHeader = ({
   location,
-  onClose
+  onClose,
 }: LocationModalHeaderProps) => {
   return (
     <MFlex direction="row" gap="l" justify="space-between" align="center">

@@ -13,7 +13,7 @@ import AuthorizedSection from '@front/components/authorizedSection/authorizedSec
 
 export const metadata = {
   title: 'My locations',
-  description: 'Locations you created'
+  description: 'Locations you created',
 };
 
 export default async function Index() {

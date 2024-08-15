@@ -12,7 +12,7 @@ type GoogleLoginButtonProps = {
 const GoogleLoginButton = ({
   onSuccess,
   onFailure,
-  auth
+  auth,
 }: GoogleLoginButtonProps) => {
   const handleGoogleLogin = () => {
     signInWithPopup(auth, provider)

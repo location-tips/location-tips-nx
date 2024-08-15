@@ -8,9 +8,9 @@ export async function GET(req: NextRequest) {
 
     const response = await fetch(`${SERVER}/api/locations/favourites`, {
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
-      method: 'GET'
+      method: 'GET',
     });
 
     if (response.status >= 200 && response.status < 300) {

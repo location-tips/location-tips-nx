@@ -6,7 +6,7 @@ export class MyLocationsDTO {
   @ApiProperty({
     description: 'Location ids',
     isArray: true,
-    type: LocationInResultDTO
+    type: LocationInResultDTO,
   })
   locations: TLocationInResult[];
 }

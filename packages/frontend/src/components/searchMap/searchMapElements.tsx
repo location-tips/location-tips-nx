@@ -14,7 +14,7 @@ type SearchMapElementsProps = {
 
 const SearchMapElements = ({
   queryDescription,
-  searchResult
+  searchResult,
 }: SearchMapElementsProps) => {
   const map = useContext(GoogleMapsContext)?.map;
 
@@ -36,7 +36,7 @@ const SearchMapElements = ({
       lng:
         queryDescription?.near?.[0]?.coordinates.longitude ??
         userLocation?.longitude ??
-        0
+        0,
     };
     map?.setCenter(c);
   }, [map, queryDescription, userLocation]);
@@ -49,9 +49,9 @@ const SearchMapElements = ({
         ? getRadiusZoomLevel(
             { latitude: c.lat(), longitude: c.lng() },
             radius,
-            256
+            256,
           )
-        : 8
+        : 8,
     );
   }, [map, radius]);
 
@@ -61,7 +61,7 @@ const SearchMapElements = ({
         <Circle
           center={{
             lat: queryDescription?.near?.[0]?.coordinates.latitude,
-            lng: queryDescription?.near?.[0]?.coordinates.longitude
+            lng: queryDescription?.near?.[0]?.coordinates.longitude,
           }}
           radius={radius}
         />

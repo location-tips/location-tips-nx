@@ -13,7 +13,7 @@ export async function GET(req: NextRequest, context: Params) {
 
   try {
     const response = await fetch(`${SERVER}/api/location/${id}`, {
-      method: 'GET'
+      method: 'GET',
     });
 
     if (response.status >= 200 && response.status < 300) {

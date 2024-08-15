@@ -19,7 +19,7 @@ type BookmarkProps = {
 };
 
 const initialState = {
-  favourites: []
+  favourites: [],
 };
 
 const Bookmark = ({ className, id, label }: BookmarkProps) => {
@@ -29,7 +29,7 @@ const Bookmark = ({ className, id, label }: BookmarkProps) => {
 
   const [addState, formAddAction] = useFormState<FavouritesState, FormData>(
     addToFavourites,
-    initialState
+    initialState,
   );
 
   const [removeState, formRemoveAction] = useFormState<

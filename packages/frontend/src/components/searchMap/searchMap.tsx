@@ -15,7 +15,7 @@ type SearchMapProps = {
 const SearchMap = ({
   queryDescription,
   searchResult,
-  mapId
+  mapId,
 }: SearchMapProps) => {
   return (
     <Map defaultZoom={8} defaultCenter={{ lat: 22, lng: 22 }} mapId={mapId}>

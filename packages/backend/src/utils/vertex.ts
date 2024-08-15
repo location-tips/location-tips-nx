@@ -15,7 +15,7 @@ export async function getEmbeddings(text: string) {
 
   const instances = [helpers.toValue({ content: text })];
   const parameters = helpers.toValue(
-    dimensionality > 0 ? { outputDimensionality: Number(dimensionality) } : {}
+    dimensionality > 0 ? { outputDimensionality: Number(dimensionality) } : {},
   );
 
   const request = { endpoint, instances, parameters };

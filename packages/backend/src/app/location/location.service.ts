@@ -2,7 +2,7 @@ import type {
   PutLocationRequest,
   TGeminiResponseDescribeImage,
   TLocationEntity,
-  TLocationsWithImages
+  TLocationsWithImages,
 } from '@types';
 import { Injectable } from '@nestjs/common';
 import { extractExif } from '@back/utils/exif';
@@ -28,7 +28,7 @@ export class LocationService {
     if (file.type === 'image/heic') {
       fileBuffer = await convert({
         buffer: fileBuffer,
-        format: 'JPEG'
+        format: 'JPEG',
       });
     }
 
@@ -38,21 +38,21 @@ export class LocationService {
       .toBuffer();
 
     const outputFile = new File([outputFileBuffer], `${filename}.webp`, {
-      type: 'image/webp'
+      type: 'image/webp',
     });
 
     return outputFile;
   }
 
   async getImages(
-    url: string
+    url: string,
   ): Promise<{ original: string; small: string; medium: string }> {
     return await getImages(url);
   }
 
   async getImageDescription(
     image: File,
-    exif?: ExifReader.ExpandedTags
+    exif?: ExifReader.ExpandedTags,
   ): Promise<TGeminiResponseDescribeImage> {
     let prompt = '';
 
@@ -78,8 +78,8 @@ export class LocationService {
 
       await file.save(Buffer.from(fileBuffer), {
         metadata: {
-          contentType: image.type
-        }
+          contentType: image.type,
+        },
       });
     } catch (error) {
       console.error('Error uploading file:', error);
@@ -109,7 +109,7 @@ export class LocationService {
     id,
     title,
     userDescription,
-    location: coordinates
+    location: coordinates,
   }: PutLocationRequest): Promise<TLocationEntity> {
     const db = admin.firestore();
     // TODO: Access controller to check if user is allowed to update location
@@ -128,10 +128,10 @@ export class LocationService {
           userDescription: userDescription ?? data.userDescription,
           location: {
             ...data.location,
-            coordinates: coordinates ?? data.location?.coordinates
-          }
+            coordinates: coordinates ?? data.location?.coordinates,
+          },
         },
-        { merge: true }
+        { merge: true },
       );
 
     const doc = await db.collection(COLLECTIONS.LOCATIONS).doc(id).get();
@@ -140,7 +140,7 @@ export class LocationService {
   }
 
   async removeLocationFromDB(
-    id: TLocationEntity['id']
+    id: TLocationEntity['id'],
   ): Promise<TLocationEntity> {
     const db = admin.firestore();
 
@@ -160,7 +160,7 @@ export class LocationService {
   }
 
   async getNearestLocations(
-    geohash: TLocationEntity['geohash']
+    geohash: TLocationEntity['geohash'],
   ): Promise<TLocationsWithImages[]> {
     const db = admin.firestore();
 
@@ -174,14 +174,14 @@ export class LocationService {
       locations.docs.map(async (doc) => {
         const loc = {
           ...(doc.data() as TLocationEntity),
-          images: await getImages(doc.data().image.url)
+          images: await getImages(doc.data().image.url),
         };
 
         delete loc.embedding_field;
         delete loc.image.exif;
 
         return loc;
-      })
+      }),
     );
 
     return data;

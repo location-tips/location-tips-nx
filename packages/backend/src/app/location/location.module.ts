@@ -7,6 +7,6 @@ import { FastifyMulterModule } from '@nest-lab/fastify-multer';
 @Module({
   imports: [FastifyMulterModule],
   controllers: [LocationController],
-  providers: [LocationService]
+  providers: [LocationService],
 })
 export class LocationModule {}

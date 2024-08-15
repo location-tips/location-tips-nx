@@ -6,7 +6,7 @@ const SERVER = process.env.SERVER || 'http://localhost:3000';
 
 export async function removeFromFavourites(
   _prevState: FavouritesState,
-  formData: FormData
+  formData: FormData,
 ) {
   const token = formData.get('token') as string;
 
@@ -14,12 +14,12 @@ export async function removeFromFavourites(
     const response = await fetch(`${SERVER}/api/locations/favourites`, {
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       method: 'DELETE',
       body: JSON.stringify({
-        locationId: formData.get('locationId')
-      })
+        locationId: formData.get('locationId'),
+      }),
     });
 
     return response.json();

@@ -7,7 +7,7 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import {
   FastifyAdapter,
-  NestFastifyApplication
+  NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import { AppModule } from './app/app.module';
 import { configureFirebase } from 'packages/backend/src/utils/configureFirebase';
@@ -18,7 +18,7 @@ configureFirebase();
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter({ logger: { level: 'debug' }, bodyLimit: 20048576 })
+    new FastifyAdapter({ logger: { level: 'debug' }, bodyLimit: 20048576 }),
   );
   const globalPrefix = 'api';
 
@@ -36,7 +36,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3000;
   await app.listen(port, '0.0.0.0');
   Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
+    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`,
   );
 }
 

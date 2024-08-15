@@ -10,7 +10,7 @@ export const configureFirebase = () => {
 
   const serviceAccountKey = Buffer.from(
     envServiceAccountKey,
-    'base64'
+    'base64',
   ).toString('utf-8');
 
   const config: ServiceAccount = JSON.parse(serviceAccountKey);
@@ -18,6 +18,6 @@ export const configureFirebase = () => {
   // Initialize Firebase Admin SDK
   admin.initializeApp({
     credential: admin.credential.cert(config),
-    storageBucket: 'location-tips-409908.appspot.com'
+    storageBucket: 'location-tips-409908.appspot.com',
   });
 };

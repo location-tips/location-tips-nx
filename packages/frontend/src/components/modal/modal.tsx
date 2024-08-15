@@ -21,7 +21,7 @@ const Modal = () => {
       modalStore.currentModal
         ? modalStore.modals.get(modalStore.currentModal)
         : undefined,
-    [modalStore.currentModal, modalStore.modals]
+    [modalStore.currentModal, modalStore.modals],
   );
 
   return (

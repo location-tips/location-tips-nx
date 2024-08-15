@@ -22,7 +22,7 @@ const LocationsList = ({
   apiKey,
   mapId,
   locations,
-  emptyText = 'List is empty'
+  emptyText = 'List is empty',
 }: LocationsListProps) => {
   return (
     <APIProvider apiKey={apiKey}>
@@ -36,7 +36,7 @@ const LocationsList = ({
             <Map
               defaultZoom={2}
               defaultCenter={convertCoordinates(
-                locations[0].location.coordinates
+                locations[0].location.coordinates,
               )}
               mapId={mapId}
             >

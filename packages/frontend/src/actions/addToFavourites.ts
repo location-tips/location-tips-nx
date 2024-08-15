@@ -6,7 +6,7 @@ const SERVER = process.env.SERVER || 'http://localhost:3000';
 
 export async function addToFavourites(
   _prevState: FavouritesState,
-  formData: FormData
+  formData: FormData,
 ) {
   const token = formData.get('token') as string;
 
@@ -16,12 +16,12 @@ export async function addToFavourites(
     const response = await fetch(`${SERVER}/api/locations/favourites`, {
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       method: 'POST',
       body: JSON.stringify({
-        locationId: formData.get('locationId')
-      })
+        locationId: formData.get('locationId'),
+      }),
     });
 
     return response.json();

@@ -2,7 +2,7 @@ import { GoogleGenerativeAI, Part } from '@google/generative-ai';
 import type {
   TGeminiResponseDescribeImage,
   TLocationSearchDescription,
-  TTranslation
+  TTranslation,
 } from '@types';
 import { CATEGORIES } from '@const';
 
@@ -10,7 +10,7 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 export const geminiDescribeImage = async (
   image: File,
-  details = ''
+  details = '',
 ): Promise<TGeminiResponseDescribeImage> => {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
@@ -25,9 +25,9 @@ export const geminiDescribeImage = async (
             location: <try to recognize where this shot has been made any landmarks or famous place on the photo. Return please following fields: {name: <place name>, type: <place type>, description: <place description>, coordinates: {latitude: <latitude>, longitude: <longitude>}}>
         }
         Important! <place type> should be one of the following categories: ${CATEGORIES.join(
-          ','
+          ',',
         )} 
-        `
+        `,
   });
 
   const imageBuffer = await image.arrayBuffer();
@@ -36,8 +36,8 @@ export const geminiDescribeImage = async (
   const imageData = {
     inlineData: {
       data: Buffer.from(imageBuffer).toString('base64'),
-      mimeType
-    }
+      mimeType,
+    },
   };
 
   const result = await model.generateContent([details, imageData]);
@@ -48,7 +48,7 @@ export const geminiDescribeImage = async (
 export const geminiDescribeSearchQuery = async (
   prompt: string,
   image?: File,
-  voice?: File
+  voice?: File,
 ): Promise<TLocationSearchDescription> => {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
@@ -67,7 +67,7 @@ export const geminiDescribeSearchQuery = async (
         voice: <if user provided audio file, you should provide here its transcription>,
         voiceKeywords: <if user provided audio file, transcription essencial for vector search, just keywords excluding places that already has been added in to the "near" or "in" fields >,
         image: <if user provided image file, provide keywords of main objects you found on a picture including the place where this shot was made>
-    }`
+    }`,
   });
   // ask gemini to prepare propmt for vector search, just essetial information excluding any place names that already in "near" or "in" fields
   const requestData: Array<string | Part> = [prompt];
@@ -79,8 +79,8 @@ export const geminiDescribeSearchQuery = async (
     const imageData = {
       inlineData: {
         data: Buffer.from(imageBuffer).toString('base64'),
-        mimeType: imageMimeType
-      }
+        mimeType: imageMimeType,
+      },
     };
 
     requestData.push(imageData);
@@ -93,8 +93,8 @@ export const geminiDescribeSearchQuery = async (
     const voiceData = {
       inlineData: {
         data: Buffer.from(voiceBuffer).toString('base64'),
-        mimeType: voiceMimeType
-      }
+        mimeType: voiceMimeType,
+      },
     };
 
     requestData.push(voiceData);
@@ -114,7 +114,7 @@ export const geminiDescribeSearchQuery = async (
 };
 
 export const geminiTranslateToEnglish = async (
-  prompt: string
+  prompt: string,
 ): Promise<TTranslation> => {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
@@ -127,7 +127,7 @@ export const geminiTranslateToEnglish = async (
         to: <iso code of english>,
         original: <original string>,
         translated: <translated string>
-    }`
+    }`,
   });
 
   const result = await model.generateContent(prompt);
@@ -144,7 +144,7 @@ export const geminiTranslateToEnglish = async (
 export const geminiTranslateText = async (
   from: string,
   to: string,
-  prompt: string
+  prompt: string,
 ): Promise<TTranslation> => {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
@@ -157,7 +157,7 @@ export const geminiTranslateText = async (
         to: <iso code of language this prompt is translated to>,
         original: <original string>,
         translated: <translated string>
-    }`
+    }`,
   });
 
   const result = await model.generateContent(prompt);

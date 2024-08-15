@@ -2,7 +2,7 @@ import { TBounds, TCoordinate } from '@types';
 
 export function getBoundsZoomLevel(
   bounds: TBounds,
-  pixelWidth: number
+  pixelWidth: number,
 ): number {
   const GLOBE_WIDTH = 256;
   const west = bounds.west;
@@ -14,7 +14,7 @@ export function getBoundsZoomLevel(
   }
 
   const zoom = Math.round(
-    Math.log((pixelWidth * 360) / angle / GLOBE_WIDTH) / Math.LN2
+    Math.log((pixelWidth * 360) / angle / GLOBE_WIDTH) / Math.LN2,
   );
 
   return zoom;
@@ -23,7 +23,7 @@ export function getBoundsZoomLevel(
 export function getRadiusZoomLevel(
   { latitude, longitude }: TCoordinate,
   radius: number,
-  pixelWidth: number
+  pixelWidth: number,
 ): number {
   const earthRadius = 6371; // Earth's radius in kilometers
   const latRadians = latitude * (Math.PI / 180);
@@ -40,7 +40,7 @@ export function getRadiusZoomLevel(
     west,
     east,
     south,
-    north
+    north,
   };
 
   return getBoundsZoomLevel(bounds, pixelWidth);
@@ -48,7 +48,7 @@ export function getRadiusZoomLevel(
 
 export function convertCoordinates({
   latitude,
-  longitude
+  longitude,
 }: TCoordinate): google.maps.LatLngLiteral {
   return { lat: latitude, lng: longitude };
 }

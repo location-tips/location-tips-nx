@@ -69,7 +69,7 @@ const UpdateLocations = ({ mapId, apiKey }: UpdateLocationsProps) => {
                   currentSlide={currentSlide ?? 0}
                   onChoseSlide={(index) => setCurrentSlide(index)}
                 />,
-                galleryPortalRef.current
+                galleryPortalRef.current,
               )}
           </>
         </>

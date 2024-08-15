@@ -21,7 +21,7 @@ type ImageUploadProgressProps = {
 const ImageUploadProgress = ({
   image,
   progress,
-  status
+  status,
 }: ImageUploadProgressProps) => {
   return (
     <ZStack>
@@ -30,7 +30,7 @@ const ImageUploadProgress = ({
         style={{
           background: `conic-gradient(var(--image-upload-progress-value-color) ${
             progress * 3.6
-          }deg, var(--image-upload-progress-background-color) 0deg)`
+          }deg, var(--image-upload-progress-background-color) 0deg)`,
         }}
       ></div>
       <div className={styles.image}>

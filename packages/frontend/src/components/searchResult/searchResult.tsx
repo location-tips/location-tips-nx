@@ -41,7 +41,7 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
         onClose={() => modals.hideModal()}
       />,
       <LocationModalContent location={result} mapId={mapId} apiKey={apiKey} />,
-      null
+      null,
     );
 
     modals.showModal(MODALS.VIEW_LOCATION);
@@ -80,7 +80,7 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
       <div className={clsx(styles.galleryFooter__type)}>
         {result.location.type}
       </div>
-    </MFlex>
+    </MFlex>,
   ];
 
   const tools = [
@@ -88,7 +88,7 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
       <AuthorizedSection>
         {result.id && <Bookmark id={result.id} className={styles.bookmark} />}
       </AuthorizedSection>
-    </div>
+    </div>,
   ];
 
   const prevButton = <MdiChevronLeft width={20} height={20} />;

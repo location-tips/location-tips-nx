@@ -4,7 +4,7 @@ import {
   FormHTMLAttributes,
   forwardRef,
   useEffect,
-  useState
+  useState,
 } from 'react';
 import '@front/utils/configureFirebase';
 
@@ -43,7 +43,7 @@ const AuthorizedForm = forwardRef<HTMLFormElement, AuthorizedFormProps>(
         {children}
       </form>
     );
-  }
+  },
 );
 
 AuthorizedForm.displayName = 'AuthorizedForm';

@@ -16,7 +16,7 @@ type LocationUploadProgressProps = {
 
 const LocationUploadProgress = ({
   file,
-  token
+  token,
 }: LocationUploadProgressProps) => {
   const ref = useRef<boolean>(false);
   const [progress, setProgress] = useState(0);
@@ -50,7 +50,7 @@ const LocationUploadProgress = ({
         heic2any({
           blob: file,
           toType: 'image/webp',
-          quality: 0.5
+          quality: 0.5,
         }).then((blob) => {
           setWebp(Array.isArray(blob) ? blob[0] : blob);
         });
@@ -71,8 +71,8 @@ const LocationUploadProgress = ({
           '/api/location/create',
           formData,
           {
-            onUploadProgress
-          }
+            onUploadProgress,
+          },
         )
         .then((data) => {
           setStatus(ProgressStatus.Done);

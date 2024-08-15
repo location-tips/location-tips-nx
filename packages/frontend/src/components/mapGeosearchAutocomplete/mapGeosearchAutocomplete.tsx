@@ -13,7 +13,7 @@ type MapGeosearchAutocompleteProps = {
 // This is a custom built autocomplete component using the "Autocomplete Service" for predictions
 // and the "Places Service" for place details
 export const MapGeosearchAutocomplete = ({
-  onPlaceSelect
+  onPlaceSelect,
 }: MapGeosearchAutocompleteProps) => {
   const map = useMap();
   const places = useMapsLibrary('places');
@@ -58,7 +58,7 @@ export const MapGeosearchAutocomplete = ({
 
       setPredictionResults(response.predictions);
     },
-    [autocompleteService, sessionToken]
+    [autocompleteService, sessionToken],
   );
 
   const onInputChange = useCallback(
@@ -68,7 +68,7 @@ export const MapGeosearchAutocomplete = ({
       setInputValue(value);
       fetchPredictions(value);
     },
-    [fetchPredictions]
+    [fetchPredictions],
   );
 
   const handleSuggestionClick = useCallback(
@@ -78,11 +78,11 @@ export const MapGeosearchAutocomplete = ({
       const detailRequestOptions = {
         placeId,
         fields: ['geometry', 'name', 'formatted_address'],
-        sessionToken
+        sessionToken,
       };
 
       const detailsRequestCallback = (
-        placeDetails: google.maps.places.PlaceResult | null
+        placeDetails: google.maps.places.PlaceResult | null,
       ) => {
         onPlaceSelect(placeDetails);
         setPredictionResults([]);
@@ -92,7 +92,7 @@ export const MapGeosearchAutocomplete = ({
 
       placesService?.getDetails(detailRequestOptions, detailsRequestCallback);
     },
-    [onPlaceSelect, places, placesService, sessionToken]
+    [onPlaceSelect, places, placesService, sessionToken],
   );
 
   return (
@@ -105,7 +105,7 @@ export const MapGeosearchAutocomplete = ({
             onChoose={({ key }) => handleSuggestionClick(key)}
             options={predictionResults.map(({ place_id, description }) => ({
               key: place_id,
-              value: description
+              value: description,
             }))}
           />
         }

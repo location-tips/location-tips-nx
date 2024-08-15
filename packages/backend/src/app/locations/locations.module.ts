@@ -14,9 +14,9 @@ import { MyModule } from '@back/app/locations/my/my.module';
     LocationsSetModule,
     LocationsSetsModule,
     FavouritesModule,
-    MyModule
+    MyModule,
   ],
   controllers: [LocationsController],
-  providers: [LocationsService]
+  providers: [LocationsService],
 })
 export class LocationsModule {}

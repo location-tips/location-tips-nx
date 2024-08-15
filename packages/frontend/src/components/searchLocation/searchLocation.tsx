@@ -54,12 +54,12 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
       setIsLoading(false);
       return result;
     },
-    initialState
+    initialState,
   );
 
   const isResultsHidden = useMemo(
     () => !isLoading && !state.searchResult && popularPlaces?.searchResult,
-    [isLoading, state.searchResult, popularPlaces?.searchResult]
+    [isLoading, state.searchResult, popularPlaces?.searchResult],
   );
 
   const onSearchTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -101,7 +101,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
           state.queryDescription?.originalPrompt +
             '\n' +
             '\n' +
-            state.queryDescription?.image
+            state.queryDescription?.image,
         );
       } else {
         setSearchText(state.queryDescription?.originalPrompt);
@@ -113,7 +113,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
     <div className={styles.gridContainer}>
       <section
         className={clsx(styles.mapContainer, {
-          [styles.fullwidth]: isResultsHidden
+          [styles.fullwidth]: isResultsHidden,
         })}
       >
         <APIProvider apiKey={apiKey}>
@@ -167,7 +167,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                 name="searchText"
                 rows={5}
                 placeholder={t(
-                  'It could be a beach with black sand, a medieval castle, or cliffs.'
+                  'It could be a beach with black sand, a medieval castle, or cliffs.',
                 )}
                 containerClassName={styles.textarea}
                 onChange={onSearchTextChange}

@@ -6,7 +6,7 @@ import {
   Put,
   UseInterceptors,
   UseGuards,
-  Request
+  Request,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
@@ -18,7 +18,7 @@ import {
   ApiBody,
   ApiOperation,
   ApiResponse,
-  ApiTags
+  ApiTags,
 } from '@nestjs/swagger';
 import {
   PostLocationsSetRequestDTO,
@@ -26,7 +26,7 @@ import {
   PutLocationsSetRequestDTO,
   PutLocationsSetResponseDTO,
   DeleteLocationsSetRequestDTO,
-  DeleteLocationsSetResponseDTO
+  DeleteLocationsSetResponseDTO,
 } from '@back/dto';
 
 import { AuthGuard } from '@back/app/guards/auth.guard';
@@ -42,7 +42,7 @@ export class LocationsSetController {
   @ApiResponse({
     status: 201,
     description: 'The record has been successfully created.',
-    type: PostLocationsSetResponseDTO
+    type: PostLocationsSetResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -50,19 +50,19 @@ export class LocationsSetController {
   @UseInterceptors(FileInterceptor('file'))
   @ApiBody({
     description: 'LocationsSet data.',
-    type: PostLocationsSetRequestDTO
+    type: PostLocationsSetRequestDTO,
   })
   @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('image'))
   async postLocationsSet(
     @Body() { name, locations }: PostLocationsSetRequestDTO,
-    @Request() req: FRequest
+    @Request() req: FRequest,
   ) {
     // Save to db
     const newLocationsSet: TLocationsSet = {
       uid: req.user.uid,
       name,
-      locations
+      locations,
     };
 
     await this.locationssetService.saveLocationsSetToDB(newLocationsSet);
@@ -76,7 +76,7 @@ export class LocationsSetController {
   @ApiResponse({
     status: 201,
     description: 'The record has been successfully updated.',
-    type: PutLocationsSetResponseDTO
+    type: PutLocationsSetResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -84,7 +84,7 @@ export class LocationsSetController {
   @UseGuards(AuthGuard)
   @ApiBody({
     description: 'Custom data for locationsset.',
-    type: PutLocationsSetRequestDTO
+    type: PutLocationsSetRequestDTO,
   })
   async putLocationsSet(@Body() data: PutLocationsSetRequestDTO) {
     const doc = await this.locationssetService.updateLocationsSetInDB(data);
@@ -98,7 +98,7 @@ export class LocationsSetController {
   @ApiResponse({
     status: 201,
     description: 'The record has been successfully deleted.',
-    type: DeleteLocationsSetResponseDTO
+    type: DeleteLocationsSetResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -106,7 +106,7 @@ export class LocationsSetController {
   @UseGuards(AuthGuard)
   @ApiBody({
     description: 'Remove locationsset.',
-    type: DeleteLocationsSetRequestDTO
+    type: DeleteLocationsSetRequestDTO,
   })
   async deleteLocationsSet(@Body() { id }: DeleteLocationsSetRequestDTO) {
     // Remove from db

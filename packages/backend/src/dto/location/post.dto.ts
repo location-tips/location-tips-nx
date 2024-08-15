@@ -4,7 +4,7 @@ import type { PostLocationRequest, PostLocationResponse } from '@types';
 
 export class PostLocationRequestDTO implements PostLocationRequest {
   @ApiProperty({
-    description: 'Image file of location.'
+    description: 'Image file of location.',
   })
   image: File;
 }

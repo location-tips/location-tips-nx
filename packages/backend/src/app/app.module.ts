@@ -12,9 +12,9 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot(),
     LocationModule,
     LocationsModule,
-    ProfileModule
+    ProfileModule,
   ],
   controllers: [AppController],
-  providers: [AppService]
+  providers: [AppService],
 })
 export class AppModule {}

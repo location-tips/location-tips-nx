@@ -33,7 +33,7 @@ const UploadLocationsImagesForm = () => {
     createLocation.locations,
     createLocation.pending,
     createLocation.failed,
-    hideModal
+    hideModal,
   ]);
 
   return (

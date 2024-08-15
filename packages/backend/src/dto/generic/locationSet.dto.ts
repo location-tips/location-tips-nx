@@ -3,7 +3,7 @@ import { TFavouriteLocation, TLocationsSet } from '@types';
 
 export class TFavouriteLocationDTO implements TFavouriteLocation {
   @ApiProperty({
-    description: 'Unique identifier of the favourite location entity'
+    description: 'Unique identifier of the favourite location entity',
   })
   id?: string;
 
@@ -24,7 +24,7 @@ export class LocationsSetDTO implements TLocationsSet {
   @ApiProperty({
     description: 'Locations set array',
     type: TFavouriteLocationDTO,
-    isArray: true
+    isArray: true,
   })
   locations: TFavouriteLocation[];
 

@@ -1,13 +1,13 @@
 import {
   CoordinateDTO,
-  LocationWithImagesEntityDTO
+  LocationWithImagesEntityDTO,
 } from '@back/dto/generic/location.dto';
 import { ApiProperty } from '@nestjs/swagger';
 import type {
   PutLocationRequest,
   PutLocationResponse,
   TLocation,
-  TLocationEntity
+  TLocationEntity,
 } from '@types';
 
 export class PutLocationRequestDTO implements PutLocationRequest {
@@ -22,7 +22,7 @@ export class PutLocationRequestDTO implements PutLocationRequest {
 
   @ApiProperty({
     description: 'Coordinates of the location',
-    type: CoordinateDTO
+    type: CoordinateDTO,
   })
   location?: TLocation['coordinates'];
 }

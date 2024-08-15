@@ -1,6 +1,6 @@
 import type {
   TLocationInResult,
-  TLocationSearchDescription
+  TLocationSearchDescription,
 } from '../../generic/location';
 
 export type PostLocationsRequest = {

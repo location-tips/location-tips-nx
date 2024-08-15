@@ -6,6 +6,6 @@ import { LocationsSetsService } from './locationsSets.service';
 @Module({
   imports: [],
   controllers: [LocationsSetsController],
-  providers: [LocationsSetsService]
+  providers: [LocationsSetsService],
 })
 export class LocationsSetsModule {}

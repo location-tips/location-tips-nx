@@ -1,7 +1,7 @@
 import type {
   PutLocationsSetRequest,
   TLocationEntity,
-  TLocationsSet
+  TLocationsSet,
 } from '@types';
 import { Injectable } from '@nestjs/common';
 import admin, { firestore } from 'firebase-admin';
@@ -12,7 +12,7 @@ import { COLLECTIONS } from '@const';
 @Injectable()
 export class LocationsSetService {
   async saveLocationsSetToDB(
-    locationsSet: TLocationsSet
+    locationsSet: TLocationsSet,
   ): Promise<TLocationsSet> {
     const db = admin.firestore();
 
@@ -43,7 +43,7 @@ export class LocationsSetService {
       id,
       ...((
         await db.collection(COLLECTIONS.LOCATIONS_SETS).doc(id).get()
-      ).data() as TLocationsSet)
+      ).data() as TLocationsSet),
     };
 
     await this.updateEmbeddingsInLocationsSet(locationsSet);
@@ -52,7 +52,7 @@ export class LocationsSetService {
   }
 
   async removeLocationsSetFromDB(
-    id: TLocationsSet['id']
+    id: TLocationsSet['id'],
   ): Promise<{ id: TLocationsSet['id'] }> {
     // TODO: Access controller to check if user is allowed to remove LocationsSet
 
@@ -64,13 +64,13 @@ export class LocationsSetService {
   }
 
   private async updateEmbeddingsInLocationsSet(
-    locationsSet: TLocationsSet
+    locationsSet: TLocationsSet,
   ): Promise<void> {
     const db = admin.firestore();
 
     const locationIds = locationsSet.locations.map((location) => location.id);
     const locationDescriptions = locationsSet.locations.map(
-      (location) => location.authorDescription
+      (location) => location.authorDescription,
     );
 
     const locationsDocs = await db
@@ -105,7 +105,7 @@ export class LocationsSetService {
       .doc(locationsSet.id)
       .set(
         { embedding_field: FieldValue.vector(embeddings[0]) },
-        { merge: true }
+        { merge: true },
       );
   }
 }

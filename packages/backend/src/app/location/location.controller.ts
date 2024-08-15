@@ -9,7 +9,7 @@ import {
   UseGuards,
   Request,
   Get,
-  Param
+  Param,
 } from '@nestjs/common';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
@@ -24,7 +24,7 @@ import {
   ApiConsumes,
   ApiOperation,
   ApiResponse,
-  ApiTags
+  ApiTags,
 } from '@nestjs/swagger';
 import {
   PostLocationRequestDTO,
@@ -32,7 +32,7 @@ import {
   DeleteLocationRequestDTO,
   DeleteLocationResponseDTO,
   PutLocationRequestDTO,
-  PutLocationResponseDTO
+  PutLocationResponseDTO,
 } from '@back/dto';
 
 import { geohashForLocation } from 'geofire-common';
@@ -50,7 +50,7 @@ export class LocationController {
   @ApiResponse({
     status: 201,
     description: 'The record has been successfully created.',
-    type: GetLocationResponseDTO
+    type: GetLocationResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 500, description: 'Server error.' })
@@ -75,7 +75,7 @@ export class LocationController {
   @ApiResponse({
     status: 201,
     description: 'The record has been successfully created.',
-    type: PostLocationResponseDTO
+    type: PostLocationResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -83,18 +83,18 @@ export class LocationController {
   @ApiConsumes('multipart/form-data')
   @ApiBody({
     description: 'Image file of location.',
-    type: PostLocationRequestDTO
+    type: PostLocationRequestDTO,
   })
   @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('image'))
   async postLocation(
     @UploadedFile() image: FastifyFile,
-    @Request() req: FRequest
+    @Request() req: FRequest,
   ) {
     // Convert to webp
     const imageFileBlob = new Blob([image.buffer], { type: image.mimetype });
     const imageFile = new File([imageFileBlob], image.originalname, {
-      type: image.mimetype
+      type: image.mimetype,
     });
     const webp = await this.locationService.convertToWebp(imageFile);
     // Save to CDN
@@ -104,7 +104,7 @@ export class LocationController {
     // Get description
     const description = await this.locationService.getImageDescription(
       webp,
-      exif
+      exif,
     );
 
     const locationData: TLocation = {
@@ -116,16 +116,16 @@ export class LocationController {
         longitude:
           exif.gps?.Longitude ??
           description.location?.coordinates?.longitude ??
-          0
+          0,
       },
       name: description.location?.name,
       type: description.location?.type,
-      description: description.location.description
+      description: description.location.description,
     };
 
     const geohash = geohashForLocation([
       locationData.coordinates.latitude,
-      locationData.coordinates.longitude
+      locationData.coordinates.longitude,
     ]);
 
     const embeddings = await getEmbeddings(
@@ -137,7 +137,7 @@ export class LocationController {
         ' ' +
         locationData.type +
         ' ' +
-        locationData.description
+        locationData.description,
     );
 
     // Save to db
@@ -153,8 +153,8 @@ export class LocationController {
       image: {
         ...description,
         exif: JSON.stringify(exif),
-        url: newFilename
-      }
+        url: newFilename,
+      },
     };
 
     const doc = await this.locationService.saveLocationToDB(newLocation);
@@ -175,14 +175,14 @@ export class LocationController {
   @ApiResponse({
     status: 201,
     description: 'The record has been successfully updated.',
-    type: PutLocationResponseDTO
+    type: PutLocationResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
   @ApiResponse({ status: 500, description: 'Server error.' })
   @ApiBody({
     description: 'Custom data for location.',
-    type: PutLocationRequestDTO
+    type: PutLocationRequestDTO,
   })
   async putLocation(@Body() data: PutLocationRequestDTO) {
     const doc = await this.locationService.updateLocationInDB(data);
@@ -198,14 +198,14 @@ export class LocationController {
   @ApiResponse({
     status: 201,
     description: 'The record has been successfully deleted.',
-    type: DeleteLocationResponseDTO
+    type: DeleteLocationResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
   @ApiResponse({ status: 500, description: 'Server error.' })
   @ApiBody({
     description: 'Remove location.',
-    type: DeleteLocationRequestDTO
+    type: DeleteLocationRequestDTO,
   })
   async deleteLocation(@Body() { id }: DeleteLocationRequestDTO) {
     // Remove from db

@@ -15,7 +15,7 @@ type LocationModalHeaderProps = {
 const LocationModalMap = ({
   location,
   mapId,
-  apiKey
+  apiKey,
 }: LocationModalHeaderProps) => {
   return (
     <APIProvider apiKey={apiKey}>

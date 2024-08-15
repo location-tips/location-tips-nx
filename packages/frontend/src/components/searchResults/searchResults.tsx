@@ -18,7 +18,7 @@ const SearchResults = ({
   header,
   results,
   mapId,
-  apiKey
+  apiKey,
 }: SearchResultProps) => {
   const renderContent = (): ReactNode => {
     if (!results)

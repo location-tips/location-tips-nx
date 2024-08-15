@@ -24,7 +24,7 @@ const getLocationById = async (id: string): Promise<TLocationInResult> => {
   }
 
   const response = await fetch(`${DOMAIN}/api/location/${id}`, {
-    method: 'GET'
+    method: 'GET',
   });
 
   if (response.status >= 200 && response.status < 300) {
@@ -40,7 +40,7 @@ const getLocationById = async (id: string): Promise<TLocationInResult> => {
 };
 
 export const generateMetadata = async ({
-  params
+  params,
 }: Params): Promise<Metadata> => {
   const { id } = params;
 
@@ -49,7 +49,7 @@ export const generateMetadata = async ({
   return {
     title: `Location tips: ${location.title || location.image?.title}`,
     description: location.description,
-    keywords: location.keywords
+    keywords: location.keywords,
   };
 };
 

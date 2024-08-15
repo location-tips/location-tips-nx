@@ -2,7 +2,7 @@ import {
   CanActivate,
   ExecutionContext,
   Injectable,
-  UnauthorizedException
+  UnauthorizedException,
 } from '@nestjs/common';
 import { FastifyRequest as Request } from 'fastify';
 import { auth } from 'firebase-admin';

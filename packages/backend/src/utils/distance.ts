@@ -11,19 +11,19 @@ export function getScore(distance: number): number {
 
 export function getDistanceBetweenEmbeddings(
   embedding1: number[],
-  embedding2: number[]
+  embedding2: number[],
 ): number {
   return euclidianDistance(embedding1, embedding2);
 }
 
 export function euclidianDistance(
   vectorA: number[],
-  vectorB: number[]
+  vectorB: number[],
 ): number {
   return getScore(
     Math.sqrt(
-      vectorA.reduce((acc, val, i) => acc + Math.pow(val - vectorB[i], 2), 0)
-    )
+      vectorA.reduce((acc, val, i) => acc + Math.pow(val - vectorB[i], 2), 0),
+    ),
   );
 }
 

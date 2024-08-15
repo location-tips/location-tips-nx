@@ -9,7 +9,7 @@ export const metadata = {
   title: 'Location sets',
   description:
     'Location sets created by our users to help you plan the best possible trip.',
-  keywords: 'location sets, location tips, location tips app'
+  keywords: 'location sets, location tips, location tips app',
 };
 
 export default function Index() {

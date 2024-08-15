@@ -8,6 +8,6 @@ import { LocationsService } from '@back/app/locations/locations.service';
 @Module({
   imports: [FastifyMulterModule],
   controllers: [FavouritesController],
-  providers: [FavouritesService, LocationsService]
+  providers: [FavouritesService, LocationsService],
 })
 export class FavouritesModule {}

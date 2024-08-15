@@ -21,7 +21,7 @@ type LocationModalContentProps = {
 const LocationModalContent = ({
   location,
   mapId,
-  apiKey
+  apiKey,
 }: LocationModalContentProps) => {
   return (
     <MFlex

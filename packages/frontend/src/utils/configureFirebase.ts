@@ -6,7 +6,7 @@ const firebaseConfig = {
   projectId: 'location-tips-409908',
   storageBucket: 'location-tips-409908.appspot.com',
   messagingSenderId: '1038437023281',
-  appId: '1:1038437023281:web:f0ace0d1267165f1279f10'
+  appId: '1:1038437023281:web:f0ace0d1267165f1279f10',
 };
 
 // Initialize Firebase

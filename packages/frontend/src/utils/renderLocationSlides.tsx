@@ -2,7 +2,7 @@
 import { TLocationInResult } from '@types';
 
 export default function renderLocationSlides(
-  location: TLocationInResult
+  location: TLocationInResult,
 ): JSX.Element[] {
   const mainPicture = (
     <img draggable={false} src={location.images.medium} alt={location.title} />

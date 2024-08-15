@@ -4,7 +4,7 @@ import {
   useContext,
   useEffect,
   useImperativeHandle,
-  useRef
+  useRef,
 } from 'react';
 
 import type { Ref } from 'react';
@@ -49,7 +49,7 @@ function useCircle(props: CircleProps) {
     onMouseOver,
     onMouseOut,
     onRadiusChanged,
-    onCenterChanged
+    onCenterChanged,
   });
 
   const circle = useRef(
@@ -57,8 +57,8 @@ function useCircle(props: CircleProps) {
       fillOpacity: 0.2,
       fillColor: '#085CFF',
       strokeColor: '#085CFF',
-      strokeOpacity: 0.6
-    })
+      strokeOpacity: 0.6,
+    }),
   ).current;
   // update circleOptions (note the dependencies aren't properly checked
   // here, we just assume that setOptions is smart enough to not waste a
@@ -105,7 +105,7 @@ function useCircle(props: CircleProps) {
       ['dragstart', 'onDragStart'],
       ['dragend', 'onDragEnd'],
       ['mouseover', 'onMouseOver'],
-      ['mouseout', 'onMouseOut']
+      ['mouseout', 'onMouseOut'],
     ].forEach(([eventName, eventCallback]) => {
       gme.addListener(circle, eventName, (e: google.maps.MapMouseEvent) => {
         const callback = callbacks.current[eventCallback];

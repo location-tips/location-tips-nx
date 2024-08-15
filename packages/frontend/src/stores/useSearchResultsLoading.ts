@@ -7,7 +7,7 @@ interface SearchResultsLoadingState {
 
 const useSearchResultsLoading = create<SearchResultsLoadingState>((set) => ({
   isLoading: false,
-  setIsLoading: (value) => set({ isLoading: value })
+  setIsLoading: (value) => set({ isLoading: value }),
 }));
 
 export default useSearchResultsLoading;

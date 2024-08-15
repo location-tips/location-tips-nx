@@ -7,7 +7,7 @@ import {
   ApiBearerAuth,
   ApiOperation,
   ApiResponse,
-  ApiTags
+  ApiTags,
 } from '@nestjs/swagger';
 import { GetMyLocationsResponseDTO } from '@back/dto';
 
@@ -18,7 +18,7 @@ import { AuthGuard } from '@back/app/guards/auth.guard';
 export class MyController {
   constructor(
     private readonly myService: MyService,
-    private readonly locationsService: LocationsService
+    private readonly locationsService: LocationsService,
   ) {}
 
   @Get()
@@ -27,7 +27,7 @@ export class MyController {
   @ApiResponse({
     status: 201,
     description: 'List of my locations.',
-    type: GetMyLocationsResponseDTO
+    type: GetMyLocationsResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 500, description: 'Server error.' })
@@ -45,10 +45,10 @@ export class MyController {
         return {
           ...loc,
           images: await this.locationsService.getImages(loc.image.url),
-          nearest: [] // TODO: implement optimisation to nearest
+          nearest: [], // TODO: implement optimisation to nearest
           // nearest: await this.locationsService.getNearestLocations(loc.geohash),
         };
-      })
+      }),
     );
 
     return { my: mappedFavorites };

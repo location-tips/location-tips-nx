@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import type {
   DeleteLocationSetRequest,
-  DeleteLocationSetResponse
+  DeleteLocationSetResponse,
 } from '@types';
 
 export class DeleteLocationsSetRequestDTO implements DeleteLocationSetRequest {

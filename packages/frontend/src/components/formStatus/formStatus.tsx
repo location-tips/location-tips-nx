@@ -14,7 +14,7 @@ const FormStatus = ({
   loadingText = 'Searching ...',
   iconWidth = 24,
   iconHeight = 24,
-  className
+  className,
 }: TFormStatusProps) => {
   const { pending } = useFormStatus();
 

@@ -23,7 +23,7 @@ const ProfileButton = () => {
       <MDropdown
         dropdownContentClassName={clsx(
           styles.menuDropdownContainer,
-          styles.top
+          styles.top,
         )}
         noPadding={false}
         align="right"

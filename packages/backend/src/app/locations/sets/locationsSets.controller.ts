@@ -2,7 +2,7 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { LocationsSetsService } from './locationsSets.service';
 import {
   PostLocationsSetsResponseDTO,
-  PostLocationsSetsRequestDTO
+  PostLocationsSetsRequestDTO,
 } from '@back/dto';
 import { ApiResponse, ApiTags, ApiOperation } from '@nestjs/swagger';
 
@@ -16,20 +16,20 @@ export class LocationsSetsController {
   @ApiResponse({
     status: 201,
     description: 'The records has been successfully found.',
-    type: PostLocationsSetsResponseDTO
+    type: PostLocationsSetsResponseDTO,
   })
   @ApiResponse({ status: 500, description: 'Server error.' })
   async postLocationsSets(
-    @Body() { searchText, uid, offset }: PostLocationsSetsRequestDTO
+    @Body() { searchText, uid, offset }: PostLocationsSetsRequestDTO,
   ): Promise<PostLocationsSetsResponseDTO> {
     const translatedText = await this.locationsSetsService.translateToEnglish(
-      searchText
+      searchText,
     );
 
     const locationssets = await this.locationsSetsService.searchLocationsSets({
       searchText: translatedText.translated ?? searchText,
       uid,
-      offset
+      offset,
     });
 
     return locationssets;

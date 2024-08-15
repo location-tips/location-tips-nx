@@ -3,7 +3,7 @@ import {
   Controller,
   Post,
   UploadedFiles,
-  UseInterceptors
+  UseInterceptors,
 } from '@nestjs/common';
 import { LocationsService } from './locations.service';
 import { PostLocationsResponseDTO, PostLocationsRequestDTO } from '@back/dto';
@@ -12,11 +12,11 @@ import {
   ApiTags,
   ApiOperation,
   ApiBody,
-  ApiConsumes
+  ApiConsumes,
 } from '@nestjs/swagger';
 import {
   File as FastifyFile,
-  FileFieldsInterceptor
+  FileFieldsInterceptor,
 } from '@nest-lab/fastify-multer';
 
 @ApiTags('locations')
@@ -29,7 +29,7 @@ export class LocationsController {
   @ApiResponse({
     status: 201,
     description: 'The record has been successfully created.',
-    type: PostLocationsResponseDTO
+    type: PostLocationsResponseDTO,
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -37,17 +37,17 @@ export class LocationsController {
   @ApiConsumes('multipart/form-data')
   @ApiBody({
     description: 'Locations search request.',
-    type: PostLocationsRequestDTO
+    type: PostLocationsRequestDTO,
   })
   @UseInterceptors(
     FileFieldsInterceptor([
       { name: 'image', maxCount: 1 },
-      { name: 'voice', maxCount: 1 }
-    ])
+      { name: 'voice', maxCount: 1 },
+    ]),
   )
   async postLocations(
     @Body() locationsRequestDTO: PostLocationsRequestDTO,
-    @UploadedFiles() files: { image?: FastifyFile; voice?: FastifyFile }
+    @UploadedFiles() files: { image?: FastifyFile; voice?: FastifyFile },
   ) {
     const { searchText } = locationsRequestDTO;
 
@@ -58,19 +58,19 @@ export class LocationsController {
 
     if (image?.[0]?.size) {
       const imageFileBlob = new Blob([image[0].buffer], {
-        type: image[0].mimetype
+        type: image[0].mimetype,
       });
       imageFile = new File([imageFileBlob], image[0].originalname, {
-        type: image[0].mimetype
+        type: image[0].mimetype,
       });
     }
 
     if (voice?.[0]?.size) {
       const voiceFileBlob = new Blob([voice[0].buffer], {
-        type: voice[0].mimetype
+        type: voice[0].mimetype,
       });
       voiceFile = new File([voiceFileBlob], voice[0].originalname, {
-        type: voice[0].mimetype
+        type: voice[0].mimetype,
       });
     }
 
@@ -78,7 +78,7 @@ export class LocationsController {
     const queryDescription = await this.locationsService.describeSearchQuery(
       searchText,
       imageFile,
-      voiceFile
+      voiceFile,
     );
 
     const finalPrompt =
@@ -88,7 +88,7 @@ export class LocationsController {
 
     const locations = await this.locationsService.searchLocations(
       finalPrompt,
-      queryDescription
+      queryDescription,
     );
 
     return { searchResult: locations, queryDescription };

@@ -16,7 +16,7 @@ export class MyService {
       .get();
 
     const locations = docs.docs.map(
-      (doc) => ({ ...doc.data(), id: doc.id } as TLocationEntity)
+      (doc) => ({ ...doc.data(), id: doc.id } as TLocationEntity),
     );
 
     return locations;

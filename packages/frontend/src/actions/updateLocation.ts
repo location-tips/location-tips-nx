@@ -6,7 +6,7 @@ const SERVER = process.env.SERVER || 'http://localhost:3000';
 
 export async function updateLocation(
   _prevState: LocationsState,
-  formData: FormData
+  formData: FormData,
 ) {
   const id = formData.get('id') as string;
   const title = formData.get('title') as string;
@@ -16,9 +16,9 @@ export async function updateLocation(
     const response = await fetch(`${SERVER}/api/location`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ id, title, userDescription })
+      body: JSON.stringify({ id, title, userDescription }),
     });
 
     return response.json();

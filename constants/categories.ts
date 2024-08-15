@@ -45,5 +45,5 @@ export const CATEGORIES = [
   'Monument/Plaza',
   'Nature',
   'Abandoned',
-  'Other'
+  'Other',
 ];

@@ -23,15 +23,15 @@ const useCreateLocations = create<CreateLocationsState>((set) => ({
     set((state) => ({ locations: [...state.locations, location] })),
   removeLocation: (location) =>
     set((state) => ({
-      locations: state.locations.filter((l) => l.id !== location.id)
+      locations: state.locations.filter((l) => l.id !== location.id),
     })),
   updateLocation: (location) =>
     set((state) => ({
       locations: state.locations.map((l) =>
-        l.id === location.id ? location : l
-      )
+        l.id === location.id ? location : l,
+      ),
     })),
-  reset: () => set({ locations: [], pending: 0, failed: 0 })
+  reset: () => set({ locations: [], pending: 0, failed: 0 }),
 }));
 
 export default useCreateLocations;

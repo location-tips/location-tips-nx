@@ -8,7 +8,7 @@ import type {
   TLocationEntity,
   TLocationInResult,
   TLocationSearchDescription,
-  TLocationsWithImages
+  TLocationsWithImages,
 } from '@types';
 
 export class CoordinateDTO implements TCoordinate {
@@ -22,7 +22,7 @@ export class CoordinateDTO implements TCoordinate {
 export class LocationDTO implements TLocation {
   @ApiProperty({
     description: 'Coordinates of the location',
-    type: CoordinateDTO
+    type: CoordinateDTO,
   })
   coordinates: TCoordinate;
 
@@ -60,12 +60,12 @@ export class LocationEntityDTO
   uid: string;
 
   @ApiProperty({
-    description: 'Date and time when the location entity was created'
+    description: 'Date and time when the location entity was created',
   })
   createdAt?: Date;
 
   @ApiProperty({
-    description: 'Date and time when the location entity was last updated'
+    description: 'Date and time when the location entity was last updated',
   })
   updatedAt?: Date;
 
@@ -81,7 +81,7 @@ export class LocationEntityDTO
   @ApiProperty({
     description: 'Keywords extracted from the image',
     type: 'array',
-    items: { type: 'string' }
+    items: { type: 'string' },
   })
   keywords: string[];
 
@@ -109,7 +109,7 @@ export class LocationWithImagesEntityDTO
 {
   @ApiProperty({
     description: 'Images with different quality',
-    type: ImagesDTO
+    type: ImagesDTO,
   })
   images: TImages;
 }
@@ -121,12 +121,12 @@ export class LocationsWithScoreDTO
   @ApiProperty({
     description: 'Locations in the same place and similar to search query',
     type: LocationWithImagesEntityDTO,
-    isArray: true
+    isArray: true,
   })
   nearest: TLocationsWithImages[];
 
   @ApiProperty({
-    description: 'Score of the location entity'
+    description: 'Score of the location entity',
   })
   score: number;
 }
@@ -138,7 +138,7 @@ export class LocationInResultDTO
   @ApiProperty({
     description: 'Locations in the same place and similar to search query',
     type: LocationWithImagesEntityDTO,
-    isArray: true
+    isArray: true,
   })
   nearest: TLocationsWithImages[];
 }
@@ -148,57 +148,57 @@ export class LocationSearchDescriptionDTO
 {
   @ApiProperty({
     description:
-      'Original prompt for the search query without translation and processing'
+      'Original prompt for the search query without translation and processing',
   })
   originalPrompt: string;
 
   @ApiProperty({
-    description: 'Image prompt for the search query'
+    description: 'Image prompt for the search query',
   })
   image?: string;
 
   @ApiProperty({
-    description: 'Voice request to search'
+    description: 'Voice request to search',
   })
   voice?: string;
 
   @ApiProperty({
-    description: 'Keywords extracted from the voice request'
+    description: 'Keywords extracted from the voice request',
   })
   voiceKeywords?: string;
 
   @ApiProperty({
     description: 'Locations near the search query',
     type: LocationDTO,
-    isArray: true
+    isArray: true,
   })
   near?: TLocation[];
 
   @ApiProperty({
     description: 'Locations in which the search query is contained',
     type: LocationDTO,
-    isArray: true
+    isArray: true,
   })
   in?: TBoundedLocation[];
 
   @ApiProperty({
     description: 'Location of the search query',
-    type: LocationDTO
+    type: LocationDTO,
   })
   location: TLocation[];
 
   @ApiProperty({
-    description: 'Distance from the search query to the location'
+    description: 'Distance from the search query to the location',
   })
   distance?: string;
 
   @ApiProperty({
-    description: 'Description of the search query'
+    description: 'Description of the search query',
   })
   description: string;
 
   @ApiProperty({
-    description: 'Prompt for the search query'
+    description: 'Prompt for the search query',
   })
   prompt: string;
 }

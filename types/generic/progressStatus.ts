@@ -3,5 +3,5 @@ export enum ProgressStatus {
   Uploading = 'uploading',
   Processing = 'processing',
   Done = 'done',
-  Fail = 'fail'
+  Fail = 'fail',
 }

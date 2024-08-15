@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { FieldValue } from '@google-cloud/firestore';
 import {
   geminiDescribeSearchQuery,
-  geminiTranslateToEnglish
+  geminiTranslateToEnglish,
 } from '@back/utils/gemini';
 import {
   TLocationEntity,
@@ -11,13 +11,13 @@ import {
   TLocationSearchDescription,
   TLocationsWithImages,
   TLocationsWithScore,
-  TTranslation
+  TTranslation,
 } from '@types';
 import { getEmbeddings } from '@back/utils/vertex';
 import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
 import {
   getDistanceBetweenEmbeddings,
-  getRadiusFromBoundingBox
+  getRadiusFromBoundingBox,
 } from '@back/utils/distance';
 import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
 import { getImages } from '@back/utils/firebase';
@@ -27,7 +27,7 @@ export class LocationsService {
   async describeSearchQuery(
     prompt: string,
     image?: File,
-    voice?: File
+    voice?: File,
   ): Promise<TLocationSearchDescription> {
     return geminiDescribeSearchQuery(prompt, image, voice);
   }
@@ -48,7 +48,7 @@ export class LocationsService {
   }
 
   async getImages(
-    url: string
+    url: string,
   ): Promise<{ original: string; small: string; medium: string }> {
     return await getImages(url);
   }
@@ -77,7 +77,7 @@ export class LocationsService {
   async searchLocationsWithinRadius(
     latitude: number,
     longitude: number,
-    radiusKm: number
+    radiusKm: number,
   ) {
     const db = admin.firestore();
 
@@ -122,7 +122,7 @@ export class LocationsService {
 
   async searchLocations(
     text: string,
-    queryDescription
+    queryDescription,
   ): Promise<TLocationsWithScore[]> {
     const embeddings = await getEmbeddings(text);
 
@@ -135,19 +135,19 @@ export class LocationsService {
       const distance = Number(queryDescription.distance);
 
       const {
-        coordinates: { latitude, longitude }
+        coordinates: { latitude, longitude },
       } = queryDescription.near[0];
 
       locationsInRegion = await this.searchLocationsWithinRadius(
         Number(latitude),
         Number(longitude),
-        !Number.isNaN(distance) ? distance : 50
+        !Number.isNaN(distance) ? distance : 50,
       );
     } else if (queryDescription.in[0]) {
       // Search locations within the bounding box or radius from the center of region
       const {
         coordinates: { latitude, longitude },
-        boundingBox
+        boundingBox,
       } = queryDescription.in[0];
 
       const radius = boundingBox ? getRadiusFromBoundingBox(boundingBox) : 50;
@@ -155,7 +155,7 @@ export class LocationsService {
       locationsInRegion = await this.searchLocationsWithinRadius(
         latitude,
         longitude,
-        radius
+        radius,
       );
     }
 
@@ -170,11 +170,11 @@ export class LocationsService {
         .where(
           'geohash',
           'in',
-          locationsInRegion.slice(0, 30).map((l) => l.geohash)
+          locationsInRegion.slice(0, 30).map((l) => l.geohash),
         )
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
           limit: DB_DEFAULT_LIMIT,
-          distanceMeasure: 'COSINE'
+          distanceMeasure: 'COSINE',
         })
         .get();
     } else if (!queryDescription.near?.[0] && !queryDescription.in?.[0]) {
@@ -182,7 +182,7 @@ export class LocationsService {
       locations = await collectionRef
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
           limit: DB_DEFAULT_LIMIT,
-          distanceMeasure: 'COSINE'
+          distanceMeasure: 'COSINE',
         })
         .get();
     } else {
@@ -200,7 +200,7 @@ export class LocationsService {
         const locationEntity = doc.data() as TLocationEntity;
         const score = getDistanceBetweenEmbeddings(
           embeddings[0],
-          locationEntity.embedding_field.toArray()
+          locationEntity.embedding_field.toArray(),
         );
         const images = await this.getImages(locationEntity.image.url);
 
@@ -211,7 +211,7 @@ export class LocationsService {
           ...locationEntity,
           id: doc.id,
           score,
-          images
+          images,
         };
 
         if (locationsMap.has(locationEntity.geohash)) {
@@ -219,7 +219,7 @@ export class LocationsService {
         } else {
           locationsMap.set(locationEntity.geohash, [locationResult]);
         }
-      })
+      }),
     );
 
     const locationsToReturn: TLocationInResult[] = [];
@@ -227,7 +227,7 @@ export class LocationsService {
     locationsMap.forEach((locations) => {
       locationsToReturn.push({
         ...locations[0],
-        nearest: locations.slice(1) ?? []
+        nearest: locations.slice(1) ?? [],
       });
     });
 

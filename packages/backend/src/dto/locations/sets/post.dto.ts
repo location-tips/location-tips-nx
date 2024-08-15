@@ -3,22 +3,22 @@ import { ApiProperty } from '@nestjs/swagger';
 import type {
   PostLocationsSetsRequest,
   PostLocationsSetsResponse,
-  TLocationsSet
+  TLocationsSet,
 } from '@types';
 
 export class PostLocationsSetsRequestDTO implements PostLocationsSetsRequest {
   @ApiProperty({
-    description: 'User prompt for location search'
+    description: 'User prompt for location search',
   })
   searchText: string;
 
   @ApiProperty({
-    description: 'User id'
+    description: 'User id',
   })
   uid?: string;
 
   @ApiProperty({
-    description: 'Offset for pagination'
+    description: 'Offset for pagination',
   })
   offset?: number;
 }
@@ -27,12 +27,12 @@ export class PostLocationsSetsResponseDTO implements PostLocationsSetsResponse {
   @ApiProperty({
     description: 'Locations sets array',
     type: () => LocationsSetDTO,
-    isArray: true
+    isArray: true,
   })
   locationsSets: TLocationsSet[];
 
   @ApiProperty({
-    description: 'Count of locations'
+    description: 'Count of locations',
   })
   count: number;
 }

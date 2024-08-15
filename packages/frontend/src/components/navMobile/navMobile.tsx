@@ -25,7 +25,7 @@ const NavMobile = ({ open, onClose }: NavMobileProps) => {
         justify="start"
         className={clsx(
           styles.mobileNavContainer,
-          open && styles.mobileNavContainer__open
+          open && styles.mobileNavContainer__open,
         )}
       >
         <MButton

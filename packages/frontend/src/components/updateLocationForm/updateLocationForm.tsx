@@ -8,7 +8,7 @@ import {
   Map,
   MapControl,
   MapEvent,
-  useMap
+  useMap,
 } from '@vis.gl/react-google-maps';
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -41,7 +41,7 @@ type UpdateLocationFormProps = {
 
 const UpdateLocationForm = ({
   location: initialLocation,
-  mapId
+  mapId,
 }: UpdateLocationFormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
   const [updateState, formUpdateAction] = useFormState(updateLocation, {});
@@ -55,10 +55,10 @@ const UpdateLocationForm = ({
 
   const [title, setTitle] = useState(initialLocation.title);
   const [userDescription, setUserDescription] = useState(
-    initialLocation.userDescription
+    initialLocation.userDescription,
   );
   const [coordinates, setCoordinates] = useState(
-    initialLocation.location.coordinates
+    initialLocation.location.coordinates,
   );
 
   const debouncedTitle = useDebounce(title, 1000);
@@ -132,7 +132,7 @@ const UpdateLocationForm = ({
     // TODO: thats fucking dirty hack cause I using portals
     setTimeout(() => {
       loaderRef.current = document.getElementById(
-        `form-status-portal-${location.id}`
+        `form-status-portal-${location.id}`,
       ) as HTMLElement;
     }, 1000);
   });
@@ -145,8 +145,8 @@ const UpdateLocationForm = ({
         userDescription: updateState.userDescription,
         location: {
           ...location.location,
-          coordinates: updateState.coordinates
-        }
+          coordinates: updateState.coordinates,
+        },
       });
   }, [location, updateState]);
 
@@ -165,7 +165,7 @@ const UpdateLocationForm = ({
               <Map
                 defaultZoom={8}
                 defaultCenter={convertCoordinates(
-                  location.location.coordinates
+                  location.location.coordinates,
                 )}
                 mapId={mapId}
                 onDragend={onDragMapEnd}
@@ -259,7 +259,7 @@ const UpdateLocationForm = ({
                       iconHeight={32}
                       className={styles.loadingIcon}
                     />,
-                    loaderRef.current
+                    loaderRef.current,
                   )}
               </MFlex>
             </aside>

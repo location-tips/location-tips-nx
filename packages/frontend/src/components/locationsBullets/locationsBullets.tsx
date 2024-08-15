@@ -15,7 +15,7 @@ type LocationsBulletsProps = {
 const LocationsBullets = ({
   currentSlide,
   locations,
-  onChoseSlide
+  onChoseSlide,
 }: LocationsBulletsProps) => {
   return (
     <MFlex direction="row" gap="xs" className={styles.bullets}>

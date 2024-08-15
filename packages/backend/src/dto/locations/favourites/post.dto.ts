@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class PostFavouritesRequestDTO {
   @ApiProperty({
-    description: 'Unique identifier of the Favourites location to add'
+    description: 'Unique identifier of the Favourites location to add',
   })
   locationId: string;
 }

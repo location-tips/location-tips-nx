@@ -58,8 +58,8 @@ const LoginForm = () => {
           onSuccess={handleLoginSuccess}
           onFailure={handleLoginFailure}
         />
-      )
-    }
+      ),
+    },
   ];
 
   return (
@@ -70,7 +70,7 @@ const LoginForm = () => {
             className={styles.menuDropdown}
             dropdownContentClassName={clsx(
               styles.menuDropdownContainer,
-              styles.top
+              styles.top,
             )}
             onClose={() => {
               setDropdownOpen(true);

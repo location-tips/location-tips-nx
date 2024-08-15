@@ -9,7 +9,7 @@ import FormStatus from 'packages/frontend/src/components/formStatus/formStatus';
 import { useFormState } from 'react-dom';
 
 const initialState = {
-  image: null
+  image: null,
 };
 
 const CreateLocationForm = () => {
