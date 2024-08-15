@@ -1,8 +1,12 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
-  "extends": ["prettier"],
+  "plugins": ["@nx", "css-modules"],
+  "extends": ["plugin:css-modules/recommended", "prettier"],
+  "rules": {
+    "css-modules/no-unused-class": 2,
+    "css-modules/no-undef-class": 2
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

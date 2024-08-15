@@ -4,6 +4,8 @@
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
     "ms-playwright.playwright",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "clinyong.vscode-css-modules"
   ]
 }
