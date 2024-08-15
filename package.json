@@ -13,7 +13,11 @@
     "build:front": "nx run frontend:build",
     "build:back": "nx run backend:build",
     "reset": "nx reset",
-    "build": "npm run build:front && npm run build:back"
+    "build": "npm run build:front && npm run build:back",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "private": true,
   "devDependencies": {
@@ -46,15 +50,17 @@
     "babel-jest": "29.4.1",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.3",
-    "eslint-config-prettier": "9.0.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-playwright": "0.15.3",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
+    "husky": "^9.1.4",
     "jest": "29.4.1",
     "jest-environment-jsdom": "29.4.1",
     "jest-environment-node": "29.4.1",
+    "lint-staged": "^15.2.9",
     "nx": "19.5.0",
     "prettier": "2.6.2",
     "ts-jest": "29.1.0",
