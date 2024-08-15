@@ -3,7 +3,7 @@ import React, {
   DragEvent,
   useEffect,
   useId,
-  useState,
+  useState
 } from 'react';
 import clsx from 'clsx';
 
@@ -14,7 +14,7 @@ import { MLabel } from '@location-tips/location-tips-uikit/atoms/MLabel';
 
 import { SystemUiconsPicture } from '@front/icons/SystemUiconsPicture';
 
-import "./dropFiles.vars.css";
+import './dropFiles.vars.css';
 import styles from './dropFiles.module.css';
 
 type DropFilesProps = {
@@ -54,7 +54,9 @@ const DropFiles = ({ onFilesSelected }: DropFilesProps) => {
     <section
       className={clsx(styles.dndArea)}
       onDrop={handleDrop}
-      onDragOver={(event) => { event.preventDefault(); }}
+      onDragOver={(event) => {
+        event.preventDefault();
+      }}
     >
       <MFlex direction="column" justify="center" align="center" gap="2xl">
         <MFlex direction="column" justify="center" align="center" gap="l">
@@ -81,7 +83,8 @@ const DropFiles = ({ onFilesSelected }: DropFilesProps) => {
           </MFlex>
         </MFlex>
         <MCaption className={styles.uploadDescription}>
-          If you image contains GPS coordinates, then the entire location will<br />
+          If you image contains GPS coordinates, then the entire location will
+          <br />
           be pulled up automatically
         </MCaption>
       </MFlex>

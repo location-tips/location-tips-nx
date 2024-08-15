@@ -58,8 +58,8 @@ const LoginForm = () => {
           onSuccess={handleLoginSuccess}
           onFailure={handleLoginFailure}
         />
-      ),
-    },
+      )
+    }
   ];
 
   return (

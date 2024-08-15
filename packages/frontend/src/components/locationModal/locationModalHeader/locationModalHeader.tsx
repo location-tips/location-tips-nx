@@ -16,7 +16,7 @@ type LocationModalHeaderProps = {
 
 const LocationModalHeader = ({
   location,
-  onClose,
+  onClose
 }: LocationModalHeaderProps) => {
   return (
     <MFlex direction="row" gap="l" justify="space-between" align="center">
@@ -30,7 +30,12 @@ const LocationModalHeader = ({
         <AuthorizedSection>
           {location.id && <Bookmark id={location.id} label="Save" />}
         </AuthorizedSection>
-        {window && location.id && <ShareButton url={`${window?.location.protocol}//${window?.location.host}/location/${location.id}`} label={<MText>Share</MText>} />}
+        {window && location.id && (
+          <ShareButton
+            url={`${window?.location.protocol}//${window?.location.host}/location/${location.id}`}
+            label={<MText>Share</MText>}
+          />
+        )}
       </MFlex>
     </MFlex>
   );

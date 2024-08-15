@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { FieldValue } from '@google-cloud/firestore';
 import {
   geminiDescribeSearchQuery,
-  geminiTranslateToEnglish,
+  geminiTranslateToEnglish
 } from '@back/utils/gemini';
 import {
   TLocationEntity,
@@ -11,11 +11,14 @@ import {
   TLocationSearchDescription,
   TLocationsWithImages,
   TLocationsWithScore,
-  TTranslation,
+  TTranslation
 } from '@types';
 import { getEmbeddings } from '@back/utils/vertex';
 import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
-import { getDistanceBetweenEmbeddings, getRadiusFromBoundingBox } from '@back/utils/distance';
+import {
+  getDistanceBetweenEmbeddings,
+  getRadiusFromBoundingBox
+} from '@back/utils/distance';
 import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
 import { getImages } from '@back/utils/firebase';
 
@@ -44,7 +47,9 @@ export class LocationsService {
     return locations.docs.map((doc) => doc.data() as TLocationEntity);
   }
 
-  async getImages(url: string): Promise<{ original: string; small: string; medium: string }> {
+  async getImages(
+    url: string
+  ): Promise<{ original: string; small: string; medium: string }> {
     return await getImages(url);
   }
 
@@ -53,7 +58,7 @@ export class LocationsService {
     const db = admin.firestore();
     const locations = await db
       .collection(COLLECTIONS.LOCATIONS)
-      .where(admin.firestore.FieldPath.documentId(), 'in', ids.slice(0,30))
+      .where(admin.firestore.FieldPath.documentId(), 'in', ids.slice(0, 30))
       .get();
 
     ids.forEach((id) => mapResult.set(id, null));
@@ -69,7 +74,11 @@ export class LocationsService {
     return Array.from(mapResult.values()) as TLocationEntity[];
   }
 
-  async searchLocationsWithinRadius(latitude: number, longitude: number, radiusKm: number) {
+  async searchLocationsWithinRadius(
+    latitude: number,
+    longitude: number,
+    radiusKm: number
+  ) {
     const db = admin.firestore();
 
     // Calculate the bounds of the query
@@ -98,7 +107,7 @@ export class LocationsService {
         const location = doc.data();
 
         const lat = location.location.coordinates.latitude;
-        const lng = location.location.coordinates.longitude
+        const lng = location.location.coordinates.longitude;
 
         // We have to filter out a few false positives due to GeoHash accuracy, but most will match
         const distanceInKm = distanceBetween([lat, lng], center);
@@ -126,7 +135,7 @@ export class LocationsService {
       const distance = Number(queryDescription.distance);
 
       const {
-        coordinates: { latitude, longitude },
+        coordinates: { latitude, longitude }
       } = queryDescription.near[0];
 
       locationsInRegion = await this.searchLocationsWithinRadius(
@@ -138,7 +147,7 @@ export class LocationsService {
       // Search locations within the bounding box or radius from the center of region
       const {
         coordinates: { latitude, longitude },
-        boundingBox,
+        boundingBox
       } = queryDescription.in[0];
 
       const radius = boundingBox ? getRadiusFromBoundingBox(boundingBox) : 50;
@@ -158,19 +167,22 @@ export class LocationsService {
     if (locationsInRegion.length) {
       // Search locations by prompt within the bounding box or radius from the center of region
       locations = await collectionRef
-        .where('geohash', 'in', locationsInRegion.slice(0,30).map((l) => l.geohash))
+        .where(
+          'geohash',
+          'in',
+          locationsInRegion.slice(0, 30).map((l) => l.geohash)
+        )
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
-        limit: DB_DEFAULT_LIMIT,
-        distanceMeasure: 'COSINE',
-      })
-      .get();
-
+          limit: DB_DEFAULT_LIMIT,
+          distanceMeasure: 'COSINE'
+        })
+        .get();
     } else if (!queryDescription.near?.[0] && !queryDescription.in?.[0]) {
       // Search locations by prompt
       locations = await collectionRef
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
           limit: DB_DEFAULT_LIMIT,
-          distanceMeasure: 'COSINE',
+          distanceMeasure: 'COSINE'
         })
         .get();
     } else {
@@ -178,36 +190,44 @@ export class LocationsService {
     }
 
     // Group locations by geohash
-    const locationsMap = new Map<string, (TLocationsWithScore & TLocationsWithImages)[]>();
+    const locationsMap = new Map<
+      string,
+      (TLocationsWithScore & TLocationsWithImages)[]
+    >();
 
-    await Promise.all(locations.docs.map(async (doc) => {
-      const locationEntity = doc.data() as TLocationEntity;
-      const score = getDistanceBetweenEmbeddings(embeddings[0], locationEntity.embedding_field.toArray());
-      const images = await this.getImages(locationEntity.image.url);
+    await Promise.all(
+      locations.docs.map(async (doc) => {
+        const locationEntity = doc.data() as TLocationEntity;
+        const score = getDistanceBetweenEmbeddings(
+          embeddings[0],
+          locationEntity.embedding_field.toArray()
+        );
+        const images = await this.getImages(locationEntity.image.url);
 
-      delete locationEntity.image.exif;
-      delete locationEntity.embedding_field;
+        delete locationEntity.image.exif;
+        delete locationEntity.embedding_field;
 
-      const locationResult: TLocationsWithScore & TLocationsWithImages = {
-        ...locationEntity,
-        id: doc.id,
-        score,
-        images,
-      };
+        const locationResult: TLocationsWithScore & TLocationsWithImages = {
+          ...locationEntity,
+          id: doc.id,
+          score,
+          images
+        };
 
-      if (locationsMap.has(locationEntity.geohash)) {
-        locationsMap.get(locationEntity.geohash).push(locationResult);
-      } else {
-        locationsMap.set(locationEntity.geohash, [locationResult]);
-      }
-    }));
+        if (locationsMap.has(locationEntity.geohash)) {
+          locationsMap.get(locationEntity.geohash).push(locationResult);
+        } else {
+          locationsMap.set(locationEntity.geohash, [locationResult]);
+        }
+      })
+    );
 
     const locationsToReturn: TLocationInResult[] = [];
 
     locationsMap.forEach((locations) => {
       locationsToReturn.push({
         ...locations[0],
-        nearest: locations.slice(1) ?? [],
+        nearest: locations.slice(1) ?? []
       });
     });
 

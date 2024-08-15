@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React from 'react';
 import type { TLocationInResult } from '@types';
 
@@ -12,7 +12,11 @@ type LocationModalHeaderProps = {
   apiKey: string;
 };
 
-const LocationModalMap = ({ location, mapId, apiKey }: LocationModalHeaderProps) => {
+const LocationModalMap = ({
+  location,
+  mapId,
+  apiKey
+}: LocationModalHeaderProps) => {
   return (
     <APIProvider apiKey={apiKey}>
       <Map
@@ -20,12 +24,11 @@ const LocationModalMap = ({ location, mapId, apiKey }: LocationModalHeaderProps)
         defaultCenter={convertCoordinates(location.location.coordinates)}
         mapId={mapId}
       >
-        <LocationMarker
-          key={location.id}
-          location={location}
-        />
+        <LocationMarker key={location.id} location={location} />
 
-        {location.nearest?.map((nearLocation) => <LocationMarker key={nearLocation.id} location={nearLocation} />)}
+        {location.nearest?.map((nearLocation) => (
+          <LocationMarker key={nearLocation.id} location={nearLocation} />
+        ))}
       </Map>
     </APIProvider>
   );

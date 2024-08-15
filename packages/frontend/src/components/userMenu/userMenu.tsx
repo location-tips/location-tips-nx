@@ -20,11 +20,11 @@ const UserMenu = () => {
       key: 'Favourite locations',
       value: (
         <LinkButton href="/locations/favorite">Favorite locations</LinkButton>
-      ),
+      )
     },
     {
       key: 'My locations',
-      value: <LinkButton href="/locations/my">My locations</LinkButton>,
+      value: <LinkButton href="/locations/my">My locations</LinkButton>
     },
     {
       key: 'Sign out',
@@ -32,8 +32,8 @@ const UserMenu = () => {
         <MButton mode="secondary" stretch onClick={signOut}>
           Sign out
         </MButton>
-      ),
-    },
+      )
+    }
   ];
 
   return <MList options={menuOptions} showDivider={false} />;

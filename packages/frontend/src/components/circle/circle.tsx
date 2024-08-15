@@ -7,8 +7,8 @@ import {
   useRef
 } from 'react';
 
-import type {Ref} from 'react';
-import {GoogleMapsContext, latLngEquals} from '@vis.gl/react-google-maps';
+import type { Ref } from 'react';
+import { GoogleMapsContext, latLngEquals } from '@vis.gl/react-google-maps';
 
 type CircleEventProps = {
   onClick?: (e: google.maps.MapMouseEvent) => void;
@@ -52,7 +52,14 @@ function useCircle(props: CircleProps) {
     onCenterChanged
   });
 
-  const circle = useRef(new google.maps.Circle({ fillOpacity: 0.2, fillColor: '#085CFF', strokeColor: '#085CFF', strokeOpacity: 0.6 })).current;
+  const circle = useRef(
+    new google.maps.Circle({
+      fillOpacity: 0.2,
+      fillColor: '#085CFF',
+      strokeColor: '#085CFF',
+      strokeOpacity: 0.6
+    })
+  ).current;
   // update circleOptions (note the dependencies aren't properly checked
   // here, we just assume that setOptions is smart enough to not waste a
   // lot of time updating values that didn't change)

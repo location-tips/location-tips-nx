@@ -1,9 +1,9 @@
 :root[data-platform='web-desktop'] {
-    --mapgeosearchautocomplete-dropdown-top: 0;
+  --mapgeosearchautocomplete-dropdown-top: 0;
 }
 
 :root[data-platform='web-tablet'] {
-    --mapgeosearchautocomplete-dropdown-top
+  --mapgeosearchautocomplete-dropdown-top: 0;
 }
 
 :root[data-platform='web-mobile'] {

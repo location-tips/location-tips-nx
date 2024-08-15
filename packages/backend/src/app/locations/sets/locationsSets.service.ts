@@ -1,14 +1,12 @@
 import admin from 'firebase-admin';
 import { Injectable } from '@nestjs/common';
 import { FieldValue } from '@google-cloud/firestore';
-import {
-  geminiTranslateToEnglish,
-} from '@back/utils/gemini';
+import { geminiTranslateToEnglish } from '@back/utils/gemini';
 import {
   TLocationsSet,
   TTranslation,
   PostLocationsSetsRequest,
-  PostLocationsSetsResponse,
+  PostLocationsSetsResponse
 } from '@types';
 import { getEmbeddings } from 'packages/backend/src/utils/vertex';
 import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
@@ -19,7 +17,11 @@ export class LocationsSetsService {
     return geminiTranslateToEnglish(query);
   }
 
-  async searchLocationsSets({ searchText, uid, offset = 0 }: PostLocationsSetsRequest): Promise<PostLocationsSetsResponse> {
+  async searchLocationsSets({
+    searchText,
+    uid,
+    offset = 0
+  }: PostLocationsSetsRequest): Promise<PostLocationsSetsResponse> {
     let result: TLocationsSet[] = [];
 
     if (searchText && !uid) {
@@ -32,12 +34,14 @@ export class LocationsSetsService {
       const locations = await collectionRef
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
           limit: DB_DEFAULT_LIMIT,
-          distanceMeasure: 'COSINE',
+          distanceMeasure: 'COSINE'
         })
         .get();
 
-        result = locations.docs.map((doc) => ({ id: doc.id, ...(doc.data() as TLocationsSet)}));
-
+      result = locations.docs.map((doc) => ({
+        id: doc.id,
+        ...(doc.data() as TLocationsSet)
+      }));
     } else if (searchText && uid) {
       // Get users sets by search text
       const embeddings = await getEmbeddings(searchText);
@@ -49,12 +53,14 @@ export class LocationsSetsService {
         .where('uid', '==', uid)
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
           limit: DB_DEFAULT_LIMIT,
-          distanceMeasure: 'COSINE',
+          distanceMeasure: 'COSINE'
         })
         .get();
 
-      result = locations.docs.map((doc) => ({ id: doc.id, ...(doc.data() as TLocationsSet)}));
-
+      result = locations.docs.map((doc) => ({
+        id: doc.id,
+        ...(doc.data() as TLocationsSet)
+      }));
     } else if (!searchText && uid) {
       // Get users sets
       const db = admin.firestore();
@@ -66,8 +72,10 @@ export class LocationsSetsService {
         .offset(offset)
         .get();
 
-      result = locations.docs.map((doc) => ({ id: doc.id, ...(doc.data() as TLocationsSet)}));
-
+      result = locations.docs.map((doc) => ({
+        id: doc.id,
+        ...(doc.data() as TLocationsSet)
+      }));
     } else {
       // Get all sets
       const db = admin.firestore();
@@ -78,12 +86,15 @@ export class LocationsSetsService {
         .offset(offset)
         .get();
 
-        result = locations.docs.map((doc) => ({ id: doc.id, ...(doc.data() as TLocationsSet)}));
+      result = locations.docs.map((doc) => ({
+        id: doc.id,
+        ...(doc.data() as TLocationsSet)
+      }));
     }
 
     return {
       locationsSets: result,
-      count: result.length,
+      count: result.length
     };
   }
 }

@@ -46,7 +46,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -54,14 +54,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -77,7 +77,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -86,12 +86,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -105,7 +105,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -121,8 +121,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -137,8 +137,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -153,8 +153,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -169,10 +169,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -193,7 +193,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -201,14 +201,14 @@ const resultMockup = {
           name: 'Village of flowers',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -224,7 +224,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -233,12 +233,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'Village of flowers',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'Village of flowers',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -252,7 +252,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -268,8 +268,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -284,8 +284,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -300,8 +300,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -316,10 +316,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -340,7 +340,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -348,14 +348,14 @@ const resultMockup = {
           name: 'Tropical garden',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -371,7 +371,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -380,12 +380,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'Tropical garden',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'Tropical garden',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -399,7 +399,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -415,8 +415,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -431,8 +431,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -447,8 +447,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -463,10 +463,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -487,7 +487,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -495,14 +495,14 @@ const resultMockup = {
           name: 'Dust II styled decorations',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -518,7 +518,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -527,12 +527,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'Dust II styled decorations',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'Dust II styled decorations',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -546,7 +546,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -562,8 +562,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -578,8 +578,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -594,8 +594,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -610,10 +610,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -634,7 +634,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -642,14 +642,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -665,7 +665,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -674,12 +674,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -693,7 +693,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -709,8 +709,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -725,8 +725,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -741,8 +741,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -757,10 +757,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -781,7 +781,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -789,14 +789,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -812,7 +812,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -821,12 +821,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -840,7 +840,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -856,8 +856,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -872,8 +872,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -888,8 +888,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -904,10 +904,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -928,7 +928,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -936,14 +936,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -959,7 +959,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -968,12 +968,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -987,7 +987,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -1003,8 +1003,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -1019,8 +1019,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -1035,8 +1035,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -1051,10 +1051,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -1075,7 +1075,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -1083,14 +1083,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -1106,7 +1106,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -1115,12 +1115,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -1134,7 +1134,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -1150,8 +1150,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -1166,8 +1166,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -1182,8 +1182,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -1198,10 +1198,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -1222,7 +1222,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -1230,14 +1230,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -1253,7 +1253,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -1262,12 +1262,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -1281,7 +1281,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -1297,8 +1297,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -1313,8 +1313,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -1329,8 +1329,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -1345,10 +1345,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -1369,7 +1369,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -1377,14 +1377,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -1400,7 +1400,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -1409,12 +1409,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -1428,7 +1428,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -1444,8 +1444,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -1460,8 +1460,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -1476,8 +1476,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -1492,10 +1492,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -1516,7 +1516,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -1524,14 +1524,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -1547,7 +1547,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -1556,12 +1556,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -1575,7 +1575,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -1591,8 +1591,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -1607,8 +1607,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -1623,8 +1623,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -1639,10 +1639,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -1663,7 +1663,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -1671,14 +1671,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -1694,7 +1694,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -1703,12 +1703,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -1722,7 +1722,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -1738,8 +1738,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -1754,8 +1754,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -1770,8 +1770,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -1786,10 +1786,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -1810,7 +1810,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -1818,14 +1818,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -1841,7 +1841,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -1850,12 +1850,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -1869,7 +1869,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -1885,8 +1885,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -1901,8 +1901,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -1917,8 +1917,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -1933,10 +1933,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -1957,7 +1957,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -1965,14 +1965,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -1988,7 +1988,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -1997,12 +1997,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -2016,7 +2016,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -2032,8 +2032,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -2048,8 +2048,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -2064,8 +2064,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -2080,10 +2080,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -2104,7 +2104,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -2112,14 +2112,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -2135,7 +2135,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -2144,12 +2144,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -2163,7 +2163,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -2179,8 +2179,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -2195,8 +2195,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -2211,8 +2211,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -2227,10 +2227,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -2251,7 +2251,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -2259,14 +2259,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -2282,7 +2282,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -2291,12 +2291,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -2310,7 +2310,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -2326,8 +2326,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -2342,8 +2342,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -2358,8 +2358,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -2374,10 +2374,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -2398,7 +2398,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -2406,14 +2406,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -2429,7 +2429,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -2438,12 +2438,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -2457,7 +2457,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -2473,8 +2473,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -2489,8 +2489,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -2505,8 +2505,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -2521,10 +2521,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -2545,7 +2545,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -2553,14 +2553,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -2576,7 +2576,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -2585,12 +2585,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -2604,7 +2604,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -2620,8 +2620,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -2636,8 +2636,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -2652,8 +2652,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -2668,10 +2668,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -2692,7 +2692,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -2700,14 +2700,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -2723,7 +2723,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -2732,12 +2732,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -2751,7 +2751,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -2767,8 +2767,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -2783,8 +2783,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -2799,8 +2799,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -2815,10 +2815,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -2839,7 +2839,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -2847,14 +2847,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -2870,7 +2870,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -2879,12 +2879,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -2898,7 +2898,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -2914,8 +2914,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -2930,8 +2930,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -2946,8 +2946,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -2962,10 +2962,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -2986,7 +2986,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -2994,14 +2994,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -3017,7 +3017,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -3026,12 +3026,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -3045,7 +3045,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -3061,8 +3061,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -3077,8 +3077,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -3093,8 +3093,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -3109,10 +3109,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -3133,7 +3133,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -3141,14 +3141,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -3164,7 +3164,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -3173,12 +3173,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -3192,7 +3192,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -3208,8 +3208,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -3224,8 +3224,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -3240,8 +3240,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -3256,10 +3256,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -3280,7 +3280,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -3288,14 +3288,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -3311,7 +3311,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -3320,12 +3320,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -3339,7 +3339,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -3355,8 +3355,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -3371,8 +3371,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -3387,8 +3387,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -3403,10 +3403,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -3427,7 +3427,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -3435,14 +3435,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -3458,7 +3458,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -3467,12 +3467,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -3486,7 +3486,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -3502,8 +3502,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -3518,8 +3518,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -3534,8 +3534,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -3550,10 +3550,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -3574,7 +3574,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -3582,14 +3582,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -3605,7 +3605,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -3614,12 +3614,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -3633,7 +3633,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -3649,8 +3649,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -3665,8 +3665,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -3681,8 +3681,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -3697,10 +3697,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -3721,7 +3721,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -3729,14 +3729,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -3752,7 +3752,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -3761,12 +3761,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -3780,7 +3780,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -3796,8 +3796,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -3812,8 +3812,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -3828,8 +3828,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -3844,10 +3844,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -3868,7 +3868,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -3876,14 +3876,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -3899,7 +3899,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -3908,12 +3908,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -3927,7 +3927,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -3943,8 +3943,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -3959,8 +3959,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -3975,8 +3975,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -3991,10 +3991,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -4015,7 +4015,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -4023,14 +4023,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -4046,7 +4046,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -4055,12 +4055,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -4074,7 +4074,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -4090,8 +4090,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -4106,8 +4106,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -4122,8 +4122,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -4138,10 +4138,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -4162,7 +4162,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -4170,14 +4170,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -4193,7 +4193,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -4202,12 +4202,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -4221,7 +4221,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -4237,8 +4237,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -4253,8 +4253,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -4269,8 +4269,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -4285,10 +4285,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -4309,7 +4309,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -4317,14 +4317,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -4340,7 +4340,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -4349,12 +4349,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -4368,7 +4368,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -4384,8 +4384,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -4400,8 +4400,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -4416,8 +4416,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -4432,10 +4432,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -4456,7 +4456,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -4464,14 +4464,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -4487,7 +4487,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -4496,12 +4496,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -4515,7 +4515,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -4531,8 +4531,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -4547,8 +4547,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -4563,8 +4563,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -4579,10 +4579,10 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
+            }`
+          }
+        }
+      ]
     },
     {
       uid: `vgdZvVUE65P60oJHyOl0sbH5rg03${
@@ -4603,7 +4603,7 @@ const resultMockup = {
           'outdoors',
           'trunk',
           'branches',
-          'woodland',
+          'woodland'
         ],
         description:
           'A captivating image of a large fallen tree in a grassy meadow, set against a backdrop of a vibrant blue sky adorned with white clouds. The tree, now resting on its side, reveals its intricate network of bare branches that reach towards the sky. The lush green grass of the meadow adds a touch of vibrancy to the scene, creating a serene and peaceful atmosphere.',
@@ -4611,14 +4611,14 @@ const resultMockup = {
           name: 'National Park Zuid-Kennemerland',
           coordinates: {
             latitude: 52.40218333333333,
-            longitude: 4.597874999999999,
+            longitude: 4.597874999999999
           },
           description:
             'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-          type: 'National Park',
+          type: 'National Park'
         },
         title: 'Fallen Tree in a Sunny Meadow',
-        url: '4897e246-f120-4004-96c9-185114bbffa1.webp',
+        url: '4897e246-f120-4004-96c9-185114bbffa1.webp'
       },
       keywords: [
         'tree',
@@ -4634,7 +4634,7 @@ const resultMockup = {
         'outdoors',
         'trunk',
         'branches',
-        'woodland',
+        'woodland'
       ],
       userDescription: '',
       geohash: 'u1760es0f6',
@@ -4643,12 +4643,12 @@ const resultMockup = {
       location: {
         coordinates: {
           latitude: 52.40218333333333,
-          longitude: 4.597874999999999,
+          longitude: 4.597874999999999
         },
         name: 'National Park Zuid-Kennemerland',
         description:
           'National Park Zuid-Kennemerland is a national park in the province of North Holland, Netherlands. It is known for its diverse landscapes, including dunes, forests, and beaches.',
-        type: 'National Park',
+        type: 'National Park'
       },
       title: 'National Park Zuid-Kennemerland',
       id: `KbDOoHZ0RQEdcQBh1xes${Math.floor(Math.random() * 999999) + 1}`,
@@ -4662,7 +4662,7 @@ const resultMockup = {
         }`,
         medium: `https://picsum.photos/600/600?random=${
           Math.floor(Math.random() * 99) + 1
-        }`,
+        }`
       },
       nearest: [
         {
@@ -4678,8 +4678,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '3rd object',
@@ -4694,8 +4694,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '4th object',
@@ -4710,8 +4710,8 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
+            }`
+          }
         },
         {
           title: '5th object',
@@ -4726,11 +4726,11 @@ const resultMockup = {
             }`,
             medium: `https://picsum.photos/600/600?random=${
               Math.floor(Math.random() * 99) + 1
-            }`,
-          },
-        },
-      ],
-    },
+            }`
+          }
+        }
+      ]
+    }
   ],
   queryDescription: {
     near: [
@@ -4739,9 +4739,9 @@ const resultMockup = {
         type: 'Town',
         coordinates: {
           latitude: 52.366667,
-          longitude: 4.533333,
-        },
-      },
+          longitude: 4.533333
+        }
+      }
     ],
     in: [],
     location: [],
@@ -4751,8 +4751,8 @@ const resultMockup = {
     prompt: 'dead tree',
     voice: null,
     voiceKeywords: null,
-    image: null,
-  },
+    image: null
+  }
 };
 
 const resultMockupQDesc: any = {
@@ -4764,44 +4764,44 @@ const resultMockupQDesc: any = {
         type: 'City',
         coordinates: {
           latitude: 34.0522,
-          longitude: -118.2437,
-        },
-      },
+          longitude: -118.2437
+        }
+      }
     ],
     in: [],
     location: [
       {
         coordinates: {
           latitude: 33.5858,
-          longitude: -118.4068,
+          longitude: -118.4068
         },
         name: 'Long Beach',
-        type: 'City',
+        type: 'City'
       },
       {
         coordinates: {
           latitude: 33.9751,
-          longitude: -118.4695,
+          longitude: -118.4695
         },
         name: 'Redondo Beach',
-        type: 'City',
+        type: 'City'
       },
       {
         coordinates: {
           latitude: 33.885,
-          longitude: -118.3793,
+          longitude: -118.3793
         },
         name: 'Manhattan Beach',
-        type: 'City',
+        type: 'City'
       },
       {
         coordinates: {
           latitude: 33.7683,
-          longitude: -118.1956,
+          longitude: -118.1956
         },
         name: 'Rancho Palos Verdes',
-        type: 'City',
-      },
+        type: 'City'
+      }
     ],
     distance: 64.37,
     description:
@@ -4810,8 +4810,8 @@ const resultMockupQDesc: any = {
     prompt: 'Beach',
     voice: null,
     voiceKeywords: null,
-    image: null,
-  },
+    image: null
+  }
 };
 
 const resultMockupZeroResults: any = {
@@ -4823,9 +4823,9 @@ const resultMockupZeroResults: any = {
         type: 'city',
         coordinates: {
           latitude: 42.8746,
-          longitude: 74.5698,
-        },
-      },
+          longitude: 74.5698
+        }
+      }
     ],
     in: [
       {
@@ -4834,15 +4834,15 @@ const resultMockupZeroResults: any = {
         description: 'Country in Central Asia',
         coordinates: {
           latitude: 41.2044,
-          longitude: 74.7661,
+          longitude: 74.7661
         },
         boundingBox: {
           north: 43.2298,
           south: 39.161,
           east: 80.5681,
-          west: 69.2078,
-        },
-      },
+          west: 69.2078
+        }
+      }
     ],
     location: [],
     distance: 64.37,
@@ -4852,6 +4852,6 @@ const resultMockupZeroResults: any = {
     prompt: 'beach',
     voice: null,
     voiceKeywords: null,
-    image: null,
-  },
+    image: null
+  }
 };

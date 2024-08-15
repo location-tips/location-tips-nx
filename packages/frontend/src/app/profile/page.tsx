@@ -10,41 +10,41 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Profile',
-  description: 'Profile page',
-}
+  description: 'Profile page'
+};
 
 export default function Index() {
   return (
     <Page className={styles.page}>
-    <MFlex
-      direction="column"
-      justify="start"
-      align="start"
-      gap="l"
-      className={styles.pageContainer}
-    >
-      <Link href="/">
-        <MFlex direction="row" gap="xs">
-          <MdiChevronLeft width={24} height={24} />
-          <MText>Back</MText>
-        </MFlex>
-      </Link>
       <MFlex
-        direction="row"
+        direction="column"
+        justify="start"
+        align="start"
         gap="l"
-        justify="space-between"
-        align="center"
-        className={styles.header}
+        className={styles.pageContainer}
       >
-        <MHeading className={styles.heading} mode="h1">
-          Profile
-        </MHeading>
-        <MFlex direction="row" gap="l" justify="end" align="center">
-          <div id="form-status-portal"></div>
-          <div id="gallery-portal"></div>
+        <Link href="/">
+          <MFlex direction="row" gap="xs">
+            <MdiChevronLeft width={24} height={24} />
+            <MText>Back</MText>
+          </MFlex>
+        </Link>
+        <MFlex
+          direction="row"
+          gap="l"
+          justify="space-between"
+          align="center"
+          className={styles.header}
+        >
+          <MHeading className={styles.heading} mode="h1">
+            Profile
+          </MHeading>
+          <MFlex direction="row" gap="l" justify="end" align="center">
+            <div id="form-status-portal"></div>
+            <div id="gallery-portal"></div>
+          </MFlex>
         </MFlex>
       </MFlex>
-    </MFlex>
-  </Page>
+    </Page>
   );
 }

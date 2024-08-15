@@ -14,7 +14,12 @@ type SearchResultProps = {
   apiKey: string;
 };
 
-const SearchResults = ({ header, results, mapId, apiKey }: SearchResultProps) => {
+const SearchResults = ({
+  header,
+  results,
+  mapId,
+  apiKey
+}: SearchResultProps) => {
   const renderContent = (): ReactNode => {
     if (!results)
       return 'Sorry, your request was rejected by server. Please, try again.';

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { addToFavourites } from '@front/actions/addToFavourites';
 import { removeFromFavourites } from '@front/actions/removeFromFavourites';
@@ -19,8 +19,8 @@ type BookmarkProps = {
 };
 
 const initialState = {
-  favourites: [],
-}
+  favourites: []
+};
 
 const Bookmark = ({ className, id, label }: BookmarkProps) => {
   const favouritesStore = useFavourites();
@@ -32,10 +32,10 @@ const Bookmark = ({ className, id, label }: BookmarkProps) => {
     initialState
   );
 
-  const [removeState, formRemoveAction] = useFormState<FavouritesState, FormData>(
-    removeFromFavourites,
-    initialState
-  );
+  const [removeState, formRemoveAction] = useFormState<
+    FavouritesState,
+    FormData
+  >(removeFromFavourites, initialState);
 
   useEffect(() => {
     favouritesStore.setFavourites(addState.favourites);
@@ -45,9 +45,21 @@ const Bookmark = ({ className, id, label }: BookmarkProps) => {
     favouritesStore.setFavourites(removeState.favourites);
   }, [removeState]);
 
-  return (<AuthorizedForm action={favouritesStore.favourites.includes(id) ? formRemoveAction : formAddAction}>
+  return (
+    <AuthorizedForm
+      action={
+        favouritesStore.favourites.includes(id)
+          ? formRemoveAction
+          : formAddAction
+      }
+    >
       <input type="hidden" name="locationId" value={id} />
-      <MButton className={className} style={{ padding: 0 }} type="submit" mode="transparent">
+      <MButton
+        className={className}
+        style={{ padding: 0 }}
+        type="submit"
+        mode="transparent"
+      >
         <MFlex direction="row" gap="s" justify="end" align="center">
           {isBookmarked ? (
             <MdiBookmark width={32} height={32} />

@@ -6,7 +6,7 @@ import { create } from 'zustand';
 export enum MODALS {
   ADD_LOCATION = 'ADD_LOCATION',
   EDIT_LOCATION = 'EDIT_LOCATION',
-  VIEW_LOCATION = 'VIEW_LOCATION',
+  VIEW_LOCATION = 'VIEW_LOCATION'
 }
 
 interface ModalsState {
@@ -36,16 +36,18 @@ const useModal = create<ModalsState>((set) => ({
       {
         header: <ModalHeader title="Add new locations" />,
         content: <UploadLocationsImagesForm />,
-        footer: null,
-      },
-    ],
+        footer: null
+      }
+    ]
   ]),
-  showModal: (modal, callback) => set(() => ({ currentModal: modal, onHide: null, onShow: callback })),
-  hideModal: (callback) => set(() => ({ currentModal: null, onShow: null, onHide: callback })),
+  showModal: (modal, callback) =>
+    set(() => ({ currentModal: modal, onHide: null, onShow: callback })),
+  hideModal: (callback) =>
+    set(() => ({ currentModal: null, onShow: null, onHide: callback })),
   registerModal: (modal, header, content, footer) =>
     set((prev) => ({
-      modals: prev.modals.set(modal, { header, content, footer }),
-    })),
+      modals: prev.modals.set(modal, { header, content, footer })
+    }))
 }));
 
 export default useModal;

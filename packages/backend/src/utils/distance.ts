@@ -22,17 +22,14 @@ export function euclidianDistance(
 ): number {
   return getScore(
     Math.sqrt(
-      vectorA.reduce(
-        (acc, val, i) => acc + Math.pow(val - vectorB[i], 2),
-        0
-      )
+      vectorA.reduce((acc, val, i) => acc + Math.pow(val - vectorB[i], 2), 0)
     )
   );
 }
 
 export function cosineDistance(vectorA: number[], vectorB: number[]): number {
   if (vectorA.length !== vectorB.length) {
-    throw new Error("Vectors must be of the same length");
+    throw new Error('Vectors must be of the same length');
   }
 
   let dotProduct = 0;
@@ -46,7 +43,7 @@ export function cosineDistance(vectorA: number[], vectorB: number[]): number {
   }
 
   if (magnitudeA === 0 || magnitudeB === 0) {
-    throw new Error("Vectors must not be zero vectors");
+    throw new Error('Vectors must not be zero vectors');
   }
 
   magnitudeA = Math.sqrt(magnitudeA);
@@ -59,14 +56,13 @@ export function cosineDistance(vectorA: number[], vectorB: number[]): number {
 }
 
 export function getRadiusFromBoundingBox(boundingBox) {
-    const latOffset = boundingBox.north - boundingBox.south;
-    const lonOffset = boundingBox.east - boundingBox.west;
-  
-    const latOffsetDeg = latOffset * (180 / Math.PI);
-    const lonOffsetDeg = lonOffset * (180 / Math.PI);
-  
-    const radius = Math.max(latOffsetDeg, lonOffsetDeg) / 2;
-  
-    return radius;
-  }
-  
+  const latOffset = boundingBox.north - boundingBox.south;
+  const lonOffset = boundingBox.east - boundingBox.west;
+
+  const latOffsetDeg = latOffset * (180 / Math.PI);
+  const lonOffsetDeg = lonOffset * (180 / Math.PI);
+
+  const radius = Math.max(latOffsetDeg, lonOffsetDeg) / 2;
+
+  return radius;
+}

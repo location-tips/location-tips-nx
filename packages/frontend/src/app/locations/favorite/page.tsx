@@ -14,7 +14,7 @@ import AuthorizedSection from '@front/components/authorizedSection/authorizedSec
 const DOMAIN = process.env.DOMAIN || 'http://localhost:3001';
 
 export const metadata = {
-  title: 'Favourite locations',
+  title: 'Favourite locations'
 };
 
 export default async function Index() {

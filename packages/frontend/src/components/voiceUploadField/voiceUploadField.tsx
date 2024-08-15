@@ -10,7 +10,7 @@ interface VoiceUploadFieldProps {
 }
 
 const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
-  name = 'voice',
+  name = 'voice'
 }) => {
   const [recording, setRecording] = useState(false);
 
@@ -26,7 +26,7 @@ const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
     width: 100,
     normalize: true,
     cursorWidth: 0,
-    progressColor: '#085CFF',
+    progressColor: '#085CFF'
   });
 
   const handleStartRecording = async () => {
@@ -45,7 +45,7 @@ const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
 
         if (audioBlob) {
           const file = new File([audioBlob], 'voiceRecording.wav', {
-            type: 'audio/wav',
+            type: 'audio/wav'
           });
           let container = new DataTransfer();
 

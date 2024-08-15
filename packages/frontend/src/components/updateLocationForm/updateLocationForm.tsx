@@ -8,7 +8,7 @@ import {
   Map,
   MapControl,
   MapEvent,
-  useMap,
+  useMap
 } from '@vis.gl/react-google-maps';
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -41,7 +41,7 @@ type UpdateLocationFormProps = {
 
 const UpdateLocationForm = ({
   location: initialLocation,
-  mapId,
+  mapId
 }: UpdateLocationFormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
   const [updateState, formUpdateAction] = useFormState(updateLocation, {});
@@ -145,8 +145,8 @@ const UpdateLocationForm = ({
         userDescription: updateState.userDescription,
         location: {
           ...location.location,
-          coordinates: updateState.coordinates,
-        },
+          coordinates: updateState.coordinates
+        }
       });
   }, [updateState]);
 

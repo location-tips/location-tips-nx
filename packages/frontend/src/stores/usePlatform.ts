@@ -8,7 +8,7 @@ interface PlatformState {
 
 const usePlatform = create<PlatformState>((set) => ({
   platform: 'web-desktop',
-  setPlatform: (newPlatform) => set({ platform: newPlatform }),
+  setPlatform: (newPlatform) => set({ platform: newPlatform })
 }));
 
 export default usePlatform;

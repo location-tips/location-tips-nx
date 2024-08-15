@@ -22,8 +22,8 @@ const getLocations = async (): Promise<TLocationInResult[]> => {
       method: 'GET',
       headers: {
         Authorization: `${token}`,
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     });
 
     const data = await response.json();

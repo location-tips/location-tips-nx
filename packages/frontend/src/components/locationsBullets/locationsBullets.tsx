@@ -12,8 +12,11 @@ type LocationsBulletsProps = {
   onChoseSlide?: (index: number) => void;
 };
 
-const LocationsBullets = ({ currentSlide, locations, onChoseSlide }: LocationsBulletsProps) => {
-
+const LocationsBullets = ({
+  currentSlide,
+  locations,
+  onChoseSlide
+}: LocationsBulletsProps) => {
   return (
     <MFlex direction="row" gap="xs" className={styles.bullets}>
       {locations.map((location, index) => (

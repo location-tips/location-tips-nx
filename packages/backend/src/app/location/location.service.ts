@@ -2,7 +2,7 @@ import type {
   PutLocationRequest,
   TGeminiResponseDescribeImage,
   TLocationEntity,
-  TLocationsWithImages,
+  TLocationsWithImages
 } from '@types';
 import { Injectable } from '@nestjs/common';
 import { extractExif } from '@back/utils/exif';
@@ -28,7 +28,7 @@ export class LocationService {
     if (file.type === 'image/heic') {
       fileBuffer = await convert({
         buffer: fileBuffer,
-        format: 'JPEG',
+        format: 'JPEG'
       });
     }
 
@@ -38,7 +38,7 @@ export class LocationService {
       .toBuffer();
 
     const outputFile = new File([outputFileBuffer], `${filename}.webp`, {
-      type: 'image/webp',
+      type: 'image/webp'
     });
 
     return outputFile;
@@ -78,8 +78,8 @@ export class LocationService {
 
       await file.save(Buffer.from(fileBuffer), {
         metadata: {
-          contentType: image.type,
-        },
+          contentType: image.type
+        }
       });
     } catch (error) {
       console.error('Error uploading file:', error);
@@ -109,7 +109,7 @@ export class LocationService {
     id,
     title,
     userDescription,
-    location: coordinates,
+    location: coordinates
   }: PutLocationRequest): Promise<TLocationEntity> {
     const db = admin.firestore();
     // TODO: Access controller to check if user is allowed to update location
@@ -128,8 +128,8 @@ export class LocationService {
           userDescription: userDescription ?? data.userDescription,
           location: {
             ...data.location,
-            coordinates: coordinates ?? data.location?.coordinates,
-          },
+            coordinates: coordinates ?? data.location?.coordinates
+          }
         },
         { merge: true }
       );
@@ -170,17 +170,19 @@ export class LocationService {
       .limit(DB_DEFAULT_LIMIT)
       .get();
 
-    const data: TLocationsWithImages[] = await Promise.all(locations.docs.map(async (doc) => {
-      const loc = {
-        ...(doc.data() as TLocationEntity),
-        images: await getImages(doc.data().image.url),
-      }
+    const data: TLocationsWithImages[] = await Promise.all(
+      locations.docs.map(async (doc) => {
+        const loc = {
+          ...(doc.data() as TLocationEntity),
+          images: await getImages(doc.data().image.url)
+        };
 
-      delete loc.embedding_field;
-      delete loc.image.exif;
+        delete loc.embedding_field;
+        delete loc.image.exif;
 
-      return loc;
-    }));
+        return loc;
+      })
+    );
 
     return data;
   }

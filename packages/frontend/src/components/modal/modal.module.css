@@ -1,24 +1,24 @@
 .wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vW;
-    height: 100vH;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
 }
 
 .overlay {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100vW;
-    height: 100vH;
-    background-color: color-mix(in srgb, var(--palette-black) 50%, transparent);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: color-mix(in srgb, var(--palette-black) 50%, transparent);
 }
 
 .modal {
-    position: relative;
-    z-index: 2;
-    margin: var(--whiteSpace-general-4x);
+  position: relative;
+  z-index: 2;
+  margin: var(--whiteSpace-general-4x);
 }

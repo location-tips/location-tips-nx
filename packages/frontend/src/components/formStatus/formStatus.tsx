@@ -10,7 +10,12 @@ type TFormStatusProps = {
   className?: string;
 };
 
-const FormStatus = ({ loadingText = 'Searching ...', iconWidth = 24, iconHeight = 24, className }: TFormStatusProps) => {
+const FormStatus = ({
+  loadingText = 'Searching ...',
+  iconWidth = 24,
+  iconHeight = 24,
+  className
+}: TFormStatusProps) => {
   const { pending } = useFormStatus();
 
   return (

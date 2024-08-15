@@ -15,7 +15,7 @@ import './modal.animation.css';
 const Modal = () => {
   const modalStore = useModal();
   const nodeRef = useRef(null);
-  
+
   const modalData = useMemo(
     () =>
       modalStore.currentModal

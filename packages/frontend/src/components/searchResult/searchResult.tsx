@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { TLocationInResult } from '@types';
 import clsx from 'clsx';
@@ -39,7 +39,7 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
       <LocationModalHeader
         location={result}
         onClose={() => modals.hideModal()}
-      />, 
+      />,
       <LocationModalContent location={result} mapId={mapId} apiKey={apiKey} />,
       null
     );
@@ -70,7 +70,7 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
             title={result.title}
             onClick={showLocation}
           >
-            { result.title || result.location.name || result.image?.title }
+            {result.title || result.location.name || result.image?.title}
           </Link>
         </MHeading>
         <MBadge mode="transparent">
@@ -80,7 +80,7 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
       <div className={clsx(styles.galleryFooter__type)}>
         {result.location.type}
       </div>
-    </MFlex>,
+    </MFlex>
   ];
 
   const tools = [
@@ -88,7 +88,7 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
       <AuthorizedSection>
         {result.id && <Bookmark id={result.id} className={styles.bookmark} />}
       </AuthorizedSection>
-    </div>,
+    </div>
   ];
 
   const prevButton = <MdiChevronLeft width={20} height={20} />;

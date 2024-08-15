@@ -21,7 +21,7 @@ type LocationModalContentProps = {
 const LocationModalContent = ({
   location,
   mapId,
-  apiKey,
+  apiKey
 }: LocationModalContentProps) => {
   return (
     <MFlex
@@ -77,42 +77,44 @@ const LocationModalContent = ({
           </MFlex>
         </MFlex>
 
-        {location.nearest && location.nearest.length > 0 && <MFlex direction="column" gap="m" justify="start" align="start">
-          <MHeading mode="h4">
-            <MText>Nearest locations</MText>
-          </MHeading>
+        {location.nearest && location.nearest.length > 0 && (
+          <MFlex direction="column" gap="m" justify="start" align="start">
+            <MHeading mode="h4">
+              <MText>Nearest locations</MText>
+            </MHeading>
 
-          {location.nearest?.map((nearest, index) => (
-            <MCard
-              key={index}
-              className={clsx(styles.review)}
-              header={<MHeading mode="h5">{nearest.title}</MHeading>}
-              shadow={false}
-            >
-              <MFlex
-                direction="row"
-                gap="m"
-                align="start"
-                justify="start"
-                wrap="nowrap"
+            {location.nearest?.map((nearest, index) => (
+              <MCard
+                key={index}
+                className={clsx(styles.review)}
+                header={<MHeading mode="h5">{nearest.title}</MHeading>}
+                shadow={false}
               >
-                <Image
-                  className={styles.image}
-                  key={index}
-                  src={nearest.images.medium}
-                  alt={nearest.image?.title ?? nearest.title}
-                  width={178}
-                  height={178}
-                />
-                <MCaption>
-                  {nearest.userDescription ||
-                    nearest.image?.description ||
-                    nearest.description}
-                </MCaption>
-              </MFlex>
-            </MCard>
-          ))}
-        </MFlex>}
+                <MFlex
+                  direction="row"
+                  gap="m"
+                  align="start"
+                  justify="start"
+                  wrap="nowrap"
+                >
+                  <Image
+                    className={styles.image}
+                    key={index}
+                    src={nearest.images.medium}
+                    alt={nearest.image?.title ?? nearest.title}
+                    width={178}
+                    height={178}
+                  />
+                  <MCaption>
+                    {nearest.userDescription ||
+                      nearest.image?.description ||
+                      nearest.description}
+                  </MCaption>
+                </MFlex>
+              </MCard>
+            ))}
+          </MFlex>
+        )}
       </MFlex>
     </MFlex>
   );

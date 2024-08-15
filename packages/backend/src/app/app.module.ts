@@ -8,8 +8,13 @@ import { ProfileModule } from '@back/app/profile/profile.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [ConfigModule.forRoot(), LocationModule, LocationsModule, ProfileModule],
+  imports: [
+    ConfigModule.forRoot(),
+    LocationModule,
+    LocationsModule,
+    ProfileModule
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {}

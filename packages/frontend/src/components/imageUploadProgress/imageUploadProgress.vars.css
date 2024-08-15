@@ -1,12 +1,12 @@
 :root[data-theme='light'] {
-    --image-upload-progress-background-color: var(--palette-gray-4);
-    --image-upload-progress-value-color: var(--palette-active-60B);
-    --image-upload-progress-border-color: var(--palette-active-20);
-    --image-upload-progress-info-font-color: var(--palette-gray-4);
-    --image-upload-progress-tint-color: var(--palette-black);
-    --image-upload-progress-fail-font-color: var(--palette-semantic-error-60B);
-}  
+  --image-upload-progress-background-color: var(--palette-gray-4);
+  --image-upload-progress-value-color: var(--palette-active-60B);
+  --image-upload-progress-border-color: var(--palette-active-20);
+  --image-upload-progress-info-font-color: var(--palette-gray-4);
+  --image-upload-progress-tint-color: var(--palette-black);
+  --image-upload-progress-fail-font-color: var(--palette-semantic-error-60B);
+}
 
 :root[data-platform='web-desktop'] {
-    --image-upload-progress-info-font-size: var(--font-size-m);
+  --image-upload-progress-info-font-size: var(--font-size-m);
 }

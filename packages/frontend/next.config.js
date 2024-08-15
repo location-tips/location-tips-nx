@@ -10,7 +10,7 @@ const nextConfig = {
   nx: {
     // Set this to true if you would like to use SVGR
     // See: https://github.com/gregberge/svgr
-    svgr: true,
+    svgr: true
   },
   images: {
     remotePatterns: [
@@ -18,27 +18,27 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
         port: '',
-        pathname: '/**',
+        pathname: '/**'
       },
       {
         protocol: 'https',
         hostname: 'storage.googleapis.com',
         port: '',
-        pathname: '/**',
+        pathname: '/**'
       },
       {
         protocol: 'https',
         hostname: 'picsum.photos',
         port: '',
-        pathname: '/**',
-      },
-    ],
-  },
+        pathname: '/**'
+      }
+    ]
+  }
 };
 
 const plugins = [
   // Add more Next.js plugins to this list if needed.
-  withNx,
+  withNx
 ];
 
 module.exports = composePlugins(...plugins)(nextConfig);

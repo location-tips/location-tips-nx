@@ -11,9 +11,8 @@ import './page.vars.css';
 import styles from './page.module.css';
 
 export const metadata = {
-  title: 'Update locations',
-}
-
+  title: 'Update locations'
+};
 
 export default function Index() {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;

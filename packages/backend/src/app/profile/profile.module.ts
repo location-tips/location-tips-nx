@@ -7,6 +7,6 @@ import { FastifyMulterModule } from '@nest-lab/fastify-multer';
 @Module({
   imports: [FastifyMulterModule],
   controllers: [ProfileController],
-  providers: [ProfileService],
+  providers: [ProfileService]
 })
 export class ProfileModule {}

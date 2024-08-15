@@ -22,7 +22,7 @@ const LocationsList = ({
   apiKey,
   mapId,
   locations,
-  emptyText = 'List is empty',
+  emptyText = 'List is empty'
 }: LocationsListProps) => {
   return (
     <APIProvider apiKey={apiKey}>

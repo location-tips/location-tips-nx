@@ -1,12 +1,12 @@
 .closeButton {
-    padding: 0;
-    border: 0 none;
-    background: none;
-    cursor: pointer;
+  padding: 0;
+  border: 0 none;
+  background: none;
+  cursor: pointer;
 
-    color: var(--button-secondary-enabled-font-color);
+  color: var(--button-secondary-enabled-font-color);
 }
 
 .closeButton:hover {
-    color: var(--button-secondary-hover-font-color);
+  color: var(--button-secondary-hover-font-color);
 }

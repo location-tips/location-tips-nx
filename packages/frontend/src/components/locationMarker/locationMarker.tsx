@@ -15,13 +15,13 @@ const LocationMarker = ({
   location,
   draggable,
   onClick,
-  onDragEnd,
+  onDragEnd
 }: LocationMarkerProps) => {
   return (
     <Marker
       position={{
         lat: location.location.coordinates.latitude,
-        lng: location.location.coordinates.longitude,
+        lng: location.location.coordinates.longitude
       }}
       onClick={onClick}
       draggable={draggable}

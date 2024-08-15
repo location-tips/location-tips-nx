@@ -9,8 +9,14 @@ import { FavouritesModule } from './favourites/favourites.module';
 import { MyModule } from '@back/app/locations/my/my.module';
 
 @Module({
-  imports: [FastifyMulterModule, LocationsSetModule, LocationsSetsModule, FavouritesModule, MyModule],
+  imports: [
+    FastifyMulterModule,
+    LocationsSetModule,
+    LocationsSetsModule,
+    FavouritesModule,
+    MyModule
+  ],
   controllers: [LocationsController],
-  providers: [LocationsService],
+  providers: [LocationsService]
 })
 export class LocationsModule {}
