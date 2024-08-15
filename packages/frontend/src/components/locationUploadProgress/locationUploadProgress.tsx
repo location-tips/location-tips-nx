@@ -84,7 +84,7 @@ const LocationUploadProgress = ({
           setStatus(ProgressStatus.Fail);
         });
     }
-  }, [formData, status]);
+  }, [createLocation, formData, onUploadProgress, status]);
 
   useEffect(() => {
     if (progress === 100) {

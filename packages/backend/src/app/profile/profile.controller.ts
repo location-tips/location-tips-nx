@@ -64,7 +64,7 @@ export class ProfileController {
       uid: req.user.uid
     };
 
-    const doc = await this.profileService.saveProfileToDB(newProfile);
+    await this.profileService.saveProfileToDB(newProfile);
 
     return newProfile;
   }
@@ -109,7 +109,7 @@ export class ProfileController {
   })
   async deleteProfile(@Body() { uid }: DeleteProfileRequestDTO) {
     // Remove from db
-    const doc = await this.profileService.removeProfileFromDB(uid);
+    await this.profileService.removeProfileFromDB(uid);
 
     return { uid };
   }

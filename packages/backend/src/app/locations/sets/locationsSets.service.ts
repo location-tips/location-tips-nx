@@ -29,7 +29,7 @@ export class LocationsSetsService {
       const embeddings = await getEmbeddings(searchText);
 
       const db = admin.firestore();
-      let collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
+      const collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
 
       const locations = await collectionRef
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {
@@ -47,7 +47,7 @@ export class LocationsSetsService {
       const embeddings = await getEmbeddings(searchText);
 
       const db = admin.firestore();
-      let collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
+      const collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
 
       const locations = await collectionRef
         .where('uid', '==', uid)
@@ -64,7 +64,7 @@ export class LocationsSetsService {
     } else if (!searchText && uid) {
       // Get users sets
       const db = admin.firestore();
-      let collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
+      const collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
 
       const locations = await collectionRef
         .where('uid', '==', uid)
@@ -79,7 +79,7 @@ export class LocationsSetsService {
     } else {
       // Get all sets
       const db = admin.firestore();
-      let collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
+      const collectionRef = db.collection(COLLECTIONS.LOCATIONS_SETS);
 
       const locations = await collectionRef
         .limit(DB_DEFAULT_LIMIT)

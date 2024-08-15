@@ -7,8 +7,7 @@ import type {
   PostLocationsRequest,
   PostLocationsResponse,
   TLocationInResult,
-  TLocationSearchDescription,
-  TLocationsWithScore
+  TLocationSearchDescription
 } from '@types';
 
 export class PostLocationsRequestDTO implements PostLocationsRequest {

@@ -1,8 +1,13 @@
 'use server';
 
+import { PostLocationsResponse } from '@types';
+
 const SERVER = process.env.SERVER || 'http://localhost:3000';
 
-export async function searchLocation(_prevState: any, formData: FormData) {
+export async function searchLocation(
+  _prevState: Partial<PostLocationsResponse>,
+  formData: FormData
+) {
   try {
     const response = await fetch(`${SERVER}/api/locations`, {
       method: 'POST',

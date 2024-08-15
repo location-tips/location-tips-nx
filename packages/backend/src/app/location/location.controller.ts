@@ -54,7 +54,7 @@ export class LocationController {
   })
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 500, description: 'Server error.' })
-  async getLocation(@Param('id') id: string, @Request() req: FRequest) {
+  async getLocation(@Param('id') id: string) {
     const doc = await this.locationService.getLocationById(id);
 
     const newLocation = { ...doc, id: doc.id };

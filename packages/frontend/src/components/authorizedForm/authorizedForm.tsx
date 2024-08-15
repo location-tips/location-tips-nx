@@ -46,4 +46,6 @@ const AuthorizedForm = forwardRef<HTMLFormElement, AuthorizedFormProps>(
   }
 );
 
+AuthorizedForm.displayName = 'AuthorizedForm';
+
 export default AuthorizedForm;

@@ -1,8 +1,13 @@
 'use server';
 
+import { LocationsState } from '@types';
+
 const SERVER = process.env.SERVER || 'http://localhost:3000';
 
-export async function createLocation(_prevState: any, formData: FormData) {
+export async function createLocation(
+  _prevState: LocationsState,
+  formData: FormData
+) {
   const token = formData.get('token') as string;
 
   try {

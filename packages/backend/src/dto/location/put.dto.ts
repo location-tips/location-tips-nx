@@ -1,6 +1,5 @@
 import {
   CoordinateDTO,
-  LocationEntityDTO,
   LocationWithImagesEntityDTO
 } from '@back/dto/generic/location.dto';
 import { ApiProperty } from '@nestjs/swagger';

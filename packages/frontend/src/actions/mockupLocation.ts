@@ -1,6 +1,7 @@
-'use server';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// This file is used for development purposes only and simulates data fetching
 
-import { PostLocationsResponse } from '@types';
+'use server';
 
 export async function mockupLocations(
   _prevState?: any,

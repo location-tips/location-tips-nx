@@ -52,7 +52,7 @@ const UpdateLocations = ({ mapId, apiKey }: UpdateLocationsProps) => {
             prevButton={<MdiChevronLeft width={64} height={64} />}
             className={styles.galleryWrapper}
             slides={createLocaton.locations.map((location) => (
-              <APIProvider apiKey={apiKey}>
+              <APIProvider key="apiprovider" apiKey={apiKey}>
                 <UpdateLocationForm location={location} mapId={mapId} />
               </APIProvider>
             ))}

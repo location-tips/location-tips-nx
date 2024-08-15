@@ -127,7 +127,7 @@ export class LocationsService {
     const embeddings = await getEmbeddings(text);
 
     const db = admin.firestore();
-    let collectionRef = db.collection(COLLECTIONS.LOCATIONS);
+    const collectionRef = db.collection(COLLECTIONS.LOCATIONS);
     let locationsInRegion = [];
 
     if (queryDescription.near[0]) {

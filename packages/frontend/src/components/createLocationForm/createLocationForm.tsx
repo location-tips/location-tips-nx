@@ -14,7 +14,7 @@ const initialState = {
 
 const CreateLocationForm = () => {
   const [state, formAction] = useFormState(createLocation, initialState);
-  const [updateState, formUpdateAction] = useFormState(updateLocation, {});
+  const [, formUpdateAction] = useFormState(updateLocation, {});
 
   return (
     <MFlex direction="column" gap="xl">

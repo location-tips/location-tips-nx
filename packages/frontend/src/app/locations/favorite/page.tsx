@@ -11,8 +11,6 @@ import './page.vars.css';
 import styles from './page.module.css';
 import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
 
-const DOMAIN = process.env.DOMAIN || 'http://localhost:3001';
-
 export const metadata = {
   title: 'Favourite locations'
 };

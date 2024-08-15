@@ -1,5 +1,4 @@
 import { MdiClose } from '@front/icons/MdiClose';
-import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 

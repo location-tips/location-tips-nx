@@ -1,9 +1,7 @@
 import { PropsWithChildren } from 'react';
 import styles from './zStack.module.css';
 
-type ZStackProps = {};
-
-const ZStack = ({ children }: PropsWithChildren<ZStackProps>) => {
+const ZStack = ({ children }: PropsWithChildren) => {
   return <div className={styles.zstack}>{children}</div>;
 };
 

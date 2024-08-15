@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { PostLocationsResponse, TLocationInResult } from '@types';
+import { PostLocationsResponse } from '@types';
 import SearchResult from '../searchResult/searchResult';
 import clsx from 'clsx';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';

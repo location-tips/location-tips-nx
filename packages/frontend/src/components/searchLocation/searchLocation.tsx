@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { t } from '@front/utils/translate';
 import clsx from 'clsx';
@@ -37,7 +37,6 @@ type SearchLocationProps = {
 const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   const { isLoading, setIsLoading } = useSearchResultsLoading();
   const [popularPlaces, setPopularPlaces] = useState<SearchState>();
-  const popularPlacesHeader = 'Popular places:';
   const skeletonHeader = 'Loading...';
   const skeletonBody = <SearchSkeleton />;
   const [searchResultsHeader, setSearchResultsHeader] = useState('');

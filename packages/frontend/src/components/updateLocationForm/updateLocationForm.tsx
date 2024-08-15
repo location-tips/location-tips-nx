@@ -135,7 +135,7 @@ const UpdateLocationForm = ({
         `form-status-portal-${location.id}`
       ) as HTMLElement;
     }, 1000);
-  }, []);
+  });
 
   useEffect(() => {
     updateState?.id &&
@@ -148,7 +148,7 @@ const UpdateLocationForm = ({
           coordinates: updateState.coordinates
         }
       });
-  }, [updateState]);
+  }, [location, updateState]);
 
   return (
     <MFlex direction="column" gap="xl">

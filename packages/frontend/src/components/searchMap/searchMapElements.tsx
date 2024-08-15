@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo } from 'react';
-import { GoogleMapsContext, Map } from '@vis.gl/react-google-maps';
+import { GoogleMapsContext } from '@vis.gl/react-google-maps';
 import { getRadiusZoomLevel } from '@front/utils/mapUtils';
 import { Circle } from '@front/components/circle/circle';
 import { useGeolocation } from '@uidotdev/usehooks';
@@ -39,9 +39,7 @@ const SearchMapElements = ({
         0
     };
     map?.setCenter(c);
-
-    const c1 = map?.getCenter() ?? { lat: () => 0, lng: () => 0 };
-  }, [queryDescription, userLocation]);
+  }, [map, queryDescription, userLocation]);
 
   useEffect(() => {
     const c = map?.getCenter() ?? { lat: () => 0, lng: () => 0 };
@@ -55,7 +53,7 @@ const SearchMapElements = ({
           )
         : 8
     );
-  }, [radius]);
+  }, [map, radius]);
 
   return (
     <>

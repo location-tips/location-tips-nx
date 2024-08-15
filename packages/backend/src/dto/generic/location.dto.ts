@@ -8,8 +8,7 @@ import type {
   TLocationEntity,
   TLocationInResult,
   TLocationSearchDescription,
-  TLocationsWithImages,
-  TLocationsWithScore
+  TLocationsWithImages
 } from '@types';
 
 export class CoordinateDTO implements TCoordinate {

@@ -16,11 +16,11 @@ type Params = {
 
 const DOMAIN = process.env.DOMAIN || 'http://localhost:3001';
 
-let locationCache: Map<string, TLocationInResult> = new Map();
+const locationCache: Map<string, TLocationInResult> = new Map();
 
 const getLocationById = async (id: string): Promise<TLocationInResult> => {
   if (locationCache.has(id)) {
-    return locationCache.get(id)!;
+    return locationCache.get(id) as TLocationInResult;
   }
 
   const response = await fetch(`${DOMAIN}/api/location/${id}`, {

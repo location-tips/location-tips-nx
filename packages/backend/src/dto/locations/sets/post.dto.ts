@@ -3,9 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import type {
   PostLocationsSetsRequest,
   PostLocationsSetsResponse,
-  TLocationSearchDescription,
-  TLocationsSet,
-  TLocationsWithScore
+  TLocationsSet
 } from '@types';
 
 export class PostLocationsSetsRequestDTO implements PostLocationsSetsRequest {

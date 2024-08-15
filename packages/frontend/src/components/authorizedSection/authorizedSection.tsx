@@ -6,7 +6,7 @@ import '@front/utils/configureFirebase';
 
 const auth = getAuth();
 
-type AuthorizedSectionProps = PropsWithChildren<{}>;
+type AuthorizedSectionProps = PropsWithChildren;
 
 const AuthorizedSection = ({ children }: AuthorizedSectionProps) => {
   const [currentUser, setCurrentUser] = useState<User | null>(auth.currentUser);

@@ -39,11 +39,11 @@ const Bookmark = ({ className, id, label }: BookmarkProps) => {
 
   useEffect(() => {
     favouritesStore.setFavourites(addState.favourites);
-  }, [addState]);
+  }, [addState, favouritesStore]);
 
   useEffect(() => {
     favouritesStore.setFavourites(removeState.favourites);
-  }, [removeState]);
+  }, [favouritesStore, removeState]);
 
   return (
     <AuthorizedForm

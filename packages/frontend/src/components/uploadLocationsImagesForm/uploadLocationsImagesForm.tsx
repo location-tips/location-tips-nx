@@ -17,7 +17,7 @@ const UploadLocationsImagesForm = () => {
 
   useEffect(() => {
     createLocation.reset();
-  }, []);
+  });
 
   useEffect(() => {
     if (
@@ -29,7 +29,12 @@ const UploadLocationsImagesForm = () => {
         redirect('/locations/update');
       });
     }
-  }, [createLocation.locations, createLocation.pending, createLocation.failed]);
+  }, [
+    createLocation.locations,
+    createLocation.pending,
+    createLocation.failed,
+    hideModal
+  ]);
 
   return (
     <>

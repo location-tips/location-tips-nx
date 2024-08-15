@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { TLocationInResult } from '@types';
 
 export default function renderLocationSlides(

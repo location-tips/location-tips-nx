@@ -5,7 +5,6 @@ import { getAuth } from 'firebase/auth';
 
 import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 import clsx from 'clsx';
 
 import Avatar from '@front/components/avatar/avatar';

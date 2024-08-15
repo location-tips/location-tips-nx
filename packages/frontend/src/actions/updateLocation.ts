@@ -1,8 +1,13 @@
 'use server';
 
+import { LocationsState } from '@types';
+
 const SERVER = process.env.SERVER || 'http://localhost:3000';
 
-export async function updateLocation(_prevState: any, formData: FormData) {
+export async function updateLocation(
+  _prevState: LocationsState,
+  formData: FormData
+) {
   const id = formData.get('id') as string;
   const title = formData.get('title') as string;
   const userDescription = formData.get('userDescription') as string;

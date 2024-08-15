@@ -47,7 +47,7 @@ const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
           const file = new File([audioBlob], 'voiceRecording.wav', {
             type: 'audio/wav'
           });
-          let container = new DataTransfer();
+          const container = new DataTransfer();
 
           container.items.add(file);
 
