@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react';
-import { MdiStop } from '../../icons/MdiStop';
-import { MdiMicrophoneOutline } from '../../icons/MdiMicrophoneOutline';
+import { useWavesurfer } from '@wavesurfer/react';
+
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { useWavesurfer } from '@wavesurfer/react';
+
+import { MdiStop } from '../../icons/MdiStop';
+import { MdiMicrophoneOutline } from '../../icons/MdiMicrophoneOutline';
 
 interface VoiceUploadFieldProps {
   name: string;
@@ -47,7 +49,7 @@ const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
           const file = new File([audioBlob], 'voiceRecording.wav', {
             type: 'audio/wav',
           });
-          let container = new DataTransfer();
+          const container = new DataTransfer();
 
           container.items.add(file);
 

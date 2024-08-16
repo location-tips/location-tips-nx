@@ -1,9 +1,11 @@
 'use client';
 
 import React from 'react';
+import { getAuth } from 'firebase/auth';
+
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MList } from '@location-tips/location-tips-uikit/atoms/MList';
-import { getAuth } from 'firebase/auth';
+
 import '@front/utils/configureFirebase';
 import LinkButton from '@front/components/linkButton/linkButton';
 

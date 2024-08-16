@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+
 import type { TPlatform } from '@types';
 
 interface PlatformState {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback, FormEvent } from 'react';
 import { useMap, useMapsLibrary } from '@vis.gl/react-google-maps';
+
 import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
 import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
 import { MList } from '@location-tips/location-tips-uikit/atoms/MList';
@@ -58,7 +59,7 @@ export const MapGeosearchAutocomplete = ({
 
       setPredictionResults(response.predictions);
     },
-    [autocompleteService, sessionToken]
+    [autocompleteService, sessionToken],
   );
 
   const onInputChange = useCallback(
@@ -68,7 +69,7 @@ export const MapGeosearchAutocomplete = ({
       setInputValue(value);
       fetchPredictions(value);
     },
-    [fetchPredictions]
+    [fetchPredictions],
   );
 
   const handleSuggestionClick = useCallback(
@@ -82,7 +83,7 @@ export const MapGeosearchAutocomplete = ({
       };
 
       const detailsRequestCallback = (
-        placeDetails: google.maps.places.PlaceResult | null
+        placeDetails: google.maps.places.PlaceResult | null,
       ) => {
         onPlaceSelect(placeDetails);
         setPredictionResults([]);
@@ -92,7 +93,7 @@ export const MapGeosearchAutocomplete = ({
 
       placesService?.getDetails(detailRequestOptions, detailsRequestCallback);
     },
-    [onPlaceSelect, places, placesService, sessionToken]
+    [onPlaceSelect, places, placesService, sessionToken],
   );
 
   return (

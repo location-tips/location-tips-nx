@@ -1,6 +1,7 @@
-import { TLocationInResult } from '@types';
 import Link from 'next/link';
 import Image from 'next/image';
+import { TLocationInResult } from '@types';
+
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';

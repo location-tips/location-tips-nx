@@ -1,12 +1,14 @@
 'use client';
 
-import { TLocationInResult } from '@types';
 import { APIProvider, Map } from '@vis.gl/react-google-maps';
+import { TLocationInResult } from '@types';
+
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import LocationsListItem from '../locationsListItem/locationsListItem';
+
 import LocationMarker from '@front/components/locationMarker/locationMarker';
 import { convertCoordinates } from '@front/utils/mapUtils';
+import LocationsListItem from '../locationsListItem/locationsListItem';
 
 import './locationsList.vars.css';
 import styles from './locationsList.module.css';
@@ -31,12 +33,12 @@ const LocationsList = ({
           {emptyText}
         </MText>
       ) : (
-        <div className={styles.locationsList__wrapper}>
-          <section className={styles.locationsList__mapContainer}>
+        <div className={styles.wrapper}>
+          <section className={styles.mapContainer}>
             <Map
               defaultZoom={2}
               defaultCenter={convertCoordinates(
-                locations[0].location.coordinates
+                locations[0].location.coordinates,
               )}
               mapId={mapId}
             >
@@ -46,7 +48,7 @@ const LocationsList = ({
             </Map>
           </section>
 
-          <div className={styles.locationsList__setContainer}>
+          <div className={styles.setContainer}>
             <MFlex direction="column" align="start" justify="stretch" gap="l">
               {locations.map((location) => (
                 <LocationsListItem key={location.id} item={location} />

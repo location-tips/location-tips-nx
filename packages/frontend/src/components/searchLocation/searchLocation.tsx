@@ -1,29 +1,30 @@
 'use client';
-
-import { use, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
-import { t } from '@front/utils/translate';
 import clsx from 'clsx';
 import { APIProvider } from '@vis.gl/react-google-maps';
-import { searchLocation } from '@front/actions/searchLocation';
+
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MTextarea } from '@location-tips/location-tips-uikit/atoms/MTextarea';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
-import type { PostLocationsResponse } from '@types';
+
+import { t } from '@front/utils/translate';
+import { searchLocation } from '@front/actions/searchLocation';
 import FormStatus from '@front/components/formStatus/formStatus';
 import SearchMap from '@front/components/searchMap/searchMap';
 import ImageUploadField from '@front/components/imageUploadField/imageUploadField';
 import VoiceUploadField from '@front/components/voiceUploadField/voiceUploadField';
+import SearchSkeleton from '@front/components/searchSkeleton/searchSkeleton';
 import SearchResults from '@front/components/searchResults/searchResults';
-
 import SearchButton from '@front/components/searchButton/searchButton';
+import { mockupLocations } from '@front/actions/mockupLocation';
+import useSearchResultsLoading from '@front/stores/useSearchResultsLoading';
 
 import './searchLocation.vars.css';
 import styles from './searchLocation.module.css';
-import { mockupLocations } from '@front/actions/mockupLocation';
-import useSearchResultsLoading from '@front/stores/useSearchResultsLoading';
-import SearchSkeleton from '../searchSkeleton/searchSkeleton';
+
+import type { PostLocationsResponse } from '@types';
 
 type SearchState = Partial<PostLocationsResponse>;
 
@@ -37,7 +38,6 @@ type SearchLocationProps = {
 const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   const { isLoading, setIsLoading } = useSearchResultsLoading();
   const [popularPlaces, setPopularPlaces] = useState<SearchState>();
-  const popularPlacesHeader = 'Popular places:';
   const skeletonHeader = 'Loading...';
   const skeletonBody = <SearchSkeleton />;
   const [searchResultsHeader, setSearchResultsHeader] = useState('');
@@ -55,14 +55,13 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
       setIsLoading(false);
       return result;
     },
-    initialState
+    initialState,
   );
 
-  const isResultsHidden = useMemo(() => !isLoading && !state.searchResult && popularPlaces?.searchResult, [
-    isLoading,
-    state.searchResult,
-    popularPlaces?.searchResult,
-  ]);
+  const isResultsHidden = useMemo(
+    () => !isLoading && !state.searchResult && popularPlaces?.searchResult,
+    [isLoading, state.searchResult, popularPlaces?.searchResult],
+  );
 
   const onSearchTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setSearchText(e.target.value);
@@ -103,7 +102,7 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
           state.queryDescription?.originalPrompt +
             '\n' +
             '\n' +
-            state.queryDescription?.image
+            state.queryDescription?.image,
         );
       } else {
         setSearchText(state.queryDescription?.originalPrompt);
@@ -126,71 +125,80 @@ const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
           />
         </APIProvider>
 
-          <MFlex
-            direction="row"
-            align="center"
-            justify="center"
-            className={styles.searchFormContainerWrapper}
+        <MFlex
+          direction="row"
+          align="center"
+          justify="center"
+          className={styles.searchFormContainerWrapper}
+        >
+          <form
+            action={formAction}
+            className={styles.searchFormContainer}
+            ref={formRef}
           >
-            <form action={formAction} className={styles.searchFormContainer} ref={formRef}>
-              <MCard
-                shadow={false}
-                borderLeftBottomRadius="2xl"
-                borderLeftTopRadius="2xl"
-                borderRightBottomRadius="2xl"
-                borderRightTopRadius="2xl"
-                showFooterDivider={true}
-                noPadding={true}
-                footer={
-                  <MFlex
-                    align="center"
-                    justify="space-between"
-                    className={styles.searchFormFooter}
-                  >
-                    <MFlex
-                      direction="row"
-                      gap="m"
-                      align="center"
-                      justify="start"
-                    >
-                      <ImageUploadField name="image" />
-                      <VoiceUploadField name="voice" />
-                    </MFlex>
-                    <MFlex align="center" justify="end">
-                      <FormStatus />
-                      <SearchButton />
-                    </MFlex>
+            <MCard
+              shadow={false}
+              borderLeftBottomRadius="2xl"
+              borderLeftTopRadius="2xl"
+              borderRightBottomRadius="2xl"
+              borderRightTopRadius="2xl"
+              showFooterDivider={true}
+              noPadding={true}
+              footer={
+                <MFlex
+                  align="center"
+                  justify="space-between"
+                  className={styles.searchFormFooter}
+                >
+                  <MFlex direction="row" gap="m" align="center" justify="start">
+                    <ImageUploadField name="image" />
+                    <VoiceUploadField name="voice" />
                   </MFlex>
-                }
-              >
-                <MHeading mode="h3" className={styles.searchFormHeader}>
-                  {t('Describe what you are looking for')}
-                </MHeading>
-                <MTextarea
-                  name="searchText"
-                  rows={5}
-                  placeholder={t(
-                    'It could be a beach with black sand, a medieval castle, or cliffs.'
-                  )}
-                  containerClassName={styles.textarea}
-                  onChange={onSearchTextChange}
-                  value={searchText}
-                />
-              </MCard>
-            </form>
-          </MFlex>
+                  <MFlex align="center" justify="end">
+                    <FormStatus />
+                    <SearchButton />
+                  </MFlex>
+                </MFlex>
+              }
+            >
+              <MHeading mode="h3" className={styles.searchFormHeader}>
+                {t('Describe what you are looking for')}
+              </MHeading>
+              <MTextarea
+                name="searchText"
+                rows={5}
+                placeholder={t(
+                  'It could be a beach with black sand, a medieval castle, or cliffs.',
+                )}
+                containerClassName={styles.textarea}
+                onChange={onSearchTextChange}
+                value={searchText}
+              />
+            </MCard>
+          </form>
+        </MFlex>
+      </section>
+      {isLoading && (
+        <section className={clsx(styles.resultsContainer)}>
+          <SearchResults
+            header={skeletonHeader}
+            results={skeletonBody}
+            mapId={mapId}
+            apiKey={apiKey}
+          />
         </section>
-        {isLoading && (
-          <section className={clsx(styles.resultsContainer)}>
-            <SearchResults header={skeletonHeader} results={skeletonBody} mapId={mapId} apiKey={apiKey} />
-          </section>
-        )}
-        {!isLoading && state.searchResult && (
-          <section className={clsx(styles.resultsContainer)}>
-            <SearchResults header={searchResultsHeader} results={state} mapId={mapId} apiKey={apiKey} />
-          </section>
-        )}
-      </div>
+      )}
+      {!isLoading && state.searchResult && (
+        <section className={clsx(styles.resultsContainer)}>
+          <SearchResults
+            header={searchResultsHeader}
+            results={state}
+            mapId={mapId}
+            apiKey={apiKey}
+          />
+        </section>
+      )}
+    </div>
   );
 };
 

@@ -1,19 +1,21 @@
+import { Injectable } from '@nestjs/common';
+import { getStorage } from 'firebase-admin/storage';
+import { v4 as uuidv4 } from 'uuid';
+import convert from 'heic-convert';
+import admin from 'firebase-admin';
+import sharp from 'sharp';
+import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
+
+import { geminiDescribeImage } from '@back/utils/gemini';
+import { extractExif } from '@back/utils/exif';
+import { getImages } from '@back/utils/firebase';
+
 import type {
   PutLocationRequest,
   TGeminiResponseDescribeImage,
   TLocationEntity,
   TLocationsWithImages,
 } from '@types';
-import { Injectable } from '@nestjs/common';
-import { extractExif } from '@back/utils/exif';
-import { getStorage } from 'firebase-admin/storage';
-import { geminiDescribeImage } from '@back/utils/gemini';
-import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
-import { v4 as uuidv4 } from 'uuid';
-import convert from 'heic-convert';
-import admin from 'firebase-admin';
-import sharp from 'sharp';
-import { getImages } from '@back/utils/firebase';
 
 @Injectable()
 export class LocationService {
@@ -45,14 +47,14 @@ export class LocationService {
   }
 
   async getImages(
-    url: string
+    url: string,
   ): Promise<{ original: string; small: string; medium: string }> {
     return await getImages(url);
   }
 
   async getImageDescription(
     image: File,
-    exif?: ExifReader.ExpandedTags
+    exif?: ExifReader.ExpandedTags,
   ): Promise<TGeminiResponseDescribeImage> {
     let prompt = '';
 
@@ -131,7 +133,7 @@ export class LocationService {
             coordinates: coordinates ?? data.location?.coordinates,
           },
         },
-        { merge: true }
+        { merge: true },
       );
 
     const doc = await db.collection(COLLECTIONS.LOCATIONS).doc(id).get();
@@ -140,7 +142,7 @@ export class LocationService {
   }
 
   async removeLocationFromDB(
-    id: TLocationEntity['id']
+    id: TLocationEntity['id'],
   ): Promise<TLocationEntity> {
     const db = admin.firestore();
 
@@ -160,7 +162,7 @@ export class LocationService {
   }
 
   async getNearestLocations(
-    geohash: TLocationEntity['geohash']
+    geohash: TLocationEntity['geohash'],
   ): Promise<TLocationsWithImages[]> {
     const db = admin.firestore();
 
@@ -170,17 +172,19 @@ export class LocationService {
       .limit(DB_DEFAULT_LIMIT)
       .get();
 
-    const data: TLocationsWithImages[] = await Promise.all(locations.docs.map(async (doc) => {
-      const loc = {
-        ...(doc.data() as TLocationEntity),
-        images: await getImages(doc.data().image.url),
-      }
+    const data: TLocationsWithImages[] = await Promise.all(
+      locations.docs.map(async (doc) => {
+        const loc = {
+          ...(doc.data() as TLocationEntity),
+          images: await getImages(doc.data().image.url),
+        };
 
-      delete loc.embedding_field;
-      delete loc.image.exif;
+        delete loc.embedding_field;
+        delete loc.image.exif;
 
-      return loc;
-    }));
+        return loc;
+      }),
+    );
 
     return data;
   }

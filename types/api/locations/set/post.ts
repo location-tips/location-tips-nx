@@ -1,4 +1,4 @@
-import type { TLocationsSet } from "../../../generic/locationSet";
+import type { TLocationsSet } from '../../../generic/locationSet';
 
 export type PostLocationsSetRequest = TLocationsSet;
 

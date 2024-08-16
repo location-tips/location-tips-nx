@@ -1,12 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-
 import { getAuth } from 'firebase/auth';
+import clsx from 'clsx';
 
 import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
-import clsx from 'clsx';
 
 import Avatar from '@front/components/avatar/avatar';
 import UserMenu from '@front/components/userMenu/userMenu';
@@ -24,7 +22,7 @@ const ProfileButton = () => {
       <MDropdown
         dropdownContentClassName={clsx(
           styles.menuDropdownContainer,
-          styles.top
+          styles.top,
         )}
         noPadding={false}
         align="right"
@@ -47,7 +45,6 @@ const ProfileButton = () => {
               alt={auth.currentUser?.displayName ?? ''}
             />
           )}
-          {/* <MText className={styles.username}>{auth.currentUser?.displayName}</MText> */}
         </MFlex>
       </MDropdown>
     </div>

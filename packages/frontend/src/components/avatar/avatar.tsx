@@ -1,9 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
+import clsx from 'clsx';
+
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
 import './avatar.vars.css';
 import styles from './avatar.module.css';
-import clsx from 'clsx';
 
 type AvatarProps = {
   src: string;

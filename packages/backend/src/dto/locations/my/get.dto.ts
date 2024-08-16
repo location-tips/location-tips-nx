@@ -1,3 +1,3 @@
-import { MyLocationsDTO } from "@back/dto/generic";
+import { MyLocationsDTO } from '@back/dto/generic';
 
 export class GetMyLocationsResponseDTO extends MyLocationsDTO {}

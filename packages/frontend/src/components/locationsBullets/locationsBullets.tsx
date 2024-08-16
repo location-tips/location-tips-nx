@@ -1,6 +1,8 @@
-import Avatar from '@front/components/avatar/avatar';
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { TLocationsWithImages } from '@types';
+
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
+import Avatar from '@front/components/avatar/avatar';
 import ZStack from '@front/components/zStack/zStack';
 
 import './locationsBullets.vars.css';
@@ -12,10 +14,13 @@ type LocationsBulletsProps = {
   onChoseSlide?: (index: number) => void;
 };
 
-const LocationsBullets = ({ currentSlide, locations, onChoseSlide }: LocationsBulletsProps) => {
-
+const LocationsBullets = ({
+  currentSlide,
+  locations,
+  onChoseSlide,
+}: LocationsBulletsProps) => {
   return (
-    <MFlex direction="row" gap="xs" className={styles.bullets}>
+    <MFlex direction="row" gap="xs">
       {locations.map((location, index) => (
         <ZStack key={location.id}>
           <Avatar

@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const token = formData.get('token') as string;
 
     formData.delete('token');
-    
+
     const response = await fetch(`${SERVER}/api/location`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -18,12 +18,12 @@ export async function POST(req: NextRequest) {
     });
 
     if (response.status >= 200 && response.status < 300) {
-        const jsonData = await response.json();
+      const jsonData = await response.json();
 
-        return NextResponse.json(jsonData);
+      return NextResponse.json(jsonData);
     } else {
-        const error = await response.json();
-        return NextResponse.json({ error }, { status: response.status });
+      const error = await response.json();
+      return NextResponse.json({ error }, { status: response.status });
     }
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });

@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import type { TLocationsWithImages } from '@types';
 import { createPortal, useFormState } from 'react-dom';
 import {
   ControlPosition,
@@ -12,18 +11,7 @@ import {
 } from '@vis.gl/react-google-maps';
 import clsx from 'clsx';
 import Image from 'next/image';
-
 import { useDebounce } from '@uidotdev/usehooks';
-
-import LocationMarker from '@front/components/locationMarker/locationMarker';
-import MapGeosearchAutocomplete from '@front/components/mapGeosearchAutocomplete/mapGeosearchAutocomplete';
-import FormStatus from '@front/components/formStatus/formStatus';
-import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
-
-import { PhDotDuotone } from '@front/icons/PhDotDuotone';
-import { MdiMapMarkerOutline } from '@front/icons/MdiMapMarkerOutline';
-import { convertCoordinates } from '@front/utils/mapUtils';
-import { updateLocation } from '@front/actions/updateLocation';
 
 import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
@@ -31,8 +19,19 @@ import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
 import { MTextarea } from '@location-tips/location-tips-uikit/atoms/MTextarea';
 
-import styles from './updateLocationForm.module.css';
+import { updateLocation } from '@front/actions/updateLocation';
+import { convertCoordinates } from '@front/utils/mapUtils';
+import { MdiMapMarkerOutline } from '@front/icons/MdiMapMarkerOutline';
+import { PhDotDuotone } from '@front/icons/PhDotDuotone';
+import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
+import FormStatus from '@front/components/formStatus/formStatus';
+import MapGeosearchAutocomplete from '@front/components/mapGeosearchAutocomplete/mapGeosearchAutocomplete';
+import LocationMarker from '@front/components/locationMarker/locationMarker';
+
 import './updateLocationForm.vars.css';
+import styles from './updateLocationForm.module.css';
+
+import type { TLocationsWithImages } from '@types';
 
 type UpdateLocationFormProps = {
   location: TLocationsWithImages;
@@ -55,10 +54,10 @@ const UpdateLocationForm = ({
 
   const [title, setTitle] = useState(initialLocation.title);
   const [userDescription, setUserDescription] = useState(
-    initialLocation.userDescription
+    initialLocation.userDescription,
   );
   const [coordinates, setCoordinates] = useState(
-    initialLocation.location.coordinates
+    initialLocation.location.coordinates,
   );
 
   const debouncedTitle = useDebounce(title, 1000);
@@ -132,10 +131,10 @@ const UpdateLocationForm = ({
     // TODO: thats fucking dirty hack cause I using portals
     setTimeout(() => {
       loaderRef.current = document.getElementById(
-        `form-status-portal-${location.id}`
+        `form-status-portal-${location.id}`,
       ) as HTMLElement;
     }, 1000);
-  }, []);
+  });
 
   useEffect(() => {
     updateState?.id &&
@@ -148,7 +147,7 @@ const UpdateLocationForm = ({
           coordinates: updateState.coordinates,
         },
       });
-  }, [updateState]);
+  }, [location, updateState]);
 
   return (
     <MFlex direction="column" gap="xl">
@@ -165,7 +164,7 @@ const UpdateLocationForm = ({
               <Map
                 defaultZoom={8}
                 defaultCenter={convertCoordinates(
-                  location.location.coordinates
+                  location.location.coordinates,
                 )}
                 mapId={mapId}
                 onDragend={onDragMapEnd}
@@ -227,7 +226,7 @@ const UpdateLocationForm = ({
                   placeholder="Describe the location. And the details you think are important."
                 />
 
-                <MCaption className={styles.coordinatesCaption}>
+                <MCaption>
                   <MdiMapMarkerOutline width={24} height={24} />{' '}
                   {debouncedCoordinates.latitude},{' '}
                   {debouncedCoordinates.longitude}
@@ -259,7 +258,7 @@ const UpdateLocationForm = ({
                       iconHeight={32}
                       className={styles.loadingIcon}
                     />,
-                    loaderRef.current
+                    loaderRef.current,
                   )}
               </MFlex>
             </aside>

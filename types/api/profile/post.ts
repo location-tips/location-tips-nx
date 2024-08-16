@@ -1,4 +1,4 @@
-import type { TProfile } from "../../generic/profile";
+import type { TProfile } from '../../generic/profile';
 
 export type PostProfileRequest = TProfile;
 

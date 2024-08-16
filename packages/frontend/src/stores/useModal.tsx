@@ -1,7 +1,8 @@
-import ModalHeader from '@front/components/modal/modalHeader';
-import UploadLocationsImagesForm from '@front/components/uploadLocationsImagesForm/uploadLocationsImagesForm';
 import { ReactNode } from 'react';
 import { create } from 'zustand';
+
+import ModalHeader from '@front/components/modal/modalHeader';
+import UploadLocationsImagesForm from '@front/components/uploadLocationsImagesForm/uploadLocationsImagesForm';
 
 export enum MODALS {
   ADD_LOCATION = 'ADD_LOCATION',
@@ -21,7 +22,7 @@ interface ModalsState {
     modal: MODALS,
     header: ReactNode,
     content: ReactNode,
-    footer: ReactNode
+    footer: ReactNode,
   ) => void;
   showModal: (modal: MODALS, callback?: () => void) => void;
   hideModal: (callback?: () => void) => void;
@@ -40,8 +41,10 @@ const useModal = create<ModalsState>((set) => ({
       },
     ],
   ]),
-  showModal: (modal, callback) => set(() => ({ currentModal: modal, onHide: null, onShow: callback })),
-  hideModal: (callback) => set(() => ({ currentModal: null, onShow: null, onHide: callback })),
+  showModal: (modal, callback) =>
+    set(() => ({ currentModal: modal, onHide: null, onShow: callback })),
+  hideModal: (callback) =>
+    set(() => ({ currentModal: null, onShow: null, onHide: callback })),
   registerModal: (modal, header, content, footer) =>
     set((prev) => ({
       modals: prev.modals.set(modal, { header, content, footer }),
