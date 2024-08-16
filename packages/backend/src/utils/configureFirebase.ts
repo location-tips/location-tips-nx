@@ -2,8 +2,8 @@ import admin from 'firebase-admin';
 import type { ServiceAccount } from 'firebase-admin';
 
 export const configureFirebase = () => {
-    // TODO: Read the service account key from environment variable
     const envServiceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
+    const envStorageBucket = process.env.FIREBASE_STORAGE_BUCKET;
 
     if (!envServiceAccountKey) throw new Error('FIREBASE_SERVICE_ACCOUNT_KEY is not provided');
 
@@ -14,7 +14,7 @@ export const configureFirebase = () => {
     // Initialize Firebase Admin SDK
     admin.initializeApp({
         credential: admin.credential.cert(config),
-        storageBucket: "location-tips-409908.appspot.com",
+        storageBucket: envStorageBucket,
     });
 
 }
