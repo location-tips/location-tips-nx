@@ -73,7 +73,7 @@
   --seach-location-form-header-font-size: var(--font-size-xl, 20px);
 }
 
-@media (max-width: 405px) {
+@media (width <= 405px) {
   /* special variable for ultra small displays */
   :root[data-platform='web-mobile'] {
     --seach-location-form-header-font-size: var(--font-size-l, 16px);

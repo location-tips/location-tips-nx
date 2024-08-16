@@ -46,7 +46,6 @@ const ProfileButton = () => {
               alt={auth.currentUser?.displayName ?? ''}
             />
           )}
-          {/* <MText className={styles.username}>{auth.currentUser?.displayName}</MText> */}
         </MFlex>
       </MDropdown>
     </div>

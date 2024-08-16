@@ -31,8 +31,8 @@ const LocationsList = ({
           {emptyText}
         </MText>
       ) : (
-        <div className={styles.locationsList__wrapper}>
-          <section className={styles.locationsList__mapContainer}>
+        <div className={styles.wrapper}>
+          <section className={styles.mapContainer}>
             <Map
               defaultZoom={2}
               defaultCenter={convertCoordinates(
@@ -46,7 +46,7 @@ const LocationsList = ({
             </Map>
           </section>
 
-          <div className={styles.locationsList__setContainer}>
+          <div className={styles.setContainer}>
             <MFlex direction="column" align="start" justify="stretch" gap="l">
               {locations.map((location) => (
                 <LocationsListItem key={location.id} item={location} />

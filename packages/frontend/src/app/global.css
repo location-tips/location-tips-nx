@@ -2,15 +2,15 @@
 
 :root {
   --header-height: 80px;
-  --page-padding-top: var(--flex-gap-xl);
-  --page-padding-horizontal: var(--flex-gap-xl);
-  --page-title-margin: var(--flex-gap-xl);
+  --page-padding-top: var(--flex-gap-xl, 20px);
+  --page-padding-horizontal: var(--flex-gap-xl, 20px);
+  --page-title-margin: var(--flex-gap-xl, 20px);
 }
 
 :root[data-theme='light'] {
-  --background-color: var(--palette-white);
-  --text-color: var(--palette-gray-1);
-  --link-color: var(--palette-primary-40);
+  --background-color: var(--palette-white, #fff);
+  --text-color: var(--palette-gray-1, #1e222a);
+  --link-color: var(--palette-primary-40, #397dff);
 }
 
 html {
@@ -18,15 +18,15 @@ html {
 }
 
 body {
-  margin: 0;
   padding: 0;
+  margin: 0;
   font-family: Poppins, sans-serif;
   color: var(--text-color);
 }
 
 a {
-  text-decoration: none;
   color: var(--link-color);
+  text-decoration: none;
 }
 
 a:hover {

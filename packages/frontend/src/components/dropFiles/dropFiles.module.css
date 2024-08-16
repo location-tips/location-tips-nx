@@ -1,23 +1,17 @@
 .dndArea {
-  padding: var(--dnd-area-padding);
-  background-color: var(--dnd-area-background-color);
-  border: 1px dashed var(--dnd-area-border-color);
-  border-radius: var(--dnd-area-border-radius);
+  padding: var(--dnd-area-padding, 64px 128px 32px 128px);
+  background-color: var(
+    --dnd-area-background-color,
+    color-mix(in srgb, var(--palette-primary-60B, #085cff) 8%, transparent)
+  );
+  border: 1px dashed var(--dnd-area-border-color, #085cff);
+  border-radius: var(--dnd-area-border-radius, 16px);
   transition: border-color 0.3s, background-color 0.3s;
 }
 
-.dndArea.active {
-  border-color: var(--dnd-area-active-border-color);
-  background-color: var(--dnd-area-active-background-color);
-}
-
 .dndArea .icon {
-  color: var(--dnd-area-icon-color);
+  color: var(--dnd-area-icon-color, #085cff);
   transition: color 0.3s;
-}
-
-.dndArea.active .icon {
-  color: var(--dnd-area-active-icon-color);
 }
 
 .uploadLink {
@@ -26,11 +20,11 @@
 }
 
 .uploadInfo {
-  color: var(--dnd-area-info-color);
-  font-size: var(--dnd-area-info-font-size);
+  font-size: var(--dnd-area-info-font-size, 16px);
+  color: var(--dnd-area-info-color, #1e222a);
 }
 
 .uploadDescription {
-  font-size: var(--dnd-area-description-font-size);
+  font-size: var(--dnd-area-description-font-size, 12px);
   text-align: center;
 }

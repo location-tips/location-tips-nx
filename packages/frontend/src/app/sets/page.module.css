@@ -1,9 +1,9 @@
 .page {
-  padding-left: var(--page-padding-horizontal);
-  padding-right: var(--page-padding-horizontal);
   box-sizing: border-box;
+  padding-right: var(--page-padding-horizontal, 20px);
+  padding-left: var(--page-padding-horizontal, 20px);
 }
 
 .pageTitle {
-  margin: var(--page-title-margin) 0;
+  margin: var(--page-title-margin, 20px) 0;
 }

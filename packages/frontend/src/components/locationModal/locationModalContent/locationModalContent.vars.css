@@ -1,13 +1,14 @@
-:root[data-platform='web-desktop'] {
-  --location-modal-map-flex-basis: 60%;
-  --location-modal-data-flex-basis: 40%;
-  --location-modal-image-border-radius: var(--border-radius-4xl);
-
-  --location-modal-review-border-radius: var(--border-radius-4xl);
-  --location-modal-review-padding: var(--whiteSpace-general-8x);
-  --location-modal-map-border-radius: var(--border-radius-4xl);
+:root[data-theme='light'] {
+  --location-modal-review-background-color: var(--palette-gray-4, #f4f5f7);
 }
 
-:root {
-  --location-modal-review-background-color: var(--palette-gray-4);
+:root[data-platform='web-desktop'],
+:root[data-platform='web-tablet'],
+:root[data-platform='web-mobile'] {
+  --location-modal-map-flex-basis: 60%;
+  --location-modal-data-flex-basis: 40%;
+  --location-modal-image-border-radius: var(--border-radius-4xl, 16px);
+  --location-modal-review-border-radius: var(--border-radius-4xl, 16px);
+  --location-modal-review-padding: var(--whiteSpace-general-8x, 64px);
+  --location-modal-map-border-radius: var(--border-radius-4xl, 16px);
 }

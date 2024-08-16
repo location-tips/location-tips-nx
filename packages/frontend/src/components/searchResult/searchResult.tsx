@@ -50,22 +50,16 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
   const slides = renderLocationSlides(result);
 
   const footer = [
-    <MFlex
-      direction="column"
-      key="footer"
-      gap="xs"
-      align="start"
-      className={clsx(styles.galleryFooter)}
-    >
+    <MFlex direction="column" key="footer" gap="xs" align="start">
       <MFlex
         direction="row"
         wrap="nowrap"
         justify="space-between"
-        className={clsx(styles.galleryFooter__header)}
+        className={clsx(styles.galleryHeader)}
       >
-        <MHeading className={clsx(styles.galleryFooter__title)} mode="h2">
+        <MHeading className={clsx(styles.galleryTitle)} mode="h2">
           <Link
-            className={clsx(styles.galleryFooter__link)}
+            className={clsx(styles.galleryLink)}
             href={`/location/${result.id}`}
             title={result.title}
             onClick={showLocation}
@@ -77,9 +71,7 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
           <MdiStarOutline width={16} height={16} /> {result.score.toFixed(1)}
         </MBadge>
       </MFlex>
-      <div className={clsx(styles.galleryFooter__type)}>
-        {result.location.type}
-      </div>
+      <div className={clsx(styles.galleryType)}>{result.location.type}</div>
     </MFlex>,
   ];
 

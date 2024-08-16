@@ -1,17 +1,20 @@
-.locationsList__wrapper {
+.wrapper {
   display: flex;
   flex-direction: var(--location-set-flex-direction, row);
   gap: var(--location-set-wrapper-gap, 24px);
   width: 100%;
-  height: var(--location-set-wrapper-height, calc(80vh - var(--header-height)));
+  height: var(
+    --location-set-wrapper-height,
+    calc(80vh - var(--header-height, 80px))
+  );
 }
 
-.locationsList__mapContainer {
+.mapContainer {
   width: var(--location-set-child-container-width, calc(50% - 1.5rem / 2));
   height: var(--location-set-map-height, 100%);
 }
 
-.locationsList__setContainer {
+.setContainer {
   box-sizing: border-box;
   width: var(--location-set-child-container-width, calc(50% - 1.5rem / 2));
   height: 100%;

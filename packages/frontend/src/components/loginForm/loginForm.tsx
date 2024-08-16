@@ -67,7 +67,6 @@ const LoginForm = () => {
       {!isAuthenticated && (
         <div className={styles.dropdownWrapper}>
           <MDropdown
-            className={styles.menuDropdown}
             dropdownContentClassName={clsx(
               styles.menuDropdownContainer,
               styles.top,

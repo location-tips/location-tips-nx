@@ -1,12 +1,12 @@
 :root[data-platform='web-desktop'] {
   --page-min-height: calc(
-    100vh - var(--header-height) - var(--page-padding-top, 1.25rem)
+    100vh - var(--header-height, 80px) - var(--page-padding-top, 1.25rem)
   );
 }
 
 :root[data-platform='web-tablet'] {
   --page-min-height: calc(
-    100vh - var(--header-height) - var(--page-padding-top, 1.25rem)
+    100vh - var(--header-height, 80px) - var(--page-padding-top, 1.25rem)
   );
 }
 

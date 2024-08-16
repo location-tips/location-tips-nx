@@ -1,4 +1,4 @@
-@media (max-width: 1119px) {
+@media (width < 1120px) {
   .dropdownWrapper {
     margin-top: 50px;
   }

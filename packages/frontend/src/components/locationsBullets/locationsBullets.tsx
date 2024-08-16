@@ -18,7 +18,7 @@ const LocationsBullets = ({
   onChoseSlide,
 }: LocationsBulletsProps) => {
   return (
-    <MFlex direction="row" gap="xs" className={styles.bullets}>
+    <MFlex direction="row" gap="xs">
       {locations.map((location, index) => (
         <ZStack key={location.id}>
           <Avatar

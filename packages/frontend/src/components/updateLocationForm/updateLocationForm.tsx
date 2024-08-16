@@ -227,7 +227,7 @@ const UpdateLocationForm = ({
                   placeholder="Describe the location. And the details you think are important."
                 />
 
-                <MCaption className={styles.coordinatesCaption}>
+                <MCaption>
                   <MdiMapMarkerOutline width={24} height={24} />{' '}
                   {debouncedCoordinates.latitude},{' '}
                   {debouncedCoordinates.longitude}

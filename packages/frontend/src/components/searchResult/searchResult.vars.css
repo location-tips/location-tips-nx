@@ -1,7 +1,7 @@
 :root[data-theme='light'] {
   --search-result-gallery-title-font-color: var(--palette-gray-1, #1e222a);
   --search-result-gallery-type-font-color: var(--palette-gray-2, #747e97);
-  --search-result-gallery-bookmark-color: var(--white, #ffffff);
+  --search-result-gallery-bookmark-color: var(--white, #fff);
 }
 
 :root[data-platform='web-desktop'] {

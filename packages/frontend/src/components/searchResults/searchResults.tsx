@@ -29,7 +29,7 @@ const SearchResults = ({
         return (
           <MFlex direction="row" wrap="wrap" gap="2xl" justify="start">
             {results.searchResult.map((result) => (
-              <div key={result.id} className={clsx(styles.searchResults__card)}>
+              <div key={result.id} className={clsx(styles.card)}>
                 <SearchResult result={result} mapId={mapId} apiKey={apiKey} />
               </div>
             ))}
@@ -59,7 +59,7 @@ const SearchResults = ({
 
   return (
     <>
-      <div className={clsx(styles.searchResults__header)}>{header}</div>
+      <div className={clsx(styles.header)}>{header}</div>
       {renderContent()}
     </>
   );

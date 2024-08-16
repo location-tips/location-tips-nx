@@ -1,31 +1,31 @@
-.galleryFooter__header {
+.galleryHeader {
   width: 100%;
 }
 
-.galleryFooter__title {
+.galleryTitle {
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  color: var(--search-result-gallery-title-font-color, #1e222a);
   font-family: var(--font-family, Poppins);
   font-size: var(--search-result-gallery-title-font-size, 16px);
   font-style: normal;
   font-weight: 600;
   line-height: var(--search-result-gallery-line-height, 20px);
+  color: var(--search-result-gallery-title-font-color, #1e222a);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.galleryFooter__link {
+.galleryLink {
   color: var(--search-result-gallery-title-font-color, #1e222a);
   text-decoration: none;
 }
 
-.galleryFooter__type {
-  color: var(--search-result-gallery-type-font-color, #747e97);
+.galleryType {
   font-family: var(--font-family, Poppins);
   font-size: var(--search-result-gallery-type-font-size, 14px);
   font-style: normal;
   font-weight: 400;
   line-height: var(--search-result-gallery-line-height, 20px);
+  color: var(--search-result-gallery-type-font-color, #747e97);
 }
 
 .bookmark {

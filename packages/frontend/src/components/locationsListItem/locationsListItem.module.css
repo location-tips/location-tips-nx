@@ -9,14 +9,6 @@
   text-decoration: none;
 }
 
-.galleryContainer {
-  width: var(--location-set-item-size, 200px);
-}
-
-.galleryContainer img {
-  max-width: 100%;
-}
-
 .itemImage {
   border-radius: var(--location-set-item-image-border-radius, 20px);
 }

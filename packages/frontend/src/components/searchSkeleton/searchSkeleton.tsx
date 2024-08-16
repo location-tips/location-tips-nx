@@ -6,18 +6,15 @@ import styles from './searchSkeleton.module.css';
 
 const SearchSkeleton = () => {
   return (
-    <div className={clsx(styles.skeleton__container)}>
+    <div className={clsx(styles.container)}>
       <MFlex direction="row" wrap="wrap" gap="2xl" justify="center">
         {Array.from({ length: 6 }).map((_, index) => (
-          <div
-            key={index}
-            className={clsx(styles.skeleton, styles.skeleton__card)}
-          >
-            <div className={clsx(styles.skeleton__slide)}>
-              <div className={styles.skeleton__image}></div>
+          <div key={index} className={clsx(styles.skeleton, styles.card)}>
+            <div className={clsx(styles.slide)}>
+              <div className={styles.image}></div>
             </div>
-            <div className={clsx(styles.skeleton__title)}></div>
-            <div className={clsx(styles.skeleton__description)}></div>
+            <div className={clsx(styles.title)}></div>
+            <div className={clsx(styles.description)}></div>
           </div>
         ))}
       </MFlex>

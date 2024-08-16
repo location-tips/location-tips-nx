@@ -1,7 +1,6 @@
 .zstack {
   display: grid;
-  align-items: center;
-  justify-items: center;
+  place-items: center center;
 }
 
 .zstack > * {
