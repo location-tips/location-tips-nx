@@ -13,7 +13,7 @@ COPY package*.json ./
 COPY . .
 
 # Install app dependencies
-RUN npm config set @location-tips:registry https://npm.pkg.github.com && \
-npm config set //npm.pkg.github.com/:_authToken ${PERSONAL_ACCESS_TOKEN} && \
-npm install -g nx && \
+RUN echo "PERSONAL_ACCESS_TOKEN: ${PERSONAL_ACCESS_TOKEN}"
+
+RUN npm install -g nx && \
 npm install --no-package-lock
