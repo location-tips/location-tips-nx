@@ -1,8 +1,10 @@
 import { ReactNode } from 'react';
-import { PostLocationsResponse, TLocationInResult } from '@types';
-import SearchResult from '../searchResult/searchResult';
 import clsx from 'clsx';
+import { PostLocationsResponse } from '@types';
+
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
+import SearchResult from '../searchResult/searchResult';
 
 import './searchResults.vars.css';
 import styles from './searchResults.module.css';
@@ -14,7 +16,12 @@ type SearchResultProps = {
   apiKey: string;
 };
 
-const SearchResults = ({ header, results, mapId, apiKey }: SearchResultProps) => {
+const SearchResults = ({
+  header,
+  results,
+  mapId,
+  apiKey,
+}: SearchResultProps) => {
   const renderContent = (): ReactNode => {
     if (!results)
       return 'Sorry, your request was rejected by server. Please, try again.';
@@ -24,7 +31,7 @@ const SearchResults = ({ header, results, mapId, apiKey }: SearchResultProps) =>
         return (
           <MFlex direction="row" wrap="wrap" gap="2xl" justify="start">
             {results.searchResult.map((result) => (
-              <div key={result.id} className={clsx(styles.searchResults__card)}>
+              <div key={result.id} className={clsx(styles.card)}>
                 <SearchResult result={result} mapId={mapId} apiKey={apiKey} />
               </div>
             ))}
@@ -54,7 +61,7 @@ const SearchResults = ({ header, results, mapId, apiKey }: SearchResultProps) =>
 
   return (
     <>
-      <div className={clsx(styles.searchResults__header)}>{header}</div>
+      <div className={clsx(styles.header)}>{header}</div>
       {renderContent()}
     </>
   );

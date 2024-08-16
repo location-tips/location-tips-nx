@@ -1,17 +1,37 @@
-import { Body, Controller, Delete, Post, Put, UploadedFile, UseInterceptors, UseGuards, Request } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Post,
+  Put,
+  UploadedFile,
+  UseInterceptors,
+  UseGuards,
+  Request,
+} from '@nestjs/common';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
+import {
+  ApiBearerAuth,
+  ApiBody,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
+
+import {
+  PostProfileRequestDTO,
+  PostProfileResponseDTO,
+  PutProfileRequestDTO,
+  PutProfileResponseDTO,
+  DeleteProfileRequestDTO,
+  DeleteProfileResponseDTO,
+} from '@back/dto';
+import { AuthGuard } from '@back/app/guards/auth.guard';
 
 import { ProfileService } from './profile.service';
-import type { TProfile } from '@types';
-import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import {
-  PostProfileRequestDTO, PostProfileResponseDTO,
-  PutProfileRequestDTO, PutProfileResponseDTO,
-  DeleteProfileRequestDTO, DeleteProfileResponseDTO,
-} from '@back/dto';
 
-import { AuthGuard } from '@back/app/guards/auth.guard';
+import type { TProfile } from '@types';
 
 @ApiTags('profile')
 @Controller('profile')
@@ -21,10 +41,14 @@ export class ProfileController {
   @Post()
   @ApiOperation({ summary: 'Create new profile' })
   @ApiBearerAuth()
-  @ApiResponse({ status: 201, description: 'The record has been successfully created.', type: PostProfileResponseDTO })
-  @ApiResponse({ status: 400, description: 'Empty request.'})
-  @ApiResponse({ status: 403, description: 'Forbidden.'})
-  @ApiResponse({ status: 500, description: 'Server error.'})
+  @ApiResponse({
+    status: 201,
+    description: 'The record has been successfully created.',
+    type: PostProfileResponseDTO,
+  })
+  @ApiResponse({ status: 400, description: 'Empty request.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
+  @ApiResponse({ status: 500, description: 'Server error.' })
   @UseInterceptors(FileInterceptor('file'))
   @ApiBody({
     description: 'Profile data.',
@@ -32,13 +56,16 @@ export class ProfileController {
   })
   @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('image'))
-  async postProfile(@UploadedFile() image: FastifyFile, @Request() req: FRequest) {
+  async postProfile(
+    @UploadedFile() image: FastifyFile,
+    @Request() req: FRequest,
+  ) {
     // Save to db
     const newProfile: TProfile = {
       uid: req.user.uid,
     };
 
-    const doc = await this.profileService.saveProfileToDB(newProfile);
+    await this.profileService.saveProfileToDB(newProfile);
 
     return newProfile;
   }
@@ -46,10 +73,14 @@ export class ProfileController {
   @Put()
   @ApiOperation({ summary: 'Update profile' })
   @ApiBearerAuth()
-  @ApiResponse({ status: 201, description: 'The record has been successfully updated.', type: PutProfileResponseDTO })
-  @ApiResponse({ status: 400, description: 'Empty request.'})
-  @ApiResponse({ status: 403, description: 'Forbidden.'})
-  @ApiResponse({ status: 500, description: 'Server error.'})
+  @ApiResponse({
+    status: 201,
+    description: 'The record has been successfully updated.',
+    type: PutProfileResponseDTO,
+  })
+  @ApiResponse({ status: 400, description: 'Empty request.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
+  @ApiResponse({ status: 500, description: 'Server error.' })
   @UseGuards(AuthGuard)
   @ApiBody({
     description: 'Custom data for profile.',
@@ -64,10 +95,14 @@ export class ProfileController {
   @Delete()
   @ApiOperation({ summary: 'Remove profile' })
   @ApiBearerAuth()
-  @ApiResponse({ status: 201, description: 'The record has been successfully deleted.', type: DeleteProfileResponseDTO })
-  @ApiResponse({ status: 400, description: 'Empty request.'})
-  @ApiResponse({ status: 403, description: 'Forbidden.'})
-  @ApiResponse({ status: 500, description: 'Server error.'})
+  @ApiResponse({
+    status: 201,
+    description: 'The record has been successfully deleted.',
+    type: DeleteProfileResponseDTO,
+  })
+  @ApiResponse({ status: 400, description: 'Empty request.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
+  @ApiResponse({ status: 500, description: 'Server error.' })
   @UseGuards(AuthGuard)
   @ApiBody({
     description: 'Remove profile.',
@@ -75,9 +110,8 @@ export class ProfileController {
   })
   async deleteProfile(@Body() { uid }: DeleteProfileRequestDTO) {
     // Remove from db
-    const doc = await this.profileService.removeProfileFromDB(uid);
+    await this.profileService.removeProfileFromDB(uid);
 
     return { uid };
   }
-
 }

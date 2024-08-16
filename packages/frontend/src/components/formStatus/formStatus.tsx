@@ -1,7 +1,9 @@
 import { ReactNode } from 'react';
 import { useFormStatus } from 'react-dom';
-import { MdiLoadingLoop } from '@front/icons/MdiLoadingLoop';
+
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
+import { MdiLoadingLoop } from '@front/icons/MdiLoadingLoop';
 
 type TFormStatusProps = {
   loadingText?: ReactNode;
@@ -10,7 +12,12 @@ type TFormStatusProps = {
   className?: string;
 };
 
-const FormStatus = ({ loadingText = 'Searching ...', iconWidth = 24, iconHeight = 24, className }: TFormStatusProps) => {
+const FormStatus = ({
+  loadingText = 'Searching ...',
+  iconWidth = 24,
+  iconHeight = 24,
+  className,
+}: TFormStatusProps) => {
   const { pending } = useFormStatus();
 
   return (

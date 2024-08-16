@@ -1,13 +1,8 @@
 {
-  "hosting":
-    {
+  "hosting": {
     "target": "frontend",
     "source": "./dist/frontend",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "frameworksBackend": {
       "region": "us-central1"
     }
@@ -15,11 +10,7 @@
   "functions": {
     "runtime": "nodejs22",
     "source": "./dist/backend",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "frameworksBackend": {
       "region": "us-central1"
     }

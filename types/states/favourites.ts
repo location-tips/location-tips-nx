@@ -1,3 +1,3 @@
 export type FavouritesState = {
-    favourites: string[];
+  favourites: string[];
 };

@@ -4,11 +4,11 @@ import {
   useContext,
   useEffect,
   useImperativeHandle,
-  useRef
+  useRef,
 } from 'react';
+import { GoogleMapsContext, latLngEquals } from '@vis.gl/react-google-maps';
 
-import type {Ref} from 'react';
-import {GoogleMapsContext, latLngEquals} from '@vis.gl/react-google-maps';
+import type { Ref } from 'react';
 
 type CircleEventProps = {
   onClick?: (e: google.maps.MapMouseEvent) => void;
@@ -49,10 +49,17 @@ function useCircle(props: CircleProps) {
     onMouseOver,
     onMouseOut,
     onRadiusChanged,
-    onCenterChanged
+    onCenterChanged,
   });
 
-  const circle = useRef(new google.maps.Circle({ fillOpacity: 0.2, fillColor: '#085CFF', strokeColor: '#085CFF', strokeOpacity: 0.6 })).current;
+  const circle = useRef(
+    new google.maps.Circle({
+      fillOpacity: 0.2,
+      fillColor: '#085CFF',
+      strokeColor: '#085CFF',
+      strokeOpacity: 0.6,
+    }),
+  ).current;
   // update circleOptions (note the dependencies aren't properly checked
   // here, we just assume that setOptions is smart enough to not waste a
   // lot of time updating values that didn't change)
@@ -61,12 +68,12 @@ function useCircle(props: CircleProps) {
   useEffect(() => {
     if (!center) return;
     if (!latLngEquals(center, circle.getCenter())) circle.setCenter(center);
-  }, [center]);
+  }, [center, circle]);
 
   useEffect(() => {
     if (radius === undefined || radius === null) return;
     if (radius !== circle.getRadius()) circle.setRadius(radius);
-  }, [radius]);
+  }, [radius, circle]);
 
   const map = useContext(GoogleMapsContext)?.map;
 
@@ -84,7 +91,7 @@ function useCircle(props: CircleProps) {
     return () => {
       circle.setMap(null);
     };
-  }, [map]);
+  }, [map, circle]);
 
   // attach and re-attach event-handlers when any of the properties change
   useEffect(() => {
@@ -98,7 +105,7 @@ function useCircle(props: CircleProps) {
       ['dragstart', 'onDragStart'],
       ['dragend', 'onDragEnd'],
       ['mouseover', 'onMouseOver'],
-      ['mouseout', 'onMouseOut']
+      ['mouseout', 'onMouseOut'],
     ].forEach(([eventName, eventCallback]) => {
       gme.addListener(circle, eventName, (e: google.maps.MapMouseEvent) => {
         const callback = callbacks.current[eventCallback];
@@ -132,3 +139,5 @@ export const Circle = forwardRef((props: CircleProps, ref: CircleRef) => {
 
   return null;
 });
+
+Circle.displayName = 'Circle';

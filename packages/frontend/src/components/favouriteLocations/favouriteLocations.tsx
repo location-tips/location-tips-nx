@@ -1,26 +1,26 @@
 'use client';
 
-import LocationsList from "@front/components/locationsList/locationsList";
-import { TLocationInResult } from "@types";
-import { getAuth } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { getAuth } from 'firebase/auth';
+import { useEffect, useState } from 'react';
+import { TLocationInResult } from '@types';
+
+import LocationsList from '@front/components/locationsList/locationsList';
 
 type FavouriteLocationsProps = {
-    apiKey: string;
-    mapId: string;
+  apiKey: string;
+  mapId: string;
 };
 
 const auth = getAuth();
 
 const getLocations = async (): Promise<TLocationInResult[]> => {
-
   const token = await auth.currentUser?.getIdToken();
 
   try {
     const response = await fetch(`/api/location/favourites`, {
       method: 'GET',
       headers: {
-        'Authorization': `${token}`,
+        Authorization: `${token}`,
         'Content-Type': 'application/json',
       },
     });
@@ -35,25 +35,26 @@ const getLocations = async (): Promise<TLocationInResult[]> => {
 };
 
 const FavouriteLocations = ({ apiKey, mapId }: FavouriteLocationsProps) => {
+  const [locations, setLocations] = useState<TLocationInResult[]>([]);
 
-    const [locations, setLocations] = useState<TLocationInResult[]>([]);
+  useEffect(() => {
+    (async () => {
+      const data = await getLocations();
 
-    useEffect(() => {
-        (async () => {
-            const data = await getLocations();
+      console.log('data', data);
 
-            console.log("data", data);
+      setLocations(data);
+    })();
+  }, []);
 
-            setLocations(data);
-        })();
-    }, []);
-
-    return (<LocationsList
-        apiKey={apiKey}
-        mapId={mapId}
-        locations={locations}
-        emptyText="Your favorite locations list is empty"
-      />);
+  return (
+    <LocationsList
+      apiKey={apiKey}
+      mapId={mapId}
+      locations={locations}
+      emptyText="Your favorite locations list is empty"
+    />
+  );
 };
 
 export default FavouriteLocations;

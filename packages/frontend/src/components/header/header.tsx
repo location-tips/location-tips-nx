@@ -1,14 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import clsx from 'clsx';
+
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
+
 import LoginForm from '@front/components/loginForm/loginForm';
 import LinkButton from '@front/components/linkButton/linkButton';
 import Logo from '@front/components/logo/logo';
-import clsx from 'clsx';
 import usePlatform from '@front/stores/usePlatform';
-import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MdiHamburgerMenu } from '@front/icons/MdiHamburgerMenu';
 import NavMobile from '../navMobile/navMobile';
 

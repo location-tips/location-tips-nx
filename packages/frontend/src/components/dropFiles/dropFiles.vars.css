@@ -1,13 +1,28 @@
 :root[data-theme='light'] {
-    --dnd-area-border-radius: var(--borderRadius-general-4x);
-    --dnd-area-border-color: var(--palette-primary-60B);
-    --dnd-area-active-border-color: var(--palette-primary-90);
-    --dnd-area-icon-color: var(--palette-primary-60B);
-    --dnd-area-active-icon-color: var(--palette-primary-90);
-    --dnd-area-background-color: color-mix(in srgb, var(--palette-primary-60B) 8%, transparent);
-    --dnd-area-active-background-color: color-mix(in srgb, var(--palette-primary-90) 20%, transparent);
-    --dnd-area-padding: var(--size-general-8x) var(--size-general-16x) var(--size-general-4x) var(--size-general-16x);
-    --dnd-area-info-font-size: var(--font-size-l);
-    --dnd-area-info-color: var(--palette-gray-1);
-    --dnd-area-description-font-size: var(--font-size-s);
-}  
+  --dnd-area-border-color: var(--palette-primary-60B, #085cff);
+  --dnd-area-active-border-color: var(--palette-primary-90, #0640b3);
+  --dnd-area-icon-color: var(--palette-primary-60B, #085cff);
+  --dnd-area-active-icon-color: var(--palette-primary-90, #0640b3);
+  --dnd-area-background-color: color-mix(
+    in srgb,
+    var(--palette-primary-60B, #085cff) 8%,
+    transparent
+  );
+  --dnd-area-active-background-color: color-mix(
+    in srgb,
+    var(--palette-primary-90, #0640b3) 20%,
+    transparent
+  );
+  --dnd-area-info-color: var(--palette-gray-1, #1e222a);
+}
+
+:root[data-platform='web-desktop'],
+:root[data-platform='web-tablet'],
+:root[data-platform='web-mobile'] {
+  --dnd-area-border-radius: var(--borderRadius-general-4x, 16px);
+  --dnd-area-padding: var(--size-general-8x, 64px)
+    var(--size-general-16x, 128px) var(--size-general-4x, 32px)
+    var(--size-general-16x, 128px);
+  --dnd-area-info-font-size: var(--font-size-l, 16px);
+  --dnd-area-description-font-size: var(--font-size-s, 12px);
+}

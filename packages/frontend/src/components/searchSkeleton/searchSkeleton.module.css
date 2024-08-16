@@ -1,41 +1,41 @@
-.skeleton__container {
+.container {
   width: 100%;
 }
 
-.skeleton__card {
+.card {
   display: flex;
   flex-direction: column;
-  gap: var(--flex-gap-m);
+  gap: var(--flex-gap-m, 14px);
   width: var(--skeleton-card-width, calc(50% - var(--flex-gap-2xl, 24px)));
 }
 
-.skeleton__slide {
+.slide {
   display: flex;
   width: 100%;
 }
 
-.skeleton__image {
+.image {
   flex: 0 0 100%;
-  max-width: 100%;
   width: var(--skeleton-image-width, 600px);
+  max-width: 100%;
   height: auto;
   aspect-ratio: 1;
   background-color: var(--skeleton-element-background-color, #f4f5f7);
   border-radius: var(--skeleton-image-border-radius, 20px);
 }
 
-.skeleton__title {
+.title {
   width: 90%;
   height: var(--skeleton-element-height, 20px);
-  border-radius: var(--skeleton-element-border-radius, 12px);
   background-color: var(--skeleton-element-background-color, #f4f5f7);
+  border-radius: var(--skeleton-element-border-radius, 12px);
 }
 
-.skeleton__description {
+.description {
   width: 70%;
   height: var(--skeleton-element-height, 20px);
-  border-radius: var(--skeleton-element-border-radius, 12px);
   background-color: var(--skeleton-element-background-color, #f4f5f7);
+  border-radius: var(--skeleton-element-border-radius, 12px);
 }
 
 .skeleton {
@@ -44,21 +44,18 @@
 }
 
 .skeleton::after {
-  content: '';
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
+  content: '';
   background-image: var(
     --skeleton-shimmer-color,
     linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0) 0,
-      rgba(255, 255, 255, 0.2) 20%,
-      rgba(255, 255, 255, 0.5) 60%,
-      rgba(255, 255, 255, 0.2) 80%,
-      rgba(255, 255, 255, 0) 100%
+      rgb(255 255 255 / 0%) 0,
+      rgb(255 255 255 / 20%) 20%,
+      rgb(255 255 255 / 50%) 60%,
+      rgb(255 255 255 / 20%) 80%,
+      rgb(255 255 255 / 0%) 100%
     )
   );
   animation: shimmer 2s ease-in-out infinite;

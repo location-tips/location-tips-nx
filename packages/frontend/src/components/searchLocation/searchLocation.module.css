@@ -1,14 +1,14 @@
 .gridContainer {
   display: var(--search-location-grid-display, flex);
   flex-direction: var(--search-location-flex-direction, row);
-  justify-content: stretch;
   align-items: stretch;
+  justify-content: stretch;
   height: var(--search-location-grid-container-height, calc(100vh - 80px));
 }
 
 .mapContainer {
-  flex-basis: var(--search-location-map-flex-basis, 60%);
   position: relative;
+  flex-basis: var(--search-location-map-flex-basis, 60%);
   height: var(--search-locaction-map-height, calc(100vh - 80px));
 }
 
@@ -25,16 +25,11 @@
   scrollbar-width: thin;
 }
 
-.sidebarResult {
-  box-sizing: border-box;
-  overflow-y: auto;
-}
-
 .mapContainer .searchFormContainerWrapper {
-  width: 100%;
   position: absolute;
   top: var(--search-location-form-top-padding, 64px);
   left: 0;
+  width: 100%;
   pointer-events: none;
 }
 
@@ -46,22 +41,22 @@
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormContainer .textarea {
-  border: 0;
   padding-top: 0;
   padding-bottom: 0;
+  border: 0;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormFooter {
+  box-sizing: border-box;
   padding: 0 var(--card-padding-horizontal, 16px)
     var(--card-padding-vertical, 16px) var(--card-padding-horizontal, 16px);
-  box-sizing: border-box;
 }
 
 .mapContainer .searchFormContainerWrapper .searchFormHeader {
   padding: var(--card-padding-vertical, 16px)
     var(--card-padding-horizontal, 16px) 0 var(--card-padding-horizontal, 16px);
-  color: var(--search-location-form-header-font-color, #1e222a);
   font-size: var(--seach-location-form-header-font-size, 20px);
-  line-height: normal;
   font-weight: 500;
+  line-height: normal;
+  color: var(--search-location-form-header-font-color, #1e222a);
 }

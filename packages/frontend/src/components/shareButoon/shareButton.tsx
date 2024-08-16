@@ -1,7 +1,9 @@
-import { MdiShareOutline } from '@front/icons/MdiShareOutline';
+import { ReactNode } from 'react';
+
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { ReactNode } from 'react';
+
+import { MdiShareOutline } from '@front/icons/MdiShareOutline';
 
 type ShareButtonProps = {
   url: string;
@@ -11,9 +13,9 @@ type ShareButtonProps = {
 const ShareButton = ({ url, label }: ShareButtonProps) => {
   const onShare = () => {
     if (navigator.share && navigator.canShare({ url })) {
-        navigator.share({ url });
+      navigator.share({ url });
     } else {
-        console.log('Web Share API is not supported');
+      console.log('Web Share API is not supported');
     }
   };
 

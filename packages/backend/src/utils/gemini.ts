@@ -1,16 +1,17 @@
 import { GoogleGenerativeAI, Part } from '@google/generative-ai';
+import { CATEGORIES } from '@const';
+
 import type {
   TGeminiResponseDescribeImage,
   TLocationSearchDescription,
   TTranslation,
 } from '@types';
-import { CATEGORIES } from '@const';
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 export const geminiDescribeImage = async (
   image: File,
-  details: string = ''
+  details = '',
 ): Promise<TGeminiResponseDescribeImage> => {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
@@ -25,7 +26,7 @@ export const geminiDescribeImage = async (
             location: <try to recognize where this shot has been made any landmarks or famous place on the photo. Return please following fields: {name: <place name>, type: <place type>, description: <place description>, coordinates: {latitude: <latitude>, longitude: <longitude>}}>
         }
         Important! <place type> should be one of the following categories: ${CATEGORIES.join(
-          ','
+          ',',
         )} 
         `,
   });
@@ -48,7 +49,7 @@ export const geminiDescribeImage = async (
 export const geminiDescribeSearchQuery = async (
   prompt: string,
   image?: File,
-  voice?: File
+  voice?: File,
 ): Promise<TLocationSearchDescription> => {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
@@ -114,7 +115,7 @@ export const geminiDescribeSearchQuery = async (
 };
 
 export const geminiTranslateToEnglish = async (
-  prompt: string
+  prompt: string,
 ): Promise<TTranslation> => {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
@@ -144,7 +145,7 @@ export const geminiTranslateToEnglish = async (
 export const geminiTranslateText = async (
   from: string,
   to: string,
-  prompt: string
+  prompt: string,
 ): Promise<TTranslation> => {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 

@@ -1,7 +1,7 @@
-import type { TLocationsWithImages } from "../../generic/location";
+import type { TLocationsWithImages } from '../../generic/location';
 
 export type PostLocationRequest = {
-    image: File;
-}
+  image: File;
+};
 
 export type PostLocationResponse = TLocationsWithImages;

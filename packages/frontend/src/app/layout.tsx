@@ -1,8 +1,9 @@
+import '@location-tips/location-tips-uikit/styles/index.css';
+
 import Header from '@front/components/header/header';
 import ThemeProvider from '@front/components/themeProvider/themeProvider';
 import Modal from '@front/components/modal/modal';
 
-import '@location-tips/location-tips-uikit/styles/index.css';
 import './global.css';
 
 export const metadata = {

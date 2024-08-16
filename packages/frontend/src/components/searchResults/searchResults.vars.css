@@ -19,37 +19,37 @@
 
 /* special media requests for searchResults__card */
 
-@media (min-width: 2560px) {
+@media (width >= 2560px) {
   :root[data-platform='web-desktop'] {
     --search-results-card-width: calc(33% - var(--flex-gap-2xl, 24px));
   }
 }
 
-@media (max-width: 2559px) {
+@media (width < 2560px) {
   :root[data-platform='web-desktop'] {
     --search-results-card-width: calc(50% - var(--flex-gap-2xl, 24px));
   }
 }
 
-@media (max-width: 1439px) {
+@media (width < 1440px) {
   :root[data-platform='web-tablet'] {
     --search-results-card-width: calc(50% - var(--flex-gap-2xl, 24px));
   }
 }
 
-@media (max-width: 1279px) {
+@media (width < 1280px) {
   :root[data-platform='web-tablet'] {
     --search-results-card-width: 100%;
   }
 }
 
-@media (max-width: 900px) {
+@media (width < 900px) {
   :root[data-platform='web-mobile'] {
     --search-results-card-width: calc(50% - var(--flex-gap-2xl, 24px));
   }
 }
 
-@media (max-width: 666px) {
+@media (width < 667px) {
   :root[data-platform='web-mobile'] {
     --search-results-card-width: 100%;
   }

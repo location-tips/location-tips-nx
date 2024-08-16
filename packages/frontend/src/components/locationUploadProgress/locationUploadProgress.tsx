@@ -1,11 +1,10 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-
+import axios, { type AxiosProgressEvent, type AxiosResponse } from 'axios';
 import { TLocationEntity, ProgressStatus, TLocationsWithImages } from '@types';
-import axios, { AxiosProgressEvent, AxiosResponse } from 'axios';
-import { imagePlaceholder } from '@front/components/locationUploadProgress/placeholderImage';
 
+import { imagePlaceholder } from '@front/components/locationUploadProgress/placeholderImage';
 import ImageUploadProgress from '@front/components/imageUploadProgress/imageUploadProgress';
 import useCreateLocations from '@front/stores/useCreateLocations';
 
@@ -72,7 +71,7 @@ const LocationUploadProgress = ({
           formData,
           {
             onUploadProgress,
-          }
+          },
         )
         .then((data) => {
           setStatus(ProgressStatus.Done);
@@ -84,7 +83,7 @@ const LocationUploadProgress = ({
           setStatus(ProgressStatus.Fail);
         });
     }
-  }, [formData, status]);
+  }, [createLocation, formData, onUploadProgress, status]);
 
   useEffect(() => {
     if (progress === 100) {
