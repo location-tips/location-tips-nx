@@ -9,9 +9,7 @@ substitutions:
 
 steps:
 - name: $_BASE_IMAGE
-  args: ['echo', '$PERSONAL_ACCESS_TOKEN']
-- name: $_BASE_IMAGE
-  args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=$PERSONAL_ACCESS_TOKEN', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}', '-f', '.Dockerfile', '.', '--progress', 'plain']
+  args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=$$PERSONAL_ACCESS_TOKEN', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}', '-f', '.Dockerfile', '.', '--progress', 'plain']
 - name: $_BASE_IMAGE
   args: ['build', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}', '-f', '.Dockerfile-be', '.', '--progress', 'plain']
 - name: $_BASE_IMAGE
