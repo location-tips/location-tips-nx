@@ -2,19 +2,21 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import GoogleLoginButton from '@front/components/loginForm/loginButtons/googleLoginButton';
+import { getAuth, type User } from 'firebase/auth';
+import clsx from 'clsx';
+
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+import { MList } from '@location-tips/location-tips-uikit/atoms/MList';
+
+import GoogleLoginButton from '@front/components/loginForm/loginButtons/googleLoginButton';
 import ProfileButton from '@front/components/profileButton/profileButton';
-import { getAuth, User } from 'firebase/auth';
 import '@front/utils/configureFirebase';
 import AddLocationButton from '@front/components/addLocationButton/addLocationButton';
-import clsx from 'clsx';
 
 import './loginForm.vars.css';
 import styles from './loginForm.module.css';
-import { MList } from '@location-tips/location-tips-uikit/atoms/MList';
 
 const auth = getAuth();
 

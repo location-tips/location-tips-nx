@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import type { TLocationsWithImages } from '@types';
 import { createPortal, useFormState } from 'react-dom';
 import {
   ControlPosition,
@@ -12,18 +11,7 @@ import {
 } from '@vis.gl/react-google-maps';
 import clsx from 'clsx';
 import Image from 'next/image';
-
 import { useDebounce } from '@uidotdev/usehooks';
-
-import LocationMarker from '@front/components/locationMarker/locationMarker';
-import MapGeosearchAutocomplete from '@front/components/mapGeosearchAutocomplete/mapGeosearchAutocomplete';
-import FormStatus from '@front/components/formStatus/formStatus';
-import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
-
-import { PhDotDuotone } from '@front/icons/PhDotDuotone';
-import { MdiMapMarkerOutline } from '@front/icons/MdiMapMarkerOutline';
-import { convertCoordinates } from '@front/utils/mapUtils';
-import { updateLocation } from '@front/actions/updateLocation';
 
 import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
@@ -31,8 +19,19 @@ import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
 import { MTextarea } from '@location-tips/location-tips-uikit/atoms/MTextarea';
 
-import styles from './updateLocationForm.module.css';
+import { updateLocation } from '@front/actions/updateLocation';
+import { convertCoordinates } from '@front/utils/mapUtils';
+import { MdiMapMarkerOutline } from '@front/icons/MdiMapMarkerOutline';
+import { PhDotDuotone } from '@front/icons/PhDotDuotone';
+import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
+import FormStatus from '@front/components/formStatus/formStatus';
+import MapGeosearchAutocomplete from '@front/components/mapGeosearchAutocomplete/mapGeosearchAutocomplete';
+import LocationMarker from '@front/components/locationMarker/locationMarker';
+
 import './updateLocationForm.vars.css';
+import styles from './updateLocationForm.module.css';
+
+import type { TLocationsWithImages } from '@types';
 
 type UpdateLocationFormProps = {
   location: TLocationsWithImages;

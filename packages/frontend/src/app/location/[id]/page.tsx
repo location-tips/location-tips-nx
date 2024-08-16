@@ -1,12 +1,14 @@
 import React from 'react';
-import Page from '@front/components/page/page';
+import { redirect } from 'next/navigation';
+import { Metadata } from 'next';
+import { TLocationInResult } from '@types';
+
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 
-import styles from './page.module.css';
-import { redirect } from 'next/navigation';
+import Page from '@front/components/page/page';
 import LocationModalContent from '@front/components/locationModal/locationModalContent/locationModalContent';
-import { TLocationInResult } from '@types';
-import { Metadata } from 'next';
+
+import styles from './page.module.css';
 
 type Params = {
   params: {

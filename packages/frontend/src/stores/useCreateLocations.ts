@@ -1,5 +1,5 @@
-import { TLocationsWithImages } from '@types';
 import { create } from 'zustand';
+import { TLocationsWithImages } from '@types';
 
 interface CreateLocationsState {
   locations: TLocationsWithImages[];

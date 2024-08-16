@@ -2,9 +2,10 @@ import admin from 'firebase-admin';
 import { Injectable } from '@nestjs/common';
 import { FieldValue } from '@google-cloud/firestore';
 import {
-  geminiDescribeSearchQuery,
-  geminiTranslateToEnglish,
-} from '@back/utils/gemini';
+  type Geopoint,
+  geohashQueryBounds,
+  distanceBetween,
+} from 'geofire-common';
 import {
   TLocationEntity,
   TLocationInResult,
@@ -13,13 +14,17 @@ import {
   TLocationsWithScore,
   TTranslation,
 } from '@types';
+import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
+
+import {
+  geminiDescribeSearchQuery,
+  geminiTranslateToEnglish,
+} from '@back/utils/gemini';
 import { getEmbeddings } from '@back/utils/vertex';
-import { Geopoint, geohashQueryBounds, distanceBetween } from 'geofire-common';
 import {
   getDistanceBetweenEmbeddings,
   getRadiusFromBoundingBox,
 } from '@back/utils/distance';
-import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
 import { getImages } from '@back/utils/firebase';
 
 @Injectable()

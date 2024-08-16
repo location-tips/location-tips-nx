@@ -1,7 +1,8 @@
-import type { TFavouritesEntity } from '@types';
 import { Injectable } from '@nestjs/common';
-import { COLLECTIONS } from '@const';
 import admin from 'firebase-admin';
+import { COLLECTIONS } from '@const';
+
+import type { TFavouritesEntity } from '@types';
 
 @Injectable()
 export class FavouritesService {

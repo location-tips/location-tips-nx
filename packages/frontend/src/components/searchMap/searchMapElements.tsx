@@ -1,11 +1,12 @@
-import { useContext, useEffect, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { GoogleMapsContext } from '@vis.gl/react-google-maps';
+import { useGeolocation } from '@uidotdev/usehooks';
+
 import { getRadiusZoomLevel } from '@front/utils/mapUtils';
 import { Circle } from '@front/components/circle/circle';
-import { useGeolocation } from '@uidotdev/usehooks';
 import LocationMarker from '@front/components/locationMarker/locationMarker';
+
 import type { TLocationSearchDescription, TLocationsWithScore } from '@types';
-import React from 'react';
 
 type SearchMapElementsProps = {
   queryDescription?: TLocationSearchDescription;

@@ -1,10 +1,12 @@
 'use client';
 
-import { getAuth } from 'firebase/auth';
-import '@front/utils/configureFirebase';
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import LocationUploadProgress from '@front/components/locationUploadProgress/locationUploadProgress';
 import { useEffect, useState } from 'react';
+import { getAuth } from 'firebase/auth';
+
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
+import '@front/utils/configureFirebase';
+import LocationUploadProgress from '@front/components/locationUploadProgress/locationUploadProgress';
 
 const auth = getAuth();
 

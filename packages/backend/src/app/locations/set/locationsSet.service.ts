@@ -1,13 +1,15 @@
+import { Injectable } from '@nestjs/common';
+import admin, { firestore } from 'firebase-admin';
+import { FieldValue } from '@google-cloud/firestore';
+import { COLLECTIONS } from '@const';
+
+import { getEmbeddings } from '@back/utils/vertex';
+
 import type {
   PutLocationsSetRequest,
   TLocationEntity,
   TLocationsSet,
 } from '@types';
-import { Injectable } from '@nestjs/common';
-import admin, { firestore } from 'firebase-admin';
-import { getEmbeddings } from '@back/utils/vertex';
-import { FieldValue } from '@google-cloud/firestore';
-import { COLLECTIONS } from '@const';
 
 @Injectable()
 export class LocationsSetService {

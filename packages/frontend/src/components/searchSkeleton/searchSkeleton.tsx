@@ -1,5 +1,6 @@
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import clsx from 'clsx';
+
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
 import './searchSkeleton.vars.css';
 import styles from './searchSkeleton.module.css';

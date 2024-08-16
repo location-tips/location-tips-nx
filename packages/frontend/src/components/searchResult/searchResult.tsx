@@ -1,25 +1,27 @@
 'use client';
 
-import { TLocationInResult } from '@types';
 import clsx from 'clsx';
 import { MouseEvent } from 'react';
+import Link from 'next/link';
+import { TLocationInResult } from '@types';
+
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 import { MGallery } from '@location-tips/location-tips-uikit/atoms/MGallery';
 import { MBadge } from '@location-tips/location-tips-uikit/atoms/MBadge';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import Bookmark from '../bookmark/bookmark';
+
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
 import { MdiStarOutline } from '@front/icons/MdiStarOutline';
 import { MdiChevronRight } from '@front/icons/MdiChevronRight';
 import useModal, { MODALS } from '@front/stores/useModal';
 import LocationModalHeader from '@front/components/locationModal/locationModalHeader/locationModalHeader';
 import LocationModalContent from '@front/components/locationModal/locationModalContent/locationModalContent';
-import Link from 'next/link';
 import renderLocationSlides from '@front/utils/renderLocationSlides';
+import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
+import Bookmark from '../bookmark/bookmark';
 
 import './searchResult.vars.css';
 import styles from './searchResult.module.css';
-import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
 
 type SearchResultProps = {
   result: TLocationInResult;

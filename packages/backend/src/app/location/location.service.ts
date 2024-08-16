@@ -1,19 +1,21 @@
+import { Injectable } from '@nestjs/common';
+import { getStorage } from 'firebase-admin/storage';
+import { v4 as uuidv4 } from 'uuid';
+import convert from 'heic-convert';
+import admin from 'firebase-admin';
+import sharp from 'sharp';
+import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
+
+import { geminiDescribeImage } from '@back/utils/gemini';
+import { extractExif } from '@back/utils/exif';
+import { getImages } from '@back/utils/firebase';
+
 import type {
   PutLocationRequest,
   TGeminiResponseDescribeImage,
   TLocationEntity,
   TLocationsWithImages,
 } from '@types';
-import { Injectable } from '@nestjs/common';
-import { extractExif } from '@back/utils/exif';
-import { getStorage } from 'firebase-admin/storage';
-import { geminiDescribeImage } from '@back/utils/gemini';
-import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
-import { v4 as uuidv4 } from 'uuid';
-import convert from 'heic-convert';
-import admin from 'firebase-admin';
-import sharp from 'sharp';
-import { getImages } from '@back/utils/firebase';
 
 @Injectable()
 export class LocationService {

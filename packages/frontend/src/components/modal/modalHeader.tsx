@@ -1,7 +1,7 @@
-import { MdiClose } from '@front/icons/MdiClose';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 
+import { MdiClose } from '@front/icons/MdiClose';
 import useModal from '@front/stores/useModal';
 
 import styles from './modalHeader.module.css';

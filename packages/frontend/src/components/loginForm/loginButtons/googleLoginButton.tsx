@@ -1,5 +1,11 @@
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  type User,
+  type Auth,
+} from 'firebase/auth';
+
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
-import { signInWithPopup, GoogleAuthProvider, User, Auth } from 'firebase/auth';
 
 const provider = new GoogleAuthProvider();
 

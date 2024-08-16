@@ -1,12 +1,14 @@
 'use client';
-import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
-import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
 import { createLocation } from 'packages/frontend/src/actions/createLocation';
 import { updateLocation } from 'packages/frontend/src/actions/updateLocation';
 import FormStatus from 'packages/frontend/src/components/formStatus/formStatus';
 import { useFormState } from 'react-dom';
+
+import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
+
+import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
 
 const initialState = {
   image: null,

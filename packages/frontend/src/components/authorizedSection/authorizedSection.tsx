@@ -1,7 +1,8 @@
 'use client';
 
-import { getAuth, User } from 'firebase/auth';
+import { getAuth, type User } from 'firebase/auth';
 import { PropsWithChildren, useEffect, useState } from 'react';
+
 import '@front/utils/configureFirebase';
 
 const auth = getAuth();

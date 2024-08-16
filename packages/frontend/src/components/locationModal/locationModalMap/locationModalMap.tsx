@@ -1,10 +1,11 @@
 'use client';
 import React from 'react';
-import type { TLocationInResult } from '@types';
+import { APIProvider, Map } from '@vis.gl/react-google-maps';
 
 import { convertCoordinates } from '@front/utils/mapUtils';
-import { APIProvider, Map } from '@vis.gl/react-google-maps';
 import LocationMarker from '@front/components/locationMarker/locationMarker';
+
+import type { TLocationInResult } from '@types';
 
 type LocationModalHeaderProps = {
   location: TLocationInResult;

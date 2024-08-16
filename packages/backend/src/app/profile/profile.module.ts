@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
+import { FastifyMulterModule } from '@nest-lab/fastify-multer';
 
 import { ProfileController } from './profile.controller';
 import { ProfileService } from './profile.service';
-import { FastifyMulterModule } from '@nest-lab/fastify-multer';
 
 @Module({
   imports: [FastifyMulterModule],

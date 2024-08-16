@@ -11,9 +11,6 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
-
-import { ProfileService } from './profile.service';
-import type { TProfile } from '@types';
 import {
   ApiBearerAuth,
   ApiBody,
@@ -21,6 +18,7 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
+
 import {
   PostProfileRequestDTO,
   PostProfileResponseDTO,
@@ -29,8 +27,11 @@ import {
   DeleteProfileRequestDTO,
   DeleteProfileResponseDTO,
 } from '@back/dto';
-
 import { AuthGuard } from '@back/app/guards/auth.guard';
+
+import { ProfileService } from './profile.service';
+
+import type { TProfile } from '@types';
 
 @ApiTags('profile')
 @Controller('profile')

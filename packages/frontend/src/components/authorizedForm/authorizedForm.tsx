@@ -1,4 +1,4 @@
-import { getAuth, User } from 'firebase/auth';
+import { getAuth, type User } from 'firebase/auth';
 import {
   DetailedHTMLProps,
   FormHTMLAttributes,
@@ -6,6 +6,7 @@ import {
   useEffect,
   useState,
 } from 'react';
+
 import '@front/utils/configureFirebase';
 
 const auth = getAuth();

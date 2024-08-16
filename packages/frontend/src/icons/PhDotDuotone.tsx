@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { SVGProps } from 'react';
 
 export function PhDotDuotone(props: SVGProps<SVGSVGElement>) {

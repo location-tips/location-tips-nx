@@ -1,7 +1,8 @@
-import type { TLocationEntity } from '@types';
 import { Injectable } from '@nestjs/common';
-import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
 import admin from 'firebase-admin';
+import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
+
+import type { TLocationEntity } from '@types';
 
 @Injectable()
 export class MyService {

@@ -1,11 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-
 import { getAuth } from 'firebase/auth';
+import clsx from 'clsx';
 
 import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import clsx from 'clsx';
 
 import Avatar from '@front/components/avatar/avatar';
 import UserMenu from '@front/components/userMenu/userMenu';

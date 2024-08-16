@@ -1,5 +1,7 @@
-import { LocationsSetDTO } from '@back/dto/generic';
 import { ApiProperty } from '@nestjs/swagger';
+
+import { LocationsSetDTO } from '@back/dto/generic';
+
 import type {
   PostLocationsSetsRequest,
   PostLocationsSetsResponse,

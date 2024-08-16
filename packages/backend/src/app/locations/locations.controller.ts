@@ -5,8 +5,6 @@ import {
   UploadedFiles,
   UseInterceptors,
 } from '@nestjs/common';
-import { LocationsService } from './locations.service';
-import { PostLocationsResponseDTO, PostLocationsRequestDTO } from '@back/dto';
 import {
   ApiResponse,
   ApiTags,
@@ -18,6 +16,10 @@ import {
   File as FastifyFile,
   FileFieldsInterceptor,
 } from '@nest-lab/fastify-multer';
+
+import { PostLocationsResponseDTO, PostLocationsRequestDTO } from '@back/dto';
+
+import { LocationsService } from './locations.service';
 
 @ApiTags('locations')
 @Controller('locations')

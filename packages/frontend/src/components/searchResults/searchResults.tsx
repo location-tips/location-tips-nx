@@ -1,8 +1,10 @@
 import { ReactNode } from 'react';
-import { PostLocationsResponse } from '@types';
-import SearchResult from '../searchResult/searchResult';
 import clsx from 'clsx';
+import { PostLocationsResponse } from '@types';
+
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
+import SearchResult from '../searchResult/searchResult';
 
 import './searchResults.vars.css';
 import styles from './searchResults.module.css';

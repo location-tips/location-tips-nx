@@ -1,12 +1,14 @@
 import React from 'react';
-import Page from '@front/components/page/page';
-import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
+import Link from 'next/link';
 
-import styles from './page.module.css';
+import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
+
+import Page from '@front/components/page/page';
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
-import Link from 'next/link';
+
+import styles from './page.module.css';
 
 export const metadata = {
   title: 'Profile',

@@ -8,10 +8,7 @@ import {
   UseGuards,
   Request,
 } from '@nestjs/common';
-
 import { FRequest } from 'fastify';
-import { FavouritesService } from './favourites.service';
-import { LocationsService } from '@back/app/locations/locations.service';
 import {
   ApiBearerAuth,
   ApiBody,
@@ -19,6 +16,8 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
+
+import { LocationsService } from '@back/app/locations/locations.service';
 import {
   PostFavouritesRequestDTO,
   PostFavouritesResponseDTO,
@@ -26,8 +25,9 @@ import {
   DeleteFavouritesResponseDTO,
   GetFavouritesResponseDTO,
 } from '@back/dto';
-
 import { AuthGuard } from '@back/app/guards/auth.guard';
+
+import { FavouritesService } from './favourites.service';
 
 @ApiTags('locations')
 @Controller('locations/favourites')

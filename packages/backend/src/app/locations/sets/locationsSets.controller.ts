@@ -1,10 +1,12 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { LocationsSetsService } from './locationsSets.service';
+import { ApiResponse, ApiTags, ApiOperation } from '@nestjs/swagger';
+
 import {
   PostLocationsSetsResponseDTO,
   PostLocationsSetsRequestDTO,
 } from '@back/dto';
-import { ApiResponse, ApiTags, ApiOperation } from '@nestjs/swagger';
+
+import { LocationsSetsService } from './locationsSets.service';
 
 @ApiTags('locations')
 @Controller('locations/sets')

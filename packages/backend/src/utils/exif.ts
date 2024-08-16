@@ -1,4 +1,5 @@
-import ExifReader from 'exifreader';
+import * as ExifReader from 'exifreader';
+
 import type { ExpandedTags } from 'exifreader';
 
 export const extractExif = async (file: Buffer): Promise<ExpandedTags> => {

@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+
 import type { DeleteProfileRequest, DeleteProfileResponse } from '@types';
 
 export class DeleteProfileRequestDTO implements DeleteProfileRequest {

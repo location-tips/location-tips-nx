@@ -1,17 +1,17 @@
 import { Controller, Get, Query, UseGuards, Request } from '@nestjs/common';
-
 import { FRequest } from 'fastify';
-import { MyService } from './my.service';
-import { LocationsService } from '@back/app/locations/locations.service';
 import {
   ApiBearerAuth,
   ApiOperation,
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { GetMyLocationsResponseDTO } from '@back/dto';
 
+import { LocationsService } from '@back/app/locations/locations.service';
+import { GetMyLocationsResponseDTO } from '@back/dto';
 import { AuthGuard } from '@back/app/guards/auth.guard';
+
+import { MyService } from './my.service';
 
 @ApiTags('locations')
 @Controller('locations/my')

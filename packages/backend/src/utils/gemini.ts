@@ -1,10 +1,11 @@
 import { GoogleGenerativeAI, Part } from '@google/generative-ai';
+import { CATEGORIES } from '@const';
+
 import type {
   TGeminiResponseDescribeImage,
   TLocationSearchDescription,
   TTranslation,
 } from '@types';
-import { CATEGORIES } from '@const';
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 

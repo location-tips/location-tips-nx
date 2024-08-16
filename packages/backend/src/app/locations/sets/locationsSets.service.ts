@@ -1,15 +1,16 @@
 import admin from 'firebase-admin';
 import { Injectable } from '@nestjs/common';
 import { FieldValue } from '@google-cloud/firestore';
-import { geminiTranslateToEnglish } from '@back/utils/gemini';
+import { getEmbeddings } from 'packages/backend/src/utils/vertex';
 import {
   TLocationsSet,
   TTranslation,
   PostLocationsSetsRequest,
   PostLocationsSetsResponse,
 } from '@types';
-import { getEmbeddings } from 'packages/backend/src/utils/vertex';
 import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
+
+import { geminiTranslateToEnglish } from '@back/utils/gemini';
 
 @Injectable()
 export class LocationsSetsService {

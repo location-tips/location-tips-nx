@@ -1,16 +1,18 @@
 'use client';
 
+import React, { ReactNode, useEffect } from 'react';
+import { useFormState } from 'react-dom';
+import { FavouritesState } from '@types';
+
+import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
 import { addToFavourites } from '@front/actions/addToFavourites';
 import { removeFromFavourites } from '@front/actions/removeFromFavourites';
 import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
 import { MdiBookmark } from '@front/icons/MdiBookmark';
 import { MdiBookmarkOutline } from '@front/icons/MdiBookmarkOutline';
 import useFavourites from '@front/stores/useFavourites';
-import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { FavouritesState } from '@types';
-import React, { ReactNode, useEffect } from 'react';
-import { useFormState } from 'react-dom';
 
 type BookmarkProps = {
   className?: string;

@@ -1,7 +1,9 @@
 import { ReactNode } from 'react';
 import { useFormStatus } from 'react-dom';
-import { MdiLoadingLoop } from '@front/icons/MdiLoadingLoop';
+
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
+import { MdiLoadingLoop } from '@front/icons/MdiLoadingLoop';
 
 type TFormStatusProps = {
   loadingText?: ReactNode;

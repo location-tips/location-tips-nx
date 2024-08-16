@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react';
-import { MdiStop } from '../../icons/MdiStop';
-import { MdiMicrophoneOutline } from '../../icons/MdiMicrophoneOutline';
+import { useWavesurfer } from '@wavesurfer/react';
+
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { useWavesurfer } from '@wavesurfer/react';
+
+import { MdiStop } from '../../icons/MdiStop';
+import { MdiMicrophoneOutline } from '../../icons/MdiMicrophoneOutline';
 
 interface VoiceUploadFieldProps {
   name: string;

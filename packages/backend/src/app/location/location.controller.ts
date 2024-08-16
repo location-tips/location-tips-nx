@@ -13,11 +13,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
-
 import { FieldValue } from '@google-cloud/firestore';
-
-import { LocationService } from './location.service';
-import type { TLocation, TLocationEntity } from '@types';
 import {
   ApiBearerAuth,
   ApiBody,
@@ -26,6 +22,8 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
+import { geohashForLocation } from 'geofire-common';
+
 import {
   PostLocationRequestDTO,
   PostLocationResponseDTO,
@@ -34,11 +32,13 @@ import {
   PutLocationRequestDTO,
   PutLocationResponseDTO,
 } from '@back/dto';
-
-import { geohashForLocation } from 'geofire-common';
 import { getEmbeddings } from '@back/utils/vertex';
 import { AuthGuard } from '@back/app/guards/auth.guard';
 import { GetLocationResponseDTO } from '@back/dto/location/get.dto';
+
+import { LocationService } from './location.service';
+
+import type { TLocation, TLocationEntity } from '@types';
 
 @ApiTags('location')
 @Controller('location')

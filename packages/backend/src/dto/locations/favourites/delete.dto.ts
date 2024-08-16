@@ -1,5 +1,6 @@
-import { FavouritesDTO } from '@back/dto';
 import { ApiProperty } from '@nestjs/swagger';
+
+import { FavouritesDTO } from '@back/dto';
 
 export class DeleteFavouritesRequestDTO {
   @ApiProperty({

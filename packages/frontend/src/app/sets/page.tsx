@@ -1,9 +1,11 @@
 import React from 'react';
-import Page from '@front/components/page/page';
+
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
+import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
+
+import Page from '@front/components/page/page';
 
 import styles from './page.module.css';
-import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 
 export const metadata = {
   title: 'Location sets',

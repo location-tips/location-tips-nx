@@ -1,13 +1,11 @@
 import clsx from 'clsx';
+import { ProgressStatus } from '@types';
 
 import Avatar from '@front/components/avatar/avatar';
 import ZStack from '@front/components/zStack/zStack';
-
 import { MdiCheckBold } from '@front/icons/MdiCheckBold';
 import { MdiLoadingLoop } from '@front/icons/MdiLoadingLoop';
 import { MdiClose } from '@front/icons/MdiClose';
-
-import { ProgressStatus } from '@types';
 
 import './imageUploadProgress.vars.css';
 import styles from './imageUploadProgress.module.css';

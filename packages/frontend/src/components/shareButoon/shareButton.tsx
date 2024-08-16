@@ -1,7 +1,9 @@
-import { MdiShareOutline } from '@front/icons/MdiShareOutline';
+import { ReactNode } from 'react';
+
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { ReactNode } from 'react';
+
+import { MdiShareOutline } from '@front/icons/MdiShareOutline';
 
 type ShareButtonProps = {
   url: string;

@@ -1,16 +1,18 @@
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import type { TLocationInResult } from '@types';
 import clsx from 'clsx';
-import LocationModalMap from '@front/components/locationModal/locationModalMap/locationModalMap';
-import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
-import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
-import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
-
-import styles from './locationModalContent.module.css';
-import './locationModalContent.vars.css';
-
 import Image from 'next/image';
+
+import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
+import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
+import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
+
+import LocationModalMap from '@front/components/locationModal/locationModalMap/locationModalMap';
+
+import './locationModalContent.vars.css';
+import styles from './locationModalContent.module.css';
+
+import type { TLocationInResult } from '@types';
 
 type LocationModalContentProps = {
   location: TLocationInResult;

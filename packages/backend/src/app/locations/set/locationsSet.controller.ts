@@ -10,9 +10,6 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
-
-import { LocationsSetService } from './locationsSet.service';
-import type { TLocationsSet } from '@types';
 import {
   ApiBearerAuth,
   ApiBody,
@@ -20,6 +17,7 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
+
 import {
   PostLocationsSetRequestDTO,
   PostLocationsSetResponseDTO,
@@ -28,8 +26,11 @@ import {
   DeleteLocationsSetRequestDTO,
   DeleteLocationsSetResponseDTO,
 } from '@back/dto';
-
 import { AuthGuard } from '@back/app/guards/auth.guard';
+
+import { LocationsSetService } from './locationsSet.service';
+
+import type { TLocationsSet } from '@types';
 
 @ApiTags('locations')
 @Controller('locations/set')

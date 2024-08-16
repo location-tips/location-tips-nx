@@ -1,10 +1,10 @@
+import admin from 'firebase-admin';
 import {
   STORAGE_ORIGINAL_FOLDER,
   STORAGE_THUMBS_FOLDER,
   STORAGE_THUMBS_MEDIUM_SUFFIX,
   STORAGE_THUMBS_SMALL_SUFFIX,
 } from '@const';
-import admin from 'firebase-admin';
 
 export const getImages = async (
   url: string,

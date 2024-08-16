@@ -1,8 +1,10 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 import {
   LocationSearchDescriptionDTO,
   LocationsWithScoreDTO,
 } from '@back/dto/generic/location.dto';
-import { ApiProperty } from '@nestjs/swagger';
+
 import type {
   PostLocationsRequest,
   PostLocationsResponse,

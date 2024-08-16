@@ -1,12 +1,14 @@
 'use client';
 
+import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
+
 import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
 import Bookmark from '@front/components/bookmark/bookmark';
 import ShareButton from '@front/components/shareButoon/shareButton';
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
-import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
+
 import type { TLocationInResult } from '@types';
 
 type LocationModalHeaderProps = {

@@ -1,6 +1,7 @@
-import { LocationInResultDTO } from '@back/dto/generic/location.dto';
 import { ApiProperty } from '@nestjs/swagger';
 import { TLocationInResult } from '@types';
+
+import { LocationInResultDTO } from '@back/dto/generic/location.dto';
 
 export class MyLocationsDTO {
   @ApiProperty({

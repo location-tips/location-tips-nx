@@ -1,4 +1,5 @@
 import { LocationsSetDTO } from '@back/dto/generic/locationSet.dto';
+
 import type { PutLocationsSetRequest, PutLocationsSetResponse } from '@types';
 
 export class PutLocationsSetRequestDTO

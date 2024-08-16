@@ -1,9 +1,10 @@
 'use client';
 
-import LocationsList from '@front/components/locationsList/locationsList';
-import { TLocationInResult } from '@types';
 import { getAuth } from 'firebase/auth';
 import { useEffect, useState } from 'react';
+import { TLocationInResult } from '@types';
+
+import LocationsList from '@front/components/locationsList/locationsList';
 
 type FavouriteLocationsProps = {
   apiKey: string;

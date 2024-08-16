@@ -1,5 +1,7 @@
-import { LocationWithImagesEntityDTO } from '@back/dto/generic/location.dto';
 import { ApiProperty } from '@nestjs/swagger';
+
+import { LocationWithImagesEntityDTO } from '@back/dto/generic/location.dto';
+
 import type { PostLocationRequest, PostLocationResponse } from '@types';
 
 export class PostLocationRequestDTO implements PostLocationRequest {

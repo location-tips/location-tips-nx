@@ -9,9 +9,10 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
-import { AppModule } from './app/app.module';
 import { configureFirebase } from 'packages/backend/src/utils/configureFirebase';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+
+import { AppModule } from './app/app.module';
 
 configureFirebase();
 

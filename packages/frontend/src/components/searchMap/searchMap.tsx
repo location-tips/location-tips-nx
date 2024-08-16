@@ -1,10 +1,11 @@
 'use client';
 
 import { Map } from '@vis.gl/react-google-maps';
+import React from 'react';
+
 import SearchMapElements from '@front/components/searchMap/searchMapElements';
 
 import type { TLocationSearchDescription, TLocationsWithScore } from '@types';
-import React from 'react';
 
 type SearchMapProps = {
   queryDescription?: TLocationSearchDescription;

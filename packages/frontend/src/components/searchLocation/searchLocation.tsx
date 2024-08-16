@@ -1,29 +1,30 @@
 'use client';
-
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
-import { t } from '@front/utils/translate';
 import clsx from 'clsx';
 import { APIProvider } from '@vis.gl/react-google-maps';
-import { searchLocation } from '@front/actions/searchLocation';
+
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MTextarea } from '@location-tips/location-tips-uikit/atoms/MTextarea';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
-import type { PostLocationsResponse } from '@types';
+
+import { t } from '@front/utils/translate';
+import { searchLocation } from '@front/actions/searchLocation';
 import FormStatus from '@front/components/formStatus/formStatus';
 import SearchMap from '@front/components/searchMap/searchMap';
 import ImageUploadField from '@front/components/imageUploadField/imageUploadField';
 import VoiceUploadField from '@front/components/voiceUploadField/voiceUploadField';
+import SearchSkeleton from '@front/components/searchSkeleton/searchSkeleton';
 import SearchResults from '@front/components/searchResults/searchResults';
-
 import SearchButton from '@front/components/searchButton/searchButton';
+import { mockupLocations } from '@front/actions/mockupLocation';
+import useSearchResultsLoading from '@front/stores/useSearchResultsLoading';
 
 import './searchLocation.vars.css';
 import styles from './searchLocation.module.css';
-import { mockupLocations } from '@front/actions/mockupLocation';
-import useSearchResultsLoading from '@front/stores/useSearchResultsLoading';
-import SearchSkeleton from '../searchSkeleton/searchSkeleton';
+
+import type { PostLocationsResponse } from '@types';
 
 type SearchState = Partial<PostLocationsResponse>;
 

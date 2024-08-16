@@ -1,6 +1,8 @@
-import Avatar from '@front/components/avatar/avatar';
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { TLocationsWithImages } from '@types';
+
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
+import Avatar from '@front/components/avatar/avatar';
 import ZStack from '@front/components/zStack/zStack';
 
 import './locationsBullets.vars.css';
