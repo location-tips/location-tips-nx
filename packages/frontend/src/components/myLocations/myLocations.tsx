@@ -1,11 +1,13 @@
 'use client';
 
-import LocationsList from '@front/components/locationsList/locationsList';
-import { MdiLoadingLoop } from '@front/icons/MdiLoadingLoop';
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { TLocationInResult } from '@types';
 import { getAuth } from 'firebase/auth';
 import { useEffect, useState } from 'react';
+import { TLocationInResult } from '@types';
+
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
+import LocationsList from '@front/components/locationsList/locationsList';
+import { MdiLoadingLoop } from '@front/icons/MdiLoadingLoop';
 
 type MyLocationsProps = {
   apiKey: string;

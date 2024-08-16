@@ -1,12 +1,14 @@
 import React from 'react';
-import Page from '@front/components/page/page';
+import { redirect } from 'next/navigation';
+import { Metadata } from 'next';
+import { TLocationInResult } from '@types';
+
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 
-import styles from './page.module.css';
-import { redirect } from 'next/navigation';
+import Page from '@front/components/page/page';
 import LocationModalContent from '@front/components/locationModal/locationModalContent/locationModalContent';
-import { TLocationInResult } from '@types';
-import { Metadata } from 'next';
+
+import styles from './page.module.css';
 
 type Params = {
   params: {
@@ -16,12 +18,11 @@ type Params = {
 
 const DOMAIN = process.env.DOMAIN || 'http://localhost:3001';
 
-let locationCache: Map<string, TLocationInResult> = new Map();
+const locationCache: Map<string, TLocationInResult> = new Map();
 
 const getLocationById = async (id: string): Promise<TLocationInResult> => {
-
   if (locationCache.has(id)) {
-    return locationCache.get(id)!;
+    return locationCache.get(id) as TLocationInResult;
   }
 
   const response = await fetch(`${DOMAIN}/api/location/${id}`, {
@@ -30,7 +31,7 @@ const getLocationById = async (id: string): Promise<TLocationInResult> => {
 
   if (response.status >= 200 && response.status < 300) {
     const data = await response.json();
-    
+
     locationCache.set(data.id, data);
 
     return data;
@@ -38,9 +39,11 @@ const getLocationById = async (id: string): Promise<TLocationInResult> => {
     const error = await response.json();
     throw new Error(error);
   }
-}
+};
 
-export const generateMetadata = async ({ params }: Params): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params,
+}: Params): Promise<Metadata> => {
   const { id } = params;
 
   const location = await getLocationById(id);
@@ -50,7 +53,7 @@ export const generateMetadata = async ({ params }: Params): Promise<Metadata> =>
     description: location.description,
     keywords: location.keywords,
   };
-}
+};
 
 export default async function Index({ params }: Params) {
   const { id } = params;
@@ -62,13 +65,20 @@ export default async function Index({ params }: Params) {
 
     return (
       <Page className={styles.page}>
-        <MHeading mode="h1" className={styles.pageTitle}>{location.title}</MHeading>
+        <MHeading mode="h1" className={styles.pageTitle}>
+          {location.title}
+        </MHeading>
 
-        {mapId && apiKey && <LocationModalContent mapId={mapId} location={location} apiKey={apiKey} />}
+        {mapId && apiKey && (
+          <LocationModalContent
+            mapId={mapId}
+            location={location}
+            apiKey={apiKey}
+          />
+        )}
       </Page>
     );
   } catch (error) {
     redirect('/404');
   }
-
 }

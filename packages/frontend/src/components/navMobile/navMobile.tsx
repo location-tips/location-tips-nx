@@ -1,12 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
+
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
+
+import { MdiClose } from '@front/icons/MdiClose';
 import LinkButton from '@front/components/linkButton/linkButton';
 
 import './navMobile.vars.css';
 import styles from './navMobile.module.css';
-import { MdiClose } from '@front/icons/MdiClose';
 
 type NavMobileProps = {
   open: boolean;
@@ -25,7 +27,7 @@ const NavMobile = ({ open, onClose }: NavMobileProps) => {
         justify="start"
         className={clsx(
           styles.mobileNavContainer,
-          open && styles.mobileNavContainer__open
+          open && styles.mobileNavContainerOpen,
         )}
       >
         <MButton

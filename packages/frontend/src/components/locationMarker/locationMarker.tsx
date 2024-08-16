@@ -1,6 +1,7 @@
 import React from 'react';
-import type { TLocationEntity } from '@types';
 import { Marker } from '@vis.gl/react-google-maps';
+
+import type { TLocationEntity } from '@types';
 // import { PhDotDuotone } from "@front/icons/PhDotDuotone";
 // import styles from "./locationMarker.module.css";
 

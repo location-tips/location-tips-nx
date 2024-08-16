@@ -1,16 +1,18 @@
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import type { TLocationInResult } from '@types';
 import clsx from 'clsx';
-import LocationModalMap from '@front/components/locationModal/locationModalMap/locationModalMap';
-import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
-import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
-import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
-
-import styles from './locationModalContent.module.css';
-import './locationModalContent.vars.css';
-
 import Image from 'next/image';
+
+import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
+import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
+import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
+
+import LocationModalMap from '@front/components/locationModal/locationModalMap/locationModalMap';
+
+import './locationModalContent.vars.css';
+import styles from './locationModalContent.module.css';
+
+import type { TLocationInResult } from '@types';
 
 type LocationModalContentProps = {
   location: TLocationInResult;
@@ -77,42 +79,44 @@ const LocationModalContent = ({
           </MFlex>
         </MFlex>
 
-        {location.nearest && location.nearest.length > 0 && <MFlex direction="column" gap="m" justify="start" align="start">
-          <MHeading mode="h4">
-            <MText>Nearest locations</MText>
-          </MHeading>
+        {location.nearest && location.nearest.length > 0 && (
+          <MFlex direction="column" gap="m" justify="start" align="start">
+            <MHeading mode="h4">
+              <MText>Nearest locations</MText>
+            </MHeading>
 
-          {location.nearest?.map((nearest, index) => (
-            <MCard
-              key={index}
-              className={clsx(styles.review)}
-              header={<MHeading mode="h5">{nearest.title}</MHeading>}
-              shadow={false}
-            >
-              <MFlex
-                direction="row"
-                gap="m"
-                align="start"
-                justify="start"
-                wrap="nowrap"
+            {location.nearest?.map((nearest, index) => (
+              <MCard
+                key={index}
+                className={clsx(styles.review)}
+                header={<MHeading mode="h5">{nearest.title}</MHeading>}
+                shadow={false}
               >
-                <Image
-                  className={styles.image}
-                  key={index}
-                  src={nearest.images.medium}
-                  alt={nearest.image?.title ?? nearest.title}
-                  width={178}
-                  height={178}
-                />
-                <MCaption>
-                  {nearest.userDescription ||
-                    nearest.image?.description ||
-                    nearest.description}
-                </MCaption>
-              </MFlex>
-            </MCard>
-          ))}
-        </MFlex>}
+                <MFlex
+                  direction="row"
+                  gap="m"
+                  align="start"
+                  justify="start"
+                  wrap="nowrap"
+                >
+                  <Image
+                    className={styles.image}
+                    key={index}
+                    src={nearest.images.medium}
+                    alt={nearest.image?.title ?? nearest.title}
+                    width={178}
+                    height={178}
+                  />
+                  <MCaption>
+                    {nearest.userDescription ||
+                      nearest.image?.description ||
+                      nearest.description}
+                  </MCaption>
+                </MFlex>
+              </MCard>
+            ))}
+          </MFlex>
+        )}
       </MFlex>
     </MFlex>
   );

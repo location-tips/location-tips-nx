@@ -1,27 +1,10 @@
 # Base image
-FROM node:20-alpine
+FROM base AS dependencies
 
 # Create app directory
 WORKDIR /usr/src/app
 
-ARG PERSONAL_ACCESS_TOKEN
-
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
-
-# Bundle app source
 COPY . .
-
-ENV SERVER="https://api.location.tips"
-ENV GOOGLE_MAPS_API_KEY="AIzaSyCrtsLuDY_B4P3XMfWWJUrFWASnKoErEgU"
-ENV GOOGLE_MAPS_ID="1ead27ffa779d1e9"
-ENV DOMAIN="https://location.tips"
-
-# Install app dependencies
-RUN npm config set @location-tips:registry https://npm.pkg.github.com && \
-npm config set //npm.pkg.github.com/:_authToken ${PERSONAL_ACCESS_TOKEN} && \
-npm install -g nx && \
-npm install --no-package-lock
 
 # Creates a "dist" folder with the production build
 # RUN nx run backend:build

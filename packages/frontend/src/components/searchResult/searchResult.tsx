@@ -1,25 +1,27 @@
-"use client";
+'use client';
 
-import { TLocationInResult } from '@types';
 import clsx from 'clsx';
 import { MouseEvent } from 'react';
+import Link from 'next/link';
+import { TLocationInResult } from '@types';
+
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 import { MGallery } from '@location-tips/location-tips-uikit/atoms/MGallery';
 import { MBadge } from '@location-tips/location-tips-uikit/atoms/MBadge';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import Bookmark from '../bookmark/bookmark';
+
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
 import { MdiStarOutline } from '@front/icons/MdiStarOutline';
 import { MdiChevronRight } from '@front/icons/MdiChevronRight';
 import useModal, { MODALS } from '@front/stores/useModal';
 import LocationModalHeader from '@front/components/locationModal/locationModalHeader/locationModalHeader';
 import LocationModalContent from '@front/components/locationModal/locationModalContent/locationModalContent';
-import Link from 'next/link';
 import renderLocationSlides from '@front/utils/renderLocationSlides';
+import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
+import Bookmark from '../bookmark/bookmark';
 
 import './searchResult.vars.css';
 import styles from './searchResult.module.css';
-import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
 
 type SearchResultProps = {
   result: TLocationInResult;
@@ -39,9 +41,9 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
       <LocationModalHeader
         location={result}
         onClose={() => modals.hideModal()}
-      />, 
+      />,
       <LocationModalContent location={result} mapId={mapId} apiKey={apiKey} />,
-      null
+      null,
     );
 
     modals.showModal(MODALS.VIEW_LOCATION);
@@ -50,36 +52,28 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
   const slides = renderLocationSlides(result);
 
   const footer = [
-    <MFlex
-      direction="column"
-      key="footer"
-      gap="xs"
-      align="start"
-      className={clsx(styles.galleryFooter)}
-    >
+    <MFlex direction="column" key="footer" gap="xs" align="start">
       <MFlex
         direction="row"
         wrap="nowrap"
         justify="space-between"
-        className={clsx(styles.galleryFooter__header)}
+        className={clsx(styles.galleryHeader)}
       >
-        <MHeading className={clsx(styles.galleryFooter__title)} mode="h2">
+        <MHeading className={clsx(styles.galleryTitle)} mode="h2">
           <Link
-            className={clsx(styles.galleryFooter__link)}
+            className={clsx(styles.galleryLink)}
             href={`/location/${result.id}`}
             title={result.title}
             onClick={showLocation}
           >
-            { result.title || result.location.name || result.image?.title }
+            {result.title || result.location.name || result.image?.title}
           </Link>
         </MHeading>
         <MBadge mode="transparent">
           <MdiStarOutline width={16} height={16} /> {result.score.toFixed(1)}
         </MBadge>
       </MFlex>
-      <div className={clsx(styles.galleryFooter__type)}>
-        {result.location.type}
-      </div>
+      <div className={clsx(styles.galleryType)}>{result.location.type}</div>
     </MFlex>,
   ];
 

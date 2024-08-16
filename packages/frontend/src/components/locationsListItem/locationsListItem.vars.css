@@ -9,7 +9,13 @@
 }
 
 :root[data-platform='web-tablet'] {
+  --location-set-item-font-size: var(--font-size-xl, 20px);
+  --location-set-item-size: 200px;
+  --location-set-item-image-border-radius: var(--borderRadius-general-5x, 20px);
 }
 
 :root[data-platform='web-mobile'] {
+  --location-set-item-font-size: var(--font-size-xl, 20px);
+  --location-set-item-size: 200px;
+  --location-set-item-image-border-radius: var(--borderRadius-general-5x, 20px);
 }

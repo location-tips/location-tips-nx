@@ -1,10 +1,12 @@
 import React from 'react';
-import Page from '@front/components/page/page';
-import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
-import UpdateLocations from '@front/components/updateLocations/updateLocations';
-import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import Link from 'next/link';
+
+import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
+import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
+
+import Page from '@front/components/page/page';
+import UpdateLocations from '@front/components/updateLocations/updateLocations';
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
 
 import './page.vars.css';
@@ -12,8 +14,7 @@ import styles from './page.module.css';
 
 export const metadata = {
   title: 'Update locations',
-}
-
+};
 
 export default function Index() {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;

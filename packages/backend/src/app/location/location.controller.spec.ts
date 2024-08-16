@@ -1,7 +1,7 @@
-import { Test, TestingModule } from '@nestjs/testing';
+// import { Test, TestingModule } from '@nestjs/testing';
 
-import { LocationController } from './location.controller';
-import { LocationService } from './location.service';
+// import { LocationController } from './location.controller';
+// import { LocationService } from './location.service';
 
 // describe('LocationController', () => {
 //   let location: TestingModule;

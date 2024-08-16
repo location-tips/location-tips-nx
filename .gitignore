@@ -46,6 +46,10 @@ Thumbs.db
 out
 
 packages/backend/.env
+packages/frontend/.env
+packages/backend/.env.prod
+packages/frontend/.env.prod
 .env
+.env.prod
 .firebase
 .nx

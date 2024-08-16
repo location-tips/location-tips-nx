@@ -15,3 +15,4 @@ export * from './api/profile';
 export * from './api/error';
 
 export * from './states/favourites';
+export * from './states/locations';

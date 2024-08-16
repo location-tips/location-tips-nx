@@ -1,7 +1,73 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "css-modules"],
+  "extends": [
+    "plugin:css-modules/recommended",
+    "plugin:import/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "css-modules/no-unused-class": 2,
+    "css-modules/no-undef-class": 2,
+    "import/no-unresolved": 0,
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@**",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "@location-tips/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@front/**",
+            "group": "parent",
+            "position": "before"
+          },
+          {
+            "pattern": "@back/**",
+            "group": "parent",
+            "position": "before"
+          },
+          {
+            "pattern": "./*.vars.css",
+            "group": "index",
+            "position": "before"
+          },
+          {
+            "pattern": "./*.module.css",
+            "group": "index",
+            "position": "after"
+          },
+          {
+            "pattern": "@types",
+            "group": "type",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin", "type"],
+        "newlines-between": "always",
+        "distinctGroup": false,
+        "warnOnUnassignedImports": true
+      }
+    ]
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -9,6 +75,7 @@
         "@nx/enforce-module-boundaries": [
           "error",
           {
+            "allowCircularSelfDependency": true,
             "enforceBuildableLibDependency": true,
             "allow": [],
             "depConstraints": [

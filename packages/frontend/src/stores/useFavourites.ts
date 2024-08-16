@@ -1,9 +1,10 @@
 import { create } from 'zustand';
+
 import type { TFavourites } from '@types';
 
 interface FavouritesState {
-  favourites: TFavourites["favourites"];
-  setFavourites: (favourites: TFavourites["favourites"]) => void;
+  favourites: TFavourites['favourites'];
+  setFavourites: (favourites: TFavourites['favourites']) => void;
 }
 
 const useFavourites = create<FavouritesState>((set) => ({

@@ -1,21 +1,21 @@
 'use client';
 
-import UpdateLocationForm from '@front/components/updateLocationForm/updateLocationForm';
-import useCreateLocations from '@front/stores/useCreateLocations';
-
-import { MGallery } from '@location-tips/location-tips-uikit/atoms/MGallery';
 import { APIProvider } from '@vis.gl/react-google-maps';
-
-import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
-import { MdiChevronRight } from '@front/icons/MdiChevronRight';
 import { createPortal } from 'react-dom';
 import { useEffect, useRef, useState } from 'react';
-import LocationsBullets from '@front/components/locationsBullets/locationsBullets';
 
-import styles from './updateLocations.module.css';
-import './updateLocations.vars.css';
+import { MGallery } from '@location-tips/location-tips-uikit/atoms/MGallery';
 import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
+
+import UpdateLocationForm from '@front/components/updateLocationForm/updateLocationForm';
+import useCreateLocations from '@front/stores/useCreateLocations';
+import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
+import { MdiChevronRight } from '@front/icons/MdiChevronRight';
+import LocationsBullets from '@front/components/locationsBullets/locationsBullets';
+
+import './updateLocations.vars.css';
+import styles from './updateLocations.module.css';
 
 type UpdateLocationsProps = {
   mapId: string;
@@ -52,7 +52,7 @@ const UpdateLocations = ({ mapId, apiKey }: UpdateLocationsProps) => {
             prevButton={<MdiChevronLeft width={64} height={64} />}
             className={styles.galleryWrapper}
             slides={createLocaton.locations.map((location) => (
-              <APIProvider apiKey={apiKey}>
+              <APIProvider key="apiprovider" apiKey={apiKey}>
                 <UpdateLocationForm location={location} mapId={mapId} />
               </APIProvider>
             ))}
@@ -69,7 +69,7 @@ const UpdateLocations = ({ mapId, apiKey }: UpdateLocationsProps) => {
                   currentSlide={currentSlide ?? 0}
                   onChoseSlide={(index) => setCurrentSlide(index)}
                 />,
-                galleryPortalRef.current
+                galleryPortalRef.current,
               )}
           </>
         </>
