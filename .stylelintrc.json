@@ -6,11 +6,13 @@
   ],
   "plugins": ["stylelint-order"],
   "rules": {
+    "no-unknown-custom-properties": true,
     "selector-class-pattern": [
-      "^[a-z]+([a-zA-Z0-9]+)?$",
+      "^([a-z]+([a-zA-Z0-9]+)?|.+-(appear|enter|exit)(-active|-done)?)$",
       {
-        "message": "Class selector name must be single word or camelCase"
+        "message": "Class selector name must be single word, camelCase, or match React transition class patterns"
       }
-    ]
+    ],
+    "custom-property-pattern": null
   }
 }
