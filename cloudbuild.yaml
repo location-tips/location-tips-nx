@@ -8,17 +8,64 @@ substitutions:
   _IMAGE: gcr.io/cloud-builders/docker
 
 steps:
-- name: $_BASE_IMAGE
-  args: ['build', '--build-arg', 'PERSONAL_ACCESS_TOKEN=$$PERSONAL_ACCESS_TOKEN', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}', '-f', '.Dockerfile', '.', '--progress', 'plain']
-  secretEnv: ['PERSONAL_ACCESS_TOKEN']
-- name: $_BASE_IMAGE
-  args: ['build', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}', '-f', '.Dockerfile-be', '.', '--progress', 'plain']
-- name: $_BASE_IMAGE
-  args: ['build', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE}', '-f', '.Dockerfile-fe', '.', '--progress', 'plain']
-- name: $_BASE_IMAGE
-  args: ['push', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}']
-- name: $_BASE_IMAGE
-  args: ['push', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE}']
+  - name: $_BASE_IMAGE
+    secretEnv: ['PERSONAL_ACCESS_TOKEN']
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        echo "Personal Access Token: $PERSONAL_ACCESS_TOKEN"
+  - name: $_BASE_IMAGE
+    args:
+      [
+        'build',
+        '--build-arg',
+        'PERSONAL_ACCESS_TOKEN=$$PERSONAL_ACCESS_TOKEN',
+        '-t',
+        '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}',
+        '-f',
+        '.Dockerfile',
+        '.',
+        '--progress',
+        'plain',
+      ]
+    secretEnv: ['PERSONAL_ACCESS_TOKEN']
+  - name: $_BASE_IMAGE
+    args:
+      [
+        'build',
+        '-t',
+        '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}',
+        '-f',
+        '.Dockerfile-be',
+        '.',
+        '--progress',
+        'plain',
+      ]
+  - name: $_BASE_IMAGE
+    args:
+      [
+        'build',
+        '-t',
+        '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE}',
+        '-f',
+        '.Dockerfile-fe',
+        '.',
+        '--progress',
+        'plain',
+      ]
+  - name: $_BASE_IMAGE
+    args:
+      [
+        'push',
+        '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}',
+      ]
+  - name: $_BASE_IMAGE
+    args:
+      [
+        'push',
+        '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE}',
+      ]
 options:
   logging: CLOUD_LOGGING_ONLY
 
@@ -28,5 +75,5 @@ images:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/1038437023281/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
-    env: 'PERSONAL_ACCESS_TOKEN'
+    - versionName: projects/1038437023281/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
+      env: 'PERSONAL_ACCESS_TOKEN'
