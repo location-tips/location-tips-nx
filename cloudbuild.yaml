@@ -16,6 +16,7 @@ steps:
       - |
         echo "Personal Access Token: $$PERSONAL_ACCESS_TOKEN"
   - name: $_BASE_IMAGE
+    secretEnv: ['PERSONAL_ACCESS_TOKEN']
     args:
       [
         'build',
@@ -29,7 +30,6 @@ steps:
         '--progress',
         'plain',
       ]
-    secretEnv: ['PERSONAL_ACCESS_TOKEN']
   - name: $_BASE_IMAGE
     args:
       [
