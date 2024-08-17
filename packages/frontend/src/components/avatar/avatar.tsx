@@ -4,15 +4,15 @@ import clsx from 'clsx';
 
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
-import './avatar.vars.css';
-import styles from './avatar.module.css';
+import './Avatar.vars.css';
+import styles from './Avatar.module.css';
 
 type AvatarProps = {
   src: string;
   alt: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const Avatar = ({ src, alt, className, ...restProps }: AvatarProps) => {
+export const Avatar = ({ src, alt, className, ...restProps }: AvatarProps) => {
   return (
     <MFlex
       align="center"

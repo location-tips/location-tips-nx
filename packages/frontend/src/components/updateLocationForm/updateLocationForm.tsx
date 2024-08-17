@@ -23,13 +23,13 @@ import { updateLocation } from '@front/actions/updateLocation';
 import { convertCoordinates } from '@front/utils/mapUtils';
 import { MdiMapMarkerOutline } from '@front/icons/MdiMapMarkerOutline';
 import { PhDotDuotone } from '@front/icons/PhDotDuotone';
-import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
-import FormStatus from '@front/components/formStatus/formStatus';
-import MapGeosearchAutocomplete from '@front/components/mapGeosearchAutocomplete/mapGeosearchAutocomplete';
-import LocationMarker from '@front/components/locationMarker/locationMarker';
+import { AuthorizedForm } from '@front/components/AuthorizedForm';
+import { FormStatus } from '@front/components/FormStatus';
+import { MapGeosearchAutocomplete } from '@front/components/MapGeosearchAutocomplete';
+import { LocationMarker } from '@front/components/LocationMarker';
 
-import './updateLocationForm.vars.css';
-import styles from './updateLocationForm.module.css';
+import './UpdateLocationForm.vars.css';
+import styles from './UpdateLocationForm.module.css';
 
 import type { TLocationsWithImages } from '@types';
 
@@ -38,7 +38,7 @@ type UpdateLocationFormProps = {
   mapId: string;
 };
 
-const UpdateLocationForm = ({
+export const UpdateLocationForm = ({
   location: initialLocation,
   mapId,
 }: UpdateLocationFormProps) => {

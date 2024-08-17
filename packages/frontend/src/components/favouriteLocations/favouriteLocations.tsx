@@ -4,7 +4,7 @@ import { getAuth } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { TLocationInResult } from '@types';
 
-import LocationsList from '@front/components/locationsList/locationsList';
+import { LocationsList } from '@front/components/LocationsList';
 
 type FavouriteLocationsProps = {
   apiKey: string;
@@ -34,7 +34,10 @@ const getLocations = async (): Promise<TLocationInResult[]> => {
   }
 };
 
-const FavouriteLocations = ({ apiKey, mapId }: FavouriteLocationsProps) => {
+export const FavouriteLocations = ({
+  apiKey,
+  mapId,
+}: FavouriteLocationsProps) => {
   const [locations, setLocations] = useState<TLocationInResult[]>([]);
 
   useEffect(() => {

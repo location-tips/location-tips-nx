@@ -3,7 +3,7 @@ import { Marker } from '@vis.gl/react-google-maps';
 
 import type { TLocationEntity } from '@types';
 // import { PhDotDuotone } from "@front/icons/PhDotDuotone";
-// import styles from "./locationMarker.module.css";
+// import styles from "./LocationMarker.module.css";
 
 type LocationMarkerProps = {
   location: Omit<TLocationEntity, 'embedding_field'>;
@@ -12,7 +12,7 @@ type LocationMarkerProps = {
   onDragEnd?: (event: google.maps.MapMouseEvent) => void;
 };
 
-const LocationMarker = ({
+export const LocationMarker = ({
   location,
   draggable,
   onClick,

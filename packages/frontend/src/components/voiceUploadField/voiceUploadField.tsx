@@ -11,7 +11,7 @@ interface VoiceUploadFieldProps {
   name: string;
 }
 
-const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
+export const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
   name = 'voice',
 }) => {
   const [recording, setRecording] = useState(false);

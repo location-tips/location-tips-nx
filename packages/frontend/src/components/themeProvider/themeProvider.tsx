@@ -6,7 +6,7 @@ import { MTheme } from '@location-tips/location-tips-uikit/atoms/MTheme';
 import { detectPlatform } from '@front/utils/detectPlatform';
 import usePlatform from '@front/stores/usePlatform';
 
-const ThemeProvider = () => {
+export const ThemeProvider = () => {
   const { platform, setPlatform } = usePlatform();
 
   useEffect(() => {

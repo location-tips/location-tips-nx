@@ -6,7 +6,7 @@ type SearchButtonProps = {
   onClick?: () => void;
 };
 
-const SearchButton = ({ onClick }: SearchButtonProps) => {
+export const SearchButton = ({ onClick }: SearchButtonProps) => {
   const { pending } = useFormStatus();
 
   return (

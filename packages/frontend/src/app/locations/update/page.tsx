@@ -5,8 +5,8 @@ import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 
-import Page from '@front/components/page/page';
-import UpdateLocations from '@front/components/updateLocations/updateLocations';
+import { Page } from '@front/components/Page';
+import { UpdateLocations } from '@front/components/UpdateLocations';
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
 
 import './page.vars.css';

@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import { redirect } from 'next/navigation';
 
-import DropFiles from '@front/components/dropFiles/dropFiles';
-import LocationsUploadProgress from '@front/components/locationsUploadProgress/locationsUploadProgress';
+import { DropFiles } from '@front/components/DropFiles';
+import { LocationsUploadProgress } from '@front/components/LocationsUploadProgress';
 import useCreateLocations from '@front/stores/useCreateLocations';
 import useModal from '@front/stores/useModal';
 
-const UploadLocationsImagesForm = () => {
+export const UploadLocationsImagesForm = () => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const createLocation = useCreateLocations();

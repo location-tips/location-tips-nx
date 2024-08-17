@@ -12,7 +12,7 @@ type TFormStatusProps = {
   className?: string;
 };
 
-const FormStatus = ({
+export const FormStatus = ({
   loadingText = 'Searching ...',
   iconWidth = 24,
   iconHeight = 24,

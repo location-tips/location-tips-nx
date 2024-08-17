@@ -3,7 +3,7 @@ import React from 'react';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 
-import Page from '@front/components/page/page';
+import { Page } from '@front/components/Page';
 
 import styles from './page.module.css';
 

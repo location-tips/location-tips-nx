@@ -4,10 +4,10 @@ import { PostLocationsResponse } from '@types';
 
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
-import SearchResult from '../searchResult/searchResult';
+import { SearchResult } from '../SearchResult';
 
-import './searchResults.vars.css';
-import styles from './searchResults.module.css';
+import './SearchResults.vars.css';
+import styles from './SearchResults.module.css';
 
 type SearchResultProps = {
   header: ReactNode;
@@ -16,7 +16,7 @@ type SearchResultProps = {
   apiKey: string;
 };
 
-const SearchResults = ({
+export const SearchResults = ({
   header,
   results,
   mapId,

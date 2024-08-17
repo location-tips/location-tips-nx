@@ -7,17 +7,17 @@ import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 
-import LoginForm from '@front/components/loginForm/loginForm';
-import LinkButton from '@front/components/linkButton/linkButton';
-import Logo from '@front/components/logo/logo';
+import { LoginForm } from '@front/components/LoginForm';
+import { LinkButton } from '@front/components/LinkButton';
+import { Logo } from '@front/components/Logo';
 import usePlatform from '@front/stores/usePlatform';
 import { MdiHamburgerMenu } from '@front/icons/MdiHamburgerMenu';
-import NavMobile from '../navMobile/navMobile';
+import { NavMobile } from '../NavMobile';
 
-import './header.vars.css';
-import styles from './header.module.css';
+import './Header.vars.css';
+import styles from './Header.module.css';
 
-const Header = () => {
+export const Header = () => {
   const platform = usePlatform((state) => state.platform);
   const [isNavBarOpen, setIsNavBarOpen] = useState(false);
   const toggleNavbar = () => {

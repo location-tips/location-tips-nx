@@ -1,14 +1,14 @@
 import clsx from 'clsx';
 import { ProgressStatus } from '@types';
 
-import Avatar from '@front/components/avatar/avatar';
-import ZStack from '@front/components/zStack/zStack';
+import { Avatar } from '@front/components/Avatar';
+import { ZStack } from '@front/components/ZStack';
 import { MdiCheckBold } from '@front/icons/MdiCheckBold';
 import { MdiLoadingLoop } from '@front/icons/MdiLoadingLoop';
 import { MdiClose } from '@front/icons/MdiClose';
 
-import './imageUploadProgress.vars.css';
-import styles from './imageUploadProgress.module.css';
+import './ImageUploadProgress.vars.css';
+import styles from './ImageUploadProgress.module.css';
 
 type ImageUploadProgressProps = {
   image: string;
@@ -16,7 +16,7 @@ type ImageUploadProgressProps = {
   status: ProgressStatus;
 };
 
-const ImageUploadProgress = ({
+export const ImageUploadProgress = ({
   image,
   progress,
   status,

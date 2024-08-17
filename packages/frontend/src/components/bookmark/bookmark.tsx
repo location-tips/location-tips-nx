@@ -9,7 +9,7 @@ import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
 import { addToFavourites } from '@front/actions/addToFavourites';
 import { removeFromFavourites } from '@front/actions/removeFromFavourites';
-import AuthorizedForm from '@front/components/authorizedForm/authorizedForm';
+import { AuthorizedForm } from '@front/components/AuthorizedForm';
 import { MdiBookmark } from '@front/icons/MdiBookmark';
 import { MdiBookmarkOutline } from '@front/icons/MdiBookmarkOutline';
 import useFavourites from '@front/stores/useFavourites';
@@ -24,7 +24,7 @@ const initialState = {
   favourites: [],
 };
 
-const Bookmark = ({ className, id, label }: BookmarkProps) => {
+export const Bookmark = ({ className, id, label }: BookmarkProps) => {
   const favouritesStore = useFavourites();
 
   const isBookmarked = favouritesStore.favourites.includes(id);

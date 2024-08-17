@@ -6,14 +6,14 @@ import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 
-import './locationsListItem.vars.css';
-import styles from './locationsListItem.module.css';
+import './LocationsListItem.vars.css';
+import styles from './LocationsListItem.module.css';
 
 type LocationsListItemProps = {
   item: TLocationInResult;
 };
 
-const LocationsListItem = ({ item }: LocationsListItemProps) => {
+export const LocationsListItem = ({ item }: LocationsListItemProps) => {
   return (
     <MCard
       header={

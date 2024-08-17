@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react';
 
-import styles from './zStack.module.css';
+import styles from './ZStack.module.css';
 
-const ZStack = ({ children }: PropsWithChildren) => {
+export const ZStack = ({ children }: PropsWithChildren) => {
   return <div className={styles.zstack}>{children}</div>;
 };
 

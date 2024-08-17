@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from './logo.module.css';
 
-const Logo = () => {
+export const Logo = () => {
   return (
     <Link href="/" className={styles.logo}>
       <svg

@@ -6,15 +6,15 @@ import clsx from 'clsx';
 import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
-import Avatar from '@front/components/avatar/avatar';
-import UserMenu from '@front/components/userMenu/userMenu';
+import { Avatar } from '@front/components/Avatar';
+import { UserMenu } from '@front/components/UserMenu';
 
-import './profileButton.vars.css';
-import styles from './profileButton.module.css';
+import './ProfileButton.vars.css';
+import styles from './ProfileButton.module.css';
 
 const auth = getAuth();
 
-const ProfileButton = () => {
+export const ProfileButton = () => {
   const [open, setOpen] = useState(false);
 
   return (

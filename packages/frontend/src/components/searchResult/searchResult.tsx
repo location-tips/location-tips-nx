@@ -14,14 +14,14 @@ import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
 import { MdiStarOutline } from '@front/icons/MdiStarOutline';
 import { MdiChevronRight } from '@front/icons/MdiChevronRight';
 import useModal, { MODALS } from '@front/stores/useModal';
-import LocationModalHeader from '@front/components/locationModal/locationModalHeader/locationModalHeader';
-import LocationModalContent from '@front/components/locationModal/locationModalContent/locationModalContent';
+import { LocationModalHeader } from '@front/components/LocationModal/LocationModalHeader';
+import { LocationContent } from '@front/components/LocationContent';
 import renderLocationSlides from '@front/utils/renderLocationSlides';
-import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
-import Bookmark from '../bookmark/bookmark';
+import { AuthorizedSection } from '@front/components/AuthorizedSection';
+import { Bookmark } from '../Bookmark';
 
-import './searchResult.vars.css';
-import styles from './searchResult.module.css';
+import './SearchResult.vars.css';
+import styles from './SearchResult.module.css';
 
 type SearchResultProps = {
   result: TLocationInResult;
@@ -29,7 +29,7 @@ type SearchResultProps = {
   apiKey: string;
 };
 
-const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
+export const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
   const modals = useModal();
 
   const showLocation = (event: MouseEvent) => {
@@ -42,7 +42,7 @@ const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
         location={result}
         onClose={() => modals.hideModal()}
       />,
-      <LocationModalContent location={result} mapId={mapId} apiKey={apiKey} />,
+      <LocationContent location={result} mapId={mapId} apiKey={apiKey} />,
       null,
     );
 

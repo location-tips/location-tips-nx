@@ -5,17 +5,17 @@ import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 
 import { MdiClose } from '@front/icons/MdiClose';
-import LinkButton from '@front/components/linkButton/linkButton';
+import { LinkButton } from '@front/components/LinkButton';
 
-import './navMobile.vars.css';
-import styles from './navMobile.module.css';
+import './NavMobile.vars.css';
+import styles from './NavMobile.module.css';
 
 type NavMobileProps = {
   open: boolean;
   onClose: () => void;
 };
 
-const NavMobile = ({ open, onClose }: NavMobileProps) => {
+export const NavMobile = ({ open, onClose }: NavMobileProps) => {
   return (
     <>
       {open && <div className={styles.overlay} onClick={onClose} />}

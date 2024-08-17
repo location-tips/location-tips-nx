@@ -16,7 +16,7 @@ type AuthorizedFormProps = DetailedHTMLProps<
   HTMLFormElement
 >;
 
-const AuthorizedForm = forwardRef<HTMLFormElement, AuthorizedFormProps>(
+export const AuthorizedForm = forwardRef<HTMLFormElement, AuthorizedFormProps>(
   ({ children, ...restProps }: AuthorizedFormProps, ref) => {
     const [token, setToken] = useState<string | null>(null);
 
