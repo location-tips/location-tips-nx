@@ -5,6 +5,7 @@ FROM node:20-alpine AS base
 WORKDIR /usr/src/app
 
 ARG PERSONAL_ACCESS_TOKEN
+ENV PERSONAL_ACCESS_TOKEN=${PERSONAL_ACCESS_TOKEN}
 
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
@@ -14,10 +15,7 @@ COPY . .
 
 # Install app dependencies
 RUN echo "PERSONAL_ACCESS_TOKEN:" && \
-echo $PERSONAL_ACCESS_TOKEN \
-echo "PERSONAL_ACCESS_TOKEN2" \
-echo PERSONAL_ACCESS_TOKEN
+echo $PERSONAL_ACCESS_TOKEN
 
-RUN export PERSONAL_ACCESS_TOKEN=$PERSONAL_ACCESS_TOKEN && \
-npm install -g nx && \
+RUN npm install -g nx && \
 npm install --no-package-lock
