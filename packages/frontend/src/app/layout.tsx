@@ -1,8 +1,8 @@
 import '@location-tips/location-tips-uikit/styles/index.css';
 
-import Header from '@front/components/Header/Header';
-import ThemeProvider from '@front/components/ThemeProvider/ThemeProvider';
-import Modal from '@front/components/Modal/Modal';
+import { Header } from '@front/components/Header';
+import { ThemeProvider } from '@front/components/ThemeProvider';
+import { Modal } from '@front/components/Modal';
 
 import './global.css';
 

@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { create } from 'zustand';
 
 import ModalHeader from '@front/components/Modal/ModalHeader';
-import UploadLocationsImagesForm from '@front/components/UploadLocationsImagesForm/UploadLocationsImagesForm';
+import { UploadLocationsImagesForm } from '@front/components/UploadLocationsImagesForm';
 
 export enum MODALS {
   ADD_LOCATION = 'ADD_LOCATION',

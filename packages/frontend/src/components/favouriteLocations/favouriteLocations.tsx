@@ -13,7 +13,7 @@ type FavouriteLocationsProps = {
 
 const auth = getAuth();
 
-export const getLocations = async (): Promise<TLocationInResult[]> => {
+const getLocations = async (): Promise<TLocationInResult[]> => {
   const token = await auth.currentUser?.getIdToken();
 
   try {
@@ -34,7 +34,10 @@ export const getLocations = async (): Promise<TLocationInResult[]> => {
   }
 };
 
-const FavouriteLocations = ({ apiKey, mapId }: FavouriteLocationsProps) => {
+export const FavouriteLocations = ({
+  apiKey,
+  mapId,
+}: FavouriteLocationsProps) => {
   const [locations, setLocations] = useState<TLocationInResult[]>([]);
 
   useEffect(() => {
