@@ -14,7 +14,7 @@ steps:
     args:
       - -c
       - |
-        echo "Personal Access Token: $PERSONAL_ACCESS_TOKEN"
+        echo "Personal Access Token: $$PERSONAL_ACCESS_TOKEN"
   - name: $_BASE_IMAGE
     args:
       [
@@ -75,5 +75,5 @@ images:
 
 availableSecrets:
   secretManager:
-    - versionName: projects/1038437023281/secrets/PERSONAL_ACCESS_TOKEN/versions/latest
+    - versionName: projects/1038437023281/secrets/PERSONAL_ACCESS_TOKEN/versions/2
       env: 'PERSONAL_ACCESS_TOKEN'
