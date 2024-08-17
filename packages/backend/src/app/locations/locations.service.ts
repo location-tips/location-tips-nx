@@ -60,6 +60,11 @@ export class LocationsService {
 
   async getLocationsByIds(ids: string[]): Promise<TLocationEntity[]> {
     const mapResult = new Map<string, TLocationEntity>();
+
+    if (!ids.length) {
+      return [];
+    }
+
     const db = admin.firestore();
     const locations = await db
       .collection(COLLECTIONS.LOCATIONS)
@@ -70,8 +75,6 @@ export class LocationsService {
 
     locations.docs.forEach((doc) => {
       const res = doc.data() as TLocationEntity;
-
-      console.log('doc.id', doc.id);
 
       mapResult.set(doc.id, { ...res, id: doc.id });
     });

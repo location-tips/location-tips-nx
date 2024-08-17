@@ -105,8 +105,6 @@ export const geminiDescribeSearchQuery = async (
   const response = await result.response;
   const text = response.text();
 
-  console.log('response', text);
-
   try {
     return JSON.parse(text);
   } catch (error) {
