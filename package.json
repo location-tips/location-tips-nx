@@ -88,7 +88,7 @@
     "@uidotdev/usehooks": "^2.4.1",
     "@vis.gl/react-google-maps": "^1.1.0",
     "@wavesurfer/react": "^1.0.7",
-    "axios": "^1.6.0",
+    "axios": "^1.7.4",
     "exifreader": "4.23.3",
     "firebase": "10.12.2",
     "firebase-admin": "12.2.0",
