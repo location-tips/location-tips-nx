@@ -1,32 +1,33 @@
 # Define substitutions (optional)
 substitutions:
   # Replace with the tag of your base image
-  _BASE_IMAGE: gcr.io/cloud-builders/docker
   _LOCATION: us-central1
+  _BASE_REPOSITORY: location-tips-base
   _BACK_REPOSITORY: location-tips-back
   _FRONT_REPOSITORY: location-tips-front
   _IMAGE: gcr.io/cloud-builders/docker
 
 steps:
-  - name: $_BASE_IMAGE
-    secretEnv: ['PERSONAL_ACCESS_TOKEN']
-    entrypoint: bash
-    args:
-      - -c
-      - |
-        echo "Personal Access Token: $$PERSONAL_ACCESS_TOKEN"
-  - name: $_BASE_IMAGE
+  - name: $_BASE_REPOSITORY
     secretEnv: ['PERSONAL_ACCESS_TOKEN']
     entrypoint: 'bash'
     args:
       [
         '-c',
-        'docker build --build-arg NPM_AUTH_TOKEN=$$PERSONAL_ACCESS_TOKEN -t ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE} -f .Dockerfile . --progress plain',
+        'docker build --build-arg NPM_AUTH_TOKEN=$$PERSONAL_ACCESS_TOKEN -t ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BASE_REPOSITORY}/${_IMAGE} -f .Dockerfile . --progress plain',
       ]
-  - name: $_BASE_IMAGE
+  - name: $_BASE_REPOSITORY
+    args:
+      [
+        'push',
+        '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BASE_REPOSITORY}/${_IMAGE}',
+      ]
+  - name: $_BACK_REPOSITORY
     args:
       [
         'build',
+        '--build-arg',
+        'IMG_FROM=${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BASE_REPOSITORY}/${_IMAGE}',
         '-t',
         '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}',
         '-f',
@@ -35,10 +36,18 @@ steps:
         '--progress',
         'plain',
       ]
-  - name: $_BASE_IMAGE
+  - name: $_BACK_REPOSITORY
+    args:
+      [
+        'push',
+        '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}',
+      ]
+  - name: $_FRONT_REPOSITORY
     args:
       [
         'build',
+        '--build-arg',
+        'IMG_FROM=${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BASE_REPOSITORY}/${_IMAGE}',
         '-t',
         '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE}',
         '-f',
@@ -47,13 +56,7 @@ steps:
         '--progress',
         'plain',
       ]
-  - name: $_BASE_IMAGE
-    args:
-      [
-        'push',
-        '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}',
-      ]
-  - name: $_BASE_IMAGE
+  - name: $_FRONT_REPOSITORY
     args:
       [
         'push',
@@ -63,6 +66,7 @@ options:
   logging: CLOUD_LOGGING_ONLY
 
 images:
+  - '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BASE_REPOSITORY}/${_IMAGE}'
   - '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}'
   - '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE}'
 

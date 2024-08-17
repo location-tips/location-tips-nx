@@ -7,8 +7,6 @@ WORKDIR /usr/src/app
 ARG NPM_AUTH_TOKEN
 ENV PERSONAL_ACCESS_TOKEN=${NPM_AUTH_TOKEN}
 
-RUN echo PERSONAL_ACCESS_TOKEN: $PERSONAL_ACCESS_TOKEN
-
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
 

@@ -1,5 +1,7 @@
+ARG IMG_FROM
+
 # Base image
-FROM base AS dependencies
+FROM ${IMG_FROM} AS dependencies
 
 # Create app directory
 WORKDIR /usr/src/app
