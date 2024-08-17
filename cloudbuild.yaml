@@ -21,16 +21,7 @@ steps:
     args:
       [
         '-c',
-        'docker build',
-        '--build-arg',
-        'NPM_AUTH_TOKEN=$$PERSONAL_ACCESS_TOKEN',
-        '-t',
-        '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}',
-        '-f',
-        '.Dockerfile',
-        '.',
-        '--progress',
-        'plain',
+        'docker build --build-arg NPM_AUTH_TOKEN=$$PERSONAL_ACCESS_TOKEN -t ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE} -f .Dockerfile . --progress plain',
       ]
   - name: $_BASE_IMAGE
     args:
