@@ -134,7 +134,7 @@ export const UpdateLocationForm = ({
         `form-status-portal-${location.id}`,
       ) as HTMLElement;
     }, 1000);
-  });
+  }, [location.id]);
 
   useEffect(() => {
     updateState?.id &&
