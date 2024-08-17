@@ -14,11 +14,11 @@
     "build:back": "nx run backend:build",
     "reset": "nx reset",
     "build": "npm run build:front && npm run build:back",
-    "precommit": "prettier --write --ignore-unknown && nx run frontend:lint && nx run backend:lint",
+    "lint": "nx run frontend:lint && nx run backend:lint",
     "prepare": "husky"
   },
   "lint-staged": {
-    "**/*": "npm run precommit"
+    "**/*": "prettier --write --ignore-unknown"
   },
   "private": true,
   "devDependencies": {
