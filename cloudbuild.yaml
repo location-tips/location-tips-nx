@@ -20,7 +20,7 @@ steps:
       [
         'build',
         '--build-arg',
-        'PERSONAL_ACCESS_TOKEN=$$PERSONAL_ACCESS_TOKEN',
+        'NPM_AUTH_TOKEN=$$PERSONAL_ACCESS_TOKEN',
         '-t',
         '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}',
         '-f',
