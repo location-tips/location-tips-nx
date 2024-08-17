@@ -31,7 +31,10 @@ const useCreateLocations = create<CreateLocationsState>((set) => ({
         l.id === location.id ? location : l,
       ),
     })),
-  reset: () => set({ locations: [], pending: 0, failed: 0 }),
+  reset: () => {
+    console.trace('locations reset');
+    set({ locations: [], pending: 0, failed: 0 });
+  },
 }));
 
 export default useCreateLocations;

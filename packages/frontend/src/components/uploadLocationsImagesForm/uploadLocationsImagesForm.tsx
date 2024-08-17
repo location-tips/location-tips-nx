@@ -9,7 +9,12 @@ import useModal from '@front/stores/useModal';
 export const UploadLocationsImagesForm = () => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
-  const createLocation = useCreateLocations();
+  const {
+    reset: resetLocations,
+    locations,
+    failed,
+    pending,
+  } = useCreateLocations();
   const { hideModal } = useModal();
 
   const onFilesSelected = useCallback((files: File[]) => {
@@ -17,25 +22,16 @@ export const UploadLocationsImagesForm = () => {
   }, []);
 
   useEffect(() => {
-    createLocation.reset();
-  });
+    resetLocations();
+  }, [resetLocations]);
 
   useEffect(() => {
-    if (
-      createLocation.locations.length > 0 &&
-      createLocation.locations.length + createLocation.failed ===
-        createLocation.pending
-    ) {
+    if (locations.length > 0 && locations.length + failed === pending) {
       hideModal(() => {
         redirect('/locations/update');
       });
     }
-  }, [
-    createLocation.locations,
-    createLocation.pending,
-    createLocation.failed,
-    hideModal,
-  ]);
+  }, [locations, pending, failed, hideModal]);
 
   return (
     <>
