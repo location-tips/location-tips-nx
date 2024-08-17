@@ -44,18 +44,22 @@ steps:
         '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BACK_REPOSITORY}/${_IMAGE}',
       ]
   - name: $_BASE_IMAGE
+    secretEnv:
+      [
+        'GOOGLE_MAPS_API_KEY',
+        'GOOGLE_MAPS_ID',
+        'DOMAIN',
+        'FIREBASE_API_KEY',
+        'FIREBASE_AUTH_DOMAIN',
+        'FIREBASE_PROJECT_ID',
+        'FIREBASE_STORAGE_BUCKET',
+        'FIREBASE_MESSAGING_SENDER_ID',
+        'FIREBASE_APP_ID',
+      ]
     args:
       [
-        'build',
-        '--build-arg',
-        'IMG_FROM=${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BASE_REPOSITORY}/${_IMAGE}',
-        '-t',
-        '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE}',
-        '-f',
-        '.Dockerfile-fe',
-        '.',
-        '--progress',
-        'plain',
+        '-c',
+        'docker build --build-arg IMG_FROM=${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_BASE_REPOSITORY}/${_IMAGE} GOOGLE_MAPS_API_KEY=$$GOOGLE_MAPS_API_KEY GOOGLE_MAPS_ID=$$GOOGLE_MAPS_ID DOMAIN=$$DOMAIN FIREBASE_API_KEY=$$FIREBASE_API_KEY FIREBASE_AUTH_DOMAIN=$$FIREBASE_AUTH_DOMAIN FIREBASE_PROJECT_ID=$$FIREBASE_PROJECT_ID FIREBASE_STORAGE_BUCKET=$$FIREBASE_STORAGE_BUCKET FIREBASE_MESSAGING_SENDER_ID=$$FIREBASE_MESSAGING_SENDER_ID FIREBASE_APP_ID=$$FIREBASE_APP_ID -t ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_FRONT_REPOSITORY}/${_IMAGE} -f .Dockerfile-fe . --progress plain',
       ]
   - name: $_BASE_IMAGE
     args:
@@ -75,3 +79,21 @@ availableSecrets:
   secretManager:
     - versionName: projects/1038437023281/secrets/PERSONAL_ACCESS_TOKEN/versions/2
       env: 'PERSONAL_ACCESS_TOKEN'
+    - versionName: projects/1038437023281/secrets/GOOGLE_MAPS_API_KEY/versions/1
+      env: 'GOOGLE_MAPS_API_KEY'
+    - versionName: projects/1038437023281/secrets/GOOGLE_MAPS_ID/versions/1
+      env: 'GOOGLE_MAPS_ID'
+    - versionName: projects/1038437023281/secrets/DOMAIN/versions/1
+      env: 'DOMAIN'
+    - versionName: projects/1038437023281/secrets/FIREBASE_API_KEY/versions/1
+      env: 'FIREBASE_API_KEY'
+    - versionName: projects/1038437023281/secrets/FIREBASE_AUTH_DOMAIN/versions/1
+      env: 'FIREBASE_AUTH_DOMAIN'
+    - versionName: projects/1038437023281/secrets/FIREBASE_PROJECT_ID/versions/1
+      env: 'FIREBASE_PROJECT_ID'
+    - versionName: projects/1038437023281/secrets/FIREBASE_STORAGE_BUCKET/versions/1
+      env: 'FIREBASE_STORAGE_BUCKET'
+    - versionName: projects/1038437023281/secrets/FIREBASE_MESSAGING_SENDER_ID/versions/1
+      env: 'FIREBASE_MESSAGING_SENDER_ID'
+    - versionName: projects/1038437023281/secrets/FIREBASE_APP_ID/versions/1
+      env: 'FIREBASE_APP_ID'
