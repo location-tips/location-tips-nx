@@ -9,7 +9,7 @@ const auth = getAuth();
 
 type AuthorizedSectionProps = PropsWithChildren;
 
-const AuthorizedSection = ({ children }: AuthorizedSectionProps) => {
+export const AuthorizedSection = ({ children }: AuthorizedSectionProps) => {
   const [currentUser, setCurrentUser] = useState<User | null>(auth.currentUser);
 
   useEffect(() => {

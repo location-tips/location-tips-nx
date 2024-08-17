@@ -3,8 +3,8 @@ import { GoogleMapsContext } from '@vis.gl/react-google-maps';
 import { useGeolocation } from '@uidotdev/usehooks';
 
 import { getRadiusZoomLevel } from '@front/utils/mapUtils';
-import { Circle } from '@front/components/circle/circle';
-import LocationMarker from '@front/components/locationMarker/locationMarker';
+import { Circle } from '@front/components/Circle/Circle';
+import { LocationMarker } from '@front/components/LocationMarker';
 
 import type { TLocationSearchDescription, TLocationsWithScore } from '@types';
 

@@ -3,10 +3,10 @@ import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import useModal, { MODALS } from '@front/stores/useModal';
 import { MdiAdd } from '@front/icons/MdiAdd';
 
-import './addLocationButton.vars.css';
-import styles from './addLocationButton.module.css';
+import './AddLocationButton.vars.css';
+import styles from './AddLocationButton.module.css';
 
-const AddLocationButton = () => {
+export const AddLocationButton = () => {
   const modalStore = useModal();
 
   const onAddLocationButtonClick = () => {

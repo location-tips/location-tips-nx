@@ -3,7 +3,7 @@
 import { Map } from '@vis.gl/react-google-maps';
 import React from 'react';
 
-import SearchMapElements from '@front/components/searchMap/searchMapElements';
+import SearchMapElements from '@front/components/SearchMap/SearchMapElements';
 
 import type { TLocationSearchDescription, TLocationsWithScore } from '@types';
 
@@ -13,7 +13,7 @@ type SearchMapProps = {
   mapId: string;
 };
 
-const SearchMap = ({
+export const SearchMap = ({
   queryDescription,
   searchResult,
   mapId,

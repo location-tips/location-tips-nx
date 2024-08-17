@@ -11,18 +11,18 @@ import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 
 import { t } from '@front/utils/translate';
 import { searchLocation } from '@front/actions/searchLocation';
-import FormStatus from '@front/components/formStatus/formStatus';
-import SearchMap from '@front/components/searchMap/searchMap';
-import ImageUploadField from '@front/components/imageUploadField/imageUploadField';
-import VoiceUploadField from '@front/components/voiceUploadField/voiceUploadField';
-import SearchSkeleton from '@front/components/searchSkeleton/searchSkeleton';
-import SearchResults from '@front/components/searchResults/searchResults';
-import SearchButton from '@front/components/searchButton/searchButton';
+import { FormStatus } from '@front/components/FormStatus';
+import { SearchMap } from '@front/components/SearchMap';
+import { ImageUploadField } from '@front/components/ImageUploadField';
+import { VoiceUploadField } from '@front/components/VoiceUploadField';
+import { SearchSkeleton } from '@front/components/SearchSkeleton';
+import { SearchResults } from '@front/components/SearchResults';
+import { SearchButton } from '@front/components/SearchButton';
 import { mockupLocations } from '@front/actions/mockupLocation';
 import useSearchResultsLoading from '@front/stores/useSearchResultsLoading';
 
-import './searchLocation.vars.css';
-import styles from './searchLocation.module.css';
+import './SearchLocation.vars.css';
+import styles from './SearchLocation.module.css';
 
 import type { PostLocationsResponse } from '@types';
 
@@ -35,7 +35,7 @@ type SearchLocationProps = {
   mapId: string;
 };
 
-const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
+export const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   const { isLoading, setIsLoading } = useSearchResultsLoading();
   const [popularPlaces, setPopularPlaces] = useState<SearchState>();
   const skeletonHeader = 'Loading...';

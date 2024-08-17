@@ -10,7 +10,7 @@ type ShareButtonProps = {
   label?: ReactNode;
 };
 
-const ShareButton = ({ url, label }: ShareButtonProps) => {
+export const ShareButton = ({ url, label }: ShareButtonProps) => {
   const onShare = () => {
     if (navigator.share && navigator.canShare({ url })) {
       navigator.share({ url });

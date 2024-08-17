@@ -4,8 +4,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import axios, { type AxiosProgressEvent, type AxiosResponse } from 'axios';
 import { TLocationEntity, ProgressStatus, TLocationsWithImages } from '@types';
 
-import { imagePlaceholder } from '@front/components/locationUploadProgress/placeholderImage';
-import ImageUploadProgress from '@front/components/imageUploadProgress/imageUploadProgress';
+import { imagePlaceholder } from '@front/components/LocationUploadProgress/placeholderImage';
+import { ImageUploadProgress } from '@front/components/ImageUploadProgress';
 import useCreateLocations from '@front/stores/useCreateLocations';
 
 type LocationUploadProgressProps = {
@@ -13,7 +13,7 @@ type LocationUploadProgressProps = {
   token: string;
 };
 
-const LocationUploadProgress = ({
+export const LocationUploadProgress = ({
   file,
   token,
 }: LocationUploadProgressProps) => {

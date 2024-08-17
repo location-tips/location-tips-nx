@@ -2,11 +2,11 @@ import { TLocationsWithImages } from '@types';
 
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
-import Avatar from '@front/components/avatar/avatar';
-import ZStack from '@front/components/zStack/zStack';
+import { Avatar } from '@front/components/Avatar';
+import { ZStack } from '@front/components/ZStack';
 
-import './locationsBullets.vars.css';
-import styles from './locationsBullets.module.css';
+import './LocationsBullets.vars.css';
+import styles from './LocationsBullets.module.css';
 
 type LocationsBulletsProps = {
   currentSlide: number;
@@ -14,7 +14,7 @@ type LocationsBulletsProps = {
   onChoseSlide?: (index: number) => void;
 };
 
-const LocationsBullets = ({
+export const LocationsBullets = ({
   currentSlide,
   locations,
   onChoseSlide,

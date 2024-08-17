@@ -7,11 +7,11 @@ import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MList } from '@location-tips/location-tips-uikit/atoms/MList';
 
 import '@front/utils/configureFirebase';
-import LinkButton from '@front/components/linkButton/linkButton';
+import { LinkButton } from '@front/components/LinkButton';
 
 const auth = getAuth();
 
-const UserMenu = () => {
+export const UserMenu = () => {
   const signOut = () => {
     auth.signOut();
   };

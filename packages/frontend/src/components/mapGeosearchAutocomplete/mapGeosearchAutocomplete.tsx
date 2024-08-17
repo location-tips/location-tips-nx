@@ -5,7 +5,7 @@ import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
 import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
 import { MList } from '@location-tips/location-tips-uikit/atoms/MList';
 
-import styles from './mapGeosearchAutocomplete.module.css';
+import styles from './MapGeosearchAutocomplete.module.css';
 
 type MapGeosearchAutocompleteProps = {
   onPlaceSelect: (place: google.maps.places.PlaceResult | null) => void;

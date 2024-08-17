@@ -6,7 +6,7 @@ import { TLocationInResult } from '@types';
 
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
-import LocationsList from '@front/components/locationsList/locationsList';
+import { LocationsList } from '@front/components/LocationsList';
 import { MdiLoadingLoop } from '@front/icons/MdiLoadingLoop';
 
 type MyLocationsProps = {
@@ -37,7 +37,7 @@ const getLocations = async (): Promise<TLocationInResult[]> => {
   }
 };
 
-const MyLocations = ({ apiKey, mapId }: MyLocationsProps) => {
+export const MyLocations = ({ apiKey, mapId }: MyLocationsProps) => {
   const [locations, setLocations] = useState<TLocationInResult[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 

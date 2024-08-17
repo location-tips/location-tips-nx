@@ -14,14 +14,14 @@ import { MLabel } from '@location-tips/location-tips-uikit/atoms/MLabel';
 
 import { SystemUiconsPicture } from '@front/icons/SystemUiconsPicture';
 
-import './dropFiles.vars.css';
-import styles from './dropFiles.module.css';
+import './DropFiles.vars.css';
+import styles from './DropFiles.module.css';
 
 type DropFilesProps = {
   onFilesSelected: (files: File[]) => void;
 };
 
-const DropFiles = ({ onFilesSelected }: DropFilesProps) => {
+export const DropFiles = ({ onFilesSelected }: DropFilesProps) => {
   const [files, setFiles] = useState<File[]>([]);
 
   const id = useId();

@@ -3,7 +3,7 @@ import React from 'react';
 import { APIProvider, Map } from '@vis.gl/react-google-maps';
 
 import { convertCoordinates } from '@front/utils/mapUtils';
-import LocationMarker from '@front/components/locationMarker/locationMarker';
+import { LocationMarker } from '@front/components/LocationMarker';
 
 import type { TLocationInResult } from '@types';
 
@@ -13,7 +13,7 @@ type LocationModalHeaderProps = {
   apiKey: string;
 };
 
-const LocationModalMap = ({
+export const LocationMap = ({
   location,
   mapId,
   apiKey,
@@ -35,4 +35,4 @@ const LocationModalMap = ({
   );
 };
 
-export default LocationModalMap;
+export default LocationMap;

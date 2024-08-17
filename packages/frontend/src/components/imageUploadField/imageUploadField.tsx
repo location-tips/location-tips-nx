@@ -5,13 +5,13 @@ import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 
 import { MdiCameraOutline } from '@front/icons/MdiCameraOutline';
 
-import styles from './imageUploadField.module.css';
+import styles from './ImageUploadField.module.css';
 
 type ImageUploadFieldProps = {
   name?: string;
 };
 
-const ImageUploadField = ({ name = 'image' }: ImageUploadFieldProps) => {
+export const ImageUploadField = ({ name = 'image' }: ImageUploadFieldProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleButtonClick = () => {

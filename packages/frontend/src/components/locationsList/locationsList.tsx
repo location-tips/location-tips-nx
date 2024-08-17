@@ -6,12 +6,12 @@ import { TLocationInResult } from '@types';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
-import LocationMarker from '@front/components/locationMarker/locationMarker';
+import { LocationMarker } from '@front/components/LocationMarker';
 import { convertCoordinates } from '@front/utils/mapUtils';
-import LocationsListItem from '../locationsListItem/locationsListItem';
+import { LocationsListItem } from '../LocationsListItem';
 
-import './locationsList.vars.css';
-import styles from './locationsList.module.css';
+import './LocationsList.vars.css';
+import styles from './LocationsList.module.css';
 
 type LocationsListProps = {
   apiKey: string;
@@ -20,7 +20,7 @@ type LocationsListProps = {
   emptyText?: string;
 };
 
-const LocationsList = ({
+export const LocationsList = ({
   apiKey,
   mapId,
   locations,

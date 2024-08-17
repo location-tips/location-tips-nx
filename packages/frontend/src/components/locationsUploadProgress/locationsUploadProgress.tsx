@@ -6,7 +6,7 @@ import { getAuth } from 'firebase/auth';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
 import '@front/utils/configureFirebase';
-import LocationUploadProgress from '@front/components/locationUploadProgress/locationUploadProgress';
+import { LocationUploadProgress } from '@front/components/LocationUploadProgress';
 
 const auth = getAuth();
 
@@ -14,7 +14,9 @@ type LocationsUploadProgressProps = {
   files: File[];
 };
 
-const LocationsUploadProgress = ({ files }: LocationsUploadProgressProps) => {
+export const LocationsUploadProgress = ({
+  files,
+}: LocationsUploadProgressProps) => {
   const [token, setToken] = useState<string>();
 
   useEffect(() => {

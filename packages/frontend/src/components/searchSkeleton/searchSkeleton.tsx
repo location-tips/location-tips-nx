@@ -2,10 +2,10 @@ import clsx from 'clsx';
 
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
-import './searchSkeleton.vars.css';
-import styles from './searchSkeleton.module.css';
+import './SearchSkeleton.vars.css';
+import styles from './SearchSkeleton.module.css';
 
-const SearchSkeleton = () => {
+export const SearchSkeleton = () => {
   return (
     <div className={clsx(styles.container)}>
       <MFlex direction="row" wrap="wrap" gap="2xl" justify="center">

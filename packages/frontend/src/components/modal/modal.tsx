@@ -8,11 +8,11 @@ import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
 import useModal from '@front/stores/useModal';
 
-import './modal.animation.css';
+import './Modal.animation.css';
 
-import styles from './modal.module.css';
+import styles from './Modal.module.css';
 
-const Modal = () => {
+export const Modal = () => {
   const modalStore = useModal();
   const nodeRef = useRef(null);
 

@@ -5,10 +5,10 @@ import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 
-import Page from '@front/components/page/page';
+import Page from '@front/components/Page/Page';
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
-import FavouriteLocations from '@front/components/favouriteLocations/favouriteLocations';
-import AuthorizedSection from '@front/components/authorizedSection/authorizedSection';
+import FavouriteLocations from '@front/components/FavouriteLocations/FavouriteLocations';
+import AuthorizedSection from '@front/components/AuthorizedSection/AuthorizedSection';
 
 import './page.vars.css';
 import styles from './page.module.css';

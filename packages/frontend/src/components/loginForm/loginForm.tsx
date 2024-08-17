@@ -10,17 +10,17 @@ import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MList } from '@location-tips/location-tips-uikit/atoms/MList';
 
-import GoogleLoginButton from '@front/components/loginForm/loginButtons/googleLoginButton';
-import ProfileButton from '@front/components/profileButton/profileButton';
+import GoogleLoginButton from '@front/components/LoginForm/LoginButtons/GoogleLoginButton';
+import { ProfileButton } from '@front/components/ProfileButton';
 import '@front/utils/configureFirebase';
-import AddLocationButton from '@front/components/addLocationButton/addLocationButton';
+import { AddLocationButton } from '@front/components/AddLocationButton';
 
-import './loginForm.vars.css';
-import styles from './loginForm.module.css';
+import './LoginForm.vars.css';
+import styles from './LoginForm.module.css';
 
 const auth = getAuth();
 
-const LoginForm = () => {
+export const LoginForm = () => {
   const [currentUser, setCurrentUser] = useState(auth.currentUser);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const isAuthenticated = useMemo(() => currentUser !== null, [currentUser]);

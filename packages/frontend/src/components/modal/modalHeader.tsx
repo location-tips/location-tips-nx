@@ -10,7 +10,7 @@ type ModalHeaderProps = {
   title: string;
 };
 
-const ModalHeader = ({ title }: ModalHeaderProps) => {
+export const ModalHeader = ({ title }: ModalHeaderProps) => {
   const modalStore = useModal();
 
   const onClose = () => {

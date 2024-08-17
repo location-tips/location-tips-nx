@@ -8,21 +8,21 @@ import { MGallery } from '@location-tips/location-tips-uikit/atoms/MGallery';
 import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
-import UpdateLocationForm from '@front/components/updateLocationForm/updateLocationForm';
+import { UpdateLocationForm } from '@front/components/UpdateLocationForm';
 import useCreateLocations from '@front/stores/useCreateLocations';
 import { MdiChevronLeft } from '@front/icons/MdiChevronLeft';
 import { MdiChevronRight } from '@front/icons/MdiChevronRight';
-import LocationsBullets from '@front/components/locationsBullets/locationsBullets';
+import { LocationsBullets } from '@front/components/LocationsBullets';
 
-import './updateLocations.vars.css';
-import styles from './updateLocations.module.css';
+import './UpdateLocations.vars.css';
+import styles from './UpdateLocations.module.css';
 
 type UpdateLocationsProps = {
   mapId: string;
   apiKey: string;
 };
 
-const UpdateLocations = ({ mapId, apiKey }: UpdateLocationsProps) => {
+export const UpdateLocations = ({ mapId, apiKey }: UpdateLocationsProps) => {
   const createLocaton = useCreateLocations();
 
   const [currentSlide, setCurrentSlide] = useState<number>();

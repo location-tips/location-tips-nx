@@ -7,24 +7,24 @@ import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 
-import LocationModalMap from '@front/components/locationModal/locationModalMap/locationModalMap';
+import { LocationMap } from '@front/components/LocationMap';
 
-import './locationModalContent.vars.css';
-import styles from './locationModalContent.module.css';
+import './LocationContent.vars.css';
+import styles from './LocationContent.module.css';
 
 import type { TLocationInResult } from '@types';
 
-type LocationModalContentProps = {
+type LocationContentProps = {
   location: TLocationInResult;
   mapId: string;
   apiKey: string;
 };
 
-const LocationModalContent = ({
+export const LocationContent = ({
   location,
   mapId,
   apiKey,
-}: LocationModalContentProps) => {
+}: LocationContentProps) => {
   return (
     <MFlex
       direction="row"
@@ -34,7 +34,7 @@ const LocationModalContent = ({
       align="stretch"
     >
       <section className={styles.locationModalContainerMap}>
-        <LocationModalMap location={location} mapId={mapId} apiKey={apiKey} />
+        <LocationMap location={location} mapId={mapId} apiKey={apiKey} />
       </section>
       <MFlex
         direction="column"
@@ -122,4 +122,4 @@ const LocationModalContent = ({
   );
 };
 
-export default LocationModalContent;
+export default LocationContent;
