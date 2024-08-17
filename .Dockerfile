@@ -13,7 +13,10 @@ COPY package*.json ./
 COPY . .
 
 # Install app dependencies
-RUN echo "PERSONAL_ACCESS_TOKEN: $PERSONAL_ACCESS_TOKEN"
+RUN echo "PERSONAL_ACCESS_TOKEN:" && \
+echo $PERSONAL_ACCESS_TOKEN \
+echo "PERSONAL_ACCESS_TOKEN2" \
+echo PERSONAL_ACCESS_TOKEN
 
 RUN export PERSONAL_ACCESS_TOKEN=$PERSONAL_ACCESS_TOKEN && \
 npm install -g nx && \
