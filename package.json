@@ -14,6 +14,7 @@
     "build:back": "nx run backend:build",
     "reset": "nx reset",
     "build": "npm run build:front && npm run build:back",
+    "lint": "nx run frontend:lint && nx run backend:lint",
     "prepare": "husky"
   },
   "lint-staged": {

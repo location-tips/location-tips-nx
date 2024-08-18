@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { create } from 'zustand';
 
-import ModalHeader from '@front/components/Modal/ModalHeader';
+import { ModalHeader } from '@front/components/Modal/ModalHeader';
 import { UploadLocationsImagesForm } from '@front/components/UploadLocationsImagesForm';
 
 export enum MODALS {
@@ -31,6 +31,7 @@ interface ModalsState {
 const useModal = create<ModalsState>((set) => ({
   currentModal: null,
   onHide: null,
+  onShow: null,
   modals: new Map([
     [
       MODALS.ADD_LOCATION,
