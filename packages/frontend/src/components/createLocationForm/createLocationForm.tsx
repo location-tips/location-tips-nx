@@ -1,14 +1,15 @@
 'use client';
-import { createLocation } from 'packages/frontend/src/actions/createLocation';
-import { updateLocation } from 'packages/frontend/src/actions/updateLocation';
-import { FormStatus } from '@front/components/FormStatus';
+
 import { useFormState } from 'react-dom';
 
 import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 
+import { FormStatus } from '@front/components/FormStatus';
 import { AuthorizedForm } from '@front/components/AuthorizedForm';
+import { createLocation } from '@front/actions/createLocation';
+import { updateLocation } from '@front/actions/updateLocation';
 
 const initialState = {
   image: null,
