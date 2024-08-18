@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI, Part } from '@google/generative-ai';
-import { CATEGORIES } from '@const';
+import { CATEGORIES, safetySettings } from '@const';
 
 import type {
   TGeminiResponseDescribeImage,
@@ -18,6 +18,7 @@ export const geminiDescribeImage = async (
   const model = genAI.getGenerativeModel({
     model: 'gemini-1.5-pro',
     generationConfig: { responseMimeType: 'application/json' },
+    safetySettings: safetySettings,
     systemInstruction: `User will provide you an image, you need to describe it and detect as much objects as it is possible. If you see any buildings try to describe the style and epoch. Output in the valid json format with following fields:
         {
             title: <location name or guess the title by image>
