@@ -26,6 +26,13 @@ const getLocations = async (): Promise<TLocationInResult[]> => {
         Authorization: `${token}`,
         'Content-Type': 'application/json',
       },
+      next: {
+        tags: [
+          'my_locations',
+          `locations_user_${auth.currentUser?.uid}`,
+          `user_${auth.currentUser?.uid}`,
+        ],
+      },
     });
 
     const data = await response.json();

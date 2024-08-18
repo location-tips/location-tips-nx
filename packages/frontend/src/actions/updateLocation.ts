@@ -1,5 +1,6 @@
 'use server';
 
+import { revalidateTag } from 'next/cache';
 import { LocationsState } from '@types';
 
 const SERVER = process.env.SERVER || 'http://localhost:3000';
@@ -9,6 +10,7 @@ export async function updateLocation(
   formData: FormData,
 ) {
   const id = formData.get('id') as string;
+  const uid = formData.get('uid') as string;
   const title = formData.get('title') as string;
   const userDescription = formData.get('userDescription') as string;
 
@@ -20,6 +22,8 @@ export async function updateLocation(
       },
       body: JSON.stringify({ id, title, userDescription }),
     });
+
+    revalidateTag(`locations_user_${uid}`);
 
     return response.json();
   } catch (error) {

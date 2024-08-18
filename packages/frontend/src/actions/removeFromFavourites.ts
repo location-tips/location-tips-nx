@@ -1,5 +1,6 @@
 'use server';
 
+import { revalidateTag } from 'next/cache';
 import { FavouritesState } from '@types';
 
 const SERVER = process.env.SERVER || 'http://localhost:3000';
@@ -9,6 +10,7 @@ export async function removeFromFavourites(
   formData: FormData,
 ) {
   const token = formData.get('token') as string;
+  const uid = formData.get('uid') as string;
 
   try {
     const response = await fetch(`${SERVER}/api/locations/favourites`, {
@@ -21,6 +23,8 @@ export async function removeFromFavourites(
         locationId: formData.get('locationId'),
       }),
     });
+
+    revalidateTag(`favourites_user_${uid}`);
 
     return response.json();
   } catch (error) {

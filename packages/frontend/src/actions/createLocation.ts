@@ -1,5 +1,6 @@
 'use server';
 
+import { revalidateTag } from 'next/cache';
 import { LocationsState } from '@types';
 
 const SERVER = process.env.SERVER || 'http://localhost:3000';
@@ -9,6 +10,7 @@ export async function createLocation(
   formData: FormData,
 ) {
   const token = formData.get('token') as string;
+  const uid = formData.get('uid') as string;
 
   try {
     const response = await fetch(`${SERVER}/api/location`, {
@@ -18,6 +20,8 @@ export async function createLocation(
       method: 'POST',
       body: formData,
     });
+
+    revalidateTag(`locations_user_${uid}`);
 
     return response.json();
   } catch (error) {
