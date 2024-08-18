@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
@@ -13,26 +13,40 @@ import './Modal.animation.css';
 import styles from './Modal.module.css';
 
 export const Modal = () => {
-  const modalStore = useModal();
+  const { hideModal, onHide, onShow, currentModal, modals } = useModal();
   const nodeRef = useRef(null);
 
   const modalData = useMemo(
-    () =>
-      modalStore.currentModal
-        ? modalStore.modals.get(modalStore.currentModal)
-        : undefined,
-    [modalStore.currentModal, modalStore.modals],
+    () => (currentModal ? modals.get(currentModal) : undefined),
+    [currentModal, modals],
   );
+
+  const onKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        hideModal();
+      }
+    },
+    [hideModal],
+  );
+
+  useEffect(() => {
+    document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [onKeyDown]);
 
   return (
     <CSSTransition
-      in={!!modalStore.currentModal && !!modalData}
+      in={!!currentModal && !!modalData}
       nodeRef={nodeRef}
       timeout={300}
       classNames="alert"
       unmountOnExit
-      onEnter={() => modalStore.onShow?.()}
-      onExited={() => modalStore.onHide?.()}
+      onEnter={() => onShow?.()}
+      onExited={() => onHide?.()}
     >
       <MFlex
         direction="row"
@@ -40,17 +54,15 @@ export const Modal = () => {
         align="center"
         className={styles.wrapper}
       >
-        <div
-          className={styles.overlay}
-          onClick={() => modalStore.hideModal()}
-        ></div>
-        {modalStore.currentModal && modalData && (
+        <div className={styles.overlay} onClick={() => hideModal()}></div>
+        {currentModal && modalData && (
           <MCard
             className={styles.modal}
             header={modalData.header}
             footer={modalData.footer}
             role="dialog"
             ref={nodeRef}
+            tabIndex={0}
           >
             {modalData.content}
           </MCard>
