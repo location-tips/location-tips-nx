@@ -130,7 +130,7 @@ export class LocationsService {
 
   async searchLocations(
     text: string,
-    queryDescription,
+    queryDescription?: TLocationSearchDescription,
   ): Promise<TLocationsWithScore[]> {
     const embeddings = await getEmbeddings(text);
 
@@ -138,7 +138,7 @@ export class LocationsService {
     const collectionRef = db.collection(COLLECTIONS.LOCATIONS);
     let locationsInRegion = [];
 
-    if (queryDescription.near[0]) {
+    if (queryDescription?.near[0]) {
       // Search locations within the radius
       const distance = Number(queryDescription.distance);
 
@@ -151,7 +151,7 @@ export class LocationsService {
         Number(longitude),
         !Number.isNaN(distance) ? distance : 50,
       );
-    } else if (queryDescription.in[0]) {
+    } else if (queryDescription?.in[0]) {
       // Search locations within the bounding box or radius from the center of region
       const {
         coordinates: { latitude, longitude },
@@ -185,7 +185,7 @@ export class LocationsService {
           distanceMeasure: 'COSINE',
         })
         .get();
-    } else if (!queryDescription.near?.[0] && !queryDescription.in?.[0]) {
+    } else if (!queryDescription?.near?.[0] && !queryDescription?.in?.[0]) {
       // Search locations by prompt
       locations = await collectionRef
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {

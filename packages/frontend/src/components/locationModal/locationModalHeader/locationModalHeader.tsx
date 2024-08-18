@@ -36,6 +36,7 @@ export const LocationModalHeader = ({
           <ShareButton
             url={`${window?.location.protocol}//${window?.location.host}/location/${location.id}`}
             label={<MText>Share</MText>}
+            media={location.images.original}
           />
         )}
       </MFlex>

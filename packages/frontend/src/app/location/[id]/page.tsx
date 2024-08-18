@@ -6,7 +6,7 @@ import { TLocationInResult } from '@types';
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 
 import { Page } from '@front/components/Page';
-import LocationModalContent from '@front/components/LocationContent/LocationModalContent';
+import { LocationContent } from '@front/components/LocationContent';
 
 import styles from './page.module.css';
 
@@ -70,11 +70,7 @@ export default async function Index({ params }: Params) {
         </MHeading>
 
         {mapId && apiKey && (
-          <LocationModalContent
-            mapId={mapId}
-            location={location}
-            apiKey={apiKey}
-          />
+          <LocationContent mapId={mapId} location={location} apiKey={apiKey} />
         )}
       </Page>
     );

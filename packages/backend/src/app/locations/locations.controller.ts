@@ -21,6 +21,8 @@ import { PostLocationsResponseDTO, PostLocationsRequestDTO } from '@back/dto';
 
 import { LocationsService } from './locations.service';
 
+import type { TLocationSearchDescription } from '@types';
+
 @ApiTags('locations')
 @Controller('locations')
 export class LocationsController {
@@ -77,16 +79,23 @@ export class LocationsController {
     }
 
     // Parse search query with gemini ai
-    const queryDescription = await this.locationsService.describeSearchQuery(
-      searchText,
-      imageFile,
-      voiceFile,
-    );
+    let queryDescription: TLocationSearchDescription;
 
-    const finalPrompt =
-      queryDescription.prompt +
-      (queryDescription.image ?? '') +
-      (queryDescription.voiceKeywords ?? '');
+    try {
+      queryDescription = await this.locationsService.describeSearchQuery(
+        searchText,
+        imageFile,
+        voiceFile,
+      );
+    } catch (error) {
+      console.error('Error parsing search query with gemini ai:', error);
+    }
+
+    const finalPrompt = queryDescription
+      ? queryDescription.prompt +
+        (queryDescription.image ?? '') +
+        (queryDescription.voiceKeywords ?? '')
+      : searchText;
 
     const locations = await this.locationsService.searchLocations(
       finalPrompt,

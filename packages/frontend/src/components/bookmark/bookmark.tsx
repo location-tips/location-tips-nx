@@ -25,9 +25,9 @@ const initialState = {
 };
 
 export const Bookmark = ({ className, id, label }: BookmarkProps) => {
-  const favouritesStore = useFavourites();
+  const { setFavourites, favourites } = useFavourites();
 
-  const isBookmarked = favouritesStore.favourites.includes(id);
+  const isBookmarked = favourites.includes(id);
 
   const [addState, formAddAction] = useFormState<FavouritesState, FormData>(
     addToFavourites,
@@ -40,20 +40,16 @@ export const Bookmark = ({ className, id, label }: BookmarkProps) => {
   >(removeFromFavourites, initialState);
 
   useEffect(() => {
-    favouritesStore.setFavourites(addState.favourites);
-  }, [addState, favouritesStore]);
+    setFavourites(addState.favourites);
+  }, [addState, setFavourites]);
 
   useEffect(() => {
-    favouritesStore.setFavourites(removeState.favourites);
-  }, [favouritesStore, removeState]);
+    setFavourites(removeState.favourites);
+  }, [setFavourites, removeState]);
 
   return (
     <AuthorizedForm
-      action={
-        favouritesStore.favourites.includes(id)
-          ? formRemoveAction
-          : formAddAction
-      }
+      action={favourites.includes(id) ? formRemoveAction : formAddAction}
     >
       <input type="hidden" name="locationId" value={id} />
       <MButton
