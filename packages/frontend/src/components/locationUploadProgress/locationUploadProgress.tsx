@@ -7,6 +7,7 @@ import { TLocationEntity, ProgressStatus, TLocationsWithImages } from '@types';
 import { imagePlaceholder } from '@front/components/LocationUploadProgress/placeholderImage';
 import { ImageUploadProgress } from '@front/components/ImageUploadProgress';
 import useCreateLocations from '@front/stores/useCreateLocations';
+import { extractExif } from '@front/utils/exif';
 
 type LocationUploadProgressProps = {
   file: File;
@@ -22,7 +23,7 @@ export const LocationUploadProgress = ({
   const [status, setStatus] = useState<ProgressStatus>(ProgressStatus.Pending);
   const [webp, setWebp] = useState<Blob | null>(null);
 
-  const createLocation = useCreateLocations();
+  const { addFailed, addPending, addLocation } = useCreateLocations();
 
   const formData = useMemo(() => {
     const newFormData = new FormData();
@@ -60,30 +61,44 @@ export const LocationUploadProgress = ({
   }, [file]);
 
   useEffect(() => {
-    if (formData && ref.current === false) {
-      setStatus(ProgressStatus.Uploading);
-      createLocation.addPending();
-      ref.current = true;
+    if (
+      formData &&
+      ref.current === false &&
+      status === ProgressStatus.Pending
+    ) {
+      (async () => {
+        try {
+          const f = formData.get('image') as File;
+          const exif = await extractExif(Buffer.from(await f.arrayBuffer()));
 
-      axios
-        .post<TLocationEntity, AxiosResponse<TLocationsWithImages>, FormData>(
-          '/api/location/create',
-          formData,
-          {
+          if (!exif || !exif.gps) {
+            addFailed();
+            setStatus(ProgressStatus.Fail);
+            throw new Error('No GPS data found in EXIF');
+          }
+
+          setStatus(ProgressStatus.Uploading);
+          addPending();
+          ref.current = true;
+
+          const data = await axios.post<
+            TLocationEntity,
+            AxiosResponse<TLocationsWithImages>,
+            FormData
+          >('/api/location/create', formData, {
             onUploadProgress,
-          },
-        )
-        .then((data) => {
+          });
+
           setStatus(ProgressStatus.Done);
-          createLocation.addLocation(data.data);
-        })
-        .catch((error) => {
+          addLocation(data.data);
+        } catch (error) {
           console.error(error);
-          createLocation.addFailed();
+          addFailed();
           setStatus(ProgressStatus.Fail);
-        });
+        }
+      })();
     }
-  }, [createLocation, formData, onUploadProgress, status]);
+  }, [addFailed, addLocation, addPending, formData, onUploadProgress, status]);
 
   useEffect(() => {
     if (progress === 100) {

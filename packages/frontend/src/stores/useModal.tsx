@@ -31,6 +31,7 @@ interface ModalsState {
 const useModal = create<ModalsState>((set) => ({
   currentModal: null,
   onHide: null,
+  onShow: null,
   modals: new Map([
     [
       MODALS.ADD_LOCATION,
