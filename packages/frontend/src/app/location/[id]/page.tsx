@@ -5,8 +5,8 @@ import { TLocationInResult } from '@types';
 
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 
-import { Page } from '@front/components/_Page';
-import { LocationContent } from '@front/components/_LocationContent';
+import { Page } from '@front/components/Page';
+import { LocationContent } from '@front/components/LocationContent';
 
 import styles from './page.module.css';
 
