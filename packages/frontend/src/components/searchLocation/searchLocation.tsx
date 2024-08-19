@@ -18,7 +18,6 @@ import { VoiceUploadField } from '@front/components/VoiceUploadField';
 import { SearchSkeleton } from '@front/components/SearchSkeleton';
 import { SearchResults } from '@front/components/SearchResults';
 import { SearchButton } from '@front/components/SearchButton';
-import { mockupLocations } from '@front/actions/mockupLocation';
 import useSearchResultsLoading from '@front/stores/useSearchResultsLoading';
 
 import './SearchLocation.vars.css';
@@ -37,11 +36,15 @@ type SearchLocationProps = {
 
 export const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   const { isLoading, setIsLoading } = useSearchResultsLoading();
-  const [popularPlaces, setPopularPlaces] = useState<SearchState>();
   const skeletonHeader = 'Loading...';
   const skeletonBody = <SearchSkeleton />;
   const [searchResultsHeader, setSearchResultsHeader] = useState('');
   const [searchText, setSearchText] = useState('');
+
+  const searchTextareaRows = useMemo(
+    () => Math.min(6, Math.max(2, searchText.split('\n').length)),
+    [searchText],
+  );
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -50,7 +53,6 @@ export const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
       setIsLoading(true);
       // uncomment if you want to test without requests to API
       // const result = await mockupLocations(prevState, formData, 'zero');
-      formRef.current?.reset();
       const result = await searchLocation(prevState, formData);
       setIsLoading(false);
       return result;
@@ -59,12 +61,19 @@ export const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   );
 
   const isResultsHidden = useMemo(
-    () => !isLoading && !state.searchResult && popularPlaces?.searchResult,
-    [isLoading, state.searchResult, popularPlaces?.searchResult],
+    () => !isLoading && !state.searchResult,
+    [isLoading, state.searchResult],
   );
 
   const onSearchTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setSearchText(e.target.value);
+  };
+
+  const onSearchTextKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      formRef.current?.requestSubmit();
+    }
   };
 
   useEffect(() => {
@@ -86,27 +95,20 @@ export const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   }, [state.searchResult, state.queryDescription?.location]);
 
   useEffect(() => {
-    setIsLoading(true);
-    mockupLocations()
-      .then((result) => {
-        setPopularPlaces(result);
-        setIsLoading(false);
-      })
-      .catch((e) => console.log(e));
-  }, [setIsLoading]);
-
-  useEffect(() => {
     if (state.queryDescription) {
+      let prompt = '';
+
       if (state.queryDescription?.image) {
-        setSearchText(
-          state.queryDescription?.originalPrompt +
-            '\n' +
-            '\n' +
-            state.queryDescription?.image,
-        );
-      } else {
-        setSearchText(state.queryDescription?.originalPrompt);
+        prompt = state.queryDescription.image;
       }
+
+      if (state.queryDescription?.voice) {
+        prompt += (prompt ? '\n' : '') + state.queryDescription.voice;
+      }
+
+      setSearchText((prevPrompt) =>
+        prevPrompt ? prevPrompt + '\n' + prompt : prompt,
+      );
     }
   }, [state.queryDescription]);
 
@@ -166,12 +168,13 @@ export const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
               </MHeading>
               <MTextarea
                 name="searchText"
-                rows={5}
+                rows={searchTextareaRows}
                 placeholder={t(
                   'It could be a beach with black sand, a medieval castle, or cliffs.',
                 )}
                 containerClassName={styles.textarea}
                 onChange={onSearchTextChange}
+                onKeyDown={onSearchTextKeyDown}
                 value={searchText}
               />
             </MCard>

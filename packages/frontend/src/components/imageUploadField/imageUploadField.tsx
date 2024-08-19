@@ -4,6 +4,7 @@ import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 
 import { MdiCameraOutline } from '@front/icons/MdiCameraOutline';
+import { MdiCloseCircle } from '@front/icons/MdiCloseCircle';
 
 import styles from './ImageUploadField.module.css';
 
@@ -24,6 +25,7 @@ export const ImageUploadField = ({ name = 'image' }: ImageUploadFieldProps) => {
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
+
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -31,6 +33,11 @@ export const ImageUploadField = ({ name = 'image' }: ImageUploadFieldProps) => {
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  const resetImage = () => {
+    setSelectedImage(null);
+    fileInputRef.current && (fileInputRef.current.value = '');
   };
 
   return (
@@ -45,6 +52,7 @@ export const ImageUploadField = ({ name = 'image' }: ImageUploadFieldProps) => {
         name={name}
         ref={fileInputRef}
         style={{ display: 'none' }}
+        multiple={false}
         onChange={handleImageChange}
       />
 
@@ -52,7 +60,16 @@ export const ImageUploadField = ({ name = 'image' }: ImageUploadFieldProps) => {
         <div
           className={styles.previewContainer}
           style={{ backgroundImage: `url(${selectedImage})` }}
-        ></div>
+        >
+          <MButton
+            mode="transparent"
+            type="button"
+            onClick={resetImage}
+            className={styles.removeButton}
+          >
+            <MdiCloseCircle width={16} height={16} />
+          </MButton>
+        </div>
       )}
     </MFlex>
   );

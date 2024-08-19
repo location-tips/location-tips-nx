@@ -4,8 +4,11 @@ import { useWavesurfer } from '@wavesurfer/react';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
+import { MdiCloseCircle } from '@front/icons/MdiCloseCircle';
 import { MdiStop } from '../../icons/MdiStop';
 import { MdiMicrophoneOutline } from '../../icons/MdiMicrophoneOutline';
+
+import styles from './VoiceUploadField.module.css';
 
 interface VoiceUploadFieldProps {
   name: string;
@@ -31,6 +34,14 @@ export const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
     progressColor: '#085CFF',
   });
 
+  const updateWaveform = async (audioBlob?: Blob) => {
+    if (audioBlob) {
+      wavesurfer?.loadBlob(audioBlob);
+    } else {
+      wavesurfer?.empty();
+    }
+  };
+
   const handleStartRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -43,7 +54,6 @@ export const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
 
       mediaRecorderRef.current.addEventListener('stop', () => {
         const audioBlob = new Blob(chunks, { type: 'audio/wav' });
-        wavesurfer && wavesurfer.loadBlob(audioBlob);
 
         if (audioBlob) {
           const file = new File([audioBlob], 'voiceRecording.wav', {
@@ -59,6 +69,8 @@ export const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
             fileInput.files = container.files;
           }
         }
+
+        updateWaveform(audioBlob);
       });
 
       mediaRecorderRef.current.start();
@@ -72,6 +84,12 @@ export const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
   const handleStopRecording = () => {
     mediaRecorderRef.current?.stop();
     setRecording(false);
+  };
+
+  const resetVoiceRecording = () => {
+    updateWaveform();
+    setRecording(false);
+    fileInputRef.current && (fileInputRef.current.value = '');
   };
 
   return (
@@ -92,7 +110,19 @@ export const VoiceUploadField: React.FC<VoiceUploadFieldProps> = ({
         name={name}
         style={{ display: 'none' }}
       />
-      <div ref={containerRef} />
+      <div className={styles.waveformContainer}>
+        <div ref={containerRef}></div>
+        {Math.round(wavesurfer?.getDuration() ?? 0) > 0 && (
+          <MButton
+            mode="transparent"
+            type="button"
+            onClick={resetVoiceRecording}
+            className={styles.removeButton}
+          >
+            <MdiCloseCircle width={16} height={16} />
+          </MButton>
+        )}
+      </div>
     </MFlex>
   );
 };
