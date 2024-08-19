@@ -1,0 +1,33 @@
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: color-mix(
+    in srgb,
+    var(--palette-black, #000) 95%,
+    transparent
+  );
+  border-radius: var(--border-radius-l, 16px);
+}
+
+.imageOverlayCloseButton {
+  position: absolute;
+  top: var(--whiteSpace-general-2x, 16px);
+  right: var(--whiteSpace-general-2x, 16px);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.imageLayer {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}

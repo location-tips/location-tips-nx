@@ -1,10 +1,11 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { TLocationInResult } from '@types';
 
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
+
+import { ImageWithOverlay } from '@front/components/ImageWithOverlay';
 
 import './LocationsListItem.vars.css';
 import styles from './LocationsListItem.module.css';
@@ -27,8 +28,9 @@ export const LocationsListItem = ({ item }: LocationsListItemProps) => {
       }
     >
       <MFlex direction="row" wrap="nowrap" gap="xl">
-        <Image
+        <ImageWithOverlay
           src={item.images.medium}
+          original={item.images.original}
           alt={item.title}
           width={200}
           height={200}

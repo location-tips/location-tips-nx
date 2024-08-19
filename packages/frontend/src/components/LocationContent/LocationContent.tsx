@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import Image from 'next/image';
 
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 import { MCaption } from '@location-tips/location-tips-uikit/atoms/MCaption';
@@ -8,6 +7,7 @@ import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 
 import { LocationMap } from '@front/components/LocationMap';
+import { ImageWithOverlay } from '@front/components/ImageWithOverlay';
 
 import './LocationContent.vars.css';
 import styles from './LocationContent.module.css';
@@ -64,9 +64,10 @@ export const LocationContent = ({
             justify="start"
             align="start"
           >
-            <Image
+            <ImageWithOverlay
               className={styles.image}
               src={location.images?.medium}
+              original={location.images?.original}
               alt={location.image?.title ?? location.title}
               width={178}
               height={178}
@@ -99,10 +100,11 @@ export const LocationContent = ({
                   justify="start"
                   wrap="nowrap"
                 >
-                  <Image
+                  <ImageWithOverlay
                     className={styles.image}
                     key={index}
                     src={nearest.images.medium}
+                    original={nearest.images.original}
                     alt={nearest.image?.title ?? nearest.title}
                     width={178}
                     height={178}
