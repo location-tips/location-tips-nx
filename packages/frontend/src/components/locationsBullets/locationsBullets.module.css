@@ -1,9 +1,0 @@
-.bulletActive {
-  cursor: pointer;
-  border: 4px solid var(--bullet-active-border-color, #397dff);
-}
-
-.bullet {
-  cursor: pointer;
-  border: 4px solid var(--bullet-border-color, #f4f5f7);
-}

@@ -1,7 +1,0 @@
-.dropdownWrapper div div:has(.menuDropdownContainer.top) {
-  top: calc(100% + var(--signin-dropdown-padding-vertical, 25px));
-}
-
-.menuDropdownContainer.top {
-  pointer-events: auto;
-}

@@ -1,5 +1,5 @@
 import SearchLocationForm from '@front/components/SearchLocation/SearchLocation';
-import { Page } from '@front/components/Page';
+import { Page } from '@front/components/_Page';
 
 export const metadata = {
   title: 'Location Tips',

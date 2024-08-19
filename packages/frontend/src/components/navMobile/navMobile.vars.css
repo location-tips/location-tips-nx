@@ -1,7 +1,0 @@
-:root[data-theme='light'] {
-  --mobile-nav-close-button-enabled-color: var(--palette-gray-2, #747e97);
-  --mobile-nav-close-button-hover-color: var(--palette-gray-3, #babecb);
-  --mobile-nav-close-button-focus-color: var(--palette-gray-1, #1e222a);
-  --mobile-nav-overlay-background: var(--palette-black, #000);
-  --mobile-nav-container-background: var(--palette-white, #fff);
-}
