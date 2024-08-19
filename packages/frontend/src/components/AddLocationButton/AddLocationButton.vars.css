@@ -1,0 +1,4 @@
+:root[data-platform='web-mobile'] {
+  --addlocation-button-bottom: 0.75rem;
+  --addlocation-button-right: 0.75rem;
+}

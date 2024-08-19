@@ -1,0 +1,54 @@
+.image {
+  margin: 4px;
+  background: var(--image-upload-progress-tint-color, #000);
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--image-upload-progress-info-font-size, 16px);
+  font-weight: 600;
+  color: var(--image-upload-progress-info-font-color, #f4f5f7);
+  text-shadow: 0 0 2px rgb(0 0 0 / 100%);
+}
+
+.pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--image-upload-progress-info-font-color, #f4f5f7);
+}
+
+.processing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--image-upload-progress-info-font-color, #f4f5f7);
+}
+
+.done {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--image-upload-progress-info-font-color, #f4f5f7);
+}
+
+.fail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--image-upload-progress-fail-font-color, #dc2020);
+}
+
+.progress {
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(
+    var(--image-upload-progress-value-color, #0075ff) 0% 0%,
+    var(--image-upload-progress-background-color, #f4f5f7) 0%
+  );
+  border: 1px solid var(--image-upload-progress-border-color, #a3daff);
+  border-radius: 50%;
+}

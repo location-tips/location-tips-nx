@@ -1,0 +1,51 @@
+.headerContainer {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--header-container-height, 80px);
+  margin-bottom: var(--header-container-height, 80px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hamburgerButton {
+  padding: 0;
+}
+
+.hamburgerIcon {
+  color: var(--header-hamburger-button-enabled-color, #747e97);
+}
+
+.hamburgerIcon:hover {
+  color: var(--header-hamburger-button-hover-color, #babecb);
+}
+
+.hamburgerIcon:active,
+.hamburgerIcon:focus {
+  color: var(--header-hamburger-button-focus-color, #1e222a);
+}
+
+.logo {
+  justify-self: start;
+}
+
+.navigation {
+  font-size: var(--header-nav-font-size, 20px);
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+.navigationContainer:has(a) {
+  gap: var(--header-nav-links-gap, 56px);
+}
+
+.accountButtons {
+  justify-self: end;
+}

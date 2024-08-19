@@ -1,0 +1,6 @@
+.avatar {
+  width: var(--avatar-width, 44px);
+  height: var(--avatar-height, 44px);
+  overflow: hidden;
+  border-radius: 50%;
+}

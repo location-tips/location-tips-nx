@@ -1,0 +1,13 @@
+.waveformContainer {
+  position: relative;
+}
+
+.waveformContainer .removeButton {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 0;
+  background-color: var(--button-tertiary-enabled-background-color, #f4f5f7);
+  border: 1px solid var(--button-tertiary-enabled-background-color, #f4f5f7);
+  border-radius: 50%;
+}

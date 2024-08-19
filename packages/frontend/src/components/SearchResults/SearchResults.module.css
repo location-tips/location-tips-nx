@@ -1,0 +1,19 @@
+.header {
+  margin-bottom: var(--search-results-header-margin-top, 24px);
+  font-size: var(--search-results-header-font-size, 20px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--search-results-header-font-color, #1e222a);
+}
+
+.card {
+  width: var(
+    --search-results-card-width,
+    calc(50% - var(--flex-gap-2xl, 24px))
+  );
+}
+
+.card img {
+  max-width: 100%;
+}

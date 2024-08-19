@@ -1,0 +1,19 @@
+.link {
+  font-size: var(--location-set-item-font-size, 20px);
+  font-weight: 600;
+  color: var(--location-set-item-title-font-color, #1e222a);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: none;
+}
+
+.itemImage {
+  border-radius: var(--location-set-item-image-border-radius, 20px);
+}
+
+.description {
+  height: var(--location-set-item-size, 200px);
+  overflow: hidden;
+}

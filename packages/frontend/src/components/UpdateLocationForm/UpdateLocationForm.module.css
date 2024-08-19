@@ -1,0 +1,56 @@
+.gridContainer {
+  display: grid;
+  grid: var(--update-location-container-grid, 1fr / repeat(24, 1fr));
+  grid-gap: 24px;
+  align-items: stretch;
+  justify-content: stretch;
+  height: var(
+    --update-location-container-height,
+    calc(80vh - var(--header-height, 80px))
+  );
+}
+
+.mapContainer {
+  position: relative;
+  grid-row: var(--update-location-map-container-grid-row, 1 / span 24);
+  grid-column: var(--update-location-map-container-grid-col, 1 / span 15);
+  overflow: hidden;
+  border-radius: var(--upload-location-map-container-border-radius, 16px);
+}
+
+.formContainer {
+  grid-row: var(--update-location-form-container-grid-row, 1 / span 24);
+  grid-column: var(--update-location-form-container-grid-col, 17 / span 8);
+  padding: var(--update-location-form-container-padding-vertical, 24px)
+    var(--update-location-form-container-padding-horizontal, 24px);
+  overflow-y: auto;
+}
+
+.form {
+  width: var(--upload-location-form-width, calc(100vw - 16px - 16px));
+}
+
+.titleField,
+.descriptionField {
+  width: 100%;
+}
+
+.imagePreview {
+  position: relative;
+  width: var(--update-location-image-preview-width, 128px);
+  height: var(--update-location-image-preview-height, 128px);
+  overflow: hidden;
+  border-radius: var(--update-location-image-preview-border-radius, 16px);
+}
+
+.marker {
+  color: var(--update-location-map-marker-color, #8f0710);
+}
+
+.setPointButton {
+  margin-bottom: var(--update-location-set-point-button-margin-bottom, 16px);
+}
+
+.loadingIcon {
+  color: var(--update-location-loading-icon-color, #e6f6ff);
+}
