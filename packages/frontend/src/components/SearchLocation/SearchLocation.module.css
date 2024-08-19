@@ -64,3 +64,7 @@
   line-height: normal;
   color: var(--search-location-form-header-font-color, #1e222a);
 }
+
+.formStatus {
+  font-size: var(--search-location-formstatus-font-size, 16px);
+}
