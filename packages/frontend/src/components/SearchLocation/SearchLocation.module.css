@@ -9,11 +9,15 @@
 .mapContainer {
   position: relative;
   flex-basis: var(--search-location-map-flex-basis, 60%);
-  height: var(--search-locaction-map-height, calc(100vh - 80px));
+  height: var(--search-location-map-height, calc(100vh - 80px));
 }
 
 .mapContainer.fullwidth {
   flex-basis: 100%;
+}
+
+.mapContainer.fullheight {
+  height: var(--search-location-map-fullheight, calc(100vh - 80px));
 }
 
 .resultsContainer {

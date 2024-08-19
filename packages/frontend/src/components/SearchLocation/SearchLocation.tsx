@@ -117,6 +117,7 @@ export const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
       <section
         className={clsx(styles.mapContainer, {
           [styles.fullwidth]: isResultsHidden,
+          [styles.fullheight]: isResultsHidden,
         })}
       >
         <APIProvider apiKey={apiKey}>

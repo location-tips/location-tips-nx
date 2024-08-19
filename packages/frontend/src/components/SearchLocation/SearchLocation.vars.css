@@ -9,7 +9,8 @@
   --search-location-grid-container-height: calc(
     100vh - var(--header-height, 80px)
   );
-  --search-locaction-map-height: auto;
+  --search-location-map-height: auto;
+  --search-location-map-fullheight: auto;
   --search-location-flex-direction: row;
   --search-location-map-flex-basis: 60%;
   --search-location-results-flex-basis: 40%;
@@ -33,7 +34,8 @@
   --search-location-grid-container-height: calc(
     100vh - var(--header-height, 80px)
   );
-  --search-locaction-map-height: auto;
+  --search-location-map-height: auto;
+  --search-location-map-fullheight: auto;
   --search-location-flex-direction: row;
   --search-location-map-flex-basis: 60%;
   --search-location-results-flex-basis: 40%;
@@ -55,7 +57,8 @@
   --search-location-grid-display: block;
   --search-location-grid-gap: var(--whiteSpace-general-3x, 24px);
   --search-location-grid-container-height: auto;
-  --search-locaction-map-height: 75vh;
+  --search-location-map-height: 75vh;
+  --search-location-map-fullheight: calc(100vh - var(--header-height, 80px));
   --search-location-flex-direction: column;
   --search-location-map-flex-basis: 80%;
   --search-location-results-flex-basis: 20%;
