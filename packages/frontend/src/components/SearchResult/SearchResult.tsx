@@ -1,7 +1,7 @@
 'use client';
-
+/* eslint-disable @next/next/no-img-element */
 import clsx from 'clsx';
-import { MouseEvent } from 'react';
+import { MouseEvent, ReactNode } from 'react';
 import Link from 'next/link';
 import { TLocationInResult } from '@types';
 
@@ -16,7 +16,6 @@ import { MdiChevronRight } from '@front/icons/MdiChevronRight';
 import useModal, { MODALS } from '@front/stores/useModal';
 import { LocationModalHeader } from '@front/components/LocationModal/LocationModalHeader';
 import { LocationContent } from '@front/components/LocationContent';
-import renderLocationSlides from '@front/utils/renderLocationSlides';
 import { AuthorizedSection } from '@front/components/AuthorizedSection';
 import { Bookmark } from '../Bookmark';
 
@@ -27,6 +26,43 @@ type SearchResultProps = {
   result: TLocationInResult;
   mapId: string;
   apiKey: string;
+};
+
+type LocationSlidesProps = {
+  location: TLocationInResult;
+  onClick: (event: MouseEvent) => void;
+};
+
+export const getLocationSlides = ({
+  location,
+  onClick,
+}: LocationSlidesProps): ReactNode[] => {
+  const mainPicture = (
+    <img
+      draggable={false}
+      src={location.images.medium}
+      onClick={onClick}
+      alt={location.title}
+      className={styles.galleryImage}
+    />
+  );
+
+  const renderRestPictures = location.nearest.map((nearest, index) => {
+    return (
+      <img
+        draggable={false}
+        key={index}
+        src={nearest.images.medium}
+        alt={nearest.title}
+        onClick={onClick}
+        className={styles.galleryImage}
+      />
+    );
+  });
+
+  const slides = [mainPicture, ...renderRestPictures];
+
+  return slides;
 };
 
 export const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
@@ -49,7 +85,7 @@ export const SearchResult = ({ result, mapId, apiKey }: SearchResultProps) => {
     modals.showModal(MODALS.VIEW_LOCATION);
   };
 
-  const slides = renderLocationSlides(result);
+  const slides = getLocationSlides({ location: result, onClick: showLocation });
 
   const footer = [
     <MFlex direction="column" key="footer" gap="xs" align="start">

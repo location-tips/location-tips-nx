@@ -28,6 +28,10 @@
   color: var(--search-result-gallery-type-font-color, #747e97);
 }
 
+.galleryImage {
+  cursor: pointer;
+}
+
 .bookmark {
   color: var(--search-result-gallery-bookmark-color, #747e97);
 }
