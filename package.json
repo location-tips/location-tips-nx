@@ -33,7 +33,7 @@
     "@nx/next": "19.5.0",
     "@nx/node": "19.6.1",
     "@nx/playwright": "19.5.0",
-    "@nx/web": "19.5.0",
+    "@nx/web": "19.6.1",
     "@nx/webpack": "19.5.0",
     "@playwright/test": "1.45.0",
     "@swc-node/register": "1.9.1",
