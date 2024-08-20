@@ -9,6 +9,11 @@
     --button-secondary-enabled-font-color,
     #000
   );
+}
+
+:root[data-platform='web-desktop'],
+:root[data-platform='web-mobile'],
+:root[data-platform='web-tablet'] {
   --link-button-secondary-padding-vertical: var(
     --button-padding-vertical-m,
     4px
