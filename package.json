@@ -77,7 +77,7 @@
   },
   "dependencies": {
     "@fastify/static": "7.0.4",
-    "@google-cloud/aiplatform": "3.25.0",
+    "@google-cloud/aiplatform": "3.27.0",
     "@google/generative-ai": "0.14.0",
     "@location-tips/location-tips-uikit": "^0.2.15",
     "@nest-lab/fastify-multer": "1.2.0",
