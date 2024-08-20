@@ -6,6 +6,7 @@ import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 
 import { MdiClose } from '@front/icons/MdiClose';
 
+import './ImageOverlay.vars.css';
 import styles from './ImageOverlay.module.css';
 
 type ImageOverlayProps = {
