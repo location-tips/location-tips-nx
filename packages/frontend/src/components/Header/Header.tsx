@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import clsx from 'clsx';
-import { usePathname } from 'next/navigation';
 
 import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
@@ -19,7 +18,6 @@ import './Header.vars.css';
 import styles from './Header.module.css';
 
 export const Header = () => {
-  const pathname = usePathname();
   const platform = usePlatform((state) => state.platform);
   const [isNavBarOpen, setIsNavBarOpen] = useState(false);
   const toggleNavbar = () => {
@@ -65,15 +63,9 @@ export const Header = () => {
               justify="space-between"
               className={styles.navigationContainer}
             >
-              <LinkButton active={pathname === '/'} href="/">
-                Search
-              </LinkButton>
-              <LinkButton active={pathname === '/sets'} href="/sets">
-                Author&apos;s sets
-              </LinkButton>
-              <LinkButton active={pathname === '/apps'} href="/apps">
-                Mobile App
-              </LinkButton>
+              <LinkButton href="/">Search</LinkButton>
+              <LinkButton href="/sets">Author&apos;s sets</LinkButton>
+              <LinkButton href="/apps">Mobile App</LinkButton>
             </MFlex>
           </nav>
         )}

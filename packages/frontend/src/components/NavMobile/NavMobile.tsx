@@ -1,6 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-import { usePathname } from 'next/navigation';
 
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
@@ -17,8 +16,6 @@ type NavMobileProps = {
 };
 
 export const NavMobile = ({ open, onClose }: NavMobileProps) => {
-  const pathname = usePathname();
-
   return (
     <>
       {open && <div className={styles.overlay} onClick={onClose} />}
@@ -43,21 +40,13 @@ export const NavMobile = ({ open, onClose }: NavMobileProps) => {
         </MButton>
         <nav className={styles.mobileNav}>
           <MFlex direction="column" gap="3xl" align="center" justify="center">
-            <LinkButton onClick={onClose} active={pathname === '/'} href="/">
+            <LinkButton onClick={onClose} href="/">
               Search
             </LinkButton>
-            <LinkButton
-              onClick={onClose}
-              active={pathname === '/sets'}
-              href="/sets"
-            >
+            <LinkButton onClick={onClose} href="/sets">
               Author&apos;s sets
             </LinkButton>
-            <LinkButton
-              onClick={onClose}
-              active={pathname === '/apps'}
-              href="/apps"
-            >
+            <LinkButton onClick={onClose} href="/apps">
               Mobile App
             </LinkButton>
           </MFlex>
