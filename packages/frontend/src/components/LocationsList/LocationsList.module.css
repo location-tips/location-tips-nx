@@ -12,6 +12,8 @@
 .mapContainer {
   width: var(--location-set-child-container-width, calc(50% - 1.5rem / 2));
   height: var(--location-set-map-height, 100%);
+  overflow: hidden;
+  border-radius: var(--location-modal-map-border-radius, 16px);
 }
 
 .setContainer {
