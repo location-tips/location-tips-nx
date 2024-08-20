@@ -1,0 +1,15 @@
+:root[data-theme='light'] {
+  --image-overlay-background-color: color-mix(
+    in srgb,
+    var(--palette-black, #000) 95%,
+    transparent
+  );
+}
+
+:root[data-platform='web-desktop'],
+:root[data-platform='web-mobile'],
+:root[data-platform='web-tablet'] {
+  --image-overlay-border-radius: var(--border-radius-l, 16px);
+  --image-overlay-close-button-top: var(--whiteSpace-general-2x, 16px);
+  --image-overlay-close-button-right: var(--whiteSpace-general-2x, 16px);
+}
