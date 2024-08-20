@@ -16,7 +16,7 @@ export const AddLocationButton = () => {
   return (
     <MButton
       before={<MdiAdd width={24} height={24} />}
-      mode="secondary"
+      mode="primary"
       onClick={onAddLocationButtonClick}
       className={styles.addLocationButton}
     >

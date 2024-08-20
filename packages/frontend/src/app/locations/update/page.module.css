@@ -21,3 +21,7 @@
   padding: 0 var(--page-container-padding, 24px);
   padding-bottom: var(--page-container-padding-bottom, 0);
 }
+
+.actionButtons {
+  width: 100%;
+}

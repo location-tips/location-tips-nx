@@ -1,4 +1,29 @@
 :root[data-theme='light'] {
-  --header-navigation-link-color: var(--palette-gray-2, #747e97);
-  --header-navigation-active-link-color: var(--palette-black, #000);
+  --link-button-color: var(--palette-gray-2, #747e97);
+  --link-button-active-color: var(--palette-black, #000);
+  --link-button-secondary-background-color: var(
+    --button-secondary-enabled-background-color,
+    #747e97
+  );
+  --link-button-secondary-color: var(
+    --button-secondary-enabled-font-color,
+    #000
+  );
+}
+
+:root[data-platform='web-desktop'],
+:root[data-platform='web-mobile'],
+:root[data-platform='web-tablet'] {
+  --link-button-secondary-padding-vertical: var(
+    --button-padding-vertical-m,
+    4px
+  );
+  --link-button-secondary-padding-horizontal: var(
+    --button-padding-horizontal-m,
+    8px
+  );
+  --link-button-secondary-border-radius: var(
+    --button-secondary-medium-borderRadius-default,
+    4px
+  );
 }
