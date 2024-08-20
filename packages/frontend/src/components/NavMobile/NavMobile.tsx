@@ -43,9 +43,11 @@ export const NavMobile = ({ open, onClose }: NavMobileProps) => {
             <LinkButton onClick={onClose} href="/">
               Search
             </LinkButton>
+
             <LinkButton onClick={onClose} href="/sets">
               Author&apos;s sets
             </LinkButton>
+
             <LinkButton onClick={onClose} href="/apps">
               Mobile App
             </LinkButton>
