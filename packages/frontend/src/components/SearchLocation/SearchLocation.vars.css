@@ -9,7 +9,8 @@
   --search-location-grid-container-height: calc(
     100vh - var(--header-height, 80px)
   );
-  --search-locaction-map-height: auto;
+  --search-location-map-height: auto;
+  --search-location-map-fullheight: auto;
   --search-location-flex-direction: row;
   --search-location-map-flex-basis: 60%;
   --search-location-results-flex-basis: 40%;
@@ -25,6 +26,7 @@
   --search-location-form-horizonal-padding: var(--size-general-6x, 48px);
   --search-location-form-max-width: 750px;
   --seach-location-form-header-font-size: var(--font-size-xl, 20px);
+  --search-location-formstatus-font-size: var(--font-size-l, 16px);
 }
 
 :root[data-platform='web-tablet'] {
@@ -33,7 +35,8 @@
   --search-location-grid-container-height: calc(
     100vh - var(--header-height, 80px)
   );
-  --search-locaction-map-height: auto;
+  --search-location-map-height: auto;
+  --search-location-map-fullheight: auto;
   --search-location-flex-direction: row;
   --search-location-map-flex-basis: 60%;
   --search-location-results-flex-basis: 40%;
@@ -49,13 +52,15 @@
   --search-location-form-horizonal-padding: var(--size-general-6x, 48px);
   --search-location-form-max-width: 750px;
   --seach-location-form-header-font-size: var(--font-size-xl, 20px);
+  --search-location-formstatus-font-size: var(--font-size-l, 16px);
 }
 
 :root[data-platform='web-mobile'] {
   --search-location-grid-display: block;
   --search-location-grid-gap: var(--whiteSpace-general-3x, 24px);
   --search-location-grid-container-height: auto;
-  --search-locaction-map-height: 75vh;
+  --search-location-map-height: 75vh;
+  --search-location-map-fullheight: calc(100vh - var(--header-height, 80px));
   --search-location-flex-direction: column;
   --search-location-map-flex-basis: 80%;
   --search-location-results-flex-basis: 20%;
@@ -71,11 +76,19 @@
   --search-location-form-horizonal-padding: var(--size-general-2x, 16px);
   --search-location-form-max-width: 600px;
   --seach-location-form-header-font-size: var(--font-size-xl, 20px);
+  --search-location-formstatus-font-size: var(--font-size-l, 16px);
 }
 
+/* special variables for ultra small displays */
 @media (width <= 405px) {
-  /* special variable for ultra small displays */
   :root[data-platform='web-mobile'] {
     --seach-location-form-header-font-size: var(--font-size-l, 16px);
+    --search-location-formstatus-font-size: var(--font-size-m, 14px);
+  }
+}
+
+@media (width < 375px) {
+  :root[data-platform='web-mobile'] {
+    --search-location-formstatus-font-size: var(--font-size-s, 12px);
   }
 }

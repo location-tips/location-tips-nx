@@ -9,11 +9,15 @@
 .mapContainer {
   position: relative;
   flex-basis: var(--search-location-map-flex-basis, 60%);
-  height: var(--search-locaction-map-height, calc(100vh - 80px));
+  height: var(--search-location-map-height, calc(100vh - 80px));
 }
 
 .mapContainer.fullwidth {
   flex-basis: 100%;
+}
+
+.mapContainer.fullheight {
+  height: var(--search-location-map-fullheight, calc(100vh - 80px));
 }
 
 .resultsContainer {
@@ -59,4 +63,8 @@
   font-weight: 500;
   line-height: normal;
   color: var(--search-location-form-header-font-color, #1e222a);
+}
+
+.formStatus {
+  font-size: var(--search-location-formstatus-font-size, 16px);
 }

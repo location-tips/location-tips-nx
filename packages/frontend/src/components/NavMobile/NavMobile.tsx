@@ -40,11 +40,17 @@ export const NavMobile = ({ open, onClose }: NavMobileProps) => {
         </MButton>
         <nav className={styles.mobileNav}>
           <MFlex direction="column" gap="3xl" align="center" justify="center">
-            <LinkButton active={true} href="/">
+            <LinkButton onClick={onClose} href="/">
               Search
             </LinkButton>
-            <LinkButton href="/sets">Author&apos;s sets</LinkButton>
-            <LinkButton href="/apps">Mobile App</LinkButton>
+
+            <LinkButton onClick={onClose} href="/sets">
+              Author&apos;s sets
+            </LinkButton>
+
+            <LinkButton onClick={onClose} href="/apps">
+              Mobile App
+            </LinkButton>
           </MFlex>
         </nav>
       </MFlex>

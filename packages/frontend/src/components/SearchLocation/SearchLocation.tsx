@@ -51,8 +51,6 @@ export const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
   const [state, formAction] = useFormState<SearchState, FormData>(
     async (prevState, formData) => {
       setIsLoading(true);
-      // uncomment if you want to test without requests to API
-      // const result = await mockupLocations(prevState, formData, 'zero');
       const result = await searchLocation(prevState, formData);
       setIsLoading(false);
       return result;
@@ -117,6 +115,7 @@ export const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
       <section
         className={clsx(styles.mapContainer, {
           [styles.fullwidth]: isResultsHidden,
+          [styles.fullheight]: isResultsHidden,
         })}
       >
         <APIProvider apiKey={apiKey}>
@@ -157,7 +156,7 @@ export const SearchLocation = ({ apiKey, mapId }: SearchLocationProps) => {
                     <VoiceUploadField name="voice" />
                   </MFlex>
                   <MFlex align="center" justify="end">
-                    <FormStatus />
+                    <FormStatus className={styles.formStatus} />
                     <SearchButton />
                   </MFlex>
                 </MFlex>

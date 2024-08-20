@@ -1,27 +1,32 @@
+'use client';
+
 import React, { PropsWithChildren } from 'react';
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 
 import './LinkButton.vars.css';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './LinkButton.module.css';
 
-type LinkButtonProps = PropsWithChildren<{
-  href: string;
-  active?: boolean;
-  mode?: 'link' | 'secondary';
-}>;
+type LinkButtonProps = LinkProps &
+  PropsWithChildren<{
+    mode?: 'link' | 'secondary';
+  }>;
 
 export const LinkButton = ({
-  href,
-  active = false,
   children,
   mode = 'link',
+  ...linkProps
 }: LinkButtonProps) => {
+  const pathname = usePathname();
   return (
     <Link
-      href={href}
-      className={clsx(styles[mode], { [styles.active]: active })}
+      className={clsx(
+        styles[mode],
+        pathname === linkProps.href && styles.active,
+      )}
+      {...linkProps}
     >
       {children}
     </Link>

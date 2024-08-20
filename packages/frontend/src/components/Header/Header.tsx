@@ -63,9 +63,7 @@ export const Header = () => {
               justify="space-between"
               className={styles.navigationContainer}
             >
-              <LinkButton active={true} href="/">
-                Search
-              </LinkButton>
+              <LinkButton href="/">Search</LinkButton>
               <LinkButton href="/sets">Author&apos;s sets</LinkButton>
               <LinkButton href="/apps">Mobile App</LinkButton>
             </MFlex>
