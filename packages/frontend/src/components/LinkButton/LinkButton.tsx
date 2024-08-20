@@ -1,3 +1,5 @@
+'use client';
+
 import React, { PropsWithChildren } from 'react';
 import Link, { LinkProps } from 'next/link';
 import clsx from 'clsx';
@@ -9,12 +11,10 @@ import styles from './LinkButton.module.css';
 
 type LinkButtonProps = LinkProps &
   PropsWithChildren<{
-    href: string;
     mode?: 'link' | 'secondary';
   }>;
 
 export const LinkButton = ({
-  href,
   children,
   mode = 'link',
   ...linkProps
@@ -22,8 +22,10 @@ export const LinkButton = ({
   const pathname = usePathname();
   return (
     <Link
-      href={href}
-      className={clsx(styles[mode], pathname === href && styles.active)}
+      className={clsx(
+        styles[mode],
+        pathname === linkProps.href && styles.active,
+      )}
       {...linkProps}
     >
       {children}
