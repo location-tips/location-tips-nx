@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI, Part } from '@google/generative-ai';
-import { CATEGORIES } from '@const';
+import { CATEGORIES, safetySettings } from '@const';
 
 import type {
   TGeminiResponseDescribeImage,
@@ -18,6 +18,7 @@ export const geminiDescribeImage = async (
   const model = genAI.getGenerativeModel({
     model: 'gemini-1.5-pro',
     generationConfig: { responseMimeType: 'application/json' },
+    safetySettings: safetySettings,
     systemInstruction: `User will provide you an image, you need to describe it and detect as much objects as it is possible. If you see any buildings try to describe the style and epoch. Output in the valid json format with following fields:
         {
             title: <location name or guess the title by image>
@@ -54,18 +55,18 @@ export const geminiDescribeSearchQuery = async (
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
   const model = genAI.getGenerativeModel({
-    model: 'gemini-1.5-pro',
+    model: 'gemini-1.5-flash',
     generationConfig: { responseMimeType: 'application/json' },
     systemInstruction: `Translate prompt to english and follow the instructions. Very important: Answer should be a VALID JSON. User provides you prompt to find some location, also it could provide and image or audio you need to understand it and output in the valid json format with following fields:
     {
         near: [<here should be the list of Cities, towns, villages or any other landmarks or points if the user ask to find something near it>{name: <place name>, type: <place type>, coordinates: {latitude: <latitude>, longitude: <longitude>}}],
         in: [<here should be the list of Countries, continents, Cities, towns, villages or any other landmarks or points if the user ask to find something in it or if you know where this place could be>{name: <place name>, type: <place type>, description: <place description>, coordinates: {latitude: <latitude>, longitude: <longitude>}, boundingBox: {north: <north latitude>, south: <south latitude>, east: <east longitude>, west: <west longitude>}}],
-        location: [<provide here the list of coordinates for places you found. Provide as many as it is possible>{coordinates: {latitude: <latitude>, longitude: <longitude>}, name: <place name>, type: <place type>}],
+        location: [<guess what the user is searching for in a prompt or what location do you seee on a picture>{coordinates: {latitude: <latitude>, longitude: <longitude>}, name: <place name>, type: <place type>}],
         distance: <if in the prompt user provided a range from any location, it should be here. It should be converted to kilometres always. This field value should be integer or float or null, if user is not provide defined number but asked something like near, not far from, in front of etc, try to estimate radius for example: "near" - 10km, "not far from" - 20km>,
         description: <places you found summary description>,
-        originalPrompt: <original prompt user provided>,
+        originalPrompt: <text prompt user provided excluding audio and image descriptions>,
         prompt: <prompt essencial for vector search, just keywords excluding places that already has been added in to the "near" or "in" fields>,
-        voice: <if user provided audio file, you should provide here its transcription>,
+        voice: <text version of attached audio>,
         voiceKeywords: <if user provided audio file, transcription essencial for vector search, just keywords excluding places that already has been added in to the "near" or "in" fields >,
         image: <if user provided image file, provide keywords of main objects you found on a picture including the place where this shot was made>
     }`,
@@ -104,8 +105,6 @@ export const geminiDescribeSearchQuery = async (
   const result = await model.generateContent(requestData);
   const response = await result.response;
   const text = response.text();
-
-  console.log('response', text);
 
   try {
     return JSON.parse(text);

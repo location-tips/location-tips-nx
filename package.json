@@ -14,6 +14,7 @@
     "build:back": "nx run backend:build",
     "reset": "nx reset",
     "build": "npm run build:front && npm run build:back",
+    "lint": "nx run frontend:lint && nx run backend:lint",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -100,6 +101,7 @@
     "next": "14.2.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-share": "^5.1.0",
     "react-transition-group": "^4.4.5",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.8.0",

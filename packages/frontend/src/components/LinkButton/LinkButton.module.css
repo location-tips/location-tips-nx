@@ -1,0 +1,17 @@
+.link {
+  color: var(--link-button-color, #747e97);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.secondary {
+  padding: var(--link-button-secondary-padding-vertical, 8px)
+    var(--link-button-secondary-padding-horizontal, 8px);
+  color: var(--link-button-secondary-color, #747e97);
+  background-color: var(--link-button-secondary-background-color, #747e97);
+  border-radius: var(--link-button-secondary-border-radius, 4px);
+}
+
+.active {
+  color: var(--link-button-active-color, #000);
+}

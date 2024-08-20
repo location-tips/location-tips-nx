@@ -1,4 +1,0 @@
-:root[data-theme='light'] {
-  --header-navigation-link-color: var(--palette-gray-2, #747e97);
-  --header-navigation-active-link-color: var(--palette-black, #000);
-}

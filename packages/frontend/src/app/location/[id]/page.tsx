@@ -5,8 +5,8 @@ import { TLocationInResult } from '@types';
 
 import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 
-import Page from '@front/components/page/page';
-import LocationModalContent from '@front/components/locationModal/locationModalContent/locationModalContent';
+import { Page } from '@front/components/Page';
+import { LocationContent } from '@front/components/LocationContent';
 
 import styles from './page.module.css';
 
@@ -18,21 +18,13 @@ type Params = {
 
 const DOMAIN = process.env.DOMAIN || 'http://localhost:3001';
 
-const locationCache: Map<string, TLocationInResult> = new Map();
-
 const getLocationById = async (id: string): Promise<TLocationInResult> => {
-  if (locationCache.has(id)) {
-    return locationCache.get(id) as TLocationInResult;
-  }
-
   const response = await fetch(`${DOMAIN}/api/location/${id}`, {
     method: 'GET',
   });
 
   if (response.status >= 200 && response.status < 300) {
     const data = await response.json();
-
-    locationCache.set(data.id, data);
 
     return data;
   } else {
@@ -70,11 +62,7 @@ export default async function Index({ params }: Params) {
         </MHeading>
 
         {mapId && apiKey && (
-          <LocationModalContent
-            mapId={mapId}
-            location={location}
-            apiKey={apiKey}
-          />
+          <LocationContent mapId={mapId} location={location} apiKey={apiKey} />
         )}
       </Page>
     );

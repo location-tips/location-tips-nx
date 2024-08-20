@@ -60,6 +60,11 @@ export class LocationsService {
 
   async getLocationsByIds(ids: string[]): Promise<TLocationEntity[]> {
     const mapResult = new Map<string, TLocationEntity>();
+
+    if (!ids.length) {
+      return [];
+    }
+
     const db = admin.firestore();
     const locations = await db
       .collection(COLLECTIONS.LOCATIONS)
@@ -70,8 +75,6 @@ export class LocationsService {
 
     locations.docs.forEach((doc) => {
       const res = doc.data() as TLocationEntity;
-
-      console.log('doc.id', doc.id);
 
       mapResult.set(doc.id, { ...res, id: doc.id });
     });
@@ -127,7 +130,7 @@ export class LocationsService {
 
   async searchLocations(
     text: string,
-    queryDescription,
+    queryDescription?: TLocationSearchDescription,
   ): Promise<TLocationsWithScore[]> {
     const embeddings = await getEmbeddings(text);
 
@@ -135,7 +138,7 @@ export class LocationsService {
     const collectionRef = db.collection(COLLECTIONS.LOCATIONS);
     let locationsInRegion = [];
 
-    if (queryDescription.near[0]) {
+    if (queryDescription?.near[0]) {
       // Search locations within the radius
       const distance = Number(queryDescription.distance);
 
@@ -148,7 +151,7 @@ export class LocationsService {
         Number(longitude),
         !Number.isNaN(distance) ? distance : 50,
       );
-    } else if (queryDescription.in[0]) {
+    } else if (queryDescription?.in[0]) {
       // Search locations within the bounding box or radius from the center of region
       const {
         coordinates: { latitude, longitude },
@@ -182,7 +185,7 @@ export class LocationsService {
           distanceMeasure: 'COSINE',
         })
         .get();
-    } else if (!queryDescription.near?.[0] && !queryDescription.in?.[0]) {
+    } else if (!queryDescription?.near?.[0] && !queryDescription?.in?.[0]) {
       // Search locations by prompt
       locations = await collectionRef
         .findNearest('embedding_field', FieldValue.vector(embeddings[0]), {

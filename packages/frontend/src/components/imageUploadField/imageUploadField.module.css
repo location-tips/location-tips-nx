@@ -1,9 +1,0 @@
-.previewContainer {
-  box-sizing: border-box;
-  width: 34px;
-  height: 34px;
-  background-position: center;
-  background-size: cover;
-  border: 1px solid var(--button-tertiary-enabled-background-color, #f4f5f7);
-  border-radius: var(--button-tertiary-borderRadius-default, 8px);
-}
