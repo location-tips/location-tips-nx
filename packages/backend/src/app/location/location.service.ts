@@ -138,7 +138,9 @@ export class LocationService {
 
     const doc = await db.collection(COLLECTIONS.LOCATIONS).doc(id).get();
 
-    return doc.data() as TLocationEntity;
+    const result = doc.data() as TLocationEntity;
+
+    return { ...result, id };
   }
 
   async removeLocationFromDB(
