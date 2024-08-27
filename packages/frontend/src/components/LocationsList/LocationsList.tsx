@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { APIProvider, Map } from '@vis.gl/react-google-maps';
 import { TLocationInResult } from '@types';
 
@@ -23,12 +24,30 @@ type LocationsListProps = {
 export const LocationsList = ({
   apiKey,
   mapId,
-  locations,
+  locations: initialLocationsArray,
   emptyText = 'List is empty',
 }: LocationsListProps) => {
+  const [locationsArray, setLocationsArray] = useState(initialLocationsArray);
+
+  const handleLocationsArrayUpdate = (updatedLocation: TLocationInResult) => {
+    setLocationsArray((prevLocationsArray) =>
+      prevLocationsArray.map((location) =>
+        location.id === updatedLocation.id ? updatedLocation : location,
+      ),
+    );
+  };
+
+  const handleLocationDelete = (deletedLocation: TLocationInResult) => {
+    setLocationsArray((prevLocationsArray) =>
+      prevLocationsArray.filter(
+        (location) => location.id !== deletedLocation.id,
+      ),
+    );
+  };
+
   return (
     <APIProvider apiKey={apiKey}>
-      {!locations || locations.length === 0 ? (
+      {!locationsArray || locationsArray.length === 0 ? (
         <MText as="span" size="4xl">
           {emptyText}
         </MText>
@@ -38,11 +57,11 @@ export const LocationsList = ({
             <Map
               defaultZoom={2}
               defaultCenter={convertCoordinates(
-                locations[0].location.coordinates,
+                locationsArray[0].location.coordinates,
               )}
               mapId={mapId}
             >
-              {locations.map((location) => (
+              {locationsArray.map((location) => (
                 <LocationMarker key={location.id} location={location} />
               ))}
             </Map>
@@ -50,8 +69,13 @@ export const LocationsList = ({
 
           <div className={styles.setContainer}>
             <MFlex direction="column" align="start" justify="stretch" gap="l">
-              {locations.map((location) => (
-                <LocationsListItem key={location.id} item={location} />
+              {locationsArray.map((location) => (
+                <LocationsListItem
+                  key={location.id}
+                  item={location}
+                  onUpdate={handleLocationsArrayUpdate}
+                  onDelete={handleLocationDelete}
+                />
               ))}
             </MFlex>
           </div>
