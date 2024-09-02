@@ -91,7 +91,7 @@
     "@wavesurfer/react": "^1.0.7",
     "axios": "^1.7.4",
     "exifreader": "4.23.3",
-    "firebase": "10.12.2",
+    "firebase": "10.13.1",
     "firebase-admin": "12.2.0",
     "geofire-common": "6.0.0",
     "heic-convert": "^2.1.0",
