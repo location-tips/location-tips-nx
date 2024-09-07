@@ -1,262 +1,123 @@
-import { useState } from 'react';
+import { MouseEvent } from 'react';
 import Link from 'next/link';
-import { TLocationInResult, LocationsState } from '@types';
+import {
+  TLocationInResult,
+  TlocationTools,
+  TMyLocationToolsProps,
+} from '@types';
 
-import { MCard } from '@location-tips/location-tips-uikit/atoms/MCard';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
-import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
-import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
-import { MDropdown } from '@location-tips/location-tips-uikit/atoms/MDropdown';
-import { MList } from '@location-tips/location-tips-uikit/atoms/MList';
-import { MInput } from '@location-tips/location-tips-uikit/atoms/MInput';
-import { MTextarea } from '@location-tips/location-tips-uikit/atoms/MTextarea';
+import { MExpandableText } from '@location-tips/location-tips-uikit/atoms/MExpandableText';
+import { MHeading } from '@location-tips/location-tips-uikit/atoms/MHeading';
 
 import { ImageWithOverlay } from '@front/components/ImageWithOverlay';
-import { MdiDotsHorizontal } from '@front/icons/MdiDotsHorizontal';
-import { MdiContentSave } from '@front/icons/MdiContentSave';
-import { MdiClose } from '@front/icons/MdiClose';
-import { MdiDeleteOutline } from '@front/icons/MdiDeleteOutline';
-import { updateLocation } from '@front/actions/updateLocation';
-import { deleteLocation } from '@front/actions/deleteLocation';
+import LocationCoordinates from '@front/components/LocationsListItem/Tools/LocationCoordinates/LocationCoordinates';
+import useModal, { MODALS } from '@front/stores/useModal';
+import { LocationModalHeader } from '../LocationModal/LocationModalHeader';
+import { LocationContent } from '../LocationContent';
 
 import './LocationsListItem.vars.css';
 import styles from './LocationsListItem.module.css';
 
 type LocationsListItemProps = {
   item: TLocationInResult;
-  onUpdate?: (updatedLocation: TLocationInResult) => void;
-  onDelete?: (deletedLocation: TLocationInResult) => void;
+  mapId: string;
+  apiKey: string;
+  tools?: TlocationTools<TMyLocationToolsProps>;
 };
 
 export const LocationsListItem = ({
   item,
-  onUpdate = () => {
-    return;
-  },
-  onDelete = () => {
-    return;
-  },
+  mapId,
+  apiKey,
+  tools: Tools,
 }: LocationsListItemProps) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [newTitle, setNewTitle] = useState(item.title);
-  const [newDescription, setNewDescription] = useState(
-    item.userDescription ?? item.description,
-  );
+  const modals = useModal();
 
-  const toggleDropdownOpen = () => {
-    setDropdownOpen((prevDropdownOpen) => !prevDropdownOpen);
-    if (isDeleting) {
-      setIsDeleting(false);
-    }
+  const showLocation = (event: MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    modals.registerModal(
+      MODALS.VIEW_LOCATION,
+      <LocationModalHeader
+        location={item}
+        closeButtonText="Back to my locations"
+        onClose={() => modals.hideModal()}
+      />,
+      <LocationContent location={item} mapId={mapId} apiKey={apiKey} />,
+      null,
+    );
+
+    modals.showModal(MODALS.VIEW_LOCATION);
   };
-
-  const toggleIsEditing = () => {
-    setIsEditing((prevIsEditing) => !prevIsEditing);
-  };
-
-  const toggleIsDeleting = () => {
-    setIsDeleting((prevIsDeleting) => !prevIsDeleting);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('id', item.id as string);
-    formData.append('uid', item.uid);
-    formData.append('title', newTitle);
-    formData.append('userDescription', newDescription);
-    try {
-      const result = await updateLocation({} as LocationsState, formData);
-      if (result.error) {
-        console.error('Error while updating location:', result.error);
-      } else {
-        toggleIsEditing();
-        onUpdate(result);
-      }
-    } catch (error) {
-      console.error('Error while updating location:', error);
-    }
-  };
-
-  const resetInputFields = () => {
-    setNewTitle(item.title);
-    setNewDescription(item.userDescription ?? item.description);
-  };
-
-  const handleDelete = async () => {
-    try {
-      const result = await deleteLocation({} as LocationsState, item);
-      console.log(result);
-      if (result.error) {
-        console.log('Error while deleting location:', result.error);
-      } else {
-        toggleDropdownOpen();
-        onDelete(item);
-      }
-    } catch (error) {
-      console.error('Error while updating location:', error);
-    }
-  };
-
-  const menuOptions = [
-    {
-      key: 'edit',
-      value: (
-        <div
-          className={styles.editMenuItem}
-          onClick={() => {
-            toggleIsEditing();
-            toggleDropdownOpen();
-          }}
-        >
-          Edit
-        </div>
-      ),
-    },
-    {
-      key: 'delete',
-      value: (
-        <>
-          {!isDeleting && (
-            <div className={styles.editMenuItem} onClick={toggleIsDeleting}>
-              Delete
-            </div>
-          )}
-          {isDeleting && (
-            <MFlex
-              className={styles.editMenuItem}
-              wrap="nowrap"
-              justify="space-between"
-              gap="s"
-            >
-              <MButton mode="transparent" onClick={handleDelete}>
-                <MdiDeleteOutline width={24} height={24} />
-              </MButton>
-              <MButton mode="transparent" onClick={toggleIsDeleting}>
-                <MdiClose width={24} height={24} />
-              </MButton>
-            </MFlex>
-          )}
-        </>
-      ),
-    },
-  ];
 
   return (
-    <>
-      {isEditing && (
-        <form className={styles.editItemForm} onSubmit={handleSubmit}>
-          <MCard
-            gap="s"
-            header={
-              <MFlex justify="space-between">
-                <MInput
-                  status="regular"
-                  containerClassName={styles.inputHeader}
-                  value={newTitle}
-                  autoFocus
-                  onChange={(e) => setNewTitle(e.target.value)}
-                />
-                <MFlex>
-                  <MButton mode="transparent" type="submit">
-                    <MdiContentSave width={24} height={24} />
-                  </MButton>
-                  <MButton
-                    mode="transparent"
-                    onClick={() => {
-                      toggleIsEditing();
-                      resetInputFields();
-                    }}
-                    type="button"
-                  >
-                    <MdiClose width={24} height={24} />
-                  </MButton>
-                </MFlex>
-              </MFlex>
-            }
+    <MFlex
+      className={styles.itemContainer}
+      direction="column"
+      gap="s"
+      align="start"
+      justify="stretch"
+    >
+      <MFlex
+        direction="row"
+        wrap="nowrap"
+        gap="l"
+        justify="stretch"
+        className={styles.itemContainerHeader}
+      >
+        <ImageWithOverlay
+          src={item.images.medium}
+          original={item.images.original}
+          alt={item.title}
+          width={90}
+          height={90}
+          className={styles.itemImage}
+          draggable={false}
+        />
+        <MFlex
+          direction="column"
+          align="stretch"
+          gap="xs"
+          className={styles.itemTitle}
+        >
+          <MFlex
+            justify="space-between"
+            wrap="nowrap"
+            gap="xs"
+            className={styles.itemHeadingWrapper}
           >
-            <MFlex direction="row" wrap="nowrap" gap="m" align="start">
-              <ImageWithOverlay
-                src={item.images.medium}
-                original={item.images.original}
-                alt={item.title}
-                width={200}
-                height={200}
-                className={styles.itemImage}
-                draggable={false}
-              />
-
-              <MTextarea
-                value={newDescription}
-                maxLength={400}
-                containerClassName={styles.inputDescription}
-                onChange={(e) => setNewDescription(e.target.value)}
-                placeholder={item.userDescription ?? item.description}
-                rows={7}
-                counter={true}
-              />
-            </MFlex>
-          </MCard>
-        </form>
-      )}
-
-      {!isEditing && (
-        <MCard
-          className={styles.itemCard}
-          header={
-            <MFlex justify="space-between">
+            <MHeading mode="h2" className={styles.itemHeading}>
               <Link
                 href={`/location/${item.id}`}
-                title={item.title}
+                title={item.title ? item.title : 'Untitled'}
                 className={styles.link}
+                onClick={showLocation}
               >
-                {item.title}
+                {item.title ? item.title : 'Untitled'}
               </Link>
-              <MFlex gap="xs">
-                <MDropdown
-                  onClose={() => {
-                    setDropdownOpen(true);
-                  }}
-                  noPadding={true}
-                  dropdownContent={
-                    <MList
-                      options={menuOptions}
-                      showDivider={false}
-                      noPadding={true}
-                    />
-                  }
-                  open={dropdownOpen}
-                  align="right"
-                  stretch={false}
-                >
-                  <MButton mode="transparent" onClick={toggleDropdownOpen}>
-                    <MdiDotsHorizontal width={24} height={24} />
-                  </MButton>
-                </MDropdown>
-              </MFlex>
-            </MFlex>
-          }
-        >
-          <MFlex direction="row" wrap="nowrap" gap="xl">
-            <ImageWithOverlay
-              src={item.images.medium}
-              original={item.images.original}
-              alt={item.title}
-              width={200}
-              height={200}
-              className={styles.itemImage}
-              draggable={false}
-            />
-            <MText className={styles.description}>
-              {item.userDescription ?? item.description}
-            </MText>
+            </MHeading>
+            {Tools && <Tools className={styles.tools} location={item} />}
           </MFlex>
-        </MCard>
-      )}
-    </>
+          <div className={styles.itemType}>
+            {item.location.type ? item.location.type : 'Place'}
+          </div>
+          <LocationCoordinates item={item} />
+        </MFlex>
+      </MFlex>
+      <MExpandableText
+        buttonAlign="start"
+        expandButtonContent={
+          <span className={styles.descriptionButton}>Show more</span>
+        }
+        collapseButtonContent={
+          <span className={styles.descriptionButton}>Collapse</span>
+        }
+      >
+        {item.userDescription ? item.userDescription : item.description}
+      </MExpandableText>
+    </MFlex>
   );
 };
 

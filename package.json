@@ -79,7 +79,7 @@
     "@fastify/static": "7.0.4",
     "@google-cloud/aiplatform": "3.27.0",
     "@google/generative-ai": "0.14.0",
-    "@location-tips/location-tips-uikit": "^0.2.19",
+    "@location-tips/location-tips-uikit": "^0.3.3",
     "@nest-lab/fastify-multer": "1.2.0",
     "@nestjs/common": "10.0.2",
     "@nestjs/config": "3.2.3",

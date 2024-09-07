@@ -1,0 +1,27 @@
+.itemCoordinatesContainer {
+  color: var(--location-coordinates-font-color, #747e97);
+  cursor: pointer;
+}
+
+.mapIcon {
+  transform: translateY(-3px);
+}
+
+.itemCoordinatesContainer:hover .mapIcon,
+.itemCoordinatesContainer:hover .itemCoord {
+  text-decoration: underline;
+}
+
+.itemCoordinates {
+  font-size: var(--location-coordinates-font-size, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.copiedAlert {
+  margin-left: var(--location-coordinates-copied-alert-margin-left, 8px);
+  font-weight: 600;
+  color: var(--location-coordinates-font-color, #747e97);
+  text-decoration: none;
+}
