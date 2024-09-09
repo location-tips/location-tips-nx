@@ -45,8 +45,7 @@ export const EditLocationForm = ({ item }: EditLocationFormProps) => {
   return (
     <AuthorizedForm action={submitChanges}>
       <MFlex direction="column" gap="l" align="start" className={styles.form}>
-        <MInput type={'hidden'} name="id" value={item.id} />
-        <MInput type={'hidden'} name="uid" value={item.uid} />
+        <input type={'hidden'} name="id" value={item.id} />
         <MFlex
           direction="column"
           gap="s"
