@@ -1,7 +1,4 @@
-type LocationCoordinates = {
-  latitude: number;
-  longitude: number;
-};
+import { TCoordinate } from '@types';
 
 export type DMS = {
   degrees: number;
@@ -34,7 +31,7 @@ function convertDecimalToDMS(coordinate: number): DMS {
 export default function convertCoordinatestoDMS({
   latitude,
   longitude,
-}: LocationCoordinates): DMSCoordinates {
+}: TCoordinate): DMSCoordinates {
   const lat: DMS = convertDecimalToDMS(latitude);
   const lon: DMS = convertDecimalToDMS(longitude);
 

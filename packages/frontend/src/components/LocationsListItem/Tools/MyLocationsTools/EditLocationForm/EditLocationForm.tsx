@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 import { LocationsState, TLocationInResult } from '@types';
 
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
@@ -9,7 +9,8 @@ import { MButton } from '@location-tips/location-tips-uikit/atoms/MButton';
 
 import useModal from '@front/stores/useModal';
 import useMyLocations from '@front/stores/useMyLocations';
-import { updateLocation } from '@front/actions/updateLocation';
+import { updateLocation as updateLocationAction } from '@front/actions/updateLocation';
+import { AuthorizedForm } from '@front/components/AuthorizedForm';
 
 import './EditLocationForm.vars.css';
 import styles from './EditLocationForm.module.css';
@@ -20,26 +21,19 @@ type EditLocationFormProps = {
 
 export const EditLocationForm = ({ item }: EditLocationFormProps) => {
   const { hideModal } = useModal();
-  const { updateLocations } = useMyLocations();
+  const { updateLocation } = useMyLocations();
   const [newTitle, setNewTitle] = useState(item.title);
   const [newDescription, setNewDescription] = useState(
     item.userDescription ? item.userDescription : item.description,
   );
 
-  const submitChanges = async (e: FormEvent) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('id', item.id as string);
-    formData.append('uid', item.uid);
-    formData.append('title', newTitle);
-    formData.append('userDescription', newDescription);
+  const submitChanges = async (formData: FormData) => {
     try {
-      const result = await updateLocation({} as LocationsState, formData);
+      const result = await updateLocationAction({} as LocationsState, formData);
       if (result.error) {
         console.error('Error while updating location:', result.error);
       } else {
-        updateLocations('update', result);
+        updateLocation(result);
       }
     } catch (error) {
       console.error('Error while updating location:', error);
@@ -49,8 +43,10 @@ export const EditLocationForm = ({ item }: EditLocationFormProps) => {
   };
 
   return (
-    <form onSubmit={submitChanges}>
+    <AuthorizedForm action={submitChanges}>
       <MFlex direction="column" gap="l" align="start" className={styles.form}>
+        <MInput type={'hidden'} name="id" value={item.id} />
+        <MInput type={'hidden'} name="uid" value={item.uid} />
         <MFlex
           direction="column"
           gap="s"
@@ -61,6 +57,7 @@ export const EditLocationForm = ({ item }: EditLocationFormProps) => {
           <MInput
             status="regular"
             value={newTitle}
+            name="title"
             autoFocus
             onChange={(e) => setNewTitle(e.target.value)}
           />
@@ -74,6 +71,7 @@ export const EditLocationForm = ({ item }: EditLocationFormProps) => {
           <MHeading mode="h3">Description:</MHeading>
           <MTextarea
             value={newDescription}
+            name="userDescription"
             maxLength={600}
             onChange={(e) => setNewDescription(e.target.value)}
             placeholder={
@@ -84,7 +82,7 @@ export const EditLocationForm = ({ item }: EditLocationFormProps) => {
           />
         </MFlex>
         <MFlex>
-          <MButton type="submit" mode="primary" onClick={submitChanges}>
+          <MButton type="submit" mode="primary">
             Sumbit
           </MButton>
           <MButton type="button" mode="secondary" onClick={() => hideModal()}>
@@ -92,7 +90,7 @@ export const EditLocationForm = ({ item }: EditLocationFormProps) => {
           </MButton>
         </MFlex>
       </MFlex>
-    </form>
+    </AuthorizedForm>
   );
 };
 

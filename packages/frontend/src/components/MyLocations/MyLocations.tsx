@@ -54,7 +54,6 @@ export const MyLocations = ({ apiKey, mapId }: MyLocationsProps) => {
     (async () => {
       try {
         const data = await getLocations();
-        console.log(data);
         setLocations(data);
       } catch (error) {
         console.log(error);

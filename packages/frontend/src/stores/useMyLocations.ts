@@ -4,37 +4,32 @@ import { TLocationInResult } from '@types';
 interface MyLocationsState {
   locations: TLocationInResult[] | null;
   setLocations: (fetchedLocations: TLocationInResult[]) => void;
-  updateLocations: (
-    method: 'update' | 'delete',
-    location: TLocationInResult,
-  ) => void;
+  updateLocation: (location: TLocationInResult) => void;
+  deleteLocation: (location: TLocationInResult) => void;
 }
 
 const useMyLocations = create<MyLocationsState>((set) => ({
   locations: null,
   setLocations: (fetchedLocations) => set({ locations: fetchedLocations }),
-  updateLocations: (method, location) =>
+  updateLocation: (location) =>
     set((state) => {
-      if (state.locations === null || state.locations.length === 0) {
+      if (state.locations === null) {
         return state;
       }
 
-      if (method === 'update') {
-        return {
-          locations: state.locations.map((item) =>
-            item.id === location.id ? location : item,
-          ),
-        };
-      }
-
-      if (method === 'delete') {
-        return {
-          locations: state.locations.filter((item) => item.id !== location.id),
-        };
-      }
-
-      return state;
+      return {
+        locations: state.locations.map((item) =>
+          item.id === location.id ? location : item,
+        ),
+      };
     }),
+
+  deleteLocation: (location) =>
+    set((state) => ({
+      locations: state.locations
+        ? state.locations.filter((item) => item.id !== location.id)
+        : null,
+    })),
 }));
 
 export default useMyLocations;

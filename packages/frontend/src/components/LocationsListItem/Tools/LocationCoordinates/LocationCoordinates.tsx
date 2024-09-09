@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { TLocationInResult } from '@types';
+import { useState, useMemo, useCallback } from 'react';
+import { TCoordinate } from '@types';
 
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
@@ -12,25 +12,23 @@ import './LocationCoordinates.vars.css';
 import styles from './LocationCoordinates.module.css';
 
 type LocationCoordinatesProps = {
-  item: TLocationInResult;
+  coordinates: TCoordinate;
 };
 
-export const LocationCoordinates = ({ item }: LocationCoordinatesProps) => {
-  const [coords, setCoords] = useState<DMSCoordinates>({
-    latitude: '',
-    longitude: '',
-  });
+export const LocationCoordinates = ({
+  coordinates,
+}: LocationCoordinatesProps) => {
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    if (item.location.coordinates) {
-      const dmsCoords = convertCoordinatestoDMS(item.location.coordinates);
-      setCoords(dmsCoords);
+  const coords = useMemo<DMSCoordinates>(() => {
+    if (coordinates) {
+      return convertCoordinatestoDMS(coordinates);
     }
-  }, [item.location.coordinates]);
+    return { latitude: '', longitude: '' };
+  }, [coordinates]);
 
   const copyToClipboard = useCallback(() => {
-    const { longitude, latitude } = item.location.coordinates;
+    const { longitude, latitude } = coordinates;
     const coordString = `${latitude} ${longitude}`;
 
     navigator.clipboard
@@ -42,7 +40,7 @@ export const LocationCoordinates = ({ item }: LocationCoordinatesProps) => {
       .catch((err) => {
         console.error('Failed to copy: ', err);
       });
-  }, [item.location.coordinates]);
+  }, [coordinates]);
 
   return (
     <MFlex

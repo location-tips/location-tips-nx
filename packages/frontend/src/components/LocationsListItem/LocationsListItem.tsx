@@ -103,7 +103,7 @@ export const LocationsListItem = ({
           <div className={styles.itemType}>
             {item.location.type ? item.location.type : 'Place'}
           </div>
-          <LocationCoordinates item={item} />
+          <LocationCoordinates coordinates={item.location.coordinates} />
         </MFlex>
       </MFlex>
       <MExpandableText
