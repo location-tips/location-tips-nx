@@ -16,3 +16,5 @@ export * from './api/error';
 
 export * from './states/favourites';
 export * from './states/locations';
+
+export * from './tools/locationTools';
