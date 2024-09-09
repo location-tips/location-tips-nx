@@ -12,7 +12,8 @@ export const getImages = async (
   const original = admin
     .storage()
     .bucket()
-    .file(`${STORAGE_ORIGINAL_FOLDER}${url}`);
+    .file(`${STORAGE_ORIGINAL_FOLDER}${url}`)
+    .publicUrl();
   const medium = admin
     .storage()
     .bucket()
@@ -21,7 +22,8 @@ export const getImages = async (
         '.webp',
         STORAGE_THUMBS_MEDIUM_SUFFIX + '.webp',
       )}`,
-    );
+    )
+    .publicUrl();
   const small = admin
     .storage()
     .bucket()
@@ -30,26 +32,12 @@ export const getImages = async (
         '.webp',
         STORAGE_THUMBS_SMALL_SUFFIX + '.webp',
       )}`,
-    );
+    )
+    .publicUrl();
 
   return {
-    original: (
-      await original.getSignedUrl({
-        action: 'read',
-        expires: new Date().getTime() + 60 * 60 * 1000,
-      })
-    )[0],
-    small: (
-      await small.getSignedUrl({
-        action: 'read',
-        expires: new Date().getTime() + 60 * 60 * 1000,
-      })
-    )[0],
-    medium: (
-      await medium.getSignedUrl({
-        action: 'read',
-        expires: new Date().getTime() + 60 * 60 * 1000,
-      })
-    )[0],
+    original,
+    small,
+    medium,
   };
 };

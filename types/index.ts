@@ -1,6 +1,7 @@
 export * from './generic/translation';
 export * from './generic/location';
 export * from './generic/locationSet';
+export * from './generic/locationCategory';
 export * from './generic/profile';
 export * from './generic/auth';
 export * from './generic/progressStatus';
@@ -16,3 +17,5 @@ export * from './api/error';
 
 export * from './states/favourites';
 export * from './states/locations';
+
+export * from './entities';

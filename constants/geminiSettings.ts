@@ -18,3 +18,5 @@ export const safetySettings = [
     threshold: HarmBlockThreshold.BLOCK_NONE,
   },
 ];
+
+export const dimensionality = 768;

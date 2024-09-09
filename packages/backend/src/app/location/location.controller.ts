@@ -11,6 +11,7 @@ import {
   Get,
   Param,
 } from '@nestjs/common';
+import pgvector from 'pgvector/knex';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
 import { FieldValue } from '@google-cloud/firestore';
@@ -23,6 +24,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { geohashForLocation } from 'geofire-common';
+import { InjectKnex, Knex } from 'nestjs-knex';
 
 import {
   PostLocationRequestDTO,
@@ -35,15 +37,19 @@ import {
 import { getEmbeddings } from '@back/utils/vertex';
 import { AuthGuard } from '@back/app/guards/auth.guard';
 import { GetLocationResponseDTO } from '@back/dto/location/get.dto';
+import { getCategory } from '@back/utils/getCategory';
 
 import { LocationService } from './location.service';
 
-import type { TLocation, TLocationEntity } from '@types';
+import type { LocationEntity, TLocation, TLocationEntity } from '@types';
 
 @ApiTags('location')
 @Controller('location')
 export class LocationController {
-  constructor(private readonly locationService: LocationService) {}
+  constructor(
+    private readonly locationService: LocationService,
+    @InjectKnex() private readonly knex: Knex,
+  ) {}
 
   @Get(':id')
   @ApiOperation({ summary: 'Get location by id' })
@@ -157,9 +163,24 @@ export class LocationController {
       },
     };
 
-    const doc = await this.locationService.saveLocationToDB(newLocation);
+    this.knex<LocationEntity>('locations').insert({
+      uid: newLocation.uid,
+      embedding: pgvector.toSql(embeddings[0]),
+      geohash: newLocation.geohash,
+      type: getCategory(newLocation.location.type),
+      locationName: newLocation.location.name,
+      latitude: newLocation.location.coordinates.latitude,
+      longitude: newLocation.location.coordinates.longitude,
+      altitude: exif?.gps?.Altitude ?? 0,
+      keywords: newLocation.keywords.join(','),
+      title: newLocation.title,
+      userDescription: newLocation.userDescription,
+      description: newLocation.description,
+      image: image,
+    });
 
-    newLocation.id = doc.id;
+    // const doc = await this.locationService.saveLocationToDB(newLocation);
+    // newLocation.id = doc.id;
 
     delete newLocation.image?.exif;
     delete newLocation.embedding_field;

@@ -1,11 +1,11 @@
 import * as aiplatform from '@google-cloud/aiplatform';
+import { dimensionality } from '@const';
 
 export async function getEmbeddings(text: string) {
   const project = 'location-tips-409908';
   // const model = 'text-multilingual-embedding-002';
   const model = 'text-embedding-004';
 
-  const dimensionality = 768;
   const apiEndpoint = 'us-central1-aiplatform.googleapis.com';
   const { PredictionServiceClient } = aiplatform.v1;
   const { helpers } = aiplatform;

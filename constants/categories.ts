@@ -46,4 +46,4 @@ export const CATEGORIES = [
   'Nature',
   'Abandoned',
   'Other',
-];
+] as const;

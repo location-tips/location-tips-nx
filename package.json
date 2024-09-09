@@ -71,7 +71,7 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-order": "^6.0.4",
     "ts-jest": "29.2.4",
-    "ts-node": "10.9.1",
+    "ts-node": "^10.9.1",
     "typescript": "5.5.4",
     "webpack-cli": "5.1.4"
   },
@@ -80,6 +80,9 @@
     "@google-cloud/aiplatform": "3.27.0",
     "@google/generative-ai": "0.14.0",
     "@location-tips/location-tips-uikit": "^0.2.15",
+    "@mikro-orm/core": "^6.3.7",
+    "@mikro-orm/nestjs": "^6.0.2",
+    "@mikro-orm/postgresql": "^6.3.7",
     "@nest-lab/fastify-multer": "1.2.0",
     "@nestjs/common": "10.0.2",
     "@nestjs/config": "3.2.3",
@@ -96,14 +99,18 @@
     "geofire-common": "6.0.0",
     "heic-convert": "^2.1.0",
     "heic2any": "^0.0.4",
+    "knex": "^3.1.0",
     "libvips": "0.0.2",
     "multer": "1.4.5-lts.1",
+    "nestjs-knex": "^2.0.0",
     "next": "14.2.3",
+    "pg": "^8.12.0",
+    "pgvector": "^0.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-share": "^5.1.0",
     "react-transition-group": "^4.4.5",
-    "reflect-metadata": "0.1.13",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "7.8.0",
     "sharp": "0.33.4",
     "tslib": "2.3.0",
@@ -114,5 +121,12 @@
   },
   "optionalDependencies": {
     "@nx/nx-linux-arm64-gnu": "19.6.1"
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "configPaths": [
+      "packages/backend/src/mikro-orm.config.ts",
+      "dist/backend/mikro-orm.config.js"
+    ]
   }
 }
