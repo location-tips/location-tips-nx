@@ -1,21 +1,39 @@
 :root[data-theme='light'] {
   --location-set-item-title-font-color: var(--palette-gray-1, #1e222a);
+  --location-set-item-type-font-color: var(--palette-gray-2, #747e97);
+  --location-set-description-button-font-color: var(
+    --palette-primary-40,
+    #397dff
+  );
+  --location-set-description-button-font-color-hover: var(
+    --palette-primary-30,
+    #528dff
+  );
 }
 
 :root[data-platform='web-desktop'] {
+  --location-set-item-container-padding: var(--size-general-1_5x, 12px);
+  --location-set-item-border-radius: var(--borderRadius-general-4x, 16px);
   --location-set-item-font-size: var(--font-size-xl, 20px);
-  --location-set-item-size: 200px;
   --location-set-item-image-border-radius: var(--borderRadius-general-5x, 20px);
+  --location-set-item-type-font-size: var(--font-size-m, 14px);
+  --location-set-description-button-margin-botton: var(--size-general-1x, 8px);
 }
 
 :root[data-platform='web-tablet'] {
+  --location-set-item-container-padding: var(--size-general-1_5x, 12px);
+  --location-set-item-border-radius: var(--borderRadius-general-4x, 16px);
   --location-set-item-font-size: var(--font-size-xl, 20px);
-  --location-set-item-size: 200px;
   --location-set-item-image-border-radius: var(--borderRadius-general-5x, 20px);
+  --location-set-item-type-font-size: var(--font-size-m, 14px);
+  --location-set-description-button-margin-botton: var(--size-general-1x, 8px);
 }
 
 :root[data-platform='web-mobile'] {
-  --location-set-item-font-size: var(--font-size-xl, 20px);
-  --location-set-item-size: 200px;
+  --location-set-item-container-padding: var(--size-general-1_5x, 12px);
+  --location-set-item-border-radius: var(--borderRadius-general-4x, 16px);
+  --location-set-item-font-size: var(--font-size-l, 16px);
   --location-set-item-image-border-radius: var(--borderRadius-general-5x, 20px);
+  --location-set-item-type-font-size: var(--font-size-m, 14px);
+  --location-set-description-button-margin-botton: var(--size-general-1x, 8px);
 }

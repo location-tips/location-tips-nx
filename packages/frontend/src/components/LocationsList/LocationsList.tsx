@@ -1,7 +1,11 @@
 'use client';
 
 import { APIProvider, Map } from '@vis.gl/react-google-maps';
-import { TLocationInResult } from '@types';
+import {
+  TLocationInResult,
+  TlocationTools,
+  TMyLocationToolsProps,
+} from '@types';
 
 import { MText } from '@location-tips/location-tips-uikit/atoms/MText';
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
@@ -18,12 +22,14 @@ type LocationsListProps = {
   mapId: string;
   locations: TLocationInResult[];
   emptyText?: string;
+  tools?: TlocationTools<TMyLocationToolsProps>;
 };
 
 export const LocationsList = ({
   apiKey,
   mapId,
   locations,
+  tools,
   emptyText = 'List is empty',
 }: LocationsListProps) => {
   return (
@@ -51,7 +57,13 @@ export const LocationsList = ({
           <div className={styles.setContainer}>
             <MFlex direction="column" align="start" justify="stretch" gap="l">
               {locations.map((location) => (
-                <LocationsListItem key={location.id} item={location} />
+                <LocationsListItem
+                  key={location.id}
+                  item={location}
+                  mapId={mapId}
+                  apiKey={apiKey}
+                  tools={tools}
+                />
               ))}
             </MFlex>
           </div>
