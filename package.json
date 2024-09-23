@@ -90,7 +90,7 @@
     "@vis.gl/react-google-maps": "^1.1.0",
     "@wavesurfer/react": "^1.0.7",
     "axios": "^1.7.4",
-    "exifreader": "4.23.3",
+    "exifreader": "4.23.5",
     "firebase": "10.13.1",
     "firebase-admin": "12.2.0",
     "geofire-common": "6.0.0",
