@@ -1,1 +1,1 @@
-export type TPlatform = 'web-desktop' | 'web-mobile' | 'web-tablet';
+export type TTPlatform = 'web-desktop' | 'web-mobile' | 'web-tablet';

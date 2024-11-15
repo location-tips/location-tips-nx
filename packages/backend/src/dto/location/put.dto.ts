@@ -9,18 +9,18 @@ import type {
   PutLocationRequest,
   PutLocationResponse,
   TLocation,
-  TLocationEntity,
+  LocationEntity,
 } from '@types';
 
 export class PutLocationRequestDTO implements PutLocationRequest {
   @ApiProperty({ description: 'Unique identifier of the location entity' })
-  id?: string;
+  id: number;
 
   @ApiProperty({ description: 'Place title given by user or AI' })
   title?: string;
 
   @ApiProperty({ description: 'User description of the location' })
-  userDescription?: TLocationEntity['userDescription'];
+  userDescription?: LocationEntity['userDescription'];
 
   @ApiProperty({
     description: 'Coordinates of the location',
@@ -31,4 +31,12 @@ export class PutLocationRequestDTO implements PutLocationRequest {
 
 export class PutLocationResponseDTO
   extends LocationWithImagesEntityDTO
-  implements PutLocationResponse {}
+  implements PutLocationResponse
+{
+  type?: LocationEntity['type'];
+  locationName?: string;
+  latitude: number;
+  longitude: number;
+  altitude: number;
+  embedding: number[];
+}

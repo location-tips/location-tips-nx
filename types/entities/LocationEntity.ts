@@ -1,14 +1,14 @@
-import { ImageEntity } from './ImageEntity';
-import { LocationCategory } from '../';
+import { TUidIdentifier, TLocationCategory, TImageEntity } from '@types';
 
-export type LocationEntity = {
-  uid: string;
+export type TLocationEntity = {
+  id: number;
+  uid: TUidIdentifier;
   title: string;
-  type?: LocationCategory;
+  type?: TLocationCategory;
   description?: string;
   userDescription?: string;
   keywords?: string;
-  image: ImageEntity;
+  image: TImageEntity['id'];
   locationName?: string;
   geohash: string;
   latitude: number;

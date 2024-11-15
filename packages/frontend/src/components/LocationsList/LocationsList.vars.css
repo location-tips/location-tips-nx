@@ -10,7 +10,7 @@
     50% - var(--location-set-wrapper-gap, 1.5rem) / 2
   );
   --location-set-map-height: 100%;
-  --location-set-setcontainer-padding: var(--whiteSpace-general-_5x, 0.25rem);
+  --location-set-setcontainer-padding: var(--whiteSpace-general-1x, 0.5rem);
 }
 
 :root[data-platform='web-tablet'] {
@@ -21,7 +21,7 @@
     50% - var(--location-set-wrapper-gap, 1.5rem) / 2
   );
   --location-set-map-height: 100%;
-  --location-set-setcontainer-padding: var(--whiteSpace-general-_5x, 0.25rem);
+  --location-set-setcontainer-padding: var(--whiteSpace-general-1x, 0.5rem);
 }
 
 :root[data-platform='web-mobile'] {
@@ -30,5 +30,5 @@
   --location-set-wrapper-height: 100%;
   --location-set-child-container-width: 100%;
   --location-set-map-height: 50vh;
-  --location-set-setcontainer-padding: var(--whiteSpace-general-_5x, 0.25rem);
+  --location-set-setcontainer-padding: var(--whiteSpace-general-1x, 0.5rem);
 }

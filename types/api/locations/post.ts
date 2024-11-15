@@ -1,15 +1,15 @@
 import type {
-  TLocationInResult,
-  TLocationSearchDescription,
+  LocationData,
+  LocationSearchDescription,
 } from '../../generic/location';
 
-export type PostLocationsRequest = {
+export type TPostLocationsRequest = {
   searchText?: string;
   image?: File;
   voice?: File;
 };
 
-export type PostLocationsResponse = {
-  searchResult: TLocationInResult[];
-  queryDescription: TLocationSearchDescription;
+export type TPostLocationsResponse = {
+  searchResult: LocationData[];
+  queryDescription: LocationSearchDescription;
 };

@@ -1,19 +1,66 @@
+.itemContainer {
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--location-set-item-container-padding, 12px);
+  background: #f4f5f7;
+  border-radius: var(--location-set-item-border-radius, 16px);
+}
+
+.itemContainerHeader {
+  width: 100%;
+}
+
+.itemImage {
+  border-radius: var(--location-set-item-border-radius, 16px);
+}
+
+.itemTitle {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.itemHeadingWrapper {
+  width: 100%;
+}
+
+.itemHeading {
+  flex: 1;
+  overflow: hidden;
+}
+
 .link {
+  display: block;
+  width: 100%;
+  overflow: hidden;
   font-size: var(--location-set-item-font-size, 20px);
   font-weight: 600;
   color: var(--location-set-item-title-font-color, #1e222a);
   text-decoration: none;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
 }
 
 .link:hover {
   text-decoration: none;
 }
 
-.itemImage {
-  border-radius: var(--location-set-item-image-border-radius, 20px);
+.tools {
+  flex: 0 0 auto;
 }
 
-.description {
-  height: var(--location-set-item-size, 200px);
-  overflow: hidden;
+.itemType {
+  font-size: var(--location-set-item-type-font-size, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--location-set-item-type-font-color, #747e97);
+}
+
+.descriptionButton {
+  margin-bottom: var(--location-set-description-button-margin-botton, 8px);
+  color: var(--location-set-description-button-font-color, #397dff);
+}
+
+.descriptionButton:hover {
+  color: var(--location-set-description-button-font-color-hover, #528dff);
 }

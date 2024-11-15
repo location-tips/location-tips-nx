@@ -1,9 +1,11 @@
-import { Tags } from 'exifreader';
+import { UidIdentifier } from '@types';
 
-export type ImageEntity = {
+export type TImageEntity = {
+  id: string;
+  uid: UidIdentifier;
   original: string;
   small: string;
   medium: string;
   description: string;
-  exif?: Tags;
+  exif?: string;
 };

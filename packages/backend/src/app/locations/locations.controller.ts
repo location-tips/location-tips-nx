@@ -18,6 +18,7 @@ import {
 } from '@nest-lab/fastify-multer';
 
 import { PostLocationsResponseDTO, PostLocationsRequestDTO } from '@back/dto';
+import { DBService } from '@back/app/db/db.service';
 
 import { LocationsService } from './locations.service';
 
@@ -26,7 +27,10 @@ import type { TLocationSearchDescription } from '@types';
 @ApiTags('locations')
 @Controller('locations')
 export class LocationsController {
-  constructor(private readonly locationsService: LocationsService) {}
+  constructor(
+    private readonly locationsService: LocationsService,
+    private readonly dbService: DBService,
+  ) {}
 
   @Post()
   @ApiOperation({ summary: 'Search location by given prompt' })

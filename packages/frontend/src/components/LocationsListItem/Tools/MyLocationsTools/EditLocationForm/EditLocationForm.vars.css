@@ -1,0 +1,11 @@
+:root[data-platform='web-desktop'] {
+  --edit-location-from-width: 50vw;
+}
+
+:root[data-platform='web-tablet'] {
+  --edit-location-from-width: 75vw;
+}
+
+:root[data-platform='web-mobile'] {
+  --edit-location-from-width: 85vw;
+}

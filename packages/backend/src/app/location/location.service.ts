@@ -2,23 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { getStorage } from 'firebase-admin/storage';
 import { v4 as uuidv4 } from 'uuid';
 import convert from 'heic-convert';
-import admin from 'firebase-admin';
 import sharp from 'sharp';
-import { COLLECTIONS, DB_DEFAULT_LIMIT } from '@const';
+import { InjectKnex, Knex } from 'nestjs-knex';
+import { type TGeminiResponseDescribeImage } from '@types';
 
 import { geminiDescribeImage } from '@back/utils/gemini';
 import { extractExif } from '@back/utils/exif';
 import { getImages } from '@back/utils/firebase';
 
-import type {
-  PutLocationRequest,
-  TGeminiResponseDescribeImage,
-  TLocationEntity,
-  TLocationsWithImages,
-} from '@types';
-
 @Injectable()
 export class LocationService {
+  constructor(@InjectKnex() private readonly knex: Knex) {}
+
   async extractExif(file: Buffer): Promise<ExifReader.ExpandedTags> {
     return extractExif(file);
   }
@@ -96,96 +91,5 @@ export class LocationService {
     const file = bucket.file(url);
 
     await file.delete();
-  }
-
-  async saveLocationToDB(location: TLocationEntity): Promise<TLocationEntity> {
-    const db = admin.firestore();
-
-    const ref = await db.collection(COLLECTIONS.LOCATIONS).add(location);
-    const doc = await ref.get();
-
-    return { id: doc.id, ...doc.data() } as TLocationEntity;
-  }
-
-  async updateLocationInDB({
-    id,
-    title,
-    userDescription,
-    location: coordinates,
-  }: PutLocationRequest): Promise<TLocationEntity> {
-    const db = admin.firestore();
-    // TODO: Access controller to check if user is allowed to update location
-
-    const data = (
-      await db.collection(COLLECTIONS.LOCATIONS).doc(id).get()
-    ).data() as TLocationEntity;
-
-    await db
-      .collection(COLLECTIONS.LOCATIONS)
-      .doc(id)
-      .set(
-        {
-          ...data,
-          title: title ?? data.title,
-          userDescription: userDescription ?? data.userDescription,
-          location: {
-            ...data.location,
-            coordinates: coordinates ?? data.location?.coordinates,
-          },
-        },
-        { merge: true },
-      );
-
-    const doc = await db.collection(COLLECTIONS.LOCATIONS).doc(id).get();
-
-    return doc.data() as TLocationEntity;
-  }
-
-  async removeLocationFromDB(
-    id: TLocationEntity['id'],
-  ): Promise<TLocationEntity> {
-    const db = admin.firestore();
-
-    const doc = await db.collection(COLLECTIONS.LOCATIONS).doc(id).get();
-
-    await db.collection(COLLECTIONS.LOCATIONS).doc(id).delete();
-
-    return doc.data() as TLocationEntity;
-  }
-
-  async getLocationById(id: TLocationEntity['id']): Promise<TLocationEntity> {
-    const db = admin.firestore();
-
-    const doc = await db.collection(COLLECTIONS.LOCATIONS).doc(id).get();
-
-    return { id: doc.id, ...doc.data() } as TLocationEntity;
-  }
-
-  async getNearestLocations(
-    geohash: TLocationEntity['geohash'],
-  ): Promise<TLocationsWithImages[]> {
-    const db = admin.firestore();
-
-    const locations = await db
-      .collection(COLLECTIONS.LOCATIONS)
-      .where('geohash', '==', geohash)
-      .limit(DB_DEFAULT_LIMIT)
-      .get();
-
-    const data: TLocationsWithImages[] = await Promise.all(
-      locations.docs.map(async (doc) => {
-        const loc = {
-          ...(doc.data() as TLocationEntity),
-          images: await getImages(doc.data().image.url),
-        };
-
-        delete loc.embedding_field;
-        delete loc.image.exif;
-
-        return loc;
-      }),
-    );
-
-    return data;
   }
 }

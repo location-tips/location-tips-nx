@@ -17,10 +17,9 @@
 }
 
 .setContainer {
-  box-sizing: border-box;
   width: var(--location-set-child-container-width, calc(50% - 1.5rem / 2));
   height: 100%;
-  padding: var(--location-set-setcontainer-padding, 4px);
+  padding-right: var(--location-set-setcontainer-padding, 8px);
   overflow-y: scroll;
   scrollbar-color: var(--location-set-scrollbar-color, #747e97) transparent;
   scrollbar-width: thin;

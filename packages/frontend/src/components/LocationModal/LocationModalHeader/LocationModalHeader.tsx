@@ -13,11 +13,13 @@ import type { TLocationInResult } from '@types';
 
 type LocationModalHeaderProps = {
   location: TLocationInResult;
+  closeButtonText?: string;
   onClose: () => void;
 };
 
 export const LocationModalHeader = ({
   location,
+  closeButtonText = 'Back to search',
   onClose,
 }: LocationModalHeaderProps) => {
   return (
@@ -25,7 +27,7 @@ export const LocationModalHeader = ({
       <MButton mode="transparent" onClick={onClose}>
         <MFlex direction="row" gap="s" justify="end" align="center">
           <MdiChevronLeft width={32} height={32} />
-          <MText>Back to search</MText>
+          <MText>{closeButtonText}</MText>
         </MFlex>
       </MButton>
       <MFlex direction="row" gap="l" justify="end" align="center">

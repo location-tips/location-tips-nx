@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import type {
+  LocationEntity,
   TBoundedLocation,
   TCoordinate,
   TGeminiResponseDescribeImage,
@@ -93,35 +94,13 @@ export class LocationEntityDTO
   image?: TGeminiResponseDescribeImage & { url: string };
 }
 
-export class ImagesDTO implements TImages {
-  @ApiProperty({ description: 'Original quality image URL' })
-  original: string;
-
-  @ApiProperty({ description: 'Small quality image URL' })
-  small: string;
-
-  @ApiProperty({ description: 'Medium quality image URL' })
-  medium: string;
-}
-
-export class LocationWithImagesEntityDTO
-  extends LocationEntityDTO
-  implements TLocationsWithImages
-{
-  @ApiProperty({
-    description: 'Images with different quality',
-    type: ImagesDTO,
-  })
-  images: TImages;
-}
-
 export class LocationsWithScoreDTO
-  extends LocationWithImagesEntityDTO
+  extends LocationDataDTO
   implements TLocationInResult
 {
   @ApiProperty({
     description: 'Locations in the same place and similar to search query',
-    type: LocationWithImagesEntityDTO,
+    type: LocationDataDTO,
     isArray: true,
   })
   nearest: TLocationsWithImages[];
@@ -133,12 +112,12 @@ export class LocationsWithScoreDTO
 }
 
 export class LocationInResultDTO
-  extends LocationWithImagesEntityDTO
+  extends LocationDataDTO
   implements TLocationsWithImages
 {
   @ApiProperty({
     description: 'Locations in the same place and similar to search query',
-    type: LocationWithImagesEntityDTO,
+    type: LocationDataDTO,
     isArray: true,
   })
   nearest: TLocationsWithImages[];

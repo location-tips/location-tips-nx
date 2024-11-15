@@ -1,19 +1,19 @@
-export type UidIdentifier = string;
+export type TUidIdentifier = string;
 
-export type EmailIdentifier = string;
+export type TEmailIdentifier = string;
 
-export type AvailableProviders = 'google.com' | 'facebook.com';
+export type TAvailableProviders = 'google.com' | 'facebook.com';
 
-export type Providers = Record<AvailableProviders, string[]> & {
+export type TProviders = Record<AvailableProviders, string[]> & {
   email: string[];
 };
 
-export type FirebaseTokenData = {
+export type TFirebaseTokenData = {
   identities: Providers;
   sign_in_provider: AvailableProviders;
 };
 
-export type TokenPayload = {
+export type TTokenPayload = {
   name: string;
   picture: string;
   iss: string;

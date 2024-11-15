@@ -1,0 +1,4 @@
+:root[data-theme='light'] {
+  --location-tools-font-enabled-color: var(--palette-gray-2, #747e97);
+  --location-tools-font-hover-color: var(--palette-gray-3, #babecb);
+}

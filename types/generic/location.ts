@@ -1,6 +1,6 @@
-import { VectorValue } from '@google-cloud/firestore';
+import { TImageEntity, TLocationEntity } from '@types';
 
-export type TCoordinate = {
+export type TCoordinates = {
   latitude: number;
   longitude: number;
 };
@@ -12,28 +12,32 @@ export type TBounds = {
   west: number;
 };
 
-export type TLocation = {
+export type TPossibleLocation = {
   name: string;
   type: string;
   description?: string;
-  coordinates: TCoordinate;
+  coordinates: TCoordinates;
 };
 
 export type TGeminiResponseDescribeImage = {
   title: string;
   keywords: string[];
   description: string;
-  location?: TLocation;
+  location?: Location;
 };
 
-export type TBoundedLocation = TLocation & {
+export type TBoundedPoint = TPossibleLocation & {
   boundingBox: TBounds;
 };
 
+export type TLocationData = Omit<TLocationEntity, 'image' | 'embedding'> & {
+  images: Pick<TImageEntity, 'original' | 'medium' | 'small'>;
+};
+
 export type TLocationSearchDescription = {
-  near?: TLocation[];
-  in?: TBoundedLocation[];
-  location: TLocation[];
+  near?: TPossibleLocation[];
+  in?: TBoundedPoint[];
+  location: TPossibleLocation[];
   distance?: string;
   description: string;
   originalPrompt: string;
@@ -43,39 +47,6 @@ export type TLocationSearchDescription = {
   voiceKeywords?: string;
 };
 
-export type TLocationEntity = {
-  id?: string;
-  uid: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-  embedding_field: VectorValue;
-  geohash: string;
-  location: TLocation;
-  keywords: string[];
-  title: string;
-  userDescription?: string;
-  description: string;
-  image?: TGeminiResponseDescribeImage & {
-    url: string;
-    exif?: string;
-  };
+export type TLocationInResult = TLocationData & {
+  nearest: TLocationData[];
 };
-
-export type TLocationsWithScore = Omit<TLocationEntity, 'embedding_field'> & {
-  score: number;
-};
-
-export type TImages = {
-  original: string;
-  small: string;
-  medium: string;
-};
-
-export type TLocationsWithImages = Omit<TLocationEntity, 'embedding_field'> & {
-  images: TImages;
-};
-
-export type TLocationInResult = TLocationsWithScore &
-  TLocationsWithImages & {
-    nearest: TLocationsWithImages[];
-  };

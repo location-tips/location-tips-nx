@@ -6,7 +6,6 @@ export * from './generic/profile';
 export * from './generic/auth';
 export * from './generic/progressStatus';
 export * from './generic/platform';
-export * from './generic/favourites';
 
 export * from './api/locations';
 export * from './api/locations/set';
@@ -19,3 +18,5 @@ export * from './states/favourites';
 export * from './states/locations';
 
 export * from './entities';
+
+export * from './tools/locationTools';

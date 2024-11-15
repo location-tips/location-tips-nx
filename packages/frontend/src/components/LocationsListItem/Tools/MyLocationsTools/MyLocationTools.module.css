@@ -1,0 +1,7 @@
+.toolsButton {
+  color: var(--location-tools-font-enabled-color, #747e97);
+}
+
+.toolsButton:hover {
+  color: var(--location-tools-font-hover-color, #babecb);
+}

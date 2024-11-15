@@ -1,4 +1,4 @@
-export type TTranslation = {
+export type TTTranslation = {
   from: string;
   to: string;
   original: string;

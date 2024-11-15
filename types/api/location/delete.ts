@@ -1,5 +1,5 @@
-import type { TLocationEntity } from '../../generic/location';
+import type { TLocationEntity } from '@types';
 
-export type DeleteLocationRequest = Pick<TLocationEntity, 'id'>;
+export type TDeleteLocationRequest = Pick<TLocationEntity, 'id'>;
 
-export type DeleteLocationResponse = Pick<TLocationEntity, 'id'>;
+export type TDeleteLocationResponse = Pick<TLocationEntity, 'id'>;

@@ -14,7 +14,6 @@ import {
 import pgvector from 'pgvector/knex';
 import { FileInterceptor, File as FastifyFile } from '@nest-lab/fastify-multer';
 import { FRequest } from 'fastify';
-import { FieldValue } from '@google-cloud/firestore';
 import {
   ApiBearerAuth,
   ApiBody,
@@ -24,7 +23,6 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { geohashForLocation } from 'geofire-common';
-import { InjectKnex, Knex } from 'nestjs-knex';
 
 import {
   PostLocationRequestDTO,
@@ -38,19 +36,21 @@ import { getEmbeddings } from '@back/utils/vertex';
 import { AuthGuard } from '@back/app/guards/auth.guard';
 import { GetLocationResponseDTO } from '@back/dto/location/get.dto';
 import { getCategory } from '@back/utils/getCategory';
+import { DBService } from '@back/app/db/db.service';
 
 import { LocationService } from './location.service';
 
-import type { LocationEntity, TLocation, TLocationEntity } from '@types';
+import type { LocationEntity, TLocation } from '@types';
 
 @ApiTags('location')
 @Controller('location')
 export class LocationController {
   constructor(
     private readonly locationService: LocationService,
-    @InjectKnex() private readonly knex: Knex,
+    private readonly dbService: DBService,
   ) {}
 
+  // MARK: - GET Get location by id
   @Get(':id')
   @ApiOperation({ summary: 'Get location by id' })
   @ApiResponse({
@@ -61,20 +61,13 @@ export class LocationController {
   @ApiResponse({ status: 400, description: 'Empty request.' })
   @ApiResponse({ status: 500, description: 'Server error.' })
   async getLocation(@Param('id') id: string) {
-    const doc = await this.locationService.getLocationById(id);
+    const doc = await this.dbService.getLocationById(id);
+    const nearest = await this.dbService.getNearestLocations(doc.geohash);
 
-    const newLocation = { ...doc, id: doc.id };
-
-    delete newLocation.image?.exif;
-    delete newLocation.embedding_field;
-
-    const images = await this.locationService.getImages(doc.image.url);
-
-    const nearest = await this.locationService.getNearestLocations(doc.geohash);
-
-    return { ...newLocation, nearest: nearest ?? [], images };
+    return { doc, nearest: nearest ?? [] };
   }
 
+  // MARK: - POST Create new location
   @Post()
   @ApiOperation({ summary: 'Create new location' })
   @ApiBearerAuth()
@@ -146,50 +139,42 @@ export class LocationController {
         locationData.description,
     );
 
-    // Save to db
-    const newLocation: TLocationEntity = {
+    const imagesSizes = await this.locationService.getImages(newFilename);
+
+    const imageEntity = {
+      id: newFilename,
+      ...imagesSizes,
+      description: description.description,
+      exif: JSON.stringify(exif),
+    };
+
+    await this.dbService.insertImages([imageEntity]);
+
+    const newLocation: Omit<LocationEntity, 'id'> = {
       uid: req.user.uid,
-      embedding_field: FieldValue.vector(embeddings[0]),
+      embedding: pgvector.toSql(embeddings[0]),
       geohash: geohash,
-      location: locationData,
-      keywords: description.keywords,
+      type: getCategory(locationData.type),
+      locationName: locationData.name,
+      latitude: locationData.coordinates.latitude,
+      longitude: locationData.coordinates.longitude,
+      altitude: exif?.gps?.Altitude ?? 0,
+      keywords: description.keywords.join(','),
       title: description.location?.name ?? '',
       userDescription: '',
       description: description.description,
-      image: {
-        ...description,
-        exif: JSON.stringify(exif),
-        url: newFilename,
-      },
+      image: newFilename,
     };
 
-    this.knex<LocationEntity>('locations').insert({
-      uid: newLocation.uid,
-      embedding: pgvector.toSql(embeddings[0]),
-      geohash: newLocation.geohash,
-      type: getCategory(newLocation.location.type),
-      locationName: newLocation.location.name,
-      latitude: newLocation.location.coordinates.latitude,
-      longitude: newLocation.location.coordinates.longitude,
-      altitude: exif?.gps?.Altitude ?? 0,
-      keywords: newLocation.keywords.join(','),
-      title: newLocation.title,
-      userDescription: newLocation.userDescription,
-      description: newLocation.description,
-      image: image,
-    });
+    const [location] = await this.dbService.insertLocations([newLocation]);
 
-    // const doc = await this.locationService.saveLocationToDB(newLocation);
-    // newLocation.id = doc.id;
+    delete location.embedding;
+    delete location.image;
 
-    delete newLocation.image?.exif;
-    delete newLocation.embedding_field;
-
-    const images = await this.locationService.getImages(newFilename);
-
-    return { ...newLocation, images };
+    return { ...newLocation, images: imagesSizes };
   }
 
+  // MARK: - PUT Update location
   @Put()
   @ApiOperation({ summary: 'Update location' })
   @ApiBearerAuth()
@@ -206,13 +191,16 @@ export class LocationController {
     type: PutLocationRequestDTO,
   })
   async putLocation(@Body() data: PutLocationRequestDTO) {
-    const doc = await this.locationService.updateLocationInDB(data);
+    const { id, ...updateData } = data;
 
-    const images = await this.locationService.getImages(doc.image.url);
+    const [location] = await this.dbService.updateLocation(id, updateData);
 
-    return { ...doc, images };
+    const images = await this.locationService.getImages(location.image);
+
+    return { ...location, images };
   }
 
+  // MARK: - DELETE Remove location
   @Delete()
   @ApiOperation({ summary: 'Remove location' })
   @ApiBearerAuth()
@@ -229,12 +217,14 @@ export class LocationController {
     type: DeleteLocationRequestDTO,
   })
   async deleteLocation(@Body() { id }: DeleteLocationRequestDTO) {
-    // Remove from db
-    const doc = await this.locationService.removeLocationFromDB(id);
+    const [location] = await this.dbService.deleteLocation(id);
+    const [images] = await this.dbService.deleteImage(location.image);
 
     // Remove from CDN
-    await this.locationService.removeFromCDN(doc.image.url);
+    await this.locationService.removeFromCDN(images[0]?.original);
+    await this.locationService.removeFromCDN(images[0]?.medium);
+    await this.locationService.removeFromCDN(images[0]?.small);
 
-    return { id: doc.id };
+    return { id };
   }
 }

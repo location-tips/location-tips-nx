@@ -1,5 +1,5 @@
-import type { TLocationsSet } from '../../../generic/locationSet';
+import type { TLocationSetEntity } from '@types';
 
-export type PutLocationsSetRequest = TLocationsSet;
+export type TPutLocationsSetRequest = TLocationSetEntity;
 
-export type PutLocationsSetResponse = TLocationsSet;
+export type TPutLocationsSetResponse = TLocationSetEntity;

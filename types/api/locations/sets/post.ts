@@ -1,12 +1,12 @@
-import { TLocationsSet } from '../../../generic/locationSet';
+import { TLocationSetEntity } from '@types';
 
-export type PostLocationsSetsRequest = {
+export type TPostLocationsSetsRequest = {
   searchText?: string;
   uid?: string;
   offset?: number;
 };
 
-export type PostLocationsSetsResponse = {
-  locationsSets: TLocationsSet[];
+export type TPostLocationsSetsResponse = {
+  locationsSets: TLocationSetEntity[];
   count: number;
 };

@@ -1,0 +1,8 @@
+.form {
+  width: var(--edit-location-from-width, 50vw);
+  max-width: var(--page-max-width, 1200px);
+}
+
+.inputContainer {
+  width: 100%;
+}

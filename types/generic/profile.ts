@@ -1,6 +1,6 @@
 import { UidIdentifier } from './auth';
 
-export type TProfile = {
+export type TTProfile = {
   uid: UidIdentifier;
   name?: string;
   description?: string;

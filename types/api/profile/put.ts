@@ -1,5 +1,5 @@
 import type { TProfile } from '../../generic/profile';
 
-export type PutProfileRequest = TProfile;
+export type TPutProfileRequest = TProfile;
 
-export type PutProfileResponse = TProfile;
+export type TPutProfileResponse = TProfile;

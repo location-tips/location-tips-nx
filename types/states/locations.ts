@@ -1,3 +1,3 @@
-export type LocationsState = {
+export type TLocationsState = {
   locations: string[];
 };

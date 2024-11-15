@@ -1,0 +1,18 @@
+:root[data-theme='light'] {
+  --location-coordinates-font-color: var(--palette-gray-2, #747e97);
+}
+
+:root[data-platform='web-desktop'] {
+  --location-coordinates-font-size: var(--font-size-m, 14px);
+  --location-coordinates-copied-alert-margin-left: var(--size-general-1x, 8px);
+}
+
+:root[data-platform='web-tablet'] {
+  --location-coordinates-font-size: var(--font-size-m, 14px);
+  --location-coordinates-copied-alert-margin-left: var(--size-general-1x, 8px);
+}
+
+:root[data-platform='web-mobile'] {
+  --location-coordinates-font-size: var(--font-size-m, 14px);
+  --location-coordinates-copied-alert-margin-left: 0;
+}

@@ -1,12 +1,6 @@
-import type {
-  TLocation,
-  TLocationEntity,
-  TLocationsWithImages,
-} from '../../generic/location';
+import type { TLocationData, TLocationEntity } from '@types';
 
-export type PutLocationRequest = Pick<TLocationEntity, 'id'> &
-  Partial<Pick<TLocationEntity, 'title' | 'userDescription'>> & {
-    location?: TLocation['coordinates'];
-  };
+export type TPutLocationRequest = Pick<TLocationEntity, 'id'> &
+  Partial<Pick<TLocationEntity, 'title' | 'userDescription'>>;
 
-export type PutLocationResponse = TLocationsWithImages;
+export type TPutLocationResponse = TLocationData;

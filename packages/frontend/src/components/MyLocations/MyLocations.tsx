@@ -1,13 +1,15 @@
 'use client';
 
 import { getAuth } from 'firebase/auth';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { TLocationInResult } from '@types';
 
 import { MFlex } from '@location-tips/location-tips-uikit/atoms/MFlex';
 
 import { LocationsList } from '@front/components/LocationsList';
+import { MyLocationTools } from '@front/components/LocationsListItem/Tools/MyLocationsTools/MyLocationsTools';
 import { MdiLoadingLoop } from '@front/icons/MdiLoadingLoop';
+import useMyLocations from '@front/stores/useMyLocations';
 
 type MyLocationsProps = {
   apiKey: string;
@@ -26,13 +28,14 @@ const getLocations = async (): Promise<TLocationInResult[]> => {
         Authorization: `${token}`,
         'Content-Type': 'application/json',
       },
-      next: {
-        tags: [
-          'my_locations',
-          `locations_user_${auth.currentUser?.uid}`,
-          `user_${auth.currentUser?.uid}`,
-        ],
-      },
+      cache: 'no-store',
+      // next: {
+      //   tags: [
+      //     'my_locations',
+      //     `locations_user_${auth.currentUser?.uid}`,
+      //     `user_${auth.currentUser?.uid}`,
+      //   ],
+      // },
     });
 
     const data = await response.json();
@@ -45,23 +48,20 @@ const getLocations = async (): Promise<TLocationInResult[]> => {
 };
 
 export const MyLocations = ({ apiKey, mapId }: MyLocationsProps) => {
-  const [locations, setLocations] = useState<TLocationInResult[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const { locations, setLocations } = useMyLocations();
 
   useEffect(() => {
-    setLoading(true);
     (async () => {
       try {
         const data = await getLocations();
-
         setLocations(data);
       } catch (error) {
         console.log(error);
-      } finally {
-        setLoading(false);
       }
     })();
-  }, []);
+  }, [setLocations]);
+
+  const loading = locations === null;
 
   return (
     <>
@@ -74,6 +74,7 @@ export const MyLocations = ({ apiKey, mapId }: MyLocationsProps) => {
           apiKey={apiKey}
           mapId={mapId}
           locations={locations}
+          tools={MyLocationTools}
           emptyText="You haven't added any locations yet"
         />
       )}

@@ -1,3 +1,3 @@
-export type FavouritesState = {
+export type TFavouritesState = {
   favourites: string[];
 };

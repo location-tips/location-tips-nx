@@ -1,3 +1,3 @@
 import { CATEGORIES } from '../../constants';
 
-export type LocationCategory = typeof CATEGORIES[number];
+export type TLocationCategory = typeof CATEGORIES[number];
