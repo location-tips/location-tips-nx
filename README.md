@@ -8,7 +8,7 @@
 
 ### types
 
-Common types fro frontend and backend
+Common types for frontend and backend
 Using:
 
 ```
